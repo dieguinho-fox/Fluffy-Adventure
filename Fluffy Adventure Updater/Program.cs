@@ -18,10 +18,10 @@ class Program
 
     static async Task Main()
     {
-        // 🔥 adiciona na inicialização do Windows
+        // adiciona na inicialização do Windows
         AddToStartup();
 
-        // 🔔 captura clique da notificação
+        // captura clique da notificação
         ToastNotificationManagerCompat.OnActivated += toastArgs =>
         {
             try
@@ -53,6 +53,7 @@ class Program
                 Console.WriteLine("Erro: " + ex.Message);
             }
 
+            // Procurar a cada 30 minutos
             await Task.Delay(TimeSpan.FromMinutes(30));
         }
     }
@@ -182,9 +183,7 @@ class Program
         return result;
     }
 
-    // =========================
     // JSON
-    // =========================
 
     class Root
     {
