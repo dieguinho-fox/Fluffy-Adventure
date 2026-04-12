@@ -6,7 +6,7 @@
 # Fluffy-Adventure
 Prepare-se para proteger Fur Ville contra Dalf em uma nova aventura em Fur Island!
 
-Em Fluffy Adventure, você acompanha Diego em uma jornada cheia de desafios, inimigos e uma pequena história sobre sua vida.
+Em **Fluffy Adventure**, você acompanha Diego em uma jornada cheia de desafios, inimigos e uma pequena história sobre sua vida.
 
 O jogo apresenta um visual único, misturando pixel art com elementos desenhados à mão, criando uma identidade própria.
 
