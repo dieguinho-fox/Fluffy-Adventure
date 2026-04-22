@@ -18,3 +18,7 @@ O jogo apresenta um visual único, misturando pixel art com elementos desenhados
 * Suas escolhas ao longo da jornada irão influenciar o rumo da história, trazendo mais profundidade à experiência.
 
 ⚠️ Algumas funcionalidades serão adicionadas em futuras atualizações.
+
+# Downloads de lojas de aplicativos
+
+[![APKPure](https://fluffy-adventure.kesug.com/assets/APKPure_Badge.svg)](https://apkpure.com/p/com.fluffyinc.fluffyadventure/)
