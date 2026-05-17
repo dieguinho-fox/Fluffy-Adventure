@@ -1,0 +1,75 @@
+[gd_scene format=3 uid="uid://c5pt2h0spjfhr"]
+
+[ext_resource type="Script" uid="uid://d3drfxmhclkk5" path="res://Scripts/GDScript/conquistas.gd" id="1_dkt45"]
+[ext_resource type="Texture2D" uid="uid://p35kvnv5ffh1" path="res://Tilesets/Seasonal Tilesets/1 - Grassland/Background parts/_Complete_static_BG_(288 x 208).png" id="2_k6ekh"]
+[ext_resource type="FontFile" uid="uid://ckw4qondl5cjc" path="res://Fontes/RevMiniPixel.ttf" id="3_jsvp2"]
+[ext_resource type="Script" uid="uid://b0no8fmw633cm" path="res://Scripts/GDScript/Traducao/conquistastraducao.gd" id="3_k6ekh"]
+
+[sub_resource type="LabelSettings" id="LabelSettings_82ggo"]
+font = ExtResource("3_jsvp2")
+font_size = 50
+outline_size = 10
+outline_color = Color(0, 0, 0, 1)
+
+[node name="Conquistas" type="Control" unique_id=915466587]
+layout_mode = 3
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+script = ExtResource("1_dkt45")
+
+[node name="CompleteStaticBg(288X208)" type="Sprite2D" parent="." unique_id=1527860016]
+position = Vector2(1440, 511)
+scale = Vector2(10.238314, 10.058173)
+texture = ExtResource("2_k6ekh")
+
+[node name="Panel" type="ColorRect" parent="." unique_id=475561794]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+color = Color(0, 0, 0, 0.25490198)
+
+[node name="ScrollContainer" type="ScrollContainer" parent="Panel" unique_id=1226661051]
+clip_contents = false
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+size_flags_horizontal = 4
+size_flags_vertical = 6
+
+[node name="AchievementsList" type="VBoxContainer" parent="Panel/ScrollContainer" unique_id=2074144837]
+layout_mode = 2
+size_flags_horizontal = 6
+size_flags_vertical = 6
+theme_override_constants/separation = 225
+
+[node name="VBoxContainer" type="VBoxContainer" parent="." unique_id=1515601603]
+layout_mode = 1
+offset_right = 281.0
+offset_bottom = 114.0
+size_flags_horizontal = 4
+script = ExtResource("3_k6ekh")
+
+[node name="ConquistasLabel" type="Label" parent="VBoxContainer" unique_id=551429301]
+layout_mode = 2
+text = "Conquistas"
+label_settings = SubResource("LabelSettings_82ggo")
+horizontal_alignment = 1
+
+[node name="Voltar" type="Button" parent="VBoxContainer" unique_id=1448710166]
+layout_mode = 2
+theme_override_colors/font_pressed_color = Color(1, 0.69411767, 0, 1)
+theme_override_colors/font_hover_color = Color(0.9490196, 0.9490196, 0, 1)
+theme_override_fonts/font = ExtResource("3_jsvp2")
+theme_override_font_sizes/font_size = 50
+text = "Voltar"
+
+[connection signal="pressed" from="VBoxContainer/Voltar" to="." method="_on_voltar_pressed"]

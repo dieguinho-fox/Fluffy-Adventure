@@ -1,0 +1,19 @@
+[remap]
+
+importer="oggvorbisstr"
+type="AudioStreamOggVorbis"
+uid="uid://dxvxmjvkvxjvl"
+path="res://.godot/imported/A rain day.ogg-a769d1633b586b6fc3a47e80e3ddfa19.oggvorbisstr"
+
+[deps]
+
+source_file="res://Musicas/A rain day.ogg"
+dest_files=["res://.godot/imported/A rain day.ogg-a769d1633b586b6fc3a47e80e3ddfa19.oggvorbisstr"]
+
+[params]
+
+loop=false
+loop_offset=0
+bpm=0
+beat_count=0
+bar_beats=4

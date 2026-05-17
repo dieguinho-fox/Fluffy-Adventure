@@ -1,0 +1,19 @@
+[remap]
+
+importer="oggvorbisstr"
+type="AudioStreamOggVorbis"
+uid="uid://b4t6mpgj0bsps"
+path="res://.godot/imported/freesound_community-rock-destroy-6409.ogg-a83ab410dc0e526d92e23f29597bffc6.oggvorbisstr"
+
+[deps]
+
+source_file="res://Efeitos sonoros/freesound_community-rock-destroy-6409.ogg"
+dest_files=["res://.godot/imported/freesound_community-rock-destroy-6409.ogg-a83ab410dc0e526d92e23f29597bffc6.oggvorbisstr"]
+
+[params]
+
+loop=false
+loop_offset=0
+bpm=0
+beat_count=0
+bar_beats=4

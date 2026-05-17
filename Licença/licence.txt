@@ -1,0 +1,102 @@
+Código Jurídico Creative Commons
+
+CC0 1.0 Universal
+
+    A CREATIVE COMMONS CORPORATION NÃO É UM ESCRITÓRIO DE ADVOCACIA E NÃO FORNECE
+    SERVIÇOS JURÍDICOS. A DISTRIBUIÇÃO DESTE DOCUMENTO NÃO CRIA UMA
+    RELAÇÃO ADVOGADO-CLIENTE. A CREATIVE COMMONS FORNECE ESTAS
+    INFORMAÇÕES "NO ESTADO EM QUE SE ENCONTRAM". A CREATIVE COMMONS NÃO OFERECE NENHUMA GARANTIA
+    RELACIONADA AO USO DESTE DOCUMENTO OU ÀS INFORMAÇÕES OU OBRAS
+    AQUI FORNECIDAS, E SE ISENTA DE RESPONSABILIDADE POR DANOS RESULTANTES DO
+    USO DESTE DOCUMENTO OU ÀS INFORMAÇÕES OU OBRAS
+    AQUI FORNECIDAS.
+
+Código Jurídico Creative Commons
+
+As leis da maioria das jurisdições em todo o mundo conferem automaticamente
+direitos autorais e direitos conexos exclusivos (definidos abaixo) ao criador
+e ao(s) proprietário(s) subsequente(s) (cada um, um "proprietário") de uma obra original
+de autoria e/ou de um banco de dados (cada um, uma "Obra").
+
+Certos proprietários desejam renunciar permanentemente a esses direitos sobre uma Obra
+com o propósito de contribuir para um patrimônio comum de obras criativas, culturais e
+científicas ("Commons") que o público possa, de forma confiável e sem medo
+de futuras alegações de violação, construir, modificar, incorporar em outras
+obras, reutilizar e redistribuir o mais livremente possível, em qualquer forma
+e para quaisquer fins, incluindo, sem limitação, fins comerciais.
+Esses proprietários podem contribuir para o Patrimônio Comum para promover o ideal de uma cultura livre
+e a produção posterior de obras criativas, culturais e científicas,
+ou para ganhar reputação ou maior distribuição para sua Obra,
+em parte, por meio do uso e dos esforços de terceiros.
+
+Para estes e/ou outros propósitos e motivações, e sem qualquer
+expectativa de contraprestação ou compensação adicional, a pessoa
+que associa a CC0 a uma Obra (o "Afirmador"), na medida em que
+seja titular de Direitos Autorais e Direitos Conexos sobre a Obra, voluntariamente
+opta por aplicar a CC0 à Obra e distribuí-la publicamente sob seus
+termos, com conhecimento de seus Direitos Autorais e Direitos Conexos sobre a
+Obra e do significado e efeito legal pretendido da CC0 sobre esses direitos.
+
+1. Direitos Autorais e Direitos Conexos. Uma Obra disponibilizada sob a CC0 pode ser
+protegida por direitos autorais e direitos conexos ou conexos ("Direitos Autorais e
+Direitos Conexos"). Direitos Autorais e Direitos Conexos incluem, mas não estão
+limitados a, o seguinte:
+
+i. o direito de reproduzir, adaptar, distribuir, executar, exibir,
+comunicar e traduzir uma Obra;
+ii. direitos morais retidos pelo(s) autor(es) e/ou intérprete(s) original(is);
+iii. direitos de publicidade e privacidade relativos à imagem ou semelhança de uma pessoa retratada em uma Obra;
+iv. direitos de proteção contra concorrência desleal em relação a uma Obra,
+sujeito às limitações do parágrafo 4(a) abaixo;
+v. direitos de proteção à extração, disseminação, uso e reutilização de dados
+em uma Obra;
+vi. direitos de banco de dados (como aqueles decorrentes da Diretiva 96/9/CE do
+Parlamento Europeu e do Conselho, de 11 de março de 1996, relativa à proteção
+jurídica de bancos de dados, e de qualquer implementação
+nacional da mesma, incluindo qualquer versão alterada ou sucessora de tal
+diretiva); e
+vii. outros direitos semelhantes, equivalentes ou correspondentes em todo o
+mundo, com base na lei ou tratado aplicável, e em quaisquer implementações
+nacionais dos mesmos.
+
+2. Renúncia. Na maior extensão permitida, mas não em violação
+à lei aplicável, o Afirmador, por meio deste, abertamente, totalmente, permanentemente,
+irrevogável e incondicionalmente renuncia, abandona e renuncia a todos os
+Direitos Autorais e Direitos Conexos do Afirmador e reivindicações e causas de ação associadas
+de, sejam elas agora conhecidas ou desconhecidas (incluindo reivindicações e causas de ação existentes e futuras), na Obra (i) em todos os territórios
+do mundo, (ii) pela duração máxima prevista pela lei ou
+tratado aplicável (incluindo futuras prorrogações de prazo), (iii) em qualquer meio atual ou futuro
+e para qualquer número de cópias, e (iv) para qualquer finalidade,
+incluindo, sem limitação, fins comerciais, publicitários ou promocionais (a "Renúncia"). O Afirmador faz a Renúncia em benefício de cada
+membro do público em geral e em detrimento dos herdeiros e
+sucessores do Afirmador, com plena intenção de que tal Renúncia não esteja sujeita a
+revogação, rescisão, cancelamento, rescisão ou qualquer outra ação legal ou
+equitativa para interromper o usufruto tranquilo da Obra pelo público,
+conforme contemplado na Declaração de Propósito expressa do Afirmador.
+3. Licença Pública de Substituição. Caso qualquer parte da Renúncia, por qualquer motivo, seja considerada legalmente inválida ou ineficaz de acordo com a lei aplicável, a Renúncia será preservada na extensão máxima permitida, levando em consideração a Declaração de Propósito expressa do Afirmador. Além disso, na medida em que a Renúncia for assim julgada, o Afirmador concede a cada pessoa afetada uma licença isenta de royalties, intransferível, não sublicenciável, não exclusiva, irrevogável e incondicional para exercer os Direitos Autorais e Direitos Conexos do Afirmador sobre a Obra (i) em todos os territórios do mundo, (ii) pela duração máxima prevista na lei ou tratado aplicável (incluindo futuras extensões de prazo), (iii) em qualquer meio atual ou futuro e para qualquer número de cópias, e (iv) para qualquer finalidade, incluindo, sem limitação, fins comerciais, publicitários ou promocionais (a "Licença"). A Licença será considerada efetiva a partir da data em que a CC0 foi aplicada pelo Afirmador à Obra. Caso qualquer parte da Licença, por qualquer
+motivo, seja considerada legalmente inválida ou ineficaz sob a lei aplicável, tal
+invalidade ou ineficácia parcial não invalidará o restante
+da Licença e, nesse caso, o Afirmador afirma que não (i) exercerá nenhum de seus Direitos Autorais e Direitos Conexos remanescentes
+sobre a Obra ou (ii) fará valer quaisquer reivindicações e causas de ação associadas
+com relação à Obra, em ambos os casos contrários à
+Declaração de Propósito expressa do Afirmador.
+
+4. Limitações e Isenções de Responsabilidade.
+
+a. Nenhum direito de marca registrada ou patente detido pelo Afirmador é renunciado, abandonado,
+abdicado, licenciado ou de qualquer outra forma afetado por este documento.
+b. O Afirmador oferece a Obra no estado em que se encontra e não faz representações ou
+garantias de qualquer tipo em relação à Obra, expressas, implícitas,
+estatutárias ou de outra forma, incluindo, sem limitação, garantias de
+título, comerciabilidade, adequação a uma finalidade específica, não
+violação ou ausência de defeitos latentes ou outros, precisão ou
+a presença ou ausência de erros, sejam ou não detectáveis, tudo na
+maior extensão permitida pela lei aplicável.
+c. O Afirmador se isenta da responsabilidade por liberar direitos de outras pessoas
+que possam se aplicar à Obra ou a qualquer uso dela, incluindo, sem
+limitação, os Direitos Autorais e Direitos Conexos de qualquer pessoa sobre a Obra.
+Além disso, o Afirmador se isenta da responsabilidade por obter quaisquer consentimentos, permissões ou outros direitos necessários para qualquer uso da
+Obra.
+d. O Afirmador entende e reconhece que a Creative Commons não é
+parte deste documento e não tem nenhum dever ou obrigação com relação a
+esta CC0 ou ao uso da Obra.

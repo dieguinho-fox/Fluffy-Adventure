@@ -1,0 +1,37 @@
+[gd_scene format=3 uid="uid://velfnx6dj0wv"]
+
+[ext_resource type="Script" uid="uid://d100qp814bsqc" path="res://Scripts/GDScript/warning_sign.gd" id="1_bikxj"]
+[ext_resource type="Texture2D" uid="uid://wwxiu2henh0l" path="res://Sprites/Dialog/Dialog_Box(16 x 16).png" id="2_s5qth"]
+[ext_resource type="FontFile" uid="uid://ckw4qondl5cjc" path="res://Fontes/RevMiniPixel.ttf" id="3_beqbx"]
+
+[sub_resource type="LabelSettings" id="LabelSettings_bikxj"]
+font = ExtResource("3_beqbx")
+font_size = 8
+font_color = Color(0, 0, 0, 1)
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_s5qth"]
+size = Vector2(60, 46)
+
+[node name="warning_sign" type="Node2D" unique_id=1286400512]
+script = ExtResource("1_bikxj")
+
+[node name="texture" type="Sprite2D" parent="." unique_id=1911079304]
+position = Vector2(0, -106)
+scale = Vector2(2.7306292, 2.6659517)
+texture = ExtResource("2_s5qth")
+
+[node name="Label" type="Label" parent="texture" unique_id=395456371]
+offset_left = -2.0
+offset_top = -3.0
+offset_right = 38.0
+offset_bottom = 20.0
+text = "O"
+label_settings = SubResource("LabelSettings_bikxj")
+
+[node name="area_sign" type="Area2D" parent="." unique_id=680998473]
+position = Vector2(-1, -11.000004)
+scale = Vector2(2.703749, 4.494077)
+collision_layer = 2
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="area_sign" unique_id=996848961]
+shape = SubResource("RectangleShape2D_s5qth")

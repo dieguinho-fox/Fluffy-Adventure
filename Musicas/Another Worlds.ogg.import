@@ -1,0 +1,19 @@
+[remap]
+
+importer="oggvorbisstr"
+type="AudioStreamOggVorbis"
+uid="uid://b224sukvhyhgc"
+path="res://.godot/imported/Another Worlds.ogg-699cec6a4163e92e2f34411bf88cc8b1.oggvorbisstr"
+
+[deps]
+
+source_file="res://Musicas/Another Worlds.ogg"
+dest_files=["res://.godot/imported/Another Worlds.ogg-699cec6a4163e92e2f34411bf88cc8b1.oggvorbisstr"]
+
+[params]
+
+loop=false
+loop_offset=0
+bpm=0
+beat_count=0
+bar_beats=4

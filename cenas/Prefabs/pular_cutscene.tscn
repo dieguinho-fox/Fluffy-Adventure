@@ -1,0 +1,153 @@
+[gd_scene format=3 uid="uid://brycjken8w060"]
+
+[ext_resource type="Script" uid="uid://cy0lqvnw3g7b1" path="res://Scripts/GDScript/pular_cutscene.gd" id="1_n45kq"]
+[ext_resource type="Texture2D" uid="uid://b5vfpsnccm8m6" path="res://Interface/Tutoriais/Teclado/Keyboard_numpad_enter.png" id="2_tcr36"]
+[ext_resource type="FontFile" uid="uid://ckw4qondl5cjc" path="res://Fontes/RevMiniPixel.ttf" id="3_35d6s"]
+[ext_resource type="Texture2D" uid="uid://nrf81b426wug" path="res://Interface/Tutoriais/Playstation/PS4_Cross.png" id="4_ubcm3"]
+[ext_resource type="Texture2D" uid="uid://ddw152803chd1" path="res://Interface/Tutoriais/Xbox 360/360_A.png" id="7_816ft"]
+[ext_resource type="Script" uid="uid://cjfo30xbpjbgu" path="res://Scripts/GDScript/Traducao/traducao_skipcutscene.gd" id="7_pch1g"]
+[ext_resource type="Texture2D" uid="uid://drshv1yf1f3xm" path="res://Interface/Tutoriais/Xbox One/Xbox_A.png" id="11_5kwk4"]
+
+[sub_resource type="LabelSettings" id="LabelSettings_86xn7"]
+font = ExtResource("3_35d6s")
+font_size = 30
+outline_size = 10
+outline_color = Color(0, 0, 0, 1)
+
+[node name="Pular cutscene" type="CanvasLayer" unique_id=1579372191]
+script = ExtResource("1_n45kq")
+
+[node name="KeyboardTutorial" type="CanvasLayer" parent="." unique_id=694026263]
+visible = false
+
+[node name="Fade" type="Control" parent="KeyboardTutorial" unique_id=1421898739]
+layout_mode = 3
+anchors_preset = 0
+offset_right = 40.0
+offset_bottom = 40.0
+
+[node name="VBoxContainer" type="VBoxContainer" parent="KeyboardTutorial/Fade" unique_id=953529635]
+layout_mode = 1
+offset_right = 425.0
+offset_bottom = 64.0
+
+[node name="Andar esquerda" type="HBoxContainer" parent="KeyboardTutorial/Fade/VBoxContainer" unique_id=176647110]
+layout_mode = 2
+size_flags_horizontal = 0
+size_flags_vertical = 0
+
+[node name="TextureButton" type="TextureButton" parent="KeyboardTutorial/Fade/VBoxContainer/Andar esquerda" unique_id=1298632920]
+layout_mode = 2
+texture_normal = ExtResource("2_tcr36")
+
+[node name="Label" type="Label" parent="KeyboardTutorial/Fade/VBoxContainer/Andar esquerda" unique_id=1034355426]
+layout_mode = 2
+text = "Para pular a cutscene"
+label_settings = SubResource("LabelSettings_86xn7")
+
+[node name="PlaystationTutorial" type="CanvasLayer" parent="." unique_id=1724704547]
+visible = false
+
+[node name="Fade" type="Control" parent="PlaystationTutorial" unique_id=1565770803]
+layout_mode = 3
+anchors_preset = 0
+offset_right = 40.0
+offset_bottom = 40.0
+
+[node name="VBoxContainer" type="VBoxContainer" parent="PlaystationTutorial/Fade" unique_id=260950789]
+layout_mode = 1
+offset_right = 461.0
+offset_bottom = 100.0
+
+[node name="Andar esquerda" type="HBoxContainer" parent="PlaystationTutorial/Fade/VBoxContainer" unique_id=150190423]
+layout_mode = 2
+
+[node name="TextureButton" type="TextureButton" parent="PlaystationTutorial/Fade/VBoxContainer/Andar esquerda" unique_id=1455428116]
+layout_mode = 2
+texture_normal = ExtResource("4_ubcm3")
+
+[node name="Label" type="Label" parent="PlaystationTutorial/Fade/VBoxContainer/Andar esquerda" unique_id=444233169]
+layout_mode = 2
+text = "Para pular a cutscene"
+label_settings = SubResource("LabelSettings_86xn7")
+
+[node name="Xbox360Tutorial" type="CanvasLayer" parent="." unique_id=1462020398]
+visible = false
+
+[node name="Fade" type="Control" parent="Xbox360Tutorial" unique_id=230739254]
+layout_mode = 3
+anchors_preset = 0
+offset_right = 40.0
+offset_bottom = 40.0
+
+[node name="VBoxContainer" type="VBoxContainer" parent="Xbox360Tutorial/Fade" unique_id=1566889163]
+layout_mode = 1
+offset_right = 461.0
+offset_bottom = 100.0
+
+[node name="Andar esquerda" type="HBoxContainer" parent="Xbox360Tutorial/Fade/VBoxContainer" unique_id=1315956359]
+layout_mode = 2
+
+[node name="TextureButton" type="TextureButton" parent="Xbox360Tutorial/Fade/VBoxContainer/Andar esquerda" unique_id=1723580457]
+layout_mode = 2
+texture_normal = ExtResource("7_816ft")
+
+[node name="Label" type="Label" parent="Xbox360Tutorial/Fade/VBoxContainer/Andar esquerda" unique_id=1733227192]
+layout_mode = 2
+text = "Para pular a cutscene"
+label_settings = SubResource("LabelSettings_86xn7")
+
+[node name="XboxOneTutorial" type="CanvasLayer" parent="." unique_id=749062876]
+visible = false
+
+[node name="Fade" type="Control" parent="XboxOneTutorial" unique_id=891528415]
+layout_mode = 3
+anchors_preset = 0
+offset_right = 40.0
+offset_bottom = 40.0
+
+[node name="VBoxContainer" type="VBoxContainer" parent="XboxOneTutorial/Fade" unique_id=1515478770]
+layout_mode = 1
+offset_right = 461.0
+offset_bottom = 100.0
+
+[node name="Andar esquerda" type="HBoxContainer" parent="XboxOneTutorial/Fade/VBoxContainer" unique_id=388287703]
+layout_mode = 2
+
+[node name="TextureButton" type="TextureButton" parent="XboxOneTutorial/Fade/VBoxContainer/Andar esquerda" unique_id=77076863]
+layout_mode = 2
+texture_normal = ExtResource("11_5kwk4")
+
+[node name="Label" type="Label" parent="XboxOneTutorial/Fade/VBoxContainer/Andar esquerda" unique_id=1369842828]
+layout_mode = 2
+text = "Para pular a cutscene"
+label_settings = SubResource("LabelSettings_86xn7")
+
+[node name="XboxSeriesTutorial" type="CanvasLayer" parent="." unique_id=734971234]
+visible = false
+
+[node name="Fade" type="Control" parent="XboxSeriesTutorial" unique_id=739690914]
+layout_mode = 3
+anchors_preset = 0
+offset_right = 40.0
+offset_bottom = 40.0
+
+[node name="VBoxContainer" type="VBoxContainer" parent="XboxSeriesTutorial/Fade" unique_id=1318437732]
+layout_mode = 0
+offset_right = 461.0
+offset_bottom = 100.0
+
+[node name="Andar esquerda" type="HBoxContainer" parent="XboxSeriesTutorial/Fade/VBoxContainer" unique_id=408433993]
+layout_mode = 2
+
+[node name="TextureButton" type="TextureButton" parent="XboxSeriesTutorial/Fade/VBoxContainer/Andar esquerda" unique_id=1589221118]
+layout_mode = 2
+texture_normal = ExtResource("11_5kwk4")
+
+[node name="Label" type="Label" parent="XboxSeriesTutorial/Fade/VBoxContainer/Andar esquerda" unique_id=114194288]
+layout_mode = 2
+text = "Para pular a cutscene"
+label_settings = SubResource("LabelSettings_86xn7")
+
+[node name="Node" type="Node" parent="." unique_id=1522786716]
+script = ExtResource("7_pch1g")

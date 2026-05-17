@@ -1,0 +1,140 @@
+[gd_scene format=3 uid="uid://juq4o2ekqgia"]
+
+[ext_resource type="Script" uid="uid://ds533bcttt41x" path="res://Scripts/GDScript/aviso_de_luzes_piscantes.gd" id="1_iq6uc"]
+[ext_resource type="FontFile" uid="uid://ckw4qondl5cjc" path="res://Fontes/RevMiniPixel.ttf" id="1_u1px2"]
+[ext_resource type="Texture2D" uid="uid://ctngl4b8n8443" path="res://Interface/Celular e Tablet/Controles/ui_buttons_arrow_right_NORMAL.png" id="3_ullt7"]
+[ext_resource type="Texture2D" uid="uid://cumy4oggpvlkl" path="res://Interface/Celular e Tablet/Controles/ui_buttons_arrow_right_PRESSED.png" id="4_42edk"]
+[ext_resource type="Script" uid="uid://bqxijt2nv3d4j" path="res://Scripts/C#/avisofimdosuportewindows.cs" id="5_42edk"]
+[ext_resource type="Script" uid="uid://yc1xbl4ibkd" path="res://Scripts/GDScript/loadconfig.gd" id="6_vxiha"]
+
+[sub_resource type="LabelSettings" id="LabelSettings_kn3iu"]
+font = ExtResource("1_u1px2")
+font_size = 80
+font_color = Color(1, 0, 0, 1)
+outline_size = 15
+outline_color = Color(0.69694936, 2.0094587e-06, 5.7756904e-07, 1)
+
+[sub_resource type="LabelSettings" id="LabelSettings_fgfhq"]
+font = ExtResource("1_u1px2")
+font_size = 80
+outline_size = 15
+outline_color = Color(0.55588365, 0.5768211, 0.56000984, 1)
+
+[sub_resource type="LabelSettings" id="LabelSettings_vxiha"]
+font = ExtResource("1_u1px2")
+font_size = 50
+outline_size = 15
+outline_color = Color(0.55588365, 0.5768211, 0.56000984, 1)
+
+[sub_resource type="LabelSettings" id="LabelSettings_806su"]
+font = ExtResource("1_u1px2")
+font_size = 50
+outline_size = 15
+outline_color = Color(0.55588365, 0.5768211, 0.56000984, 1)
+
+[node name="Aviso" type="Control" unique_id=1178521580]
+layout_mode = 3
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+
+[node name="CanvasLayer" type="CanvasLayer" parent="." unique_id=1483491932]
+script = ExtResource("1_iq6uc")
+
+[node name="ColorRect" type="ColorRect" parent="CanvasLayer" unique_id=1970889157]
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+color = Color(0, 0, 0, 1)
+
+[node name="Fade" type="Control" parent="CanvasLayer/ColorRect" unique_id=1052896822]
+anchors_preset = 0
+offset_right = 40.0
+offset_bottom = 40.0
+
+[node name="Label" type="Label" parent="CanvasLayer/ColorRect/Fade" unique_id=1778559087]
+layout_mode = 1
+anchors_preset = 5
+anchor_left = 0.5
+anchor_right = 0.5
+offset_left = 835.0
+offset_right = 1045.0
+offset_bottom = 163.0
+grow_horizontal = 2
+text = "
+Aviso"
+label_settings = SubResource("LabelSettings_kn3iu")
+
+[node name="Label2" type="Label" parent="CanvasLayer/ColorRect/Fade" unique_id=1455952387]
+layout_mode = 1
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = 200.0
+offset_top = 438.5
+offset_right = 1680.0
+offset_bottom = 601.5
+grow_horizontal = 2
+grow_vertical = 2
+text = "Este jogo contém luzes piscantes
+se você for sensível é recomendado
+que você não jogue esse jogo"
+label_settings = SubResource("LabelSettings_fgfhq")
+horizontal_alignment = 1
+
+[node name="Label3" type="Label" parent="CanvasLayer/ColorRect/Fade" unique_id=8582349]
+layout_mode = 1
+anchors_preset = 7
+anchor_left = 0.5
+anchor_top = 1.0
+anchor_right = 0.5
+anchor_bottom = 1.0
+offset_left = 440.0
+offset_top = 935.0
+offset_right = 1440.0
+offset_bottom = 1040.0
+grow_horizontal = 2
+grow_vertical = 0
+text = "(aperte qualquer tecla pra continuar...)
+"
+label_settings = SubResource("LabelSettings_vxiha")
+
+[node name="Label4" type="Label" parent="CanvasLayer/ColorRect/Fade" unique_id=1870987247]
+layout_mode = 1
+anchors_preset = 7
+anchor_left = 0.5
+anchor_top = 1.0
+anchor_right = 0.5
+anchor_bottom = 1.0
+offset_left = 449.0
+offset_top = 935.0
+offset_right = 1431.0
+offset_bottom = 1040.0
+grow_horizontal = 2
+grow_vertical = 0
+text = "(aperte o botão acima pra continuar...)
+"
+label_settings = SubResource("LabelSettings_806su")
+
+[node name="skipbtn" type="TouchScreenButton" parent="CanvasLayer/ColorRect/Fade" unique_id=196513282]
+position = Vector2(1689.0002, 17.000002)
+scale = Vector2(6.34375, 6.25)
+texture_normal = ExtResource("3_ullt7")
+texture_pressed = ExtResource("4_42edk")
+passby_press = true
+action = "ui_accept"
+
+[node name="Control" type="Control" parent="." unique_id=305587922]
+anchors_preset = 0
+offset_right = 40.0
+offset_bottom = 40.0
+script = ExtResource("5_42edk")
+
+[node name="loadconfig" type="Node" parent="." unique_id=612032448]
+script = ExtResource("6_vxiha")

@@ -1,0 +1,87 @@
+[gd_scene format=3 uid="uid://ch31uymdxgroi"]
+
+[ext_resource type="Script" uid="uid://bwt1j4jv4vr1p" path="res://Scripts/GDScript/enemy.gd" id="1_a5wpj"]
+[ext_resource type="Texture2D" uid="uid://c4hoir5fu0mfg" path="res://Sprites/Green fox/walk.png" id="2_w8aud"]
+[ext_resource type="PackedScene" uid="uid://ccrovap4elgk8" path="res://cenas/Prefabs/hitbox.tscn" id="4_475k7"]
+
+[sub_resource type="CapsuleShape2D" id="CapsuleShape2D_fyj1t"]
+radius = 14.0
+height = 132.0
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_1lwoj"]
+atlas = ExtResource("2_w8aud")
+region = Rect2(0, 0, 192, 192)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_2wyk1"]
+atlas = ExtResource("2_w8aud")
+region = Rect2(192, 0, 192, 192)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_hhlnu"]
+atlas = ExtResource("2_w8aud")
+region = Rect2(0, 192, 192, 192)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_ydity"]
+atlas = ExtResource("2_w8aud")
+region = Rect2(192, 192, 192, 192)
+
+[sub_resource type="SpriteFrames" id="SpriteFrames_y08tv"]
+animations = [{
+"frames": [{
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_1lwoj")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_2wyk1")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_hhlnu")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_ydity")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_hhlnu")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_2wyk1")
+}],
+"loop": true,
+"name": &"run",
+"speed": 8.0
+}]
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_o7wfv"]
+size = Vector2(61.695313, 7)
+
+[node name="enemy" type="CharacterBody2D" unique_id=1149491587 groups=["enemies"]]
+collision_layer = 4
+collision_mask = 7
+script = ExtResource("1_a5wpj")
+
+[node name="collision" type="CollisionShape2D" parent="." unique_id=1275957172 groups=["enemies"]]
+position = Vector2(3, 23)
+shape = SubResource("CapsuleShape2D_fyj1t")
+
+[node name="anim" type="AnimatedSprite2D" parent="." unique_id=494381496]
+position = Vector2(-4, 5)
+sprite_frames = SubResource("SpriteFrames_y08tv")
+animation = &"run"
+autoplay = "run"
+flip_h = true
+
+[node name="wall_detector" type="RayCast2D" parent="." unique_id=1386407753]
+position = Vector2(0, 37)
+target_position = Vector2(-20, 0)
+collision_mask = 66
+
+[node name="hitbox" parent="." unique_id=15207167 instance=ExtResource("4_475k7")]
+
+[node name="collision" type="CollisionShape2D" parent="hitbox" unique_id=763674918]
+position = Vector2(2, -67)
+shape = SubResource("RectangleShape2D_o7wfv")
+
+[node name="VisibleOnScreenNotifier2D" type="VisibleOnScreenNotifier2D" parent="." unique_id=1426077443]
+rect = Rect2(-81, -103, 188, 201)
+
+[connection signal="animation_finished" from="anim" to="." method="_on_anim_animation_finished"]
+[connection signal="body_entered" from="hitbox" to="hitbox" method="_on_body_entered"]

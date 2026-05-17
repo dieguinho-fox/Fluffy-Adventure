@@ -1,0 +1,19 @@
+[remap]
+
+importer="oggvorbisstr"
+type="AudioStreamOggVorbis"
+uid="uid://ctuqxevigcx50"
+path="res://.godot/imported/A new day.ogg-5ac444d8fa2579b406c89f10ed6bbded.oggvorbisstr"
+
+[deps]
+
+source_file="res://Musicas/A new day.ogg"
+dest_files=["res://.godot/imported/A new day.ogg-5ac444d8fa2579b406c89f10ed6bbded.oggvorbisstr"]
+
+[params]
+
+loop=false
+loop_offset=0
+bpm=0
+beat_count=0
+bar_beats=4

@@ -1,0 +1,47 @@
+[gd_scene format=3 uid="uid://d2xxeyx783p0h"]
+
+[ext_resource type="Script" uid="uid://ccb8prss38guj" path="res://Scripts/GDScript/gameover.gd" id="1_0gh88"]
+[ext_resource type="FontFile" uid="uid://ckw4qondl5cjc" path="res://Fontes/RevMiniPixel.ttf" id="2_0gh88"]
+[ext_resource type="AudioStream" uid="uid://c06u2ridolrqv" path="res://Musicas/End of the journey.ogg" id="3_fsons"]
+
+[sub_resource type="LabelSettings" id="LabelSettings_oknt7"]
+font = ExtResource("2_0gh88")
+font_size = 75
+
+[node name="mundo1-0carregamento" type="Control" unique_id=31534133]
+layout_mode = 3
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+script = ExtResource("1_0gh88")
+
+[node name="ColorRect" type="ColorRect" parent="." unique_id=41295229]
+layout_mode = 0
+offset_right = 2122.0
+offset_bottom = 1440.0
+color = Color(0, 0, 0, 1)
+
+[node name="mundo" type="Label" parent="." unique_id=557423516]
+layout_mode = 1
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -41.5
+offset_top = -24.5
+offset_right = 41.5
+offset_bottom = 24.5
+grow_horizontal = 2
+grow_vertical = 2
+text = "Fim de jogo"
+label_settings = SubResource("LabelSettings_oknt7")
+horizontal_alignment = 1
+
+[node name="EndOfTheJourney" type="AudioStreamPlayer2D" parent="." unique_id=1984195917]
+position = Vector2(978, 548)
+stream = ExtResource("3_fsons")
+autoplay = true
+bus = &"Music"

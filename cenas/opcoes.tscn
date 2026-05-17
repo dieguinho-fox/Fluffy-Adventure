@@ -1,0 +1,137 @@
+[gd_scene format=3 uid="uid://c74l1mfplkeut"]
+
+[ext_resource type="Script" uid="uid://c0vhq0lp38b53" path="res://Scripts/GDScript/menu principal/opcoes/opcoes.gd" id="1_c0g00"]
+[ext_resource type="Texture2D" uid="uid://p35kvnv5ffh1" path="res://Tilesets/Seasonal Tilesets/1 - Grassland/Background parts/_Complete_static_BG_(288 x 208).png" id="2_5ha7l"]
+[ext_resource type="Script" uid="uid://blnyaonruk7cb" path="res://Scripts/GDScript/Traducao/opcoestraduzivel.gd" id="3_uhesk"]
+[ext_resource type="AudioStream" uid="uid://bvnvg4kdw8xw8" path="res://Musicas/Options.ogg" id="4_66gc6"]
+[ext_resource type="FontFile" uid="uid://ckw4qondl5cjc" path="res://Fontes/RevMiniPixel.ttf" id="4_uhesk"]
+
+[sub_resource type="LabelSettings" id="LabelSettings_uhesk"]
+font = ExtResource("4_uhesk")
+font_size = 75
+outline_size = 10
+outline_color = Color(0, 0, 0, 1)
+
+[node name="Opcoes" type="Control" unique_id=1027993224]
+layout_mode = 3
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+script = ExtResource("1_c0g00")
+
+[node name="CompleteStaticBg(288X208)" type="Sprite2D" parent="." unique_id=1004253058]
+position = Vector2(1440, 511)
+scale = Vector2(10.238314, 10.058173)
+texture = ExtResource("2_5ha7l")
+
+[node name="VBoxContainer" type="VBoxContainer" parent="." unique_id=1614000536]
+layout_mode = 1
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -20.0
+offset_top = -20.0
+offset_right = 20.0
+offset_bottom = 20.0
+grow_horizontal = 2
+grow_vertical = 2
+script = ExtResource("3_uhesk")
+
+[node name="OpcoesLabel" type="Label" parent="VBoxContainer" unique_id=2053394996]
+layout_mode = 2
+text = "Opcoes"
+label_settings = SubResource("LabelSettings_uhesk")
+horizontal_alignment = 1
+
+[node name="Audio" type="Button" parent="VBoxContainer" unique_id=1287497316]
+layout_mode = 2
+theme_override_colors/font_focus_color = Color(0.9490196, 0.9490196, 0, 1)
+theme_override_colors/font_pressed_color = Color(1, 0.69411767, 0, 1)
+theme_override_colors/font_hover_color = Color(0.9490196, 0.9490196, 0, 1)
+theme_override_fonts/font = ExtResource("4_uhesk")
+theme_override_font_sizes/font_size = 75
+text = "Áudio"
+
+[node name="Armazenamento" type="Button" parent="VBoxContainer" unique_id=188575999]
+layout_mode = 2
+theme_override_colors/font_focus_color = Color(0.9490196, 0.9490196, 0, 1)
+theme_override_colors/font_pressed_color = Color(1, 0.69411767, 0, 1)
+theme_override_colors/font_hover_color = Color(0.9490196, 0.9490196, 0, 1)
+theme_override_fonts/font = ExtResource("4_uhesk")
+theme_override_font_sizes/font_size = 75
+text = "Armazenamento"
+
+[node name="Creditos" type="Button" parent="VBoxContainer" unique_id=579527202]
+layout_mode = 2
+theme_override_colors/font_focus_color = Color(0.9490196, 0.9490196, 0, 1)
+theme_override_colors/font_pressed_color = Color(1, 0.69411767, 0, 1)
+theme_override_colors/font_hover_color = Color(0.9490196, 0.9490196, 0, 1)
+theme_override_fonts/font = ExtResource("4_uhesk")
+theme_override_font_sizes/font_size = 75
+text = "Créditos"
+
+[node name="Data" type="Button" parent="VBoxContainer" unique_id=1541101347]
+layout_mode = 2
+theme_override_colors/font_focus_color = Color(0.9490196, 0.9490196, 0, 1)
+theme_override_colors/font_pressed_color = Color(1, 0.69411767, 0, 1)
+theme_override_colors/font_hover_color = Color(0.9490196, 0.9490196, 0, 1)
+theme_override_fonts/font = ExtResource("4_uhesk")
+theme_override_font_sizes/font_size = 75
+text = "Data"
+
+[node name="Idiomas" type="Button" parent="VBoxContainer" unique_id=273156037]
+layout_mode = 2
+theme_override_colors/font_focus_color = Color(0.9490196, 0.9490196, 0, 1)
+theme_override_colors/font_pressed_color = Color(1, 0.69411767, 0, 1)
+theme_override_colors/font_hover_color = Color(0.9490196, 0.9490196, 0, 1)
+theme_override_fonts/font = ExtResource("4_uhesk")
+theme_override_font_sizes/font_size = 75
+text = "Idiomas"
+
+[node name="Video" type="Button" parent="VBoxContainer" unique_id=1801512786]
+layout_mode = 2
+theme_override_colors/font_focus_color = Color(0.9490196, 0.9490196, 0, 1)
+theme_override_colors/font_pressed_color = Color(1, 0.69411767, 0, 1)
+theme_override_colors/font_hover_color = Color(0.9490196, 0.9490196, 0, 1)
+theme_override_fonts/font = ExtResource("4_uhesk")
+theme_override_font_sizes/font_size = 75
+text = "Vídeo"
+
+[node name="Voltar" type="Button" parent="VBoxContainer" unique_id=118132092]
+layout_mode = 2
+theme_override_colors/font_focus_color = Color(0.9490196, 0.9490196, 0, 1)
+theme_override_colors/font_pressed_color = Color(1, 0.69411767, 0, 1)
+theme_override_colors/font_hover_color = Color(0.9490196, 0.9490196, 0, 1)
+theme_override_fonts/font = ExtResource("4_uhesk")
+theme_override_font_sizes/font_size = 75
+text = "Voltar"
+
+[node name="FluffyAdventureOptions" type="AudioStreamPlayer2D" parent="." unique_id=959333788]
+position = Vector2(825, 591)
+stream = ExtResource("4_66gc6")
+autoplay = true
+bus = &"Music"
+parameters/looping = true
+
+[node name="FileDialog" type="FileDialog" parent="." unique_id=1833571103]
+oversampling_override = 1.0
+title = "Open a File or Directory"
+position = Vector2i(0, 36)
+file_mode = 3
+access = 1
+filters = PackedStringArray(".zip", ".txt", ".json")
+show_hidden_files = true
+use_native_dialog = true
+
+[connection signal="pressed" from="VBoxContainer/Audio" to="." method="_on_audio_pressed"]
+[connection signal="pressed" from="VBoxContainer/Armazenamento" to="." method="_on_armazenamento_pressed"]
+[connection signal="pressed" from="VBoxContainer/Creditos" to="." method="_on_creditos_pressed"]
+[connection signal="pressed" from="VBoxContainer/Data" to="." method="_on_data_pressed"]
+[connection signal="pressed" from="VBoxContainer/Idiomas" to="." method="_on_idiomas_pressed"]
+[connection signal="pressed" from="VBoxContainer/Video" to="." method="_on_video_pressed"]
+[connection signal="pressed" from="VBoxContainer/Voltar" to="." method="_on_voltar_pressed"]
+[connection signal="file_selected" from="FileDialog" to="." method="_on_file_dialog_file_selected"]

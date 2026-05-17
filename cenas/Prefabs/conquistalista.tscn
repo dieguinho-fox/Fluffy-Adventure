@@ -1,0 +1,53 @@
+[gd_scene format=3 uid="uid://dg46855s3hmhv"]
+
+[ext_resource type="Script" uid="uid://b7k7nlupe5upo" path="res://Scripts/GDScript/conquistalista.gd" id="1_5sgqo"]
+[ext_resource type="Texture2D" uid="uid://btu11qn54d1q8" path="res://Conquistas/Ícones/bloqueado.png" id="2_rgqgm"]
+[ext_resource type="FontFile" uid="uid://ckw4qondl5cjc" path="res://Fontes/RevMiniPixel.ttf" id="3_1s5qg"]
+
+[sub_resource type="LabelSettings" id="LabelSettings_tujdf"]
+font = ExtResource("3_1s5qg")
+font_size = 30
+outline_size = 10
+outline_color = Color(0, 0, 0, 1)
+
+[sub_resource type="LabelSettings" id="LabelSettings_skpcm"]
+font = ExtResource("3_1s5qg")
+font_size = 20
+outline_size = 10
+outline_color = Color(0, 0, 0, 1)
+
+[node name="Conquistalista" type="CanvasLayer" unique_id=2093762186]
+
+[node name="Background" type="ColorRect" parent="." unique_id=1652147231]
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -482.75
+offset_top = -104.0
+offset_right = 482.75
+offset_bottom = 104.0
+grow_horizontal = 2
+grow_vertical = 2
+color = Color(0, 0, 0, 0.28627452)
+script = ExtResource("1_5sgqo")
+
+[node name="HBoxContainer" type="HBoxContainer" parent="Background" unique_id=1545259430]
+layout_mode = 0
+offset_top = 8.0
+offset_right = 658.0
+offset_bottom = 200.0
+theme_override_constants/separation = 30
+
+[node name="Icon" type="TextureButton" parent="Background/HBoxContainer" unique_id=939916606]
+layout_mode = 2
+texture_normal = ExtResource("2_rgqgm")
+
+[node name="Name" type="Label" parent="Background/HBoxContainer" unique_id=1794818131]
+layout_mode = 2
+label_settings = SubResource("LabelSettings_tujdf")
+
+[node name="Description" type="Label" parent="Background/HBoxContainer" unique_id=335929332]
+layout_mode = 2
+label_settings = SubResource("LabelSettings_skpcm")

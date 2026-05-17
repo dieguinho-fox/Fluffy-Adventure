@@ -1,0 +1,37 @@
+[gd_scene format=3 uid="uid://i6yynl7gabdf"]
+
+[ext_resource type="Script" uid="uid://dk6odmxntokgo" path="res://Scripts/GDScript/carregamentos de mundos/creditos.gd" id="1_rdysq"]
+[ext_resource type="VideoStream" uid="uid://b2ur2oc4xllvv" path="res://Cutscenes/creditos.ogv" id="4_itarq"]
+[ext_resource type="Texture2D" uid="uid://ctngl4b8n8443" path="res://Interface/Celular e Tablet/Controles/ui_buttons_arrow_right_NORMAL.png" id="4_wapq7"]
+[ext_resource type="Texture2D" uid="uid://cumy4oggpvlkl" path="res://Interface/Celular e Tablet/Controles/ui_buttons_arrow_right_PRESSED.png" id="5_0bxsp"]
+[ext_resource type="PackedScene" uid="uid://t7y2bmhrjp3i" path="res://cenas/Prefabs/pular_creditos.tscn" id="5_wapq7"]
+[ext_resource type="Script" uid="uid://dhfaoapsp425q" path="res://Scripts/Lua/chegounoscreditos.lua" id="6_0bxsp"]
+
+[node name="Node2D" type="Node2D" unique_id=651858455]
+script = ExtResource("1_rdysq")
+
+[node name="Control" type="Control" parent="." unique_id=1352906559]
+layout_mode = 3
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+
+[node name="VideoStreamPlayer" type="VideoStreamPlayer" parent="Control" unique_id=936407638]
+layout_mode = 1
+stream = ExtResource("4_itarq")
+autoplay = true
+
+[node name="skipbtn" type="TouchScreenButton" parent="." unique_id=564767805]
+visible = false
+position = Vector2(1689.0002, 17.000002)
+scale = Vector2(6.34375, 6.25)
+texture_normal = ExtResource("4_wapq7")
+texture_pressed = ExtResource("5_0bxsp")
+action = "skip_credits"
+
+[node name="Pular creditos" parent="." unique_id=1579372191 instance=ExtResource("5_wapq7")]
+
+[node name="Node" type="Node" parent="." unique_id=314239508]
+script = ExtResource("6_0bxsp")

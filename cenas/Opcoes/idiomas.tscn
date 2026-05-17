@@ -1,0 +1,141 @@
+[gd_scene format=3 uid="uid://cyr55hydqa1vh"]
+
+[ext_resource type="Script" uid="uid://dkcyi57h7fbv2" path="res://Lang/idiomas_voltar.gd" id="1_f52rj"]
+[ext_resource type="Texture2D" uid="uid://p35kvnv5ffh1" path="res://Tilesets/Seasonal Tilesets/1 - Grassland/Background parts/_Complete_static_BG_(288 x 208).png" id="2_ei2l1"]
+[ext_resource type="FontFile" uid="uid://b02m11qf0egxn" path="res://Fontes/at01.ttf" id="3_aq1pu"]
+[ext_resource type="FontFile" uid="uid://ckw4qondl5cjc" path="res://Fontes/RevMiniPixel.ttf" id="4_ei2l1"]
+[ext_resource type="Texture2D" uid="uid://ckrfa6yirrmjj" path="res://Lang/Icones de países/en-us.svg" id="5_ih36k"]
+[ext_resource type="Texture2D" uid="uid://ds8y5noieq70r" path="res://Lang/Icones de países/es.svg" id="6_112xi"]
+[ext_resource type="Texture2D" uid="uid://cl52hsieomsp0" path="res://Lang/Icones de países/fr.svg" id="7_72wkt"]
+[ext_resource type="Texture2D" uid="uid://cmydlfuvgn6at" path="res://Lang/Icones de países/ca.svg" id="8_wxseh"]
+[ext_resource type="Texture2D" uid="uid://cavxpyphwges6" path="res://Lang/Icones de países/jp.svg" id="9_10igx"]
+[ext_resource type="Texture2D" uid="uid://b01nae06rwat4" path="res://Lang/Icones de países/pt-br.svg" id="10_ifv8m"]
+[ext_resource type="Texture2D" uid="uid://c8dqkj7ngcbli" path="res://Lang/Icones de países/pt-pt.svg" id="11_qo76f"]
+
+[sub_resource type="LabelSettings" id="LabelSettings_u27kp"]
+font = ExtResource("3_aq1pu")
+font_size = 100
+outline_size = 10
+outline_color = Color(0, 0, 0, 1)
+
+[node name="Idiomas" type="Control" unique_id=923803523]
+layout_mode = 3
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+script = ExtResource("1_f52rj")
+
+[node name="CompleteStaticBg(288X208)" type="Sprite2D" parent="." unique_id=2022918068]
+position = Vector2(1440, 511)
+scale = Vector2(10.238314, 10.058173)
+texture = ExtResource("2_ei2l1")
+
+[node name="VBoxContainer" type="VBoxContainer" parent="." unique_id=1486739730]
+layout_mode = 1
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -20.0
+offset_top = -20.0
+offset_right = 20.0
+offset_bottom = 20.0
+grow_horizontal = 2
+grow_vertical = 2
+
+[node name="IdiomasLabel" type="Label" parent="VBoxContainer" unique_id=1355392143]
+layout_mode = 2
+text = "Idiomas"
+label_settings = SubResource("LabelSettings_u27kp")
+horizontal_alignment = 1
+
+[node name="en" type="Button" parent="VBoxContainer" unique_id=1119913979]
+layout_mode = 2
+theme_override_colors/font_focus_color = Color(0.9490196, 0.9490196, 0, 1)
+theme_override_colors/font_pressed_color = Color(1, 0.69411767, 0, 1)
+theme_override_colors/font_hover_color = Color(0.9490196, 0.9490196, 0, 1)
+theme_override_fonts/font = ExtResource("4_ei2l1")
+theme_override_font_sizes/font_size = 75
+text = "English"
+icon = ExtResource("5_ih36k")
+
+[node name="es" type="Button" parent="VBoxContainer" unique_id=45960244]
+layout_mode = 2
+theme_override_colors/font_focus_color = Color(0.9490196, 0.9490196, 0, 1)
+theme_override_colors/font_pressed_color = Color(1, 0.69411767, 0, 1)
+theme_override_colors/font_hover_color = Color(0.9490196, 0.9490196, 0, 1)
+theme_override_fonts/font = ExtResource("4_ei2l1")
+theme_override_font_sizes/font_size = 75
+text = "Español"
+icon = ExtResource("6_112xi")
+
+[node name="fr" type="Button" parent="VBoxContainer" unique_id=870731338]
+layout_mode = 2
+theme_override_colors/font_focus_color = Color(0.9490196, 0.9490196, 0, 1)
+theme_override_colors/font_pressed_color = Color(1, 0.69411767, 0, 1)
+theme_override_colors/font_hover_color = Color(0.9490196, 0.9490196, 0, 1)
+theme_override_fonts/font = ExtResource("4_ei2l1")
+theme_override_font_sizes/font_size = 75
+text = "Français"
+icon = ExtResource("7_72wkt")
+
+[node name="fr-ca" type="Button" parent="VBoxContainer" unique_id=2061973550]
+layout_mode = 2
+theme_override_colors/font_focus_color = Color(0.9490196, 0.9490196, 0, 1)
+theme_override_colors/font_pressed_color = Color(1, 0.69411767, 0, 1)
+theme_override_colors/font_hover_color = Color(0.9490196, 0.9490196, 0, 1)
+theme_override_fonts/font = ExtResource("4_ei2l1")
+theme_override_font_sizes/font_size = 75
+text = "Français (Canada)"
+icon = ExtResource("8_wxseh")
+
+[node name="jp" type="Button" parent="VBoxContainer" unique_id=877572839]
+layout_mode = 2
+theme_override_colors/font_focus_color = Color(0.9490196, 0.9490196, 0, 1)
+theme_override_colors/font_pressed_color = Color(1, 0.69411767, 0, 1)
+theme_override_colors/font_hover_color = Color(0.9490196, 0.9490196, 0, 1)
+theme_override_fonts/font = ExtResource("4_ei2l1")
+theme_override_font_sizes/font_size = 75
+text = "日本語"
+icon = ExtResource("9_10igx")
+
+[node name="pt-br" type="Button" parent="VBoxContainer" unique_id=1616403573]
+layout_mode = 2
+theme_override_colors/font_focus_color = Color(0.9490196, 0.9490196, 0, 1)
+theme_override_colors/font_pressed_color = Color(1, 0.69411767, 0, 1)
+theme_override_colors/font_hover_color = Color(0.9490196, 0.9490196, 0, 1)
+theme_override_fonts/font = ExtResource("4_ei2l1")
+theme_override_font_sizes/font_size = 75
+text = "Português (Brasil)"
+icon = ExtResource("10_ifv8m")
+
+[node name="pt-pt" type="Button" parent="VBoxContainer" unique_id=376174902]
+layout_mode = 2
+theme_override_colors/font_focus_color = Color(0.9490196, 0.9490196, 0, 1)
+theme_override_colors/font_pressed_color = Color(1, 0.69411767, 0, 1)
+theme_override_colors/font_hover_color = Color(0.9490196, 0.9490196, 0, 1)
+theme_override_fonts/font = ExtResource("4_ei2l1")
+theme_override_font_sizes/font_size = 75
+text = "Português (Portugal)"
+icon = ExtResource("11_qo76f")
+
+[node name="Voltar" type="Button" parent="VBoxContainer" unique_id=327183082]
+layout_mode = 2
+theme_override_colors/font_focus_color = Color(0.9490196, 0.9490196, 0, 1)
+theme_override_colors/font_pressed_color = Color(1, 0.69411767, 0, 1)
+theme_override_colors/font_hover_color = Color(0.9490196, 0.9490196, 0, 1)
+theme_override_fonts/font = ExtResource("4_ei2l1")
+theme_override_font_sizes/font_size = 75
+text = "Voltar"
+
+[connection signal="pressed" from="VBoxContainer/en" to="." method="_on_en_pressed"]
+[connection signal="pressed" from="VBoxContainer/es" to="." method="_on_es_pressed"]
+[connection signal="pressed" from="VBoxContainer/fr" to="." method="_on_fr_pressed"]
+[connection signal="pressed" from="VBoxContainer/fr-ca" to="." method="_on_frca_pressed"]
+[connection signal="pressed" from="VBoxContainer/jp" to="." method="_on_jp_pressed"]
+[connection signal="pressed" from="VBoxContainer/pt-br" to="." method="_on_ptbr_pressed"]
+[connection signal="pressed" from="VBoxContainer/pt-pt" to="." method="_on_ptpt_pressed"]
+[connection signal="pressed" from="VBoxContainer/Voltar" to="." method="_on_voltar_pressed"]

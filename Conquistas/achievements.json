@@ -1,0 +1,92 @@
+{
+  "easter_egg_1": {
+	"icon": "res://Conquistas/Ícones/encontre_gooey.png",
+	"secret": true,
+	"name": {
+	  "pt_BR": "Encontre Gooey!",
+	  "pt": "Encontra o Gooey!",
+	  "en": "Find Gooey",
+	  "es": "¡Encuentra a Gooey!",
+	  "fr": "Trouvez Gooey !",
+	  "fr_CA": "Trouvez Gooey !",
+	  "jp": "グーイを見つけよう！"
+	},
+	"description": {
+	  "pt_BR": "Encontre essa criaturinha adorável",
+	  "pt": "Encontra esta criaturinha adorável",
+	  "en": "Find this adorable little creature.",
+	  "es": "Encuentra esta adorable criaturita.",
+	  "fr": "Trouvez cette adorable petite créature.",
+	  "fr_CA": "Trouvez cette adorable petite créature.",
+	  "jp": "このかわいい小さな生き物を見つけよう。"
+	}
+  },
+
+  "alpha": {
+	"icon": "res://Conquistas/Ícones/Alpha.png",
+	"secret": true,
+	"name": {
+	  "pt_BR": "Alpha!",
+	  "pt": "Alpha!",
+	  "en": "Alpha",
+	  "es": "Alpha",
+	  "fr": "Alpha",
+	  "fr_CA": "Alpha",
+	  "jp": "アルファ"
+	},
+	"description": {
+	  "pt_BR": "Alpha!",
+	  "pt": "Alpha!",
+	  "en": "Alpha!",
+	  "es": "¡Alpha!",
+	  "fr": "Alpha !",
+	  "fr_CA": "Alpha !",
+	  "jp": "アルファ！"
+	}
+  },
+  "destino_cruel": {
+	"icon": "res://Conquistas/Ícones/destino_cruel.png",
+	"secret": true,
+	"name": {
+	  "pt_BR": "Destino cruel",
+	  "pt": "Destino cruel",
+	  "en": "Cruel fate",
+	  "es": "Destino cruel",
+	  "fr": "Destin cruel",
+	  "fr_CA": "Destin cruel",
+	  "jp": "残酷な運命"
+	},
+	"description": {
+	  "pt_BR": "Morra pelo menos uma vez",
+	  "pt": "Morra pelo menos uma vez",
+	  "en": "Die at least once.",
+	  "es": "Morir al menos una vez.",
+	  "fr": "Mourir au moins une fois.",
+	  "fr_CA": "Mourir au moins une fois.",
+	  "jp": "少なくとも一度は死ぬ。"
+	}
+  },
+
+"como_vou_sair": {
+	"icon": "res://Conquistas/Ícones/como_vou_sair.png",
+	"secret": true,
+	"name": {
+	  "pt_BR": "Como vou sair daqui?",
+	  "pt": "Como vou sair daqui?",
+	  "en": "How will I get out of here?",
+	  "es": "¿Cómo voy a salir de aquí?",
+	  "fr": "Comment vais-je sortir d'ici ?",
+	  "fr_CA": "Comment vais-je sortir d'ici ?",
+	  "jp": "ここからどうやって出るの？"
+	},
+	"description": {
+	  "pt_BR": "Como cê chegou aí?",
+	  "pt": "Como você chegou aí?",
+	  "en": "How did you even get there?",
+	  "es": "¿Cómo llegaste ahí?",
+	  "fr": "Comment es-tu arrivé là ?",
+	  "fr_CA": "Comment es-tu arrivé là ?",
+	  "jp": "どうやってそこに行ったの？"
+	}
+}
+}

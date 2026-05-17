@@ -1,0 +1,313 @@
+[gd_scene format=3 uid="uid://bhn4uclorkoo0"]
+
+[ext_resource type="Script" uid="uid://bt8w81q68jrmd" path="res://Scripts/GDScript/menu principal/opcoes/menu.gd" id="1_64url"]
+[ext_resource type="Texture2D" uid="uid://p35kvnv5ffh1" path="res://Tilesets/Seasonal Tilesets/1 - Grassland/Background parts/_Complete_static_BG_(288 x 208).png" id="2_hsu4v"]
+[ext_resource type="Script" uid="uid://dc6ahxsxnjmnp" path="res://Scripts/GDScript/Traducao/traducaomenu.gd" id="4_qcnrj"]
+[ext_resource type="FontFile" uid="uid://ckw4qondl5cjc" path="res://Fontes/RevMiniPixel.ttf" id="5_nxpqr"]
+[ext_resource type="AudioStream" uid="uid://dxvxmjvkvxjvl" path="res://Musicas/A rain day.ogg" id="6_dxv5o"]
+[ext_resource type="AudioStream" uid="uid://8pvnj6oj07tt" path="res://Musicas/Menu 1.ogg" id="6_nxpqr"]
+[ext_resource type="AudioStream" uid="uid://b224sukvhyhgc" path="res://Musicas/Another Worlds.ogg" id="7_ayrqh"]
+[ext_resource type="AudioStream" uid="uid://dfqhc6ln1vgnv" path="res://Musicas/Hope.ogg" id="8_h7at5"]
+[ext_resource type="PackedScene" uid="uid://o61bickv1nsr" path="res://cenas/Prefabs/worldselection.tscn" id="8_qygre"]
+[ext_resource type="Texture2D" uid="uid://bqswxl6ckdbtk" path="res://Logos/Aplicativo/80.png" id="8_s4mth"]
+[ext_resource type="Script" uid="uid://gu8lwpvusiaa" path="res://Scripts/GDScript/links/bugs.gd" id="9_806vj"]
+[ext_resource type="Texture2D" uid="uid://ca4ua5olujnnu" path="res://Logos/Aplicativo/Fluffy Adventure Logo 2026.png" id="9_h7at5"]
+[ext_resource type="Texture2D" uid="uid://2plqu762wt5c" path="res://Logos/Empresas/crowdin-symbol-cDark.svg" id="9_lvcsh"]
+[ext_resource type="Script" uid="uid://c4f6kccr21554" path="res://Scripts/GDScript/links/crowdin.gd" id="11_lvcsh"]
+[ext_resource type="Texture2D" uid="uid://dvna7rli8sr3f" path="res://Logos/Empresas/yt.png" id="12_fv5wp"]
+[ext_resource type="Script" uid="uid://fbatdx0m0v75" path="res://Scripts/GDScript/links/youtube.gd" id="13_dxv5o"]
+[ext_resource type="Texture2D" uid="uid://ctrv7hrlt4aps" path="res://Interface/Menu/Opções_Normal.png" id="17_60g7x"]
+[ext_resource type="Texture2D" uid="uid://cljtlnr85pnyr" path="res://Interface/Menu/Opções_Pressed.png" id="18_5qu4j"]
+[ext_resource type="Script" uid="uid://dl55cupda6epd" path="res://Scripts/GDScript/opcoesbtn.gd" id="19_h7at5"]
+[ext_resource type="Texture2D" uid="uid://bug5fg2gqdb0l" path="res://Interface/Menu/Conquitas_Normal.png" id="19_we1rt"]
+[ext_resource type="Texture2D" uid="uid://ba38jo6dyty8q" path="res://Interface/Menu/Conquistas_Pressed.png" id="20_h7at5"]
+[ext_resource type="Script" uid="uid://oxped8pvh52e" path="res://Scripts/GDScript/conquistasbtn.gd" id="22_kgems"]
+[ext_resource type="Texture2D" uid="uid://bfoc76pt1egp7" path="res://Interface/Menu/Suporte_Normal.png" id="24_hialk"]
+[ext_resource type="Texture2D" uid="uid://o6frdyjdt3f7" path="res://Interface/Menu/Suporte_Pressed.png" id="25_dr0ct"]
+
+[sub_resource type="LabelSettings" id="LabelSettings_64url"]
+font = ExtResource("5_nxpqr")
+font_size = 75
+outline_size = 10
+outline_color = Color(0, 0, 0, 1)
+
+[sub_resource type="LabelSettings" id="LabelSettings_hsu4v"]
+font = ExtResource("5_nxpqr")
+font_size = 35
+outline_size = 10
+outline_color = Color(0, 0, 0, 1)
+
+[sub_resource type="LabelSettings" id="LabelSettings_nxpqr"]
+font = ExtResource("5_nxpqr")
+font_size = 50
+font_color = Color(1, 1, 0, 1)
+outline_size = 7
+outline_color = Color(0, 0, 0, 1)
+
+[node name="menu" type="Control" unique_id=117320748]
+layout_mode = 3
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+script = ExtResource("1_64url")
+
+[node name="CompleteStaticBg(288X208)" type="Sprite2D" parent="." unique_id=624715206]
+position = Vector2(1440, 511)
+scale = Vector2(10.238314, 10.058173)
+texture = ExtResource("2_hsu4v")
+
+[node name="titulo" type="Label" parent="." unique_id=766029547]
+layout_mode = 1
+anchors_preset = 5
+anchor_left = 0.5
+anchor_right = 0.5
+offset_left = -120.5
+offset_right = 120.5
+offset_bottom = 177.0
+grow_horizontal = 2
+size_flags_horizontal = 4
+size_flags_vertical = 2
+text = "
+
+
+Beta"
+label_settings = SubResource("LabelSettings_64url")
+horizontal_alignment = 1
+
+[node name="botoes" type="HBoxContainer" parent="." unique_id=2052110352]
+auto_translate_mode = 2
+layout_mode = 1
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -24.0
+offset_top = -15.5
+offset_right = 24.0
+offset_bottom = 15.5
+grow_horizontal = 2
+grow_vertical = 2
+size_flags_horizontal = 4
+size_flags_vertical = 4
+alignment = 1
+script = ExtResource("4_qcnrj")
+
+[node name="jogar" type="Button" parent="botoes" unique_id=10018336]
+texture_filter = 1
+layout_mode = 2
+size_flags_horizontal = 4
+size_flags_vertical = 4
+focus_neighbor_top = NodePath("../../links/youtube")
+focus_next = NodePath("../continuar")
+focus_previous = NodePath("../../VBoxContainer/Conquistas")
+theme_override_colors/font_focus_color = Color(0.9490196, 0.9490196, 0, 1)
+theme_override_colors/font_pressed_color = Color(1, 0.69411767, 0, 1)
+theme_override_colors/font_hover_color = Color(0.9490196, 0.9490196, 0, 1)
+theme_override_fonts/font = ExtResource("5_nxpqr")
+theme_override_font_sizes/font_size = 75
+text = "Novo Jogo"
+
+[node name="continuar" type="Button" parent="botoes" unique_id=804490533]
+texture_filter = 1
+layout_mode = 2
+size_flags_horizontal = 4
+size_flags_vertical = 4
+theme_override_colors/font_focus_color = Color(0.9490196, 0.9490196, 0, 1)
+theme_override_colors/font_pressed_color = Color(1, 0.69411767, 0, 1)
+theme_override_colors/font_hover_color = Color(0.9490196, 0.9490196, 0, 1)
+theme_override_fonts/font = ExtResource("5_nxpqr")
+theme_override_font_sizes/font_size = 75
+text = "Continuar"
+
+[node name="opcoes" type="Button" parent="botoes" unique_id=1205810938]
+auto_translate_mode = 2
+visible = false
+layout_mode = 2
+size_flags_horizontal = 4
+size_flags_vertical = 4
+theme_override_colors/font_focus_color = Color(0.9490196, 0.9490196, 0, 1)
+theme_override_colors/font_pressed_color = Color(1, 0.69411767, 0, 1)
+theme_override_colors/font_hover_color = Color(0.9490196, 0.9490196, 0, 1)
+theme_override_fonts/font = ExtResource("5_nxpqr")
+theme_override_font_sizes/font_size = 75
+text = "Opcões"
+
+[node name="conquistas" type="Button" parent="botoes" unique_id=630053035]
+auto_translate_mode = 2
+visible = false
+layout_mode = 2
+size_flags_horizontal = 4
+size_flags_vertical = 4
+theme_override_colors/font_pressed_color = Color(1, 0.69411767, 0, 1)
+theme_override_colors/font_hover_color = Color(0.9490196, 0.9490196, 0, 1)
+theme_override_fonts/font = ExtResource("5_nxpqr")
+theme_override_font_sizes/font_size = 75
+text = "Conquistas"
+
+[node name="sair" type="Button" parent="botoes" unique_id=334153227]
+auto_translate_mode = 2
+layout_mode = 2
+size_flags_horizontal = 4
+size_flags_vertical = 4
+theme_override_colors/font_focus_color = Color(0.9490196, 0.9490196, 0, 1)
+theme_override_colors/font_pressed_color = Color(1, 0.69411767, 0, 1)
+theme_override_colors/font_hover_color = Color(0.9490196, 0.9490196, 0, 1)
+theme_override_fonts/font = ExtResource("5_nxpqr")
+theme_override_font_sizes/font_size = 75
+text = "Sair"
+
+[node name="versão" type="Label" parent="." unique_id=835314601]
+layout_mode = 1
+anchors_preset = 3
+anchor_left = 1.0
+anchor_top = 1.0
+anchor_right = 1.0
+anchor_bottom = 1.0
+offset_left = -124.0
+offset_top = -23.0
+grow_horizontal = 0
+grow_vertical = 0
+text = "v1.0.0b"
+label_settings = SubResource("LabelSettings_hsu4v")
+
+[node name="copyright" type="Label" parent="." unique_id=1997261341]
+layout_mode = 1
+anchors_preset = 2
+anchor_top = 1.0
+anchor_bottom = 1.0
+offset_top = -41.0
+offset_right = 433.0
+grow_vertical = 0
+text = "© Fluffy Studios 2025 - 2026"
+label_settings = SubResource("LabelSettings_hsu4v")
+
+[node name="UpdateLabel" type="Label" parent="." unique_id=1352334177]
+layout_mode = 1
+anchors_preset = 1
+anchor_left = 1.0
+anchor_right = 1.0
+offset_left = -163.0
+offset_bottom = 41.0
+grow_horizontal = 0
+label_settings = SubResource("LabelSettings_hsu4v")
+
+[node name="MenuMusics" type="Node" parent="." unique_id=1155545836]
+
+[node name="Menu1" type="AudioStreamPlayer2D" parent="MenuMusics" unique_id=1668054249]
+position = Vector2(1028, 471)
+stream = ExtResource("6_nxpqr")
+bus = &"Music"
+parameters/looping = true
+
+[node name="Menu2" type="AudioStreamPlayer2D" parent="MenuMusics" unique_id=392559962]
+position = Vector2(1028, 471)
+stream = ExtResource("6_dxv5o")
+bus = &"Music"
+parameters/looping = true
+
+[node name="Menu3" type="AudioStreamPlayer2D" parent="MenuMusics" unique_id=1259471949]
+position = Vector2(1028, 471)
+stream = ExtResource("7_ayrqh")
+bus = &"Music"
+parameters/looping = true
+
+[node name="Menu4" type="AudioStreamPlayer2D" parent="MenuMusics" unique_id=2017358605]
+position = Vector2(1028, 471)
+stream = ExtResource("8_h7at5")
+volume_db = 5.338
+bus = &"Music"
+parameters/looping = true
+
+[node name="logo" type="Sprite2D" parent="." unique_id=752981152]
+position = Vector2(967, 176)
+scale = Vector2(0.27514082, 0.24562104)
+texture = ExtResource("9_h7at5")
+
+[node name="FlavorLabel" type="Label" parent="." unique_id=523848970]
+layout_mode = 1
+anchors_preset = -1
+anchor_left = 0.64375
+anchor_top = 0.22777784
+anchor_right = 0.7394034
+anchor_bottom = 0.23314495
+offset_right = -8.654541
+offset_bottom = 45.203506
+grow_horizontal = 2
+rotation = -0.3024288
+size_flags_horizontal = 4
+size_flags_vertical = 2
+text = "Splash"
+label_settings = SubResource("LabelSettings_nxpqr")
+horizontal_alignment = 1
+metadata/_edit_use_anchors_ = true
+
+[node name="links" type="HBoxContainer" parent="." unique_id=2094581019]
+layout_mode = 1
+offset_top = 5.0
+offset_right = 164.0
+offset_bottom = 85.0
+
+[node name="bugs" type="TextureButton" parent="links" unique_id=1727283851]
+layout_mode = 2
+texture_normal = ExtResource("8_s4mth")
+script = ExtResource("9_806vj")
+link = "https://bugsfluffyadventure.kesug.com/"
+
+[node name="crowdin" type="TextureButton" parent="links" unique_id=272846120]
+layout_mode = 2
+texture_normal = ExtResource("9_lvcsh")
+script = ExtResource("11_lvcsh")
+link = "https://crowdin.com/project/fluffy-adventure"
+
+[node name="youtube" type="TextureButton" parent="links" unique_id=1138429708]
+layout_mode = 2
+texture_normal = ExtResource("12_fv5wp")
+script = ExtResource("13_dxv5o")
+link = "https://www.youtube.com/@Fluffy-Inc-oficial"
+
+[node name="WorldSelection" parent="." unique_id=250485982 instance=ExtResource("8_qygre")]
+visible = false
+layout_mode = 1
+
+[node name="VBoxContainer" type="VBoxContainer" parent="." unique_id=1278090827]
+layout_mode = 1
+anchors_preset = 4
+anchor_top = 0.5
+anchor_bottom = 0.5
+offset_top = -20.0
+offset_right = 40.0
+offset_bottom = 20.0
+grow_vertical = 2
+
+[node name="Opcoes" type="TextureButton" parent="VBoxContainer" unique_id=1051774442]
+layout_mode = 2
+texture_normal = ExtResource("17_60g7x")
+texture_pressed = ExtResource("18_5qu4j")
+texture_focused = ExtResource("18_5qu4j")
+script = ExtResource("19_h7at5")
+
+[node name="Conquistas" type="TextureButton" parent="VBoxContainer" unique_id=1894909463]
+layout_mode = 2
+texture_normal = ExtResource("19_we1rt")
+texture_pressed = ExtResource("20_h7at5")
+texture_focused = ExtResource("20_h7at5")
+script = ExtResource("22_kgems")
+
+[node name="Suporte" type="TextureButton" parent="VBoxContainer" unique_id=554960110]
+layout_mode = 2
+texture_normal = ExtResource("24_hialk")
+texture_pressed = ExtResource("25_dr0ct")
+texture_focused = ExtResource("25_dr0ct")
+script = ExtResource("22_kgems")
+
+[connection signal="pressed" from="botoes/jogar" to="." method="_on_jogar_pressed"]
+[connection signal="pressed" from="botoes/continuar" to="botoes" method="_on_continuar_pressed"]
+[connection signal="pressed" from="botoes/opcoes" to="." method="_on_opcoes_pressed"]
+[connection signal="pressed" from="botoes/conquistas" to="." method="_on_conquistas_pressed"]
+[connection signal="pressed" from="botoes/sair" to="." method="_on_sair_pressed"]
+[connection signal="pressed" from="VBoxContainer/Opcoes" to="VBoxContainer/Opcoes" method="_on_pressed"]
+[connection signal="pressed" from="VBoxContainer/Conquistas" to="VBoxContainer/Conquistas" method="_on_pressed"]
+[connection signal="pressed" from="VBoxContainer/Suporte" to="." method="_on_suporte_pressed"]

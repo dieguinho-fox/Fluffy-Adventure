@@ -1,0 +1,65 @@
+extends Control
+
+@export var next_scene_path: String = "res://cenas/mundo_1_2.tscn"
+
+const PROGRESS_SAVE_PATH := "user://progress.cfg"
+const VIDAS_SAVE_PATH := "user://vidas.save"
+const VIDAS_INICIAIS := 3
+
+# ✅ SOMENTE ESSAS CENAS SALVAM PROGRESSO
+const ALLOWED_SCENES := [
+	"res://cenas/mundo_1_0_carregamento.tscn",
+	"res://cenas/mundo_1_1_carregamento.tscn",
+	"res://cenas/mundo_1_2_carregamento.tscn",
+	"res://cenas/mundo_1_3_carregamento.tscn",
+	"res://cenas/mundo_2_0_carregamento.tscn",
+	"res://cenas/mundo_2_1_carregamento.tscn"
+]
+
+@onready var life_counter := get_node_or_null("life_counter")
+
+func _ready() -> void:
+	Input.set_mouse_mode(Input.MOUSE_MODE_HIDDEN)
+
+	atualizar_vidas_label()
+
+	start_timer()
+	Globals.coins = 0
+	Globals.score = 0
+
+func atualizar_vidas_label() -> void:
+	if life_counter == null:
+		return
+
+	var vidas := VIDAS_INICIAIS
+
+	if FileAccess.file_exists(VIDAS_SAVE_PATH):
+		var file := FileAccess.open(VIDAS_SAVE_PATH, FileAccess.READ)
+		if file:
+			vidas = file.get_32()
+			file.close()
+
+	life_counter.text = str(vidas)
+
+func start_timer() -> void:
+	var timer := get_tree().create_timer(3.0)
+	await timer.timeout
+
+	_save_progress_if_allowed()
+
+	Input.set_mouse_mode(Input.MOUSE_MODE_VISIBLE)
+	get_tree().change_scene_to_file(next_scene_path)
+
+func _save_progress_if_allowed() -> void:
+	var current_scene := get_tree().current_scene
+	if current_scene == null:
+		return
+
+	var scene_path := current_scene.scene_file_path
+
+	if not ALLOWED_SCENES.has(scene_path):
+		return
+
+	var cfg := ConfigFile.new()
+	cfg.set_value("progress", "last_scene", scene_path)
+	cfg.save(PROGRESS_SAVE_PATH)

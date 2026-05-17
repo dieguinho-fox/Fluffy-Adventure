@@ -1,0 +1,29 @@
+[gd_scene format=3 uid="uid://dyupf4020lpmh"]
+
+[ext_resource type="Texture2D" uid="uid://dvuljhrkxxxnn" path="res://Sprites/Ajudante/sprite_sheet.png" id="1_vr1pb"]
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_nv2no"]
+atlas = ExtResource("1_vr1pb")
+region = Rect2(0, 0, 192, 192)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_uexs4"]
+atlas = ExtResource("1_vr1pb")
+region = Rect2(192, 0, 192, 192)
+
+[sub_resource type="SpriteFrames" id="SpriteFrames_0t1wv"]
+animations = [{
+"frames": [{
+"duration": 30.0,
+"texture": SubResource("AtlasTexture_nv2no")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_uexs4")
+}],
+"loop": true,
+"name": &"default",
+"speed": 8.0
+}]
+
+[node name="AnimatedSprite2D" type="AnimatedSprite2D" unique_id=860563371]
+sprite_frames = SubResource("SpriteFrames_0t1wv")
+autoplay = "default"
