@@ -5,8 +5,20 @@ const JUMP_VELOCITY = -558.0
 const SAVE_PATH := "user://vidas.save"
 const VIDAS_INICIAIS := 3
 
+# ===============================
+# SISTEMA DE DASH
+# ===============================
+const DASH_SPEED := 1200.0
+const DASH_DURATION := 0.20
+const DASH_COOLDOWN := 5.0
+
 var vidas: int = VIDAS_INICIAIS
 var can_jump := true
+
+var is_dashing := false
+var dash_timer := 0.0
+var dash_cooldown_timer := 0.0
+var dash_direction := 1.0
 
 @onready var animation := $anim as AnimatedSprite2D
 @onready var remote_transform := $remote as RemoteTransform2D
@@ -16,6 +28,33 @@ func _ready() -> void:
 	carregar_vidas()
 
 func _physics_process(delta: float) -> void:
+	# Atualiza cooldown do dash
+	if dash_cooldown_timer > 0.0:
+		dash_cooldown_timer -= delta
+		if dash_cooldown_timer < 0.0:
+			dash_cooldown_timer = 0.0
+
+	# ===============================
+	# DASH
+	# ===============================
+	if Input.is_action_just_pressed("dash") and not is_dashing and dash_cooldown_timer <= 0.0:
+		iniciar_dash()
+
+	if is_dashing:
+		dash_timer -= delta
+		velocity.x = dash_direction * DASH_SPEED
+		velocity.y = 0.0
+
+		move_and_slide()
+
+		# Mantém a animação de dash enquanto o efeito estiver ativo
+		animation.play("dash")
+
+		if dash_timer <= 0.0:
+			is_dashing = false
+
+		return
+
 	# Gravidade
 	if not is_on_floor():
 		velocity += get_gravity() * delta
@@ -54,6 +93,20 @@ func _physics_process(delta: float) -> void:
 				animation.play("idle")
 			elif not animation.is_playing():
 				animation.play("wait")
+
+func iniciar_dash() -> void:
+	is_dashing = true
+	dash_timer = DASH_DURATION
+	dash_cooldown_timer = DASH_COOLDOWN
+
+	# Usa a direção atual do personagem
+	if animation.scale.x >= 0:
+		dash_direction = 1.0
+	else:
+		dash_direction = -1.0
+
+	# Mantém o sprite virado corretamente
+	animation.scale.x = dash_direction
 
 func _on_hurtbox_body_entered(body: Node2D) -> void:
 	if body.is_in_group("enemies"):

@@ -2,6 +2,7 @@
 
 [ext_resource type="Texture2D" uid="uid://bq0fyvha2ccl1" path="res://Sprites/Diego/idle.png" id="1_kthid"]
 [ext_resource type="Script" uid="uid://1784f8cawdo5" path="res://Scripts/GDScript/player.gd" id="1_xojfc"]
+[ext_resource type="Texture2D" uid="uid://chqexw3fqj0mn" path="res://Sprites/Diego/dash.png" id="2_w0qxt"]
 [ext_resource type="Texture2D" uid="uid://bohhkwxbuqb60" path="res://Sprites/Diego/wait.png" id="4_0vjdf"]
 [ext_resource type="Texture2D" uid="uid://crqn1swkm4nu8" path="res://Sprites/Diego/jump.png" id="5_8v4ht"]
 [ext_resource type="Texture2D" uid="uid://cwvy8rcp7p6fn" path="res://Sprites/Diego/walk.png" id="5_15dsx"]
@@ -10,6 +11,14 @@
 [sub_resource type="CapsuleShape2D" id="CapsuleShape2D_8v4ht"]
 radius = 23.0
 height = 120.0
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_l2adv"]
+atlas = ExtResource("2_w0qxt")
+region = Rect2(0, 0, 192, 192)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_e1f1r"]
+atlas = ExtResource("2_w0qxt")
+region = Rect2(192, 0, 192, 192)
 
 [sub_resource type="AtlasTexture" id="AtlasTexture_0vjdf"]
 atlas = ExtResource("5_8v4ht")
@@ -93,6 +102,17 @@ region = Rect2(192, 192, 192, 192)
 
 [sub_resource type="SpriteFrames" id="SpriteFrames_4y2i1"]
 animations = [{
+"frames": [{
+"duration": 1.5,
+"texture": SubResource("AtlasTexture_l2adv")
+}, {
+"duration": 1.5,
+"texture": SubResource("AtlasTexture_e1f1r")
+}],
+"loop": true,
+"name": &"dash",
+"speed": 12.0
+}, {
 "frames": [{
 "duration": 1.0,
 "texture": SubResource("AtlasTexture_0vjdf")
@@ -589,7 +609,7 @@ shape = SubResource("CapsuleShape2D_8v4ht")
 texture_filter = 1
 position = Vector2(198, 566)
 sprite_frames = SubResource("SpriteFrames_4y2i1")
-animation = &"wait"
+animation = &"dash"
 autoplay = "idle"
 
 [node name="hurtbox" type="Area2D" parent="." unique_id=1702360898]

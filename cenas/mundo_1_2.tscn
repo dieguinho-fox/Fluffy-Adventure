@@ -449,7 +449,7 @@ script = ExtResource("12_drw33")
 position = Vector2(771, -16)
 
 [node name="GPUParticles2D" type="GPUParticles2D" parent="player/interface/snow" unique_id=1459282569]
-position = Vector2(-669.00006, 20.999954)
+position = Vector2(-668.9998, -7.0000496)
 scale = Vector2(1.0587115, -1.0593381)
 amount = 2
 amount_ratio = 0.9211
@@ -460,7 +460,7 @@ fixed_fps = 60
 process_material = SubResource("ParticleProcessMaterial_jyrth")
 
 [node name="GPUParticles2D2" type="GPUParticles2D" parent="player/interface/snow" unique_id=1809464630]
-position = Vector2(-736, 21.000015)
+position = Vector2(-735.99976, -6.9999886)
 scale = Vector2(1.0587115, -1.0593381)
 amount = 4
 amount_ratio = 0.7775
@@ -471,7 +471,7 @@ fixed_fps = 60
 process_material = SubResource("ParticleProcessMaterial_jyrth")
 
 [node name="GPUParticles2D3" type="GPUParticles2D" parent="player/interface/snow" unique_id=454164155]
-position = Vector2(-612, 21.000015)
+position = Vector2(-611.99976, -6.9999886)
 scale = Vector2(1.0587115, -1.0593381)
 amount = 5
 amount_ratio = 0.863
@@ -482,7 +482,7 @@ fixed_fps = 60
 process_material = SubResource("ParticleProcessMaterial_jyrth")
 
 [node name="GPUParticles2D4" type="GPUParticles2D" parent="player/interface/snow" unique_id=1926359999]
-position = Vector2(-537, 16.000015)
+position = Vector2(-536.99976, -11.999989)
 scale = Vector2(1.0587115, -1.0593381)
 amount = 3
 amount_ratio = 0.6184
@@ -493,7 +493,7 @@ fixed_fps = 60
 process_material = SubResource("ParticleProcessMaterial_jyrth")
 
 [node name="GPUParticles2D5" type="GPUParticles2D" parent="player/interface/snow" unique_id=1852951972]
-position = Vector2(-472, 16.000015)
+position = Vector2(-471.99976, -11.999989)
 scale = Vector2(1.0587115, -1.0593381)
 amount = 7
 amount_ratio = 0.5263
@@ -504,7 +504,7 @@ fixed_fps = 60
 process_material = SubResource("ParticleProcessMaterial_jyrth")
 
 [node name="GPUParticles2D6" type="GPUParticles2D" parent="player/interface/snow" unique_id=1862795544]
-position = Vector2(-407, 16.000015)
+position = Vector2(-406.99976, -11.999989)
 scale = Vector2(1.0587115, -1.0593381)
 amount = 3
 amount_ratio = 0.5526
@@ -515,7 +515,7 @@ fixed_fps = 60
 process_material = SubResource("ParticleProcessMaterial_jyrth")
 
 [node name="GPUParticles2D7" type="GPUParticles2D" parent="player/interface/snow" unique_id=45676975]
-position = Vector2(-313.99997, 19.000015)
+position = Vector2(-313.99973, -8.999989)
 scale = Vector2(1.0587115, -1.0593381)
 amount = 2
 amount_ratio = 0.8684
@@ -526,7 +526,7 @@ fixed_fps = 60
 process_material = SubResource("ParticleProcessMaterial_jyrth")
 
 [node name="GPUParticles2D8" type="GPUParticles2D" parent="player/interface/snow" unique_id=799303019]
-position = Vector2(-168, 20.999954)
+position = Vector2(-167.99976, -7.0000496)
 scale = Vector2(1.0587115, -1.0593381)
 amount = 1
 amount_ratio = 0.5263
@@ -537,7 +537,7 @@ fixed_fps = 60
 process_material = SubResource("ParticleProcessMaterial_jyrth")
 
 [node name="GPUParticles2D9" type="GPUParticles2D" parent="player/interface/snow" unique_id=1510013489]
-position = Vector2(-234.99994, 21.000015)
+position = Vector2(-234.9997, -6.9999886)
 scale = Vector2(1.0587115, -1.0593381)
 amount = 3
 amount_ratio = 0.6367
@@ -548,7 +548,7 @@ fixed_fps = 60
 process_material = SubResource("ParticleProcessMaterial_jyrth")
 
 [node name="GPUParticles2D10" type="GPUParticles2D" parent="player/interface/snow" unique_id=241889954]
-position = Vector2(-110.99994, 21.000015)
+position = Vector2(-110.999695, -6.9999886)
 scale = Vector2(1.0587115, -1.0593381)
 amount = 7
 amount_ratio = 0.422
@@ -559,7 +559,7 @@ fixed_fps = 60
 process_material = SubResource("ParticleProcessMaterial_jyrth")
 
 [node name="GPUParticles2D11" type="GPUParticles2D" parent="player/interface/snow" unique_id=256903470]
-position = Vector2(-35.99994, 16.000015)
+position = Vector2(-35.999695, -11.999989)
 scale = Vector2(1.0587115, -1.0593381)
 amount = 3
 amount_ratio = 0.5
@@ -570,7 +570,7 @@ fixed_fps = 60
 process_material = SubResource("ParticleProcessMaterial_jyrth")
 
 [node name="GPUParticles2D12" type="GPUParticles2D" parent="player/interface/snow" unique_id=503271172]
-position = Vector2(29.000061, 16.000015)
+position = Vector2(29.000305, -11.999989)
 scale = Vector2(1.0587115, -1.0593381)
 amount = 1
 amount_ratio = 0.1711
@@ -581,7 +581,7 @@ fixed_fps = 60
 process_material = SubResource("ParticleProcessMaterial_jyrth")
 
 [node name="GPUParticles2D13" type="GPUParticles2D" parent="player/interface/snow" unique_id=199558092]
-position = Vector2(94.00006, 16.000015)
+position = Vector2(94.000305, -11.999989)
 scale = Vector2(1.0587115, -1.0593381)
 amount = 2
 amount_ratio = 0.6184
@@ -592,7 +592,7 @@ fixed_fps = 60
 process_material = SubResource("ParticleProcessMaterial_jyrth")
 
 [node name="GPUParticles2D14" type="GPUParticles2D" parent="player/interface/snow" unique_id=439251368]
-position = Vector2(187.00009, 19.000015)
+position = Vector2(187.00034, -8.999989)
 scale = Vector2(1.0587115, -1.0593381)
 amount = 5
 amount_ratio = 0.5789
@@ -603,7 +603,7 @@ fixed_fps = 60
 process_material = SubResource("ParticleProcessMaterial_jyrth")
 
 [node name="GPUParticles2D15" type="GPUParticles2D" parent="player/interface/snow" unique_id=434331925]
-position = Vector2(273, 20.999954)
+position = Vector2(273.00024, -7.0000496)
 scale = Vector2(1.0587115, -1.0593381)
 amount = 2
 amount_ratio = 0.5263
@@ -614,7 +614,7 @@ fixed_fps = 60
 process_material = SubResource("ParticleProcessMaterial_jyrth")
 
 [node name="GPUParticles2D16" type="GPUParticles2D" parent="player/interface/snow" unique_id=1608018093]
-position = Vector2(206.00006, 21.000015)
+position = Vector2(206.0003, -6.9999886)
 scale = Vector2(1.0587115, -1.0593381)
 amount = 1
 amount_ratio = 0.6447
@@ -625,7 +625,7 @@ fixed_fps = 60
 process_material = SubResource("ParticleProcessMaterial_jyrth")
 
 [node name="GPUParticles2D17" type="GPUParticles2D" parent="player/interface/snow" unique_id=1984331191]
-position = Vector2(330.00006, 21.000015)
+position = Vector2(330.0003, -6.9999886)
 scale = Vector2(1.0587115, -1.0593381)
 amount = 2
 amount_ratio = 0.3158
@@ -636,7 +636,7 @@ fixed_fps = 60
 process_material = SubResource("ParticleProcessMaterial_jyrth")
 
 [node name="GPUParticles2D18" type="GPUParticles2D" parent="player/interface/snow" unique_id=1963128016]
-position = Vector2(405.00006, 16.000015)
+position = Vector2(405.0003, -11.999989)
 scale = Vector2(1.0587115, -1.0593381)
 amount = 4
 amount_ratio = 0.1974
@@ -647,7 +647,7 @@ fixed_fps = 60
 process_material = SubResource("ParticleProcessMaterial_jyrth")
 
 [node name="GPUParticles2D19" type="GPUParticles2D" parent="player/interface/snow" unique_id=1026623547]
-position = Vector2(470.00006, 16.000015)
+position = Vector2(470.0003, -11.999989)
 scale = Vector2(1.0587115, -1.0593381)
 amount = 3
 amount_ratio = 0.441
@@ -658,7 +658,7 @@ fixed_fps = 60
 process_material = SubResource("ParticleProcessMaterial_jyrth")
 
 [node name="GPUParticles2D20" type="GPUParticles2D" parent="player/interface/snow" unique_id=1098528710]
-position = Vector2(535.00006, 16.000015)
+position = Vector2(535.0003, -11.999989)
 scale = Vector2(1.0587115, -1.0593381)
 amount = 2
 amount_ratio = 0.2895
@@ -669,7 +669,7 @@ fixed_fps = 60
 process_material = SubResource("ParticleProcessMaterial_jyrth")
 
 [node name="GPUParticles2D21" type="GPUParticles2D" parent="player/interface/snow" unique_id=448357164]
-position = Vector2(628.0001, 19.000015)
+position = Vector2(628.00037, -8.999989)
 scale = Vector2(1.0587115, -1.0593381)
 amount = 1
 amount_ratio = 0.806
@@ -680,7 +680,7 @@ fixed_fps = 60
 process_material = SubResource("ParticleProcessMaterial_jyrth")
 
 [node name="GPUParticles2D22" type="GPUParticles2D" parent="player/interface/snow" unique_id=1821732953]
-position = Vector2(741, 32.999954)
+position = Vector2(741.00024, 4.9999504)
 scale = Vector2(1.0587115, -1.0593381)
 amount = 6
 amount_ratio = 0.1974
@@ -691,7 +691,7 @@ fixed_fps = 60
 process_material = SubResource("ParticleProcessMaterial_jyrth")
 
 [node name="GPUParticles2D23" type="GPUParticles2D" parent="player/interface/snow" unique_id=1918242924]
-position = Vector2(674.00006, 33.000015)
+position = Vector2(674.0003, 5.0000114)
 scale = Vector2(1.0587115, -1.0593381)
 amount = 5
 amount_ratio = 0.6695
@@ -702,7 +702,7 @@ fixed_fps = 60
 process_material = SubResource("ParticleProcessMaterial_jyrth")
 
 [node name="GPUParticles2D24" type="GPUParticles2D" parent="player/interface/snow" unique_id=990792550]
-position = Vector2(798.00006, 33.000015)
+position = Vector2(798.0003, 5.0000114)
 scale = Vector2(1.0587115, -1.0593381)
 amount = 3
 amount_ratio = 0.5263
@@ -713,7 +713,7 @@ fixed_fps = 60
 process_material = SubResource("ParticleProcessMaterial_jyrth")
 
 [node name="GPUParticles2D25" type="GPUParticles2D" parent="player/interface/snow" unique_id=959529105]
-position = Vector2(873.00006, 28.000017)
+position = Vector2(873.0003, 1.335144e-05)
 scale = Vector2(1.0587115, -1.0593381)
 amount = 2
 amount_ratio = 0.2763
@@ -724,7 +724,7 @@ fixed_fps = 60
 process_material = SubResource("ParticleProcessMaterial_jyrth")
 
 [node name="GPUParticles2D26" type="GPUParticles2D" parent="player/interface/snow" unique_id=1078292366]
-position = Vector2(938.00006, 28.000017)
+position = Vector2(938.0003, 1.335144e-05)
 scale = Vector2(1.0587115, -1.0593381)
 amount = 4
 amount_ratio = 0.3289
@@ -735,7 +735,7 @@ fixed_fps = 60
 process_material = SubResource("ParticleProcessMaterial_jyrth")
 
 [node name="GPUParticles2D27" type="GPUParticles2D" parent="player/interface/snow" unique_id=587287203]
-position = Vector2(1003.00006, 28.000017)
+position = Vector2(1003.0003, 1.335144e-05)
 scale = Vector2(1.0587115, -1.0593381)
 amount = 2
 amount_ratio = 0.1447
@@ -746,7 +746,7 @@ fixed_fps = 60
 process_material = SubResource("ParticleProcessMaterial_jyrth")
 
 [node name="GPUParticles2D28" type="GPUParticles2D" parent="player/interface/snow" unique_id=1325889779]
-position = Vector2(1096.0001, 31.000017)
+position = Vector2(1096.0004, 3.0000134)
 scale = Vector2(1.0587115, -1.0593381)
 amount = 4
 amount_ratio = 0.5658
@@ -757,7 +757,7 @@ fixed_fps = 60
 process_material = SubResource("ParticleProcessMaterial_jyrth")
 
 [node name="GPUParticles2D29" type="GPUParticles2D" parent="player/interface/snow" unique_id=1376449064]
-position = Vector2(-1123.0002, 32.999924)
+position = Vector2(-1123, 4.99992)
 scale = Vector2(1.0587115, -1.0593381)
 amount = 1
 amount_ratio = 0.4474
@@ -768,7 +768,7 @@ fixed_fps = 60
 process_material = SubResource("ParticleProcessMaterial_jyrth")
 
 [node name="GPUParticles2D35" type="GPUParticles2D" parent="player/interface/snow" unique_id=1290829504]
-position = Vector2(-768.0001, 30.999987)
+position = Vector2(-767.9999, 2.9999828)
 scale = Vector2(1.0587115, -1.0593381)
 amount = 3
 amount_ratio = 0.6915
@@ -843,6 +843,14 @@ scale = Vector2(5, 5)
 texture_normal = ExtResource("16_jmmfq")
 texture_pressed = ExtResource("17_dx52i")
 action = "advance_message"
+
+[node name="ui_dash" type="TouchScreenButton" parent="controls" unique_id=1448492920]
+position = Vector2(1712.0001, 491)
+scale = Vector2(6.5, 6.5)
+texture_normal = ExtResource("16_jmmfq")
+texture_pressed = ExtResource("17_dx52i")
+passby_press = true
+action = "dash"
 
 [node name="HUD" type="CanvasLayer" parent="." unique_id=1773327339]
 layer = 9997

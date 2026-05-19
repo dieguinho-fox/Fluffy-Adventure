@@ -1178,6 +1178,14 @@ texture_normal = ExtResource("16_sgukg")
 texture_pressed = ExtResource("17_6kow1")
 action = "advance_message"
 
+[node name="ui_dash" type="TouchScreenButton" parent="controls" unique_id=210174395]
+position = Vector2(1712.0001, 491)
+scale = Vector2(6.5, 6.5)
+texture_normal = ExtResource("16_sgukg")
+texture_pressed = ExtResource("17_6kow1")
+passby_press = true
+action = "dash"
+
 [node name="HUD" type="CanvasLayer" parent="." unique_id=1369030176]
 layer = 9997
 script = ExtResource("22_0kepv")

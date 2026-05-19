@@ -568,7 +568,6 @@ tile_set = SubResource("TileSet_mkxv4")
 
 [node name="controls" type="CanvasLayer" parent="." unique_id=240110480]
 layer = 9998
-visible = false
 
 [node name="ui_left" type="TouchScreenButton" parent="controls" unique_id=80284585]
 position = Vector2(9.000001, 721.00006)
@@ -585,6 +584,14 @@ texture_normal = ExtResource("11_ksw5h")
 texture_pressed = ExtResource("12_efkj3")
 passby_press = true
 action = "ui_right"
+
+[node name="ui_dash" type="TouchScreenButton" parent="controls" unique_id=1398009859]
+position = Vector2(1712.0001, 491)
+scale = Vector2(6.5, 6.5)
+texture_normal = ExtResource("11_ksw5h")
+texture_pressed = ExtResource("12_efkj3")
+passby_press = true
+action = "dash"
 
 [node name="ui_jump" type="TouchScreenButton" parent="controls" unique_id=1923458356]
 position = Vector2(1708, 721)
@@ -621,6 +628,7 @@ layer = 9997
 script = ExtResource("21_fx50r")
 
 [node name="control" type="Control" parent="HUD" unique_id=2128117583]
+visible = false
 layout_mode = 3
 anchors_preset = 15
 anchor_right = 1.0
