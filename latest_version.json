@@ -1,0 +1,16 @@
+{
+  "alpha": {
+    "version": "1.2.10a",
+<<<<<<< HEAD
+    "url": "https://fluffy-adventure.kesug.com/Atualiza%C3%A7%C3%B5es/1.2.10a.php"
+  },
+  "beta": null,
+  "release": null
+=======
+    "url": "https://fluffy-adventure/download.php"
+  },
+  "beta": null
+  },
+  "stable": null
+>>>>>>> b9da24c896b4e5c0e94356047f067f39b640cd8e
+}
