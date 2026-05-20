@@ -11,8 +11,6 @@ extends Control
 const VIDAS_SAVE_PATH: String = "user://vidas.save"
 const VIDAS_INICIAIS: int = 3
 
-var notificacao_enviada: bool = false
-
 var texts_normal: Array[String] = [
 	"Alpha!",
 	"Não aperte Alt+F4",
@@ -65,9 +63,6 @@ func _ready() -> void:
 	get_tree().paused = false
 	setup_flavor_text()
 	sortear_musica_menu()
-
-	if OS.get_name() == "Android":
-		OS.request_permission("android.permission.POST_NOTIFICATIONS")
 
 	update_label.text = "🔄 Verificando atualizações..."
 	check_for_updates()
@@ -160,50 +155,6 @@ func _process(delta: float) -> void:
 			(sin(t + 4.2) + 1.0) / 2.0
 		)
 
-func enviar_notificacao(titulo: String, mensagem: String) -> void:
-	if notificacao_enviada:
-		return
-	
-	if OS.get_name() != "Android":
-		return
-
-	notificacao_enviada = true
-
-	var activity = JavaClassWrapper.wrap("org/godotengine/godot/Godot").getSingleton().getActivity()
-	var context = activity.getApplicationContext()
-	var notification_manager = context.getSystemService("notification")
-
-	var BuildVersion = JavaClassWrapper.wrap("android.os.Build$VERSION")
-	var SDK_INT = BuildVersion.SDK_INT
-
-	if SDK_INT >= 26:
-		var NotificationChannel = JavaClassWrapper.wrap("android.app.NotificationChannel")
-		var importance = 3
-
-		var channel = NotificationChannel.new(
-			"update_channel_id",
-			"Atualizações",
-			importance
-		)
-
-		channel.setDescription("Notificações de atualização do jogo")
-		notification_manager.createNotificationChannel(channel)
-
-	var NotificationBuilder = JavaClassWrapper.wrap("android.app.Notification$Builder")
-
-	var builder
-	if SDK_INT >= 26:
-		builder = NotificationBuilder.new(context, "update_channel_id")
-	else:
-		builder = NotificationBuilder.new(context)
-
-	builder.setContentTitle(titulo)
-	builder.setContentText(mensagem)
-	builder.setSmallIcon(context.getApplicationInfo().icon)
-
-	var notification = builder.build()
-	notification_manager.notify(1, notification)
-
 func check_for_updates() -> void:
 	var http: HTTPRequest = HTTPRequest.new()
 	add_child(http)
@@ -232,17 +183,12 @@ func _on_request_completed(result: int, response_code: int, _headers: PackedStri
 	if data.has("alpha") and data["alpha"] != null:
 		latest_version = str(data["alpha"].get("version", "ERRO"))
 
-	var current_version: String = "1.3.0a"
+	var current_version: String = "1.0.0b"
 
 	if latest_version == current_version:
 		update_label.text = "✅ Jogo atualizado"
 	else:
 		update_label.text = "⬆️ Nova versão disponível: " + latest_version
-		
-		enviar_notificacao(
-			"Nova atualização disponível!",
-			"Nova versão: " + latest_version
-		)
 
 func show_error() -> void:
 	update_label.text = "❌ Erro ao verificar atualizações. Verifique sua internet."

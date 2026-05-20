@@ -1,6 +1,7 @@
 extends HBoxContainer
 
-const SAVE_PATH := "user://progress.cfg"
+# Agora o progresso é salvo em formato binário
+const SAVE_PATH := "user://progress.bin"
 
 const ALLOWED_SCENES := [
 	"res://cenas/mundo_1_0_carregamento.tscn",
@@ -49,29 +50,28 @@ func _ready() -> void:
 
 func _load_saved_scene() -> bool:
 	if not FileAccess.file_exists(SAVE_PATH):
-		print("❌ progress.cfg não existe")
+		print("❌ progress.bin não existe")
 		return false
 
-	var cfg := ConfigFile.new()
-	if cfg.load(SAVE_PATH) != OK:
-		print("❌ progress.cfg corrompido")
+	var file: FileAccess = FileAccess.open(SAVE_PATH, FileAccess.READ)
+	if not file:
+		print("❌ Não foi possível abrir progress.bin")
 		return false
 
-	if not cfg.has_section_key("progress", "last_scene"):
-		print("❌ last_scene inexistente")
+	# Lê o índice da cena salvo no arquivo binário
+	var scene_index: int = file.get_32()
+	file.close()
+
+	# Verifica se o índice é válido
+	if scene_index < 0 or scene_index >= ALLOWED_SCENES.size():
+		print("❌ Índice de cena inválido:", scene_index)
 		return false
 
-	var scene_path := String(cfg.get_value("progress", "last_scene", ""))
+	var scene_path: String = ALLOWED_SCENES[scene_index]
 
-	if scene_path.is_empty():
-		return false
-
+	# Verifica se a cena realmente existe
 	if not ResourceLoader.exists(scene_path):
 		print("❌ Cena salva não existe")
-		return false
-
-	if not ALLOWED_SCENES.has(scene_path):
-		print("❌ Cena fora da whitelist")
 		return false
 
 	saved_scene_path = scene_path

@@ -2,7 +2,8 @@ extends Control
 
 @export var next_scene_path: String = "res://cenas/mundo_1_2.tscn"
 
-const PROGRESS_SAVE_PATH := "user://progress.cfg"
+# Agora o progresso é salvo em formato binário (.bin)
+const PROGRESS_SAVE_PATH := "user://progress.bin"
 const VIDAS_SAVE_PATH := "user://vidas.save"
 const VIDAS_INICIAIS := 3
 
@@ -31,10 +32,10 @@ func atualizar_vidas_label() -> void:
 	if life_counter == null:
 		return
 
-	var vidas := VIDAS_INICIAIS
+	var vidas: int = VIDAS_INICIAIS
 
 	if FileAccess.file_exists(VIDAS_SAVE_PATH):
-		var file := FileAccess.open(VIDAS_SAVE_PATH, FileAccess.READ)
+		var file: FileAccess = FileAccess.open(VIDAS_SAVE_PATH, FileAccess.READ)
 		if file:
 			vidas = file.get_32()
 			file.close()
@@ -55,11 +56,20 @@ func _save_progress_if_allowed() -> void:
 	if current_scene == null:
 		return
 
-	var scene_path := current_scene.scene_file_path
+	var scene_path: String = current_scene.scene_file_path
 
 	if not ALLOWED_SCENES.has(scene_path):
 		return
 
-	var cfg := ConfigFile.new()
-	cfg.set_value("progress", "last_scene", scene_path)
-	cfg.save(PROGRESS_SAVE_PATH)
+	# Salva em formato binário:
+	# 1) Quantidade de cenas permitidas
+	# 2) Índice da cena atual na lista
+	var scene_index: int = ALLOWED_SCENES.find(scene_path)
+
+	if scene_index == -1:
+		return
+
+	var file: FileAccess = FileAccess.open(PROGRESS_SAVE_PATH, FileAccess.WRITE)
+	if file:
+		file.store_32(scene_index)
+		file.close()

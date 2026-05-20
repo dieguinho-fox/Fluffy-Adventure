@@ -6,11 +6,24 @@ const SAVE_PATH := "user://vidas.save"
 const VIDAS_INICIAIS := 3
 
 # ===============================
+# MOVIMENTAÇÃO SUAVE
+# ===============================
+const ACCELERATION := 1800.0
+const FRICTION := 1200.0
+
+# ===============================
 # SISTEMA DE DASH
 # ===============================
 const DASH_SPEED := 1200.0
 const DASH_DURATION := 0.20
 const DASH_COOLDOWN := 5.0
+
+# ===============================
+# AFTERIMAGE (Rastro do Dash)
+# ===============================
+const AFTERIMAGE_INTERVAL := 0.05
+const AFTERIMAGE_LIFETIME := 0.5
+const AFTERIMAGE_ALPHA := 1.0
 
 var vidas: int = VIDAS_INICIAIS
 var can_jump := true
@@ -20,12 +33,17 @@ var dash_timer := 0.0
 var dash_cooldown_timer := 0.0
 var dash_direction := 1.0
 
+# Temporizador do afterimage
+var afterimage_timer := 0.0
+
 @onready var animation := $anim as AnimatedSprite2D
 @onready var remote_transform := $remote as RemoteTransform2D
 @onready var jump_sfx: AudioStreamPlayer2D = $jump_sfx as AudioStreamPlayer2D
 
 func _ready() -> void:
 	carregar_vidas()
+	# 1.0 = velocidade normal configurada no SpriteFrames
+	animation.speed_scale = 1.0
 
 func _physics_process(delta: float) -> void:
 	# Atualiza cooldown do dash
@@ -42,12 +60,20 @@ func _physics_process(delta: float) -> void:
 
 	if is_dashing:
 		dash_timer -= delta
+		afterimage_timer -= delta
+
+		# Gera imagens do rastro
+		if afterimage_timer <= 0.0:
+			criar_afterimage()
+			afterimage_timer = AFTERIMAGE_INTERVAL
+
 		velocity.x = dash_direction * DASH_SPEED
 		velocity.y = 0.0
 
 		move_and_slide()
 
-		# Mantém a animação de dash enquanto o efeito estiver ativo
+		# Mantém a animação de dash na velocidade normal
+		animation.speed_scale = 1.0
 		animation.play("dash")
 
 		if dash_timer <= 0.0:
@@ -59,13 +85,16 @@ func _physics_process(delta: float) -> void:
 	if not is_on_floor():
 		velocity += get_gravity() * delta
 
-	# Movimento lateral
-	var direction := Input.get_axis("ui_left", "ui_right")
-	if direction != 0:
-		velocity.x = direction * SPEED
+	# Movimento lateral suave
+	var direction: float = Input.get_axis("ui_left", "ui_right")
+
+	if direction != 0.0:
+		# Acelera gradualmente até SPEED
+		velocity.x = move_toward(velocity.x, direction * SPEED, ACCELERATION * delta)
 		animation.scale.x = direction
 	else:
-		velocity.x = move_toward(velocity.x, 0, SPEED)
+		# Desacelera gradualmente até parar
+		velocity.x = move_toward(velocity.x, 0.0, FRICTION * delta)
 
 	# Pulo
 	if Input.is_action_just_pressed("ui_accept") and is_on_floor() and can_jump:
@@ -75,17 +104,35 @@ func _physics_process(delta: float) -> void:
 
 	move_and_slide()
 
-	# Animações
+	# ===============================
+	# ANIMAÇÕES
+	# ===============================
 	if not is_on_floor():
+		# Jump/Falling sempre na velocidade normal
+		animation.speed_scale = 1.0
+
 		if velocity.y < 0:
 			animation.play("jump")
 		else:
 			animation.play("falling")
 	else:
 		can_jump = true
-		if abs(direction) > 0:
+
+		# Considera movimento apenas se ainda houver velocidade perceptível
+		if abs(velocity.x) > 5.0:
 			animation.play("run")
+
+			# Apenas a animação "run" muda de velocidade
+			var velocidade_horizontal: float = abs(velocity.x)
+			var velocidade_normalizada: float = clamp(velocidade_horizontal / SPEED, 0.0, 1.0)
+
+			# 0.375 ≈ 3 FPS se o "run" estiver configurado em 8 FPS
+			# 1.0 = 8 FPS (velocidade normal)
+			animation.speed_scale = lerp(0.375, 1.0, velocidade_normalizada)
 		else:
+			# Idle/Wait sempre na velocidade normal
+			animation.speed_scale = 1.0
+
 			# Toca "idle" e, quando terminar, muda automaticamente para "wait"
 			if animation.animation == "wait":
 				pass
@@ -98,15 +145,68 @@ func iniciar_dash() -> void:
 	is_dashing = true
 	dash_timer = DASH_DURATION
 	dash_cooldown_timer = DASH_COOLDOWN
+	afterimage_timer = 0.0
 
 	# Usa a direção atual do personagem
-	if animation.scale.x >= 0:
+	if animation.scale.x >= 0.0:
 		dash_direction = 1.0
 	else:
 		dash_direction = -1.0
 
 	# Mantém o sprite virado corretamente
 	animation.scale.x = dash_direction
+
+func criar_afterimage() -> void:
+	# Obtém a textura do frame atual
+	var textura: Texture2D = animation.sprite_frames.get_frame_texture(
+		animation.animation,
+		animation.frame
+	)
+
+	if textura == null:
+		return
+
+	# Cria um sprite estático
+	var ghost := Sprite2D.new()
+	ghost.texture = textura
+
+	# Copia posição e rotação
+	ghost.global_position = animation.global_position
+	ghost.global_rotation = animation.global_rotation
+
+	# Escala fixa para evitar inversões pela escala negativa
+	ghost.scale = Vector2.ONE
+
+	# Não usa flip horizontal
+	ghost.flip_h = false
+
+	# Usa flip vertical quando o personagem estiver olhando para a esquerda
+	ghost.flip_v = animation.scale.x < 0.0
+
+	# Copia propriedades visuais
+	ghost.centered = animation.centered
+	ghost.offset = animation.offset
+
+	# Ordering fixa em 0
+	ghost.z_index = 0
+
+	# Transparência inicial
+	ghost.modulate = Color(1.0, 1.0, 1.0, AFTERIMAGE_ALPHA)
+
+	# Adiciona à cena atual
+	get_tree().current_scene.add_child(ghost)
+
+	# Fade-out
+	var tween := ghost.create_tween()
+	tween.tween_property(
+		ghost,
+		"modulate:a",
+		0.0,
+		AFTERIMAGE_LIFETIME
+	)
+
+	# Remove automaticamente
+	tween.finished.connect(ghost.queue_free)
 
 func _on_hurtbox_body_entered(body: Node2D) -> void:
 	if body.is_in_group("enemies"):

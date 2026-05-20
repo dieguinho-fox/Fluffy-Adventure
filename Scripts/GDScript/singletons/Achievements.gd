@@ -2,7 +2,10 @@ extends Node
 
 ## ===== CONFIGURAÇÕES =====
 const ACHIEVEMENTS_JSON_PATH: String = "res://Conquistas/achievements.json"
-const SAVE_PATH: String = "user://achievements.cfg"
+
+# Agora o save de conquistas é binário
+const SAVE_PATH: String = "user://achievements.bin"
+
 const DEFAULT_LANGUAGE: String = "pt_BR"
 const LOCKED_ICON_PATH: String = "res://Conquistas/Ícones/bloqueado.png"
 const CONQUISTA_UI_SCENE: PackedScene = preload("res://cenas/Prefabs/conquista.tscn")
@@ -31,7 +34,13 @@ func load_achievements() -> void:
 		FileAccess.READ
 	)
 
+	if not file:
+		push_error("Não foi possível abrir achievements.json")
+		return
+
 	var text: String = file.get_as_text()
+	file.close()
+
 	var parsed: Variant = JSON.parse_string(text)
 
 	if parsed == null or typeof(parsed) != TYPE_DICTIONARY:
@@ -40,33 +49,37 @@ func load_achievements() -> void:
 
 	achievements_data = parsed as Dictionary
 
-## ===== SAVE / LOAD (CFG) =====
+## ===== SAVE / LOAD (BINÁRIO) =====
 func load_save() -> void:
 	unlocked_achievements.clear()
 
 	if not FileAccess.file_exists(SAVE_PATH):
 		return
 
-	var cfg := ConfigFile.new()
-	var err := cfg.load(SAVE_PATH)
-
-	if err != OK:
-		push_error("Falha ao carregar achievements.cfg")
+	var file: FileAccess = FileAccess.open(SAVE_PATH, FileAccess.READ)
+	if not file:
+		push_error("Falha ao carregar achievements.bin")
 		return
 
-	if not cfg.has_section("achievements"):
+	# Lê o Dictionary salvo em formato binário
+	var data: Variant = file.get_var()
+	file.close()
+
+	if typeof(data) != TYPE_DICTIONARY:
+		push_error("Arquivo achievements.bin corrompido")
 		return
 
-	for id in cfg.get_section_keys("achievements"):
-		unlocked_achievements[id] = cfg.get_value("achievements", id, false)
+	unlocked_achievements = data as Dictionary
 
 func save_game() -> void:
-	var cfg := ConfigFile.new()
+	var file: FileAccess = FileAccess.open(SAVE_PATH, FileAccess.WRITE)
+	if not file:
+		push_error("Falha ao salvar achievements.bin")
+		return
 
-	for id in unlocked_achievements.keys():
-		cfg.set_value("achievements", id, true)
-
-	cfg.save(SAVE_PATH)
+	# Salva o Dictionary inteiro em formato binário
+	file.store_var(unlocked_achievements)
+	file.close()
 
 ## ===== IDIOMA =====
 func set_language(lang: String) -> void:
