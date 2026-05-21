@@ -456,6 +456,7 @@ offset_bottom = 1096.0
 script = ExtResource("11_70bxi")
 
 [node name="ColorRect" type="ColorRect" parent="player/interface" unique_id=374334799]
+z_index = 2
 layout_mode = 1
 anchors_preset = 15
 anchor_right = 1.0

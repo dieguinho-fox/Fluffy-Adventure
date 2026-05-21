@@ -446,6 +446,7 @@ offset_bottom = 1096.0
 script = ExtResource("12_drw33")
 
 [node name="snow" type="Node2D" parent="player/interface" unique_id=1487603915]
+z_index = 1
 position = Vector2(771, -16)
 
 [node name="GPUParticles2D" type="GPUParticles2D" parent="player/interface/snow" unique_id=1459282569]
@@ -779,6 +780,7 @@ fixed_fps = 60
 process_material = SubResource("ParticleProcessMaterial_jyrth")
 
 [node name="ColorRect" type="ColorRect" parent="player/interface" unique_id=2033286487]
+z_index = 2
 layout_mode = 1
 anchors_preset = 15
 anchor_right = 1.0

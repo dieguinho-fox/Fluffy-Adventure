@@ -551,6 +551,7 @@ offset_bottom = 1096.0
 script = ExtResource("1_kftvy")
 
 [node name="ColorRect" type="ColorRect" parent="player/interface" unique_id=1772391550]
+z_index = 2
 layout_mode = 1
 anchors_preset = 15
 anchor_right = 1.0
@@ -560,6 +561,7 @@ grow_vertical = 2
 color = Color(0.5647059, 0.78039217, 0, 0.08235294)
 
 [node name="easteregg" type="TileMapLayer" parent="." unique_id=2030179586]
+z_index = 1
 position = Vector2(135, 735)
 rotation = 3.1415927
 scale = Vector2(4.708, -4.592)

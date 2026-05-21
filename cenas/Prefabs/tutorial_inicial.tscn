@@ -11,6 +11,7 @@
 [ext_resource type="Texture2D" uid="uid://c2x86s80dlq1s" path="res://Interface/Tutoriais/Playstation/PS4_Right.png" id="7_pwxpb"]
 [ext_resource type="Texture2D" uid="uid://o16g5xoei3sa" path="res://Interface/Tutoriais/Teclado/Keyboard_m.png" id="8_0anv0"]
 [ext_resource type="Texture2D" uid="uid://nrf81b426wug" path="res://Interface/Tutoriais/Playstation/PS4_Cross.png" id="8_5nhp4"]
+[ext_resource type="Texture2D" uid="uid://cj2goxjnjjnxg" path="res://Interface/Tutoriais/Teclado/Keyboard_shift.png" id="9_qqyr5"]
 [ext_resource type="Texture2D" uid="uid://b0d71mpeyvlwh" path="res://Interface/Tutoriais/Playstation/PS4_Circle.png" id="9_uxeiu"]
 [ext_resource type="Texture2D" uid="uid://difkwmuig5mr7" path="res://Interface/Tutoriais/Xbox 360/360_Left.png" id="10_x3o6n"]
 [ext_resource type="Texture2D" uid="uid://cn15t8jbc86qx" path="res://Interface/Tutoriais/Xbox 360/360_Right.png" id="11_w4myg"]
@@ -20,6 +21,7 @@
 [ext_resource type="Texture2D" uid="uid://tuw1kxp8e35f" path="res://Interface/Tutoriais/Xbox One/Xbox_One_D-pad_Left.png" id="14_0anv0"]
 [ext_resource type="Texture2D" uid="uid://dfc6ro1ivx0gp" path="res://Interface/Tutoriais/Playstation/PS4_Triangle.png" id="14_h6lq1"]
 [ext_resource type="Texture2D" uid="uid://d1t3cyrngbnvv" path="res://Interface/Tutoriais/Xbox One/Xbox_One_D-pad_Right.png" id="15_d8u7o"]
+[ext_resource type="Texture2D" uid="uid://ch7g5xsvrcuvv" path="res://Interface/Tutoriais/Playstation/PS4_R1.png" id="16_86xn7"]
 [ext_resource type="Texture2D" uid="uid://drshv1yf1f3xm" path="res://Interface/Tutoriais/Xbox One/Xbox_A.png" id="16_h6lq1"]
 [ext_resource type="Texture2D" uid="uid://2462podydvdg" path="res://Interface/Tutoriais/Xbox One/Xbox_B.png" id="17_eyfl0"]
 [ext_resource type="Texture2D" uid="uid://bkronfncgao8i" path="res://Interface/Tutoriais/Xbox Series/Xbox_Series_D-pad_Left.png" id="18_psb35"]
@@ -27,11 +29,14 @@
 [ext_resource type="Texture2D" uid="uid://b2rsr1ps42vgn" path="res://Interface/Tutoriais/Xbox Series/Xbox_Series_D-pad_Right.png" id="19_qqyr5"]
 [ext_resource type="Texture2D" uid="uid://nk8d7ifq5oge" path="res://Interface/Tutoriais/Xbox 360/360_Y.png" id="20_psb35"]
 [ext_resource type="Script" uid="uid://bw1b3e8c7awrf" path="res://Scripts/GDScript/Traducao/traducao_tutorial.gd" id="21_vol5d"]
+[ext_resource type="Texture2D" uid="uid://cbvacntew6o8v" path="res://Interface/Tutoriais/Xbox 360/360_RB.png" id="23_ekcne"]
 [ext_resource type="Texture2D" uid="uid://bhw7f7lqw33ar" path="res://Interface/Tutoriais/Xbox One/Xbox_X.png" id="25_qqyr5"]
 [ext_resource type="Texture2D" uid="uid://3yf1u6m17h6x" path="res://Interface/Tutoriais/Xbox One/Xbox_Y.png" id="26_86xn7"]
 [ext_resource type="Texture2D" uid="uid://d4n0pd4h0o8hv" path="res://Interface/Tutoriais/Xbox Series/Xbox_X.png" id="29_ekcne"]
 [ext_resource type="Texture2D" uid="uid://bjcliavovwfry" path="res://Interface/Tutoriais/Xbox Series/Xbox_Y.png" id="30_j5eja"]
+[ext_resource type="Texture2D" uid="uid://cegfh8epxljva" path="res://Interface/Tutoriais/Xbox One/XboxOne_RB.png" id="30_vkk6e"]
 [ext_resource type="Script" uid="uid://dbg06041gcgsi" path="res://Scripts/Lua/tutorialfuncional.lua" id="32_0anv0"]
+[ext_resource type="Texture2D" uid="uid://ct385ulsra3dv" path="res://Interface/Tutoriais/Xbox Series/Xbox_Right_Bumper.png" id="35_t5p4s"]
 
 [sub_resource type="LabelSettings" id="LabelSettings_86xn7"]
 font = ExtResource("2_2cj5h")
@@ -136,6 +141,18 @@ layout_mode = 2
 text = "Avançar dialógo"
 label_settings = SubResource("LabelSettings_86xn7")
 
+[node name="Dash" type="HBoxContainer" parent="KeyboardTutorial/Fade/VBoxContainer" unique_id=1915945116]
+layout_mode = 2
+
+[node name="TextureButton" type="TextureButton" parent="KeyboardTutorial/Fade/VBoxContainer/Dash" unique_id=279441143]
+layout_mode = 2
+texture_normal = ExtResource("9_qqyr5")
+
+[node name="Label" type="Label" parent="KeyboardTutorial/Fade/VBoxContainer/Dash" unique_id=992702431]
+layout_mode = 2
+text = "Dash"
+label_settings = SubResource("LabelSettings_86xn7")
+
 [node name="PlaystationTutorial" type="CanvasLayer" parent="." unique_id=1724704547]
 visible = false
 
@@ -229,6 +246,18 @@ texture_normal = ExtResource("14_h6lq1")
 [node name="Label" type="Label" parent="PlaystationTutorial/Fade/VBoxContainer/Avancar" unique_id=1103182257]
 layout_mode = 2
 text = "Avançar dialógo"
+label_settings = SubResource("LabelSettings_86xn7")
+
+[node name="Dash" type="HBoxContainer" parent="PlaystationTutorial/Fade/VBoxContainer" unique_id=572944938]
+layout_mode = 2
+
+[node name="TextureButton" type="TextureButton" parent="PlaystationTutorial/Fade/VBoxContainer/Dash" unique_id=713566016]
+layout_mode = 2
+texture_normal = ExtResource("16_86xn7")
+
+[node name="Label" type="Label" parent="PlaystationTutorial/Fade/VBoxContainer/Dash" unique_id=461840790]
+layout_mode = 2
+text = "Dash"
 label_settings = SubResource("LabelSettings_86xn7")
 
 [node name="Xbox360Tutorial" type="CanvasLayer" parent="." unique_id=1462020398]
@@ -326,6 +355,18 @@ layout_mode = 2
 text = "Avançar dialógo"
 label_settings = SubResource("LabelSettings_86xn7")
 
+[node name="Dash" type="HBoxContainer" parent="Xbox360Tutorial/Fade/VBoxContainer" unique_id=1157923444]
+layout_mode = 2
+
+[node name="TextureButton" type="TextureButton" parent="Xbox360Tutorial/Fade/VBoxContainer/Dash" unique_id=360913238]
+layout_mode = 2
+texture_normal = ExtResource("23_ekcne")
+
+[node name="Label" type="Label" parent="Xbox360Tutorial/Fade/VBoxContainer/Dash" unique_id=931708892]
+layout_mode = 2
+text = "Dash"
+label_settings = SubResource("LabelSettings_86xn7")
+
 [node name="XboxOneTutorial" type="CanvasLayer" parent="." unique_id=749062876]
 visible = false
 
@@ -421,6 +462,18 @@ layout_mode = 2
 text = "Avançar dialógo"
 label_settings = SubResource("LabelSettings_86xn7")
 
+[node name="Dash" type="HBoxContainer" parent="XboxOneTutorial/Fade/VBoxContainer" unique_id=1847233814]
+layout_mode = 2
+
+[node name="TextureButton" type="TextureButton" parent="XboxOneTutorial/Fade/VBoxContainer/Dash" unique_id=790654109]
+layout_mode = 2
+texture_normal = ExtResource("30_vkk6e")
+
+[node name="Label" type="Label" parent="XboxOneTutorial/Fade/VBoxContainer/Dash" unique_id=368285962]
+layout_mode = 2
+text = "Dash"
+label_settings = SubResource("LabelSettings_86xn7")
+
 [node name="XboxSeriesTutorial" type="CanvasLayer" parent="." unique_id=734971234]
 visible = false
 
@@ -514,6 +567,18 @@ texture_normal = ExtResource("30_j5eja")
 [node name="Label" type="Label" parent="XboxSeriesTutorial/Fade/VBoxContainer/Avancar" unique_id=804686722]
 layout_mode = 2
 text = "Avançar dialógo"
+label_settings = SubResource("LabelSettings_86xn7")
+
+[node name="Dash" type="HBoxContainer" parent="XboxSeriesTutorial/Fade/VBoxContainer" unique_id=30066741]
+layout_mode = 2
+
+[node name="TextureButton" type="TextureButton" parent="XboxSeriesTutorial/Fade/VBoxContainer/Dash" unique_id=2074820761]
+layout_mode = 2
+texture_normal = ExtResource("35_t5p4s")
+
+[node name="Label" type="Label" parent="XboxSeriesTutorial/Fade/VBoxContainer/Dash" unique_id=1639874036]
+layout_mode = 2
+text = "Dash"
 label_settings = SubResource("LabelSettings_86xn7")
 
 [node name="Node" type="Node" parent="." unique_id=372438819]
