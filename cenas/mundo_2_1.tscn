@@ -7,6 +7,7 @@
 [ext_resource type="Texture2D" uid="uid://dbhd5dlwcskem" path="res://Tilesets/Cave Tileset/Scaffolding_and_BG_Parts (16 x 16).png" id="5_f4kqm"]
 [ext_resource type="PackedScene" uid="uid://d0shy551r0xsd" path="res://cenas/Prefabs/coin.tscn" id="6_cs82x"]
 [ext_resource type="PackedScene" uid="uid://ch31uymdxgroi" path="res://cenas/Prefabs/enemy.tscn" id="7_5pftf"]
+[ext_resource type="PackedScene" uid="uid://kuvg0d4a8kmx" path="res://cenas/Prefabs/ruby_2.tscn" id="7_sw5ds"]
 [ext_resource type="PackedScene" uid="uid://ciwhdlostkeo7" path="res://cenas/Prefabs/goal.tscn" id="8_bvdy4"]
 [ext_resource type="Script" uid="uid://b7p7rsgcwp7la" path="res://Scripts/GDScript/goal_2_1.gd" id="9_bvdy4"]
 [ext_resource type="PackedScene" uid="uid://cbhmeaix3cti0" path="res://cenas/Prefabs/player.tscn" id="10_fumog"]
@@ -1020,6 +1021,11 @@ position = Vector2(21984, 463)
 
 [node name="coin24" parent="coins" unique_id=580817999 instance=ExtResource("6_cs82x")]
 position = Vector2(22370.002, 462.99997)
+
+[node name="rubies" type="Node2D" parent="." unique_id=447238794]
+
+[node name="ruby2" parent="rubies" unique_id=1043508289 instance=ExtResource("7_sw5ds")]
+position = Vector2(12529, 387)
 
 [node name="parede invisivel" type="StaticBody2D" parent="." unique_id=1874489818]
 position = Vector2(11730, 7)

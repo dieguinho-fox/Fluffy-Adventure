@@ -6,6 +6,7 @@
 [ext_resource type="Texture2D" uid="uid://cumy4oggpvlkl" path="res://Interface/Celular e Tablet/Controles/ui_buttons_arrow_right_PRESSED.png" id="4_42edk"]
 [ext_resource type="Script" uid="uid://bqxijt2nv3d4j" path="res://Scripts/C#/avisofimdosuportewindows.cs" id="5_42edk"]
 [ext_resource type="Script" uid="uid://yc1xbl4ibkd" path="res://Scripts/GDScript/loadconfig.gd" id="6_vxiha"]
+[ext_resource type="Script" uid="uid://dl8vuwnb3k1nf" path="res://Scripts/GDScript/android_toast.gd" id="7_vxiha"]
 
 [sub_resource type="LabelSettings" id="LabelSettings_kn3iu"]
 font = ExtResource("1_u1px2")
@@ -138,3 +139,6 @@ script = ExtResource("5_42edk")
 
 [node name="loadconfig" type="Node" parent="." unique_id=612032448]
 script = ExtResource("6_vxiha")
+
+[node name="AndroidToast" type="Node" parent="." unique_id=943749917]
+script = ExtResource("7_vxiha")

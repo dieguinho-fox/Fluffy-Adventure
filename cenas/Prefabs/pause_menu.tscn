@@ -2,10 +2,54 @@
 
 [ext_resource type="Script" uid="uid://b24clp2o4e5yr" path="res://Scripts/GDScript/pause_menu.gd" id="1_81m3x"]
 [ext_resource type="FontFile" uid="uid://ckw4qondl5cjc" path="res://Fontes/RevMiniPixel.ttf" id="2_81m3x"]
+[ext_resource type="Script" uid="uid://ce1lp7n7digxx" path="res://Scripts/GDScript/rubycounter.gd" id="3_oqgfe"]
+[ext_resource type="Texture2D" uid="uid://b1ssecwvmmkxn" path="res://Sprites/Common Pick-ups/Ruby.png" id="4_nowvu"]
 
 [sub_resource type="LabelSettings" id="LabelSettings_81m3x"]
 font = ExtResource("2_81m3x")
 font_size = 75
+outline_size = 10
+outline_color = Color(0, 0, 0, 1)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_nlg8x"]
+atlas = ExtResource("4_nowvu")
+region = Rect2(0, 0, 16, 16)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_ne4qu"]
+atlas = ExtResource("4_nowvu")
+region = Rect2(16, 0, 16, 16)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_16k1a"]
+atlas = ExtResource("4_nowvu")
+region = Rect2(32, 0, 16, 16)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_me8gs"]
+atlas = ExtResource("4_nowvu")
+region = Rect2(48, 0, 16, 16)
+
+[sub_resource type="SpriteFrames" id="SpriteFrames_urmlr"]
+animations = [{
+"frames": [{
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_nlg8x")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_ne4qu")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_16k1a")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_me8gs")
+}],
+"loop": true,
+"name": &"idle",
+"speed": 5.0
+}]
+
+[sub_resource type="LabelSettings" id="LabelSettings_je0m2"]
+font = ExtResource("2_81m3x")
+font_size = 50
 outline_size = 10
 outline_color = Color(0, 0, 0, 1)
 
@@ -61,6 +105,25 @@ theme_override_fonts/font = ExtResource("2_81m3x")
 theme_override_font_sizes/font_size = 75
 text = "Voltar ao menu
 "
+
+[node name="rubycounter" type="Node" parent="." unique_id=555177351]
+script = ExtResource("3_oqgfe")
+
+[node name="rubyanim" type="AnimatedSprite2D" parent="." unique_id=561973881]
+position = Vector2(90, 125.99999)
+scale = Vector2(5, 5)
+sprite_frames = SubResource("SpriteFrames_urmlr")
+animation = &"idle"
+autoplay = "idle"
+
+[node name="counter" type="Label" parent="." unique_id=1668077360]
+offset_left = 145.0
+offset_top = 103.0
+offset_right = 239.0
+offset_bottom = 154.0
+text = "0/7"
+label_settings = SubResource("LabelSettings_je0m2")
+horizontal_alignment = 1
 
 [connection signal="pressed" from="menu_holder/resume_btn" to="." method="_on_resume_btn_pressed"]
 [connection signal="pressed" from="menu_holder/quit_btn" to="." method="_on_quit_btn_pressed"]

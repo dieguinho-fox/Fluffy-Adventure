@@ -7,6 +7,7 @@
 [ext_resource type="Texture2D" uid="uid://dbhd5dlwcskem" path="res://Tilesets/Cave Tileset/Scaffolding_and_BG_Parts (16 x 16).png" id="5_tiv7q"]
 [ext_resource type="PackedScene" uid="uid://d0shy551r0xsd" path="res://cenas/Prefabs/coin.tscn" id="6_uay1p"]
 [ext_resource type="PackedScene" uid="uid://ch31uymdxgroi" path="res://cenas/Prefabs/enemy.tscn" id="7_ital3"]
+[ext_resource type="PackedScene" uid="uid://clyd7xfi5vb8e" path="res://cenas/Prefabs/ruby.tscn" id="7_msd85"]
 [ext_resource type="PackedScene" uid="uid://ciwhdlostkeo7" path="res://cenas/Prefabs/goal.tscn" id="8_unb1j"]
 [ext_resource type="Script" uid="uid://6w36xp10yqoc" path="res://Scripts/GDScript/goal1_3.gd" id="9_btteb"]
 [ext_resource type="Texture2D" uid="uid://dgrbixy47cdua" path="res://Sprites/Outros/morto1.png" id="11_hjnio"]
@@ -770,9 +771,6 @@ position = Vector2(3949, 406.00003)
 [node name="coin11" parent="coins" unique_id=1581256534 instance=ExtResource("6_uay1p")]
 position = Vector2(4426.9995, 406.00003)
 
-[node name="coin12" parent="coins" unique_id=455242814 instance=ExtResource("6_uay1p")]
-position = Vector2(4950, 607)
-
 [node name="coin13" parent="coins" unique_id=580035189 instance=ExtResource("6_uay1p")]
 position = Vector2(5199, 1057.0001)
 
@@ -799,6 +797,11 @@ position = Vector2(9110, 101.00006)
 
 [node name="coin21" parent="coins" unique_id=18632915 instance=ExtResource("6_uay1p")]
 position = Vector2(9706, 101)
+
+[node name="rubies" type="Node2D" parent="." unique_id=595323369]
+
+[node name="ruby" parent="rubies" unique_id=2110733781 instance=ExtResource("7_msd85")]
+position = Vector2(4956, 621)
 
 [node name="parede invisivel" type="StaticBody2D" parent="." unique_id=1874489818]
 collision_layer = 2
@@ -989,6 +992,7 @@ grow_vertical = 2
 color = Color(0.05882353, 0, 0.050980393, 0.7764706)
 
 [node name="BG2" type="Parallax2D" parent="." unique_id=374508352]
+z_index = 2
 repeat_size = Vector2(2304, 0)
 repeat_times = 38
 
@@ -1063,6 +1067,7 @@ scale = Vector2(0.1, 0.1)
 texture = ExtResource("14_ket2s")
 
 [node name="Detalhes2" type="Node2D" parent="." unique_id=2144613341]
+z_index = 2
 position = Vector2(-750, 467)
 
 [node name="Luz" type="Sprite2D" parent="Detalhes2" unique_id=1596695917]

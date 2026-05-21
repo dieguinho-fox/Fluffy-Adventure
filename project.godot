@@ -55,7 +55,7 @@ project/assembly_name="Fluffy Adventure (Copy)"
 
 [editor_plugins]
 
-enabled=PackedStringArray("res://addons/lua-gdextension/plugin.cfg")
+enabled=PackedStringArray("res://addons/ToastPlugin/plugin.cfg", "res://addons/lua-gdextension/plugin.cfg")
 
 [global_group]
 

@@ -8,6 +8,7 @@
 [ext_resource type="PackedScene" uid="uid://d0shy551r0xsd" path="res://cenas/Prefabs/coin.tscn" id="5_ws5rj"]
 [ext_resource type="PackedScene" uid="uid://ch31uymdxgroi" path="res://cenas/Prefabs/enemy.tscn" id="6_mscxl"]
 [ext_resource type="PackedScene" uid="uid://ciwhdlostkeo7" path="res://cenas/Prefabs/goal.tscn" id="7_3he87"]
+[ext_resource type="PackedScene" uid="uid://br7h0kdur8e61" path="res://cenas/Prefabs/ruby_3.tscn" id="7_3o2fs"]
 [ext_resource type="Script" uid="uid://6w36xp10yqoc" path="res://Scripts/GDScript/goal1_3.gd" id="8_jduu8"]
 [ext_resource type="PackedScene" uid="uid://d240houftwb70" path="res://cenas/Prefabs/deathzone.tscn" id="9_7eolq"]
 [ext_resource type="PackedScene" uid="uid://cbhmeaix3cti0" path="res://cenas/Prefabs/player.tscn" id="10_mewcx"]
@@ -310,6 +311,11 @@ position = Vector2(12205.001, 1052)
 
 [node name="coin38" parent="coins" unique_id=113764627 instance=ExtResource("5_ws5rj")]
 position = Vector2(12637, 1052.0001)
+
+[node name="rubies" type="Node2D" parent="." unique_id=1465808505]
+
+[node name="ruby3" parent="rubies" unique_id=1796914506 instance=ExtResource("7_3o2fs")]
+position = Vector2(12188, 248.00003)
 
 [node name="parede invisivel" type="StaticBody2D" parent="." unique_id=1094062983]
 collision_layer = 2
