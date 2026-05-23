@@ -1,13 +1,34 @@
 extends Node
 
-var toast_plugin = Engine.get_singleton("ToastPlugin")
+# ===============================
+# CONFIGURAÇÃO
+# ===============================
+const SHOW_PREVIEW_TOAST := true
 
-# Called when the node enters the scene tree for the first time.
-func _ready() -> void:
-	if Engine.has_singleton("ToastPlugin"):
-		toast_plugin.show_toast("Você está em uma versão Preview, envie bugs caso você encontre.")
+func _ready():
+	if SHOW_PREVIEW_TOAST:
+		show_preview_toast()
 
+func show_preview_toast():
+	if OS.get_name() != "Android":
+		return
 
-# Called every frame. 'delta' is the elapsed time since the previous frame.
-func _process(delta: float) -> void:
-	pass
+	if not Engine.has_singleton("AndroidRuntime"):
+		push_error("AndroidRuntime não encontrado")
+		return
+
+	var android_runtime = Engine.get_singleton("AndroidRuntime")
+	var activity = android_runtime.getActivity()
+
+	var toast_callable = func():
+		var Toast = JavaClassWrapper.wrap("android.widget.Toast")
+
+		Toast.makeText(
+			activity,
+			"Você está em uma versão preview, reporte bugs caso encontre",
+			Toast.LENGTH_LONG
+		).show()
+
+	activity.runOnUiThread(
+		android_runtime.createRunnableFromGodotCallable(toast_callable)
+	)

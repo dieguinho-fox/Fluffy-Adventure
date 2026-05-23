@@ -65,7 +65,7 @@ var last_flavor_text: String = ""
 func _ready() -> void:
 	$botoes/jogar.grab_focus()
 
-	Achievements.unlock_achievement("alpha")
+	Achievements.unlock_achievement("beta")
 
 	randomize()
 

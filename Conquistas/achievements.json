@@ -88,5 +88,27 @@
 	  "fr_CA": "Comment es-tu arrivé là ?",
 	  "jp": "どうやってそこに行ったの？"
 	}
+},
+"beta": {
+	"icon": "res://Conquistas/Ícones/Beta.png",
+	"secret": true,
+	"name": {
+	  "pt_BR": "Beta!",
+	  "pt": "Beta!",
+	  "en": "Beta!",
+	  "es": "¡Beta!",
+	  "fr": "Bêta !",
+	  "fr_CA": "Bêta !",
+	  "jp": "ベータ！"
+	},
+	"description": {
+	  "pt_BR": "Jogue durante a fase beta!",
+	  "pt": "Jogue durante a fase beta!",
+	  "en": "Play during the beta phase!",
+	  "es": "¡Juega durante la fase beta!",
+	  "fr": "Jouez pendant la phase bêta !",
+	  "fr_CA": "Jouez pendant la phase bêta !",
+	  "jp": "ベータ期間中にプレイしよう！"
+	}
 }
 }

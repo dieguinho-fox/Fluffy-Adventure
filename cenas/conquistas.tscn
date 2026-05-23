@@ -4,6 +4,10 @@
 [ext_resource type="Texture2D" uid="uid://p35kvnv5ffh1" path="res://Tilesets/Seasonal Tilesets/1 - Grassland/Background parts/_Complete_static_BG_(288 x 208).png" id="2_k6ekh"]
 [ext_resource type="FontFile" uid="uid://ckw4qondl5cjc" path="res://Fontes/RevMiniPixel.ttf" id="3_jsvp2"]
 [ext_resource type="Script" uid="uid://b0no8fmw633cm" path="res://Scripts/GDScript/Traducao/conquistastraducao.gd" id="3_k6ekh"]
+[ext_resource type="Texture2D" uid="uid://ccovodndo6bqy" path="res://Interface/Celular e Tablet/Controles/ui_buttons_arrow_left_NORMAL.png" id="5_lhhtj"]
+[ext_resource type="Texture2D" uid="uid://dy04coxs2ymg2" path="res://Interface/Celular e Tablet/Controles/ui_buttons_arrow_left_PRESSED.png" id="6_jjdpu"]
+[ext_resource type="Texture2D" uid="uid://ctngl4b8n8443" path="res://Interface/Celular e Tablet/Controles/ui_buttons_arrow_right_NORMAL.png" id="7_y52fu"]
+[ext_resource type="Texture2D" uid="uid://cumy4oggpvlkl" path="res://Interface/Celular e Tablet/Controles/ui_buttons_arrow_right_PRESSED.png" id="8_1i8fc"]
 
 [sub_resource type="LabelSettings" id="LabelSettings_82ggo"]
 font = ExtResource("3_jsvp2")
@@ -66,10 +70,37 @@ horizontal_alignment = 1
 
 [node name="Voltar" type="Button" parent="VBoxContainer" unique_id=1448710166]
 layout_mode = 2
+focus_neighbor_bottom = NodePath("../../voltarpagina")
 theme_override_colors/font_pressed_color = Color(1, 0.69411767, 0, 1)
 theme_override_colors/font_hover_color = Color(0.9490196, 0.9490196, 0, 1)
 theme_override_fonts/font = ExtResource("3_jsvp2")
 theme_override_font_sizes/font_size = 50
 text = "Voltar"
+
+[node name="voltarpagina" type="TextureButton" parent="." unique_id=830415436]
+layout_mode = 0
+offset_left = 9.0
+offset_top = 634.0
+offset_right = 49.0
+offset_bottom = 674.0
+scale = Vector2(6.5, 6.5)
+focus_neighbor_left = NodePath("../proximapagina")
+focus_neighbor_top = NodePath("../VBoxContainer/Voltar")
+focus_neighbor_right = NodePath("../proximapagina")
+texture_normal = ExtResource("5_lhhtj")
+texture_pressed = ExtResource("6_jjdpu")
+
+[node name="proximapagina" type="TextureButton" parent="." unique_id=874210898]
+layout_mode = 0
+offset_left = 1705.0
+offset_top = 634.0
+offset_right = 1745.0
+offset_bottom = 674.0
+scale = Vector2(6.5, 6.5)
+focus_neighbor_left = NodePath("../voltarpagina")
+focus_neighbor_top = NodePath("../VBoxContainer/Voltar")
+focus_neighbor_right = NodePath("../voltarpagina")
+texture_normal = ExtResource("7_y52fu")
+texture_pressed = ExtResource("8_1i8fc")
 
 [connection signal="pressed" from="VBoxContainer/Voltar" to="." method="_on_voltar_pressed"]

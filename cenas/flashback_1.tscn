@@ -336,22 +336,6 @@ texture_normal = ExtResource("16_pgsv8")
 texture_pressed = ExtResource("17_v4eo7")
 action = "ui_cancel"
 
-[node name="ui_dialog" type="TouchScreenButton" parent="controls" unique_id=654579288]
-visible = false
-position = Vector2(1741, 414.99997)
-scale = Vector2(5, 5)
-texture_normal = ExtResource("18_k1wl6")
-texture_pressed = ExtResource("19_6a77w")
-action = "interact"
-
-[node name="ui_advance" type="TouchScreenButton" parent="controls" unique_id=1662721949]
-visible = false
-position = Vector2(1571, 415.00003)
-scale = Vector2(5, 5)
-texture_normal = ExtResource("12_sg2sy")
-texture_pressed = ExtResource("13_qc0gh")
-action = "advance_message"
-
 [node name="ui_dash" type="TouchScreenButton" parent="controls" unique_id=287425732]
 position = Vector2(1712.0001, 491)
 scale = Vector2(6.5, 6.5)
@@ -359,6 +343,22 @@ texture_normal = ExtResource("12_sg2sy")
 texture_pressed = ExtResource("13_qc0gh")
 passby_press = true
 action = "dash"
+
+[node name="ui_dialog" type="TouchScreenButton" parent="controls" unique_id=162672063]
+visible = false
+position = Vector2(1741, 320)
+scale = Vector2(5, 5)
+texture_normal = ExtResource("18_k1wl6")
+texture_pressed = ExtResource("19_6a77w")
+action = "interact"
+
+[node name="ui_advance" type="TouchScreenButton" parent="controls" unique_id=1522961211]
+visible = false
+position = Vector2(1571, 320.00006)
+scale = Vector2(5, 5)
+texture_normal = ExtResource("12_sg2sy")
+texture_pressed = ExtResource("13_qc0gh")
+action = "advance_message"
 
 [node name="HUD" type="CanvasLayer" parent="." unique_id=1604146365]
 layer = 9997

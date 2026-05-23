@@ -570,6 +570,7 @@ tile_set = SubResource("TileSet_mkxv4")
 
 [node name="controls" type="CanvasLayer" parent="." unique_id=240110480]
 layer = 9998
+visible = false
 
 [node name="ui_left" type="TouchScreenButton" parent="controls" unique_id=80284585]
 position = Vector2(9.000001, 721.00006)
@@ -611,7 +612,7 @@ action = "ui_cancel"
 
 [node name="ui_dialog" type="TouchScreenButton" parent="controls" unique_id=654579288]
 visible = false
-position = Vector2(1741, 414.99997)
+position = Vector2(1741, 320)
 scale = Vector2(5, 5)
 texture_normal = ExtResource("25_yo0tl")
 texture_pressed = ExtResource("26_mctdt")
@@ -619,7 +620,7 @@ action = "interact"
 
 [node name="ui_advance" type="TouchScreenButton" parent="controls" unique_id=1662721949]
 visible = false
-position = Vector2(1571, 415.00003)
+position = Vector2(1571, 320.00006)
 scale = Vector2(5, 5)
 texture_normal = ExtResource("11_ksw5h")
 texture_pressed = ExtResource("12_efkj3")
