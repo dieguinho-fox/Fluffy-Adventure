@@ -8,6 +8,7 @@
 [ext_resource type="Texture2D" uid="uid://b1dxqsc4ik8bu" path="res://Tilesets/Seasonal Tilesets/2 - Autumn Forest/Autumn_entities (16 x 16).png" id="6_wykky"]
 [ext_resource type="PackedScene" uid="uid://d0shy551r0xsd" path="res://cenas/Prefabs/coin.tscn" id="6_yv3vi"]
 [ext_resource type="PackedScene" uid="uid://ch31uymdxgroi" path="res://cenas/Prefabs/enemy.tscn" id="7_8wt5a"]
+[ext_resource type="PackedScene" uid="uid://br7h0kdur8e61" path="res://cenas/Prefabs/ruby_3.tscn" id="8_0uqie"]
 [ext_resource type="PackedScene" uid="uid://cbhmeaix3cti0" path="res://cenas/Prefabs/player.tscn" id="8_ek7q6"]
 [ext_resource type="PackedScene" uid="uid://ciwhdlostkeo7" path="res://cenas/Prefabs/goal.tscn" id="8_xdg0a"]
 [ext_resource type="Script" uid="uid://2mlt4bvi5qfb" path="res://Scripts/GDScript/mundo1-0/interface.gd" id="9_810g5"]
@@ -32,7 +33,7 @@
 [ext_resource type="Script" uid="uid://bcr3qbs8dmy0p" path="res://Scripts/GDScript/dialogos/dialogo1.gd" id="28_oyd0b"]
 [ext_resource type="Texture2D" uid="uid://wwxiu2henh0l" path="res://Sprites/Dialog/Dialog_Box(16 x 16).png" id="28_srpdg"]
 
-[sub_resource type="TileSetAtlasSource" id="TileSetAtlasSource_frflr"]
+[sub_resource type="TileSetAtlasSource" id="TileSetAtlasSource_m2s0t"]
 texture = ExtResource("4_wykky")
 5:1/size_in_atlas = Vector2i(3, 3)
 5:1/0 = 0
@@ -61,7 +62,7 @@ texture = ExtResource("4_wykky")
 1:1/size_in_atlas = Vector2i(3, 3)
 1:1/0 = 0
 
-[sub_resource type="TileSetAtlasSource" id="TileSetAtlasSource_chp4w"]
+[sub_resource type="TileSetAtlasSource" id="TileSetAtlasSource_ct4b1"]
 texture = ExtResource("5_74p63")
 3:1/0 = 0
 3:1/0/physics_layer_0/polygon_0/points = PackedVector2Array(-8, -8, 8, -8, 8, 8, -8, 8)
@@ -139,7 +140,7 @@ texture = ExtResource("5_74p63")
 4:8/0 = 0
 4:8/0/physics_layer_0/polygon_0/points = PackedVector2Array(-8, -8, 8, -8, 8, 8, -8, 8)
 
-[sub_resource type="TileSetAtlasSource" id="TileSetAtlasSource_xdg0a"]
+[sub_resource type="TileSetAtlasSource" id="TileSetAtlasSource_78s0d"]
 texture = ExtResource("5_khbe7")
 3:1/0 = 0
 3:1/0/physics_layer_0/polygon_0/points = PackedVector2Array(-8, -8, 8, -8, 8, 8, -8, 8)
@@ -217,7 +218,7 @@ texture = ExtResource("5_khbe7")
 4:8/0 = 0
 4:8/0/physics_layer_0/polygon_0/points = PackedVector2Array(-8, -8, 8, -8, 8, 8, -8, 8)
 
-[sub_resource type="TileSetAtlasSource" id="TileSetAtlasSource_74p63"]
+[sub_resource type="TileSetAtlasSource" id="TileSetAtlasSource_dg6st"]
 texture = ExtResource("6_wykky")
 1:1/size_in_atlas = Vector2i(3, 3)
 1:1/0 = 0
@@ -247,10 +248,10 @@ texture = ExtResource("6_wykky")
 [sub_resource type="TileSet" id="TileSet_uvbdv"]
 physics_layer_0/collision_layer = 2
 physics_layer_0/collision_mask = 7
-sources/1 = SubResource("TileSetAtlasSource_chp4w")
-sources/0 = SubResource("TileSetAtlasSource_frflr")
-sources/2 = SubResource("TileSetAtlasSource_xdg0a")
-sources/3 = SubResource("TileSetAtlasSource_74p63")
+sources/1 = SubResource("TileSetAtlasSource_ct4b1")
+sources/0 = SubResource("TileSetAtlasSource_m2s0t")
+sources/2 = SubResource("TileSetAtlasSource_78s0d")
+sources/3 = SubResource("TileSetAtlasSource_dg6st")
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_frflr"]
 size = Vector2(98, 546)
@@ -555,6 +556,10 @@ position = Vector2(8426, 135)
 
 [node name="coin19" parent="coins" unique_id=1750234538 instance=ExtResource("6_yv3vi")]
 position = Vector2(5464, 743)
+
+[node name="ruby3" parent="coins" unique_id=193720123 instance=ExtResource("8_0uqie")]
+position = Vector2(13824, 834)
+rubi_id = "rubi_5"
 
 [node name="parede invisivel" type="StaticBody2D" parent="." unique_id=298215627]
 collision_layer = 2

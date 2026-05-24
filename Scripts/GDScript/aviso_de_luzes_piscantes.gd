@@ -27,6 +27,10 @@ var transitioning: bool = false
 
 
 func _ready() -> void:
+	$ColorRect/Fade/Label.text = tr("Aviso")
+	$ColorRect/Fade/Label2.text = tr("luzespiscantes")
+	$ColorRect/Fade/Label3.text = tr("teclapc")
+	$ColorRect/Fade/Label4.text = tr("teclamobile")
 	# Mantém o fundo preto visível
 	color_rect.visible = true
 	fade.visible = true

@@ -6,6 +6,7 @@
 [ext_resource type="Texture2D" uid="uid://dhkvk6fo7q82l" path="res://Tilesets/Seasonal Tilesets/4 - Winter World/Winter_entities (16 x 16).png" id="4_sniag"]
 [ext_resource type="Texture2D" uid="uid://sudeh0ebwmsn" path="res://Tilesets/Seasonal Tilesets/5 - Misc. universal tiles/Water_frames (16 x 32).png" id="5_l15uf"]
 [ext_resource type="PackedScene" uid="uid://d0shy551r0xsd" path="res://cenas/Prefabs/coin.tscn" id="7_1ae1b"]
+[ext_resource type="PackedScene" uid="uid://br7h0kdur8e61" path="res://cenas/Prefabs/ruby_3.tscn" id="7_n1hdx"]
 [ext_resource type="PackedScene" uid="uid://ch31uymdxgroi" path="res://cenas/Prefabs/enemy.tscn" id="8_n1hdx"]
 [ext_resource type="Script" uid="uid://cx7b511351xnb" path="res://Scripts/GDScript/goal1_2.gd" id="9_2toxn"]
 [ext_resource type="PackedScene" uid="uid://ciwhdlostkeo7" path="res://cenas/Prefabs/goal.tscn" id="9_d2w8o"]
@@ -296,6 +297,14 @@ position = Vector2(12637, 1052.0001)
 
 [node name="coin31" parent="coins" unique_id=763361998 instance=ExtResource("7_1ae1b")]
 position = Vector2(9709, 189)
+
+[node name="ruby3" parent="coins" unique_id=193720123 instance=ExtResource("7_n1hdx")]
+position = Vector2(3855, 1064.0001)
+rubi_id = "rubi_6"
+
+[node name="ruby4" parent="coins" unique_id=1449094185 instance=ExtResource("7_n1hdx")]
+position = Vector2(11700, 615)
+rubi_id = "rubi_7"
 
 [node name="parede invisivel" type="StaticBody2D" parent="." unique_id=255073859]
 collision_layer = 2

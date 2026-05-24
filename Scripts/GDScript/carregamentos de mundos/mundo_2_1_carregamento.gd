@@ -14,7 +14,8 @@ const ALLOWED_SCENES := [
 	"res://cenas/mundo_1_2_carregamento.tscn",
 	"res://cenas/mundo_1_3_carregamento.tscn",
 	"res://cenas/mundo_2_0_carregamento.tscn",
-	"res://cenas/mundo_2_1_carregamento.tscn"
+	"res://cenas/mundo_2_1_carregamento.tscn",
+	"res://cenas/flashback_1_carregamento.tscn"
 ]
 
 @onready var life_counter := get_node_or_null("life_counter")

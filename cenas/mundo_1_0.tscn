@@ -9,6 +9,7 @@
 [ext_resource type="PackedScene" uid="uid://cbhmeaix3cti0" path="res://cenas/Prefabs/player.tscn" id="4_qlgsv"]
 [ext_resource type="Texture2D" uid="uid://daif3mchgicg0" path="res://Tilesets/Seasonal Tilesets/2 - Autumn Forest/Terrain (16 x 16).png" id="6_rlxc3"]
 [ext_resource type="PackedScene" uid="uid://d0shy551r0xsd" path="res://cenas/Prefabs/coin.tscn" id="8_frflr"]
+[ext_resource type="PackedScene" uid="uid://br7h0kdur8e61" path="res://cenas/Prefabs/ruby_3.tscn" id="8_mctdt"]
 [ext_resource type="Texture2D" uid="uid://dy04coxs2ymg2" path="res://Interface/Celular e Tablet/Controles/ui_buttons_arrow_left_PRESSED.png" id="9_hdxja"]
 [ext_resource type="Texture2D" uid="uid://chlbx7lhac7a8" path="res://Sprites/Easter Eggs/gooey.png" id="10_a2xic"]
 [ext_resource type="Texture2D" uid="uid://ccovodndo6bqy" path="res://Interface/Celular e Tablet/Controles/ui_buttons_arrow_left_NORMAL.png" id="10_xbqq5"]
@@ -455,6 +456,10 @@ position = Vector2(20932.002, 682.00006)
 [node name="coin36" parent="coins" unique_id=667979333 instance=ExtResource("8_frflr")]
 position = Vector2(21322, 682.00006)
 
+[node name="ruby3" parent="coins" unique_id=193720123 instance=ExtResource("8_mctdt")]
+position = Vector2(18033.002, -85.00001)
+rubi_id = "rubi_4"
+
 [node name="parede invisivel" type="StaticBody2D" parent="." unique_id=835790958]
 collision_layer = 2
 
@@ -631,7 +636,6 @@ layer = 9997
 script = ExtResource("21_fx50r")
 
 [node name="control" type="Control" parent="HUD" unique_id=2128117583]
-visible = false
 layout_mode = 3
 anchors_preset = 15
 anchor_right = 1.0

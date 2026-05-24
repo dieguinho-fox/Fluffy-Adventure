@@ -37,3 +37,10 @@ func _ready():
 	$"../Xbox360Tutorial/Fade/VBoxContainer/Avancar/Label".text = tr("Avancar")
 	$"../XboxOneTutorial/Fade/VBoxContainer/Avancar/Label".text = tr("Avancar")
 	$"../XboxSeriesTutorial/Fade/VBoxContainer/Avancar/Label".text = tr("Avancar")
+		# Dash
+	$"../KeyboardTutorial/Fade/VBoxContainer/Dash/Label".text = tr("Dash")
+	$"../PlaystationTutorial/Fade/VBoxContainer/Dash/Label".text = tr("Dash")
+	$"../Xbox360Tutorial/Fade/VBoxContainer/Dash/Label".text = tr("Dash")
+	$"../XboxOneTutorial/Fade/VBoxContainer/Dash/Label".text = tr("Dash")
+	$"../XboxSeriesTutorial/Fade/VBoxContainer/Dash/Label".text = tr("Dash")
+	

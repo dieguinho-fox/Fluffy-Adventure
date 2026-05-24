@@ -3,7 +3,7 @@ extends Node
 # ===============================
 # CONFIGURAÇÃO
 # ===============================
-const SHOW_PREVIEW_TOAST := true
+const SHOW_PREVIEW_TOAST := false
 
 func _ready():
 	if SHOW_PREVIEW_TOAST:
@@ -25,7 +25,7 @@ func show_preview_toast():
 
 		Toast.makeText(
 			activity,
-			"Você está em uma versão preview, reporte bugs caso encontre",
+			"Você está em uma versão preview, reporte bugs ao dev",
 			Toast.LENGTH_LONG
 		).show()
 

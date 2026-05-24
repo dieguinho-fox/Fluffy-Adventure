@@ -57,6 +57,33 @@ DIALOG1_GOLDY_5,"Tome esse celular antigo, e use seu poder de brilhar porque lá
 DIALOG1_GOLDY_6,"E tome cuidado velho amigo, boa sorte","Be careful, old friend, good luck.","E cuidado velho amigo, boa sorte","Y ten cuidado, viejo amigo, buena suerte.","Et fais attention, mon vieil ami, bonne chance.","Et fais attention, mon vieil ami, bonne chance.",気をつけて、旧友よ。幸運を祈る。
 Dialogo,Abrir dialógo,Open dialogue,Abrir diálogo,Diálogo abierto,Dialogue ouvert,Dialogue ouvert,オープンな対話
 Avancar,Avançar dialógo,Advance dialogue,Avançar diálogo,Diálogo anticipado,Dialogue préliminaire,Dialogue préliminaire,会話を先行させる
-API de renderizacao,API de renderização,Rendering API,API de renderização,API de renderizado,API de rendu,API de rendu,レンダリングAPI
-Vulkan,Vulkan (padrão),Vulkan (default),Vulkan (padrão),Vulkan (predeterminado),Vulkan (par défaut),Vulkan (par défaut),Vulkan（デフォルト）
-Reiniciar,Reiniciar,Restart,Reiniciar,Reiniciar,Recharger,Redémarrer,リロード
+Aviso,Aviso,Warning,Aviso,Aviso,Avertissement,Avertissement,免責事項
+luzespiscantes,"Este jogo contém luzes piscantes
+se você for sensível é recomendado
+que você não jogue esse jogo","This game contains flashing lights
+if you are sensitive it is recommended
+don't play this game","Este jogo contém luzes intermitentes
+se for sensível é recomendado
+que não jogue este jogo","Este juego contiene luces intermitentes.
+Si eres sensible a las luces intermitentes
+te recomendamos no jugar","Ce jeu contient des lumières clignotantes.
+Si vous êtes sensible à ces effets
+il est déconseillé de jouer à ce jeu","Ce jeu contient des lumières clignotantes.
+Si vous êtes sensible à ces effets
+il est déconseillé de jouer à ce jeu","このゲームには点滅する光が含まれています。
+
+光に敏感な方は
+このゲームをプレイしないことをお勧めします"
+teclapc,"(aperte qualquer tecla pra continuar...)
+","(press any key to continue...)
+","(carregue em qualquer tecla para continuar...)
+","(Pulsa cualquier tecla para continuar...)
+","(Appuyez sur n'importe quelle touche pour continuer...)
+",(Appuyez sur n'importe quelle touche pour continuer...),"（続行するには任意のキーを押してください…）"
+teclamobile,"(aperte o botão acima pra continuar...)
+","(press the button above to continue...)
+","(carregue no botão acima para continuar...)
+","(Pulsa el botón de arriba para continuar...)
+","(Appuyez sur le bouton ci-dessus pour continuer...)
+",(Appuyez sur le bouton ci-dessus pour continuer...),"（上のボタンを押して続行してください…）"
+Dash,Dash,Dash,Dash,Dash,Dash,Dash,ダッシュ
