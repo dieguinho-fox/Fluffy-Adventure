@@ -49,7 +49,7 @@ func _on_data_pressed():
 # =========================
 func abrir_seletor_arquivos():
 	# 🔥 IMPORTANTE: usar Open Any (Filesystem)
-	file_dialog.access = FileDialog.ACCESS_USERDATA
+	file_dialog.access = FileDialog.ACCESS_FILESYSTEM
 	file_dialog.file_mode = FileDialog.FILE_MODE_OPEN_FILE
 
 	# filtros (opcional mas recomendado)

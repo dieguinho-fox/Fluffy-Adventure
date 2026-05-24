@@ -1,11 +1,11 @@
 {
   "alpha": {
-    "version": "1.0.0b",
-    "url": "https://fluffy-adventure.kesug.com/Atualiza%C3%A7%C3%B5es/1.0.0b.php"
+	"version": "1.0.0b",
+	"url": "https://fluffy-adventure.kesug.com/Atualiza%C3%A7%C3%B5es/1.0.0b.php"
   },
   "beta": {
-    "version": "1.0.0b",
-    "url": "https://fluffy-adventure.kesug.com/Atualiza%C3%A7%C3%B5es/1.0.0b.php"
+	"version": "1.0.1b",
+	"url": "https://fluffy-adventure.kesug.com/Atualiza%C3%A7%C3%B5es/1.0.1b.php"
   },
   "stable": null
 }
