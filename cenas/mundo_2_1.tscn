@@ -1137,6 +1137,7 @@ scale = Vector2(0.2, 0.2)
 texture = ExtResource("13_6d4ui")
 
 [node name="Detalhes" type="TileMapLayer" parent="." unique_id=1015458610]
+z_index = 1
 position = Vector2(135, 735)
 rotation = 3.1415927
 scale = Vector2(4.7084303, -4.5924973)

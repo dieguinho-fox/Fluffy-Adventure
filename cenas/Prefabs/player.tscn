@@ -3,10 +3,12 @@
 [ext_resource type="Texture2D" uid="uid://bq0fyvha2ccl1" path="res://Sprites/Diego/idle.png" id="1_kthid"]
 [ext_resource type="Script" uid="uid://1784f8cawdo5" path="res://Scripts/GDScript/player.gd" id="1_xojfc"]
 [ext_resource type="Texture2D" uid="uid://chqexw3fqj0mn" path="res://Sprites/Diego/dash.png" id="2_w0qxt"]
+[ext_resource type="Texture2D" uid="uid://cs80njaecoj7p" path="res://Sprites/Diego/death.png" id="3_efidl"]
 [ext_resource type="Texture2D" uid="uid://bohhkwxbuqb60" path="res://Sprites/Diego/wait.png" id="4_0vjdf"]
 [ext_resource type="Texture2D" uid="uid://crqn1swkm4nu8" path="res://Sprites/Diego/jump.png" id="5_8v4ht"]
 [ext_resource type="Texture2D" uid="uid://cwvy8rcp7p6fn" path="res://Sprites/Diego/walk.png" id="5_15dsx"]
 [ext_resource type="AudioStream" uid="uid://decjp4oosx58g" path="res://Efeitos sonoros/458884__lilmati__retro-jump-03.wav" id="6_pdysa"]
+[ext_resource type="AudioStream" uid="uid://dk1q8osv6xxx" path="res://Musicas/you died.ogg" id="9_u4fjm"]
 
 [sub_resource type="CapsuleShape2D" id="CapsuleShape2D_8v4ht"]
 radius = 23.0
@@ -19,6 +21,18 @@ region = Rect2(0, 0, 192, 192)
 [sub_resource type="AtlasTexture" id="AtlasTexture_e1f1r"]
 atlas = ExtResource("2_w0qxt")
 region = Rect2(192, 0, 192, 192)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_fk5tn"]
+atlas = ExtResource("3_efidl")
+region = Rect2(0, 0, 192, 192)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_lm5wc"]
+atlas = ExtResource("3_efidl")
+region = Rect2(192, 0, 192, 192)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_siryi"]
+atlas = ExtResource("3_efidl")
+region = Rect2(0, 192, 192, 192)
 
 [sub_resource type="AtlasTexture" id="AtlasTexture_0vjdf"]
 atlas = ExtResource("5_8v4ht")
@@ -112,6 +126,25 @@ animations = [{
 "loop": true,
 "name": &"dash",
 "speed": 12.0
+}, {
+"frames": [{
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_fk5tn")
+}],
+"loop": true,
+"name": &"death",
+"speed": 8.0
+}, {
+"frames": [{
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_lm5wc")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_siryi")
+}],
+"loop": false,
+"name": &"death_falling",
+"speed": 8.0
 }, {
 "frames": [{
 "duration": 1.0,
@@ -610,7 +643,7 @@ z_index = 1
 texture_filter = 1
 position = Vector2(198, 566)
 sprite_frames = SubResource("SpriteFrames_4y2i1")
-animation = &"run"
+animation = &"death_falling"
 autoplay = "idle"
 
 [node name="hurtbox" type="Area2D" parent="." unique_id=1702360898]
@@ -624,6 +657,11 @@ debug_color = Color(0.9882353, 0, 0, 0.41960785)
 
 [node name="jump_sfx" type="AudioStreamPlayer2D" parent="." unique_id=111120420]
 stream = ExtResource("6_pdysa")
+volume_db = -7.0
+bus = &"SFX"
+
+[node name="playerdie_sfx" type="AudioStreamPlayer2D" parent="." unique_id=922843319]
+stream = ExtResource("9_u4fjm")
 volume_db = -7.0
 bus = &"SFX"
 

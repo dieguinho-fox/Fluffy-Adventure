@@ -170,7 +170,7 @@ offset_left = -124.0
 offset_top = -23.0
 grow_horizontal = 0
 grow_vertical = 0
-text = "v1.0.1b"
+text = "v1.0.2b"
 label_settings = SubResource("LabelSettings_hsu4v")
 
 [node name="copyright" type="Label" parent="." unique_id=1997261341]

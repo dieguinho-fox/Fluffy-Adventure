@@ -25,6 +25,13 @@ const AFTERIMAGE_INTERVAL := 0.05
 const AFTERIMAGE_LIFETIME := 0.5
 const AFTERIMAGE_ALPHA := 1.0
 
+# ===============================
+# MORTE
+# ===============================
+const DEATH_JUMP_FORCE := -420.0
+const DEATH_GRAVITY := 1200.0
+const DEATH_FALL_DISTANCE := 3000.0
+
 var vidas: int = VIDAS_INICIAIS
 var can_jump := true
 
@@ -33,22 +40,49 @@ var dash_timer := 0.0
 var dash_cooldown_timer := 0.0
 var dash_direction := 1.0
 
+var is_dead := false
+var death_velocity := 0.0
+
 # Temporizador do afterimage
 var afterimage_timer := 0.0
 
 @onready var animation := $anim as AnimatedSprite2D
 @onready var remote_transform := $remote as RemoteTransform2D
 @onready var jump_sfx: AudioStreamPlayer2D = $jump_sfx as AudioStreamPlayer2D
+@onready var playerdie_sfx: AudioStreamPlayer2D = $playerdie_sfx as AudioStreamPlayer2D
 
 func _ready() -> void:
 	carregar_vidas()
+
 	# 1.0 = velocidade normal configurada no SpriteFrames
 	animation.speed_scale = 1.0
 
 func _physics_process(delta: float) -> void:
+
+	# ===============================
+	# MORTE
+	# ===============================
+	if is_dead:
+		death_velocity += DEATH_GRAVITY * delta
+		animation.position.y += death_velocity * delta
+
+		if death_velocity < 0.0:
+			if animation.animation != "death":
+				animation.play("death")
+		else:
+			if animation.animation != "death_falling":
+				animation.play("death_falling")
+
+		# Quando sair da câmera/tela
+		if animation.global_position.y > global_position.y + DEATH_FALL_DISTANCE:
+			finalizar_morte()
+
+		return
+
 	# Atualiza cooldown do dash
 	if dash_cooldown_timer > 0.0:
 		dash_cooldown_timer -= delta
+
 		if dash_cooldown_timer < 0.0:
 			dash_cooldown_timer = 0.0
 
@@ -198,6 +232,7 @@ func criar_afterimage() -> void:
 
 	# Fade-out
 	var tween := ghost.create_tween()
+
 	tween.tween_property(
 		ghost,
 		"modulate:a",
@@ -209,15 +244,52 @@ func criar_afterimage() -> void:
 	tween.finished.connect(ghost.queue_free)
 
 func _on_hurtbox_body_entered(body: Node2D) -> void:
-	if body.is_in_group("enemies"):
+	if body.is_in_group("enemies") and not is_dead:
 		perder_vida()
 
 # ===============================
 # SISTEMA DE VIDAS
 # ===============================
 func perder_vida() -> void:
+	is_dead = true
+
+	# Congela movimentação real
+	velocity = Vector2.ZERO
+	is_dashing = false
+
+	# Desativa colisão
+	set_collision_layer_value(1, false)
+	set_collision_mask_value(1, false)
+
+	# Muta a música
+	var music_bus := AudioServer.get_bus_index("Music")
+
+	if music_bus != -1:
+		AudioServer.set_bus_mute(music_bus, true)
+
+	# Toca som de morte
+	playerdie_sfx.play()
+
+	# Impulso inicial da morte
+	death_velocity = DEATH_JUMP_FORCE
+
+	# Inicia animação de morte
+	animation.play("death")
+
 	vidas -= 1
 	salvar_vidas()
+
+func finalizar_morte() -> void:
+
+	# Espera o som terminar
+	if playerdie_sfx.playing:
+		return
+
+	# Desmuta a música
+	var music_bus := AudioServer.get_bus_index("Music")
+
+	if music_bus != -1:
+		AudioServer.set_bus_mute(music_bus, false)
 
 	if vidas <= 0:
 		zerar_vidas()
@@ -229,6 +301,7 @@ func ir_para_tela_de_carregamento() -> void:
 	var cena_atual := get_tree().current_scene.scene_file_path
 	var nome_base := cena_atual.get_file().get_basename()
 	var caminho := "res://cenas/%s_carregamento.tscn" % nome_base
+
 	get_tree().change_scene_to_file(caminho)
 
 # ===============================
@@ -236,6 +309,7 @@ func ir_para_tela_de_carregamento() -> void:
 # ===============================
 func salvar_vidas() -> void:
 	var file := FileAccess.open(SAVE_PATH, FileAccess.WRITE)
+
 	if file:
 		file.store_32(vidas)
 		file.close()
@@ -243,6 +317,7 @@ func salvar_vidas() -> void:
 func carregar_vidas() -> void:
 	if FileAccess.file_exists(SAVE_PATH):
 		var file := FileAccess.open(SAVE_PATH, FileAccess.READ)
+
 		if file:
 			vidas = file.get_32()
 			file.close()

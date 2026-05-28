@@ -923,6 +923,7 @@ offset_right = 40.0
 offset_bottom = 40.0
 
 [node name="ColorRect" type="ColorRect" parent="detalhes" unique_id=159056554]
+z_index = 1
 layout_mode = 0
 offset_left = 11742.0
 offset_top = 735.0
