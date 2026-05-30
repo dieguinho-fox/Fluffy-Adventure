@@ -26,6 +26,13 @@ const AFTERIMAGE_LIFETIME := 0.5
 const AFTERIMAGE_ALPHA := 1.0
 
 # ===============================
+# TIMER
+# ===============================
+const LIMITE_TEMPO := 599 # segundos
+
+var tempo := 0
+
+# ===============================
 # MORTE
 # ===============================
 const DEATH_JUMP_FORCE := -420.0
@@ -51,11 +58,26 @@ var afterimage_timer := 0.0
 @onready var jump_sfx: AudioStreamPlayer2D = $jump_sfx as AudioStreamPlayer2D
 @onready var playerdie_sfx: AudioStreamPlayer2D = $playerdie_sfx as AudioStreamPlayer2D
 
+# TIMER
+@onready var game_timer: Timer = $HUD/control/container/timer_container/game_timer
+@onready var tempo_label: Label = $HUD/control/container/timer_container/timer_counter
+
 func _ready() -> void:
+	$HUD/control/container/coins_container/coins_label.text = tr("Moedas")
+	$HUD/control/container/score_container/score_label.text = tr("Pontos")
+	$HUD/control/container/score_container/timer_label.text = tr("Tempo")
+
 	carregar_vidas()
 
 	# 1.0 = velocidade normal configurada no SpriteFrames
 	animation.speed_scale = 1.0
+
+	# TIMER
+	atualizar_hud()
+
+	game_timer.timeout.connect(_on_game_timer_timeout)
+
+	game_timer.start()
 
 func _physics_process(delta: float) -> void:
 
@@ -243,15 +265,68 @@ func criar_afterimage() -> void:
 	# Remove automaticamente
 	tween.finished.connect(ghost.queue_free)
 
+# ===============================
+# TIMER
+# ===============================
+func _on_game_timer_timeout() -> void:
+	if is_dead:
+		return
+
+	tempo += 1
+
+	atualizar_hud()
+
+	var tempo_restante := LIMITE_TEMPO - tempo
+
+	# Pisca vermelho nos últimos 10 segundos
+	if tempo_restante <= 10:
+		if tempo % 2 == 0:
+			tempo_label.modulate = Color.RED
+		else:
+			tempo_label.modulate = Color.WHITE
+	else:
+		tempo_label.modulate = Color.WHITE
+
+	# Tempo acabou
+	if tempo >= LIMITE_TEMPO:
+		game_timer.stop()
+
+		# força game over após a animação
+		vidas = 0
+		salvar_vidas()
+
+		perder_vida()
+
+func atualizar_hud() -> void:
+	var minutos = tempo / 60
+	var segundos = tempo % 60
+
+	tempo_label.text = "%02d:%02d" % [minutos, segundos]
+
+# ===============================
+# DETECÇÃO DE INIMIGOS / DEATHZONE
+# ===============================
 func _on_hurtbox_body_entered(body: Node2D) -> void:
 	if body.is_in_group("enemies") and not is_dead:
+		perder_vida()
+
+func _on_hurtbox_area_entered(area: Area2D) -> void:
+	print(area.name)
+
+	if area.is_in_group("enemies") and not is_dead:
 		perder_vida()
 
 # ===============================
 # SISTEMA DE VIDAS
 # ===============================
 func perder_vida() -> void:
+	if is_dead:
+		return
+
 	is_dead = true
+
+	# Para o timer
+	game_timer.stop()
 
 	# Congela movimentação real
 	velocity = Vector2.ZERO
@@ -276,7 +351,10 @@ func perder_vida() -> void:
 	# Inicia animação de morte
 	animation.play("death")
 
-	vidas -= 1
+	# Só remove vida se ainda tiver
+	if vidas > 0:
+		vidas -= 1
+
 	salvar_vidas()
 
 func finalizar_morte() -> void:
@@ -321,6 +399,11 @@ func carregar_vidas() -> void:
 		if file:
 			vidas = file.get_32()
 			file.close()
+
+			# Corrige save inválido
+			if vidas <= 0:
+				vidas = VIDAS_INICIAIS
+				salvar_vidas()
 	else:
 		vidas = VIDAS_INICIAIS
 		salvar_vidas()

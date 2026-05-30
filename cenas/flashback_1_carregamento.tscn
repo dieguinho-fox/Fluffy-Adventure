@@ -42,7 +42,7 @@ grow_vertical = 2
 
 [node name="mundo" type="Label" parent="VBoxContainer" unique_id=168442024]
 layout_mode = 2
-text = "FA"
+text = "FB"
 label_settings = SubResource("LabelSettings_oknt7")
 horizontal_alignment = 1
 

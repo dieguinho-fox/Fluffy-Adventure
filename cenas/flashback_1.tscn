@@ -23,9 +23,6 @@
 [ext_resource type="Texture2D" uid="uid://c0vwu1he4ct81" path="res://Interface/Celular e Tablet/Controles/pause_PRESSED.png" id="17_v4eo7"]
 [ext_resource type="Texture2D" uid="uid://ciufj2nc7m7gt" path="res://Interface/Celular e Tablet/Controles/dialog_NORMAL.png" id="18_k1wl6"]
 [ext_resource type="Texture2D" uid="uid://b8ifip1osgpbl" path="res://Interface/Celular e Tablet/Controles/dialog_PRESSED.png" id="19_6a77w"]
-[ext_resource type="Script" uid="uid://btfpom1p1iwjj" path="res://Scripts/GDScript/hud_1_3.gd" id="20_qpkny"]
-[ext_resource type="Script" uid="uid://d1lhqfo1jxf05" path="res://Scripts/GDScript/hud_manager.gd" id="21_jqono"]
-[ext_resource type="FontFile" uid="uid://ckw4qondl5cjc" path="res://Fontes/RevMiniPixel.ttf" id="22_v6tgb"]
 [ext_resource type="PackedScene" uid="uid://bd44jeqrcs4fg" path="res://cenas/Prefabs/pause_menu.tscn" id="23_jaj84"]
 [ext_resource type="Script" uid="uid://bi7efbae47pcm" path="res://Scripts/GDScript/AchievementsUI.gd" id="24_v76jd"]
 [ext_resource type="PackedScene" uid="uid://dbjsxbx6fkwqv" path="res://cenas/Prefabs/conquista.tscn" id="25_un0ra"]
@@ -481,24 +478,6 @@ animations = [{
 "speed": 5.0
 }]
 
-[sub_resource type="LabelSettings" id="LabelSettings_ii1to"]
-font = ExtResource("22_v6tgb")
-font_size = 35
-outline_size = 10
-outline_color = Color(0, 0, 0, 1)
-
-[sub_resource type="LabelSettings" id="LabelSettings_xihs4"]
-font = ExtResource("22_v6tgb")
-font_size = 35
-outline_size = 10
-outline_color = Color(0, 0, 0, 1)
-
-[sub_resource type="LabelSettings" id="LabelSettings_efkj3"]
-font = ExtResource("22_v6tgb")
-font_size = 35
-outline_size = 10
-outline_color = Color(0, 0, 0, 1)
-
 [node name="Flashback1" type="Node2D" unique_id=1009211242]
 script = ExtResource("1_re8o3")
 
@@ -743,77 +722,6 @@ scale = Vector2(5, 5)
 texture_normal = ExtResource("12_sg2sy")
 texture_pressed = ExtResource("13_qc0gh")
 action = "advance_message"
-
-[node name="HUD" type="CanvasLayer" parent="." unique_id=1604146365]
-layer = 9997
-script = ExtResource("20_qpkny")
-
-[node name="control" type="Control" parent="HUD" unique_id=2128117583]
-layout_mode = 3
-anchors_preset = 15
-anchor_right = 1.0
-anchor_bottom = 1.0
-grow_horizontal = 2
-grow_vertical = 2
-script = ExtResource("21_jqono")
-
-[node name="container" type="MarginContainer" parent="HUD/control" unique_id=647006894]
-layout_mode = 1
-anchors_preset = 15
-anchor_right = 1.0
-anchor_bottom = 1.0
-grow_horizontal = 2
-grow_vertical = 2
-
-[node name="coins_container" type="HBoxContainer" parent="HUD/control/container" unique_id=301433147]
-layout_mode = 2
-
-[node name="coins_label" type="Label" parent="HUD/control/container/coins_container" unique_id=1864617804]
-layout_mode = 2
-size_flags_horizontal = 0
-size_flags_vertical = 0
-text = "MOEDAS:"
-label_settings = SubResource("LabelSettings_ii1to")
-
-[node name="coins_counter" type="Label" parent="HUD/control/container/coins_container" unique_id=933414070]
-layout_mode = 2
-size_flags_vertical = 0
-text = "0000"
-label_settings = SubResource("LabelSettings_xihs4")
-
-[node name="score_container" type="HBoxContainer" parent="HUD/control/container" unique_id=1315605269]
-layout_mode = 2
-
-[node name="score_label" type="Label" parent="HUD/control/container/score_container" unique_id=1500801750]
-layout_mode = 2
-size_flags_horizontal = 10
-size_flags_vertical = 0
-text = "PONTOS:"
-label_settings = SubResource("LabelSettings_efkj3")
-
-[node name="score_counter" type="Label" parent="HUD/control/container/score_container" unique_id=1216426627]
-layout_mode = 2
-size_flags_horizontal = 8
-size_flags_vertical = 0
-text = "000000"
-label_settings = SubResource("LabelSettings_xihs4")
-
-[node name="live_container" type="HBoxContainer" parent="HUD/control/container" unique_id=199309410]
-layout_mode = 2
-
-[node name="live_label" type="Label" parent="HUD/control/container/live_container" unique_id=299702797]
-layout_mode = 2
-size_flags_horizontal = 8
-size_flags_vertical = 8
-text = "VIDAS:"
-label_settings = SubResource("LabelSettings_efkj3")
-
-[node name="live_counter" type="Label" parent="HUD/control/container/live_container" unique_id=1662165330]
-layout_mode = 2
-size_flags_horizontal = 8
-size_flags_vertical = 8
-text = "X1"
-label_settings = SubResource("LabelSettings_xihs4")
 
 [node name="pause_menu" parent="." unique_id=2023953219 instance=ExtResource("23_jaj84")]
 layer = 9999

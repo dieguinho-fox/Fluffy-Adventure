@@ -9,6 +9,9 @@
 [ext_resource type="Texture2D" uid="uid://cwvy8rcp7p6fn" path="res://Sprites/Diego/walk.png" id="5_15dsx"]
 [ext_resource type="AudioStream" uid="uid://decjp4oosx58g" path="res://Efeitos sonoros/458884__lilmati__retro-jump-03.wav" id="6_pdysa"]
 [ext_resource type="AudioStream" uid="uid://dk1q8osv6xxx" path="res://Musicas/you died.ogg" id="9_u4fjm"]
+[ext_resource type="Script" uid="uid://btfpom1p1iwjj" path="res://Scripts/GDScript/hud_1_3.gd" id="10_043va"]
+[ext_resource type="Script" uid="uid://d1lhqfo1jxf05" path="res://Scripts/GDScript/hud_manager.gd" id="11_ry8wb"]
+[ext_resource type="FontFile" uid="uid://ckw4qondl5cjc" path="res://Fontes/RevMiniPixel.ttf" id="12_lgjom"]
 
 [sub_resource type="CapsuleShape2D" id="CapsuleShape2D_8v4ht"]
 radius = 23.0
@@ -628,6 +631,18 @@ animations = [{
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_vv33d"]
 size = Vector2(62, 62)
 
+[sub_resource type="LabelSettings" id="LabelSettings_gloi6"]
+font = ExtResource("12_lgjom")
+font_size = 35
+outline_size = 10
+outline_color = Color(0, 0, 0, 1)
+
+[sub_resource type="LabelSettings" id="LabelSettings_x0odw"]
+font = ExtResource("12_lgjom")
+font_size = 35
+outline_size = 10
+outline_color = Color(0, 0, 0, 1)
+
 [node name="player" type="CharacterBody2D" unique_id=2020173120 groups=["player"]]
 collision_mask = 22
 script = ExtResource("1_xojfc")
@@ -669,5 +684,98 @@ bus = &"SFX"
 position = Vector2(189, 556)
 scale = Vector2(0.5307262, -2.0890107)
 
+[node name="HUD" type="CanvasLayer" parent="." unique_id=2097013676]
+layer = 9997
+script = ExtResource("10_043va")
+
+[node name="control" type="Control" parent="HUD" unique_id=1334415699]
+layout_mode = 3
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+script = ExtResource("11_ry8wb")
+
+[node name="container" type="MarginContainer" parent="HUD/control" unique_id=1327252057]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+
+[node name="coins_container" type="HBoxContainer" parent="HUD/control/container" unique_id=165085776]
+layout_mode = 2
+
+[node name="coins_label" type="Label" parent="HUD/control/container/coins_container" unique_id=283505949]
+layout_mode = 2
+size_flags_horizontal = 4
+size_flags_vertical = 0
+text = "MOEDAS:"
+label_settings = SubResource("LabelSettings_gloi6")
+
+[node name="coins_counter" type="Label" parent="HUD/control/container/coins_container" unique_id=1111115879]
+layout_mode = 2
+size_flags_vertical = 0
+text = "0000"
+label_settings = SubResource("LabelSettings_x0odw")
+
+[node name="timer_container" type="HBoxContainer" parent="HUD/control/container" unique_id=578481906]
+layout_mode = 2
+
+[node name="timer_label" type="Label" parent="HUD/control/container/timer_container" unique_id=432539611]
+layout_mode = 2
+size_flags_horizontal = 10
+size_flags_vertical = 0
+text = "TEMPO:"
+label_settings = SubResource("LabelSettings_gloi6")
+
+[node name="timer_counter" type="Label" parent="HUD/control/container/timer_container" unique_id=468483504]
+layout_mode = 2
+size_flags_horizontal = 2
+size_flags_vertical = 0
+text = "00:00"
+label_settings = SubResource("LabelSettings_x0odw")
+
+[node name="game_timer" type="Timer" parent="HUD/control/container/timer_container" unique_id=1080461662]
+autostart = true
+
+[node name="score_container" type="HBoxContainer" parent="HUD/control/container" unique_id=514643370]
+layout_mode = 2
+
+[node name="score_label" type="Label" parent="HUD/control/container/score_container" unique_id=1110882719]
+layout_mode = 2
+size_flags_horizontal = 10
+size_flags_vertical = 0
+text = "PONTOS:"
+label_settings = SubResource("LabelSettings_gloi6")
+
+[node name="score_counter" type="Label" parent="HUD/control/container/score_container" unique_id=1832684511]
+layout_mode = 2
+size_flags_horizontal = 8
+size_flags_vertical = 0
+text = "000000"
+label_settings = SubResource("LabelSettings_x0odw")
+
+[node name="live_container" type="HBoxContainer" parent="HUD/control/container" unique_id=343342080]
+layout_mode = 2
+
+[node name="live_label" type="Label" parent="HUD/control/container/live_container" unique_id=1001426803]
+layout_mode = 2
+size_flags_horizontal = 8
+size_flags_vertical = 8
+text = "VIDAS:"
+label_settings = SubResource("LabelSettings_gloi6")
+
+[node name="live_counter" type="Label" parent="HUD/control/container/live_container" unique_id=4747211]
+layout_mode = 2
+size_flags_horizontal = 8
+size_flags_vertical = 8
+text = "X1"
+label_settings = SubResource("LabelSettings_x0odw")
+
 [connection signal="animation_finished" from="anim" to="." method="_on_anim_animation_finished"]
+[connection signal="area_entered" from="hurtbox" to="." method="_on_hurtbox_area_entered"]
 [connection signal="body_entered" from="hurtbox" to="." method="_on_hurtbox_body_entered"]
+[connection signal="timeout" from="HUD/control/container/timer_container/game_timer" to="." method="_on_game_timer_timeout"]

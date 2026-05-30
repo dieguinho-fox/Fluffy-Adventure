@@ -8,9 +8,6 @@ func _ready() -> void:
 
 	Input.set_mouse_mode(Input.MOUSE_MODE_HIDDEN)
 
-	$HUD/control/container/coins_container/coins_label.text = tr("Moedas")
-	$HUD/control/container/score_container/score_label.text = tr("Pontos")
-
 	# Mostrar controles só no Android
 	if sistema == "Android":
 		controles.visible = true

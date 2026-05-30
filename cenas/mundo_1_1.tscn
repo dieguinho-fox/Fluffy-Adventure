@@ -24,8 +24,6 @@
 [ext_resource type="Texture2D" uid="uid://bj3mi4056cm0m" path="res://Interface/Celular e Tablet/Controles/pause_NORMAL.png" id="17_78s0d"]
 [ext_resource type="Texture2D" uid="uid://c0vwu1he4ct81" path="res://Interface/Celular e Tablet/Controles/pause_PRESSED.png" id="18_dg6st"]
 [ext_resource type="PackedScene" uid="uid://bd44jeqrcs4fg" path="res://cenas/Prefabs/pause_menu.tscn" id="19_w2jls"]
-[ext_resource type="Script" uid="uid://d1lhqfo1jxf05" path="res://Scripts/GDScript/hud_manager.gd" id="20_74p63"]
-[ext_resource type="Script" uid="uid://btfpom1p1iwjj" path="res://Scripts/GDScript/hud_1_3.gd" id="22_ek7q6"]
 [ext_resource type="Texture2D" uid="uid://ciufj2nc7m7gt" path="res://Interface/Celular e Tablet/Controles/dialog_NORMAL.png" id="22_exahd"]
 [ext_resource type="Texture2D" uid="uid://b8ifip1osgpbl" path="res://Interface/Celular e Tablet/Controles/dialog_PRESSED.png" id="23_0uqie"]
 [ext_resource type="PackedScene" uid="uid://d240houftwb70" path="res://cenas/Prefabs/deathzone.tscn" id="25_8wt5a"]
@@ -266,18 +264,6 @@ font_color = Color(0, 0, 0, 1)
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_6l6ks"]
 size = Vector2(60, 46)
-
-[sub_resource type="LabelSettings" id="LabelSettings_efkj3"]
-font = ExtResource("11_wykky")
-font_size = 35
-outline_size = 10
-outline_color = Color(0, 0, 0, 1)
-
-[sub_resource type="LabelSettings" id="LabelSettings_xihs4"]
-font = ExtResource("11_wykky")
-font_size = 35
-outline_size = 10
-outline_color = Color(0, 0, 0, 1)
 
 [node name="Mundo1-1" type="Node2D" unique_id=1286776491]
 script = ExtResource("1_vjamk")
@@ -989,80 +975,9 @@ texture_normal = ExtResource("13_exahd")
 texture_pressed = ExtResource("14_0uqie")
 action = "advance_message"
 
-[node name="HUD" type="CanvasLayer" parent="." unique_id=1188907826]
-layer = 9997
-script = ExtResource("22_ek7q6")
-
-[node name="control" type="Control" parent="HUD" unique_id=1496118605]
-layout_mode = 3
-anchors_preset = 15
-anchor_right = 1.0
-anchor_bottom = 1.0
-grow_horizontal = 2
-grow_vertical = 2
-script = ExtResource("20_74p63")
-
-[node name="container" type="MarginContainer" parent="HUD/control" unique_id=1117780292]
-layout_mode = 1
-anchors_preset = 15
-anchor_right = 1.0
-anchor_bottom = 1.0
-grow_horizontal = 2
-grow_vertical = 2
-
-[node name="coins_container" type="HBoxContainer" parent="HUD/control/container" unique_id=594601500]
-layout_mode = 2
-
-[node name="coins_label" type="Label" parent="HUD/control/container/coins_container" unique_id=50863250]
-layout_mode = 2
-size_flags_horizontal = 4
-size_flags_vertical = 0
-text = "MOEDAS:"
-label_settings = SubResource("LabelSettings_efkj3")
-
-[node name="coins_counter" type="Label" parent="HUD/control/container/coins_container" unique_id=1276535761]
-layout_mode = 2
-size_flags_vertical = 0
-text = "0000"
-label_settings = SubResource("LabelSettings_xihs4")
-
-[node name="score_container" type="HBoxContainer" parent="HUD/control/container" unique_id=584784444]
-layout_mode = 2
-
-[node name="score_label" type="Label" parent="HUD/control/container/score_container" unique_id=1135698850]
-layout_mode = 2
-size_flags_horizontal = 10
-size_flags_vertical = 0
-text = "PONTOS:"
-label_settings = SubResource("LabelSettings_efkj3")
-
-[node name="score_counter" type="Label" parent="HUD/control/container/score_container" unique_id=1137194047]
-layout_mode = 2
-size_flags_horizontal = 8
-size_flags_vertical = 0
-text = "000000"
-label_settings = SubResource("LabelSettings_xihs4")
-
-[node name="live_container" type="HBoxContainer" parent="HUD/control/container" unique_id=899595050]
-layout_mode = 2
-
-[node name="live_label" type="Label" parent="HUD/control/container/live_container" unique_id=712845096]
-layout_mode = 2
-size_flags_horizontal = 8
-size_flags_vertical = 8
-text = "VIDAS:"
-label_settings = SubResource("LabelSettings_efkj3")
-
-[node name="live_counter" type="Label" parent="HUD/control/container/live_container" unique_id=1669937479]
-layout_mode = 2
-size_flags_horizontal = 8
-size_flags_vertical = 8
-text = "X1"
-label_settings = SubResource("LabelSettings_xihs4")
-
 [node name="pause_menu" parent="." unique_id=1554946487 instance=ExtResource("19_w2jls")]
 layer = 9999
 
 [node name="deathzone" parent="." unique_id=1509740457 instance=ExtResource("25_8wt5a")]
-position = Vector2(8456.999, 1127)
+position = Vector2(8457, 1106)
 scale = Vector2(29.714369, 5.184192)

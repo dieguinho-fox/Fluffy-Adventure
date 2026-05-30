@@ -13,7 +13,6 @@
 [ext_resource type="PackedScene" uid="uid://d240houftwb70" path="res://cenas/Prefabs/deathzone.tscn" id="10_2toxn"]
 [ext_resource type="PackedScene" uid="uid://cbhmeaix3cti0" path="res://cenas/Prefabs/player.tscn" id="11_raj2y"]
 [ext_resource type="Script" uid="uid://2mlt4bvi5qfb" path="res://Scripts/GDScript/mundo1-0/interface.gd" id="12_drw33"]
-[ext_resource type="FontFile" uid="uid://ckw4qondl5cjc" path="res://Fontes/RevMiniPixel.ttf" id="13_1rkyv"]
 [ext_resource type="Texture2D" uid="uid://ba1wc60oxgn24" path="res://Sprites/Effects/Snow particle.png" id="13_jyrth"]
 [ext_resource type="AudioStream" uid="uid://cdl4b2hp2cegp" path="res://Musicas/Have a great Christmas 2.ogg" id="14_2toxn"]
 [ext_resource type="Texture2D" uid="uid://ccovodndo6bqy" path="res://Interface/Celular e Tablet/Controles/ui_buttons_arrow_left_NORMAL.png" id="14_yftjh"]
@@ -24,9 +23,7 @@
 [ext_resource type="Texture2D" uid="uid://80xqxrigu50p" path="res://Interface/Celular e Tablet/Controles/ui_buttons_arrow_up_PRESSED.png" id="19_m6e1k"]
 [ext_resource type="Texture2D" uid="uid://bj3mi4056cm0m" path="res://Interface/Celular e Tablet/Controles/pause_NORMAL.png" id="20_twepn"]
 [ext_resource type="Texture2D" uid="uid://c0vwu1he4ct81" path="res://Interface/Celular e Tablet/Controles/pause_PRESSED.png" id="21_ciit2"]
-[ext_resource type="Script" uid="uid://d1lhqfo1jxf05" path="res://Scripts/GDScript/hud_manager.gd" id="22_ibr5h"]
 [ext_resource type="PackedScene" uid="uid://bd44jeqrcs4fg" path="res://cenas/Prefabs/pause_menu.tscn" id="23_3xrxt"]
-[ext_resource type="Script" uid="uid://btfpom1p1iwjj" path="res://Scripts/GDScript/hud_1_3.gd" id="23_ayx0f"]
 [ext_resource type="Texture2D" uid="uid://ciufj2nc7m7gt" path="res://Interface/Celular e Tablet/Controles/dialog_NORMAL.png" id="23_pmj5v"]
 [ext_resource type="Texture2D" uid="uid://b8ifip1osgpbl" path="res://Interface/Celular e Tablet/Controles/dialog_PRESSED.png" id="24_1ae1b"]
 
@@ -151,18 +148,6 @@ initial_velocity_max = 50.0
 gravity = Vector3(0, 98, 0)
 scale_min = 3.0
 scale_max = 3.0
-
-[sub_resource type="LabelSettings" id="LabelSettings_efkj3"]
-font = ExtResource("13_1rkyv")
-font_size = 35
-outline_size = 10
-outline_color = Color(0, 0, 0, 1)
-
-[sub_resource type="LabelSettings" id="LabelSettings_xihs4"]
-font = ExtResource("13_1rkyv")
-font_size = 35
-outline_size = 10
-outline_color = Color(0, 0, 0, 1)
 
 [node name="Mundo1-2" type="Node2D" unique_id=1748194563]
 script = ExtResource("1_jyrth")
@@ -862,77 +847,6 @@ scale = Vector2(5, 5)
 texture_normal = ExtResource("16_jmmfq")
 texture_pressed = ExtResource("17_dx52i")
 action = "advance_message"
-
-[node name="HUD" type="CanvasLayer" parent="." unique_id=1773327339]
-layer = 9997
-script = ExtResource("23_ayx0f")
-
-[node name="control" type="Control" parent="HUD" unique_id=761365104]
-layout_mode = 3
-anchors_preset = 15
-anchor_right = 1.0
-anchor_bottom = 1.0
-grow_horizontal = 2
-grow_vertical = 2
-script = ExtResource("22_ibr5h")
-
-[node name="container" type="MarginContainer" parent="HUD/control" unique_id=847978820]
-layout_mode = 1
-anchors_preset = 15
-anchor_right = 1.0
-anchor_bottom = 1.0
-grow_horizontal = 2
-grow_vertical = 2
-
-[node name="coins_container" type="HBoxContainer" parent="HUD/control/container" unique_id=702369606]
-layout_mode = 2
-
-[node name="coins_label" type="Label" parent="HUD/control/container/coins_container" unique_id=844462003]
-layout_mode = 2
-size_flags_horizontal = 4
-size_flags_vertical = 0
-text = "MOEDAS:"
-label_settings = SubResource("LabelSettings_efkj3")
-
-[node name="coins_counter" type="Label" parent="HUD/control/container/coins_container" unique_id=701434761]
-layout_mode = 2
-size_flags_vertical = 0
-text = "0000"
-label_settings = SubResource("LabelSettings_xihs4")
-
-[node name="score_container" type="HBoxContainer" parent="HUD/control/container" unique_id=1271770550]
-layout_mode = 2
-
-[node name="score_label" type="Label" parent="HUD/control/container/score_container" unique_id=789862616]
-layout_mode = 2
-size_flags_horizontal = 10
-size_flags_vertical = 0
-text = "PONTOS:"
-label_settings = SubResource("LabelSettings_efkj3")
-
-[node name="score_counter" type="Label" parent="HUD/control/container/score_container" unique_id=554819439]
-layout_mode = 2
-size_flags_horizontal = 8
-size_flags_vertical = 0
-text = "000000"
-label_settings = SubResource("LabelSettings_xihs4")
-
-[node name="live_container" type="HBoxContainer" parent="HUD/control/container" unique_id=328111899]
-layout_mode = 2
-
-[node name="live_label" type="Label" parent="HUD/control/container/live_container" unique_id=2092344809]
-layout_mode = 2
-size_flags_horizontal = 8
-size_flags_vertical = 8
-text = "VIDAS:"
-label_settings = SubResource("LabelSettings_efkj3")
-
-[node name="live_counter" type="Label" parent="HUD/control/container/live_container" unique_id=1507771815]
-layout_mode = 2
-size_flags_horizontal = 8
-size_flags_vertical = 8
-text = "X1"
-label_settings = SubResource("LabelSettings_xihs4")
 
 [node name="pause_menu" parent="." unique_id=2057413965 instance=ExtResource("23_3xrxt")]
 layer = 9999
