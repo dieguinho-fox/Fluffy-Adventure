@@ -65,7 +65,7 @@ var afterimage_timer := 0.0
 func _ready() -> void:
 	$HUD/control/container/coins_container/coins_label.text = tr("Moedas")
 	$HUD/control/container/score_container/score_label.text = tr("Pontos")
-	$HUD/control/container/score_container/timer_label.text = tr("Tempo")
+	$HUD/control/container/timer_container/timer_label.text = tr("Tempo")
 
 	carregar_vidas()
 

@@ -46,7 +46,7 @@ text = "FB"
 label_settings = SubResource("LabelSettings_oknt7")
 horizontal_alignment = 1
 
-[node name="mundo2" type="Label" parent="VBoxContainer" unique_id=2043871111]
+[node name="Vidas" type="Label" parent="VBoxContainer" unique_id=2043871111]
 layout_mode = 2
 text = "Vidas:"
 label_settings = SubResource("LabelSettings_oknt7")

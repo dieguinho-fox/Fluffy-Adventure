@@ -1,0 +1,28 @@
+[gd_scene format=3 uid="uid://bs568w5jxseo5"]
+
+[ext_resource type="Script" uid="uid://csykl8qci7p01" path="res://Scripts/GDScript/player_3d.gd" id="1_c8ds3"]
+
+[sub_resource type="CapsuleShape3D" id="CapsuleShape3D_wkf6d"]
+
+[sub_resource type="CapsuleMesh" id="CapsuleMesh_7vdhk"]
+
+[node name="CharacterBody3D" type="CharacterBody3D" unique_id=1055210008]
+script = ExtResource("1_c8ds3")
+
+[node name="corpo" type="CollisionShape3D" parent="." unique_id=466786741]
+visible = false
+shape = SubResource("CapsuleShape3D_wkf6d")
+
+[node name="MeshInstance3D" type="MeshInstance3D" parent="corpo" unique_id=749530824]
+mesh = SubResource("CapsuleMesh_7vdhk")
+skeleton = NodePath("../..")
+
+[node name="cabeca" type="Node3D" parent="." unique_id=1544770861]
+unique_name_in_owner = true
+
+[node name="Camera3D" type="Camera3D" parent="cabeca" unique_id=169202139]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.53209287, 0)
+
+[node name="SpotLight3D" type="SpotLight3D" parent="cabeca/Camera3D" unique_id=171346695]
+shadow_enabled = true
+spot_angle = 17.4

@@ -530,7 +530,7 @@ position = Vector2(-83, 537)
 shape = SubResource("RectangleShape2D_frflr")
 
 [node name="goal" parent="." unique_id=1397360120 instance=ExtResource("7_6x057")]
-position = Vector2(8572, 591)
+position = Vector2(8153, 591)
 script = ExtResource("9_kg84j")
 
 [node name="Foxes" type="Node2D" parent="." unique_id=1360809483]
@@ -615,7 +615,7 @@ position = Vector2(165, 549)
 stream = ExtResource("10_saobh")
 autoplay = true
 bus = &"Music"
-parameters/looping = false
+parameters/looping = true
 
 [node name="Control" type="Control" parent="." unique_id=1500978554]
 layout_mode = 3
