@@ -1,6 +1,6 @@
 extends Node2D
 
-@export var next_scene_path: String = "res://cenas/continua.tscn"
+@export var next_scene_path: String = "res://cenas/mundo_2_2_carregamento.tscn"
 @onready var skipbtn = $skipbtn # ajuste o caminho se necessário
 
 func _ready() -> void:

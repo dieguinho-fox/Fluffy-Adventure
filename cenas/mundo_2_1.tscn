@@ -1020,6 +1020,14 @@ collision_layer = 2
 position = Vector2(-128, 639)
 shape = SubResource("RectangleShape2D_frflr")
 
+[node name="parede invisivel3" type="StaticBody2D" parent="." unique_id=201827574]
+position = Vector2(23511, -416)
+collision_layer = 2
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="parede invisivel3" unique_id=1654557778]
+position = Vector2(-128, 639)
+shape = SubResource("RectangleShape2D_frflr")
+
 [node name="parede invisivel2" type="StaticBody2D" parent="." unique_id=2001586015]
 position = Vector2(9924, -972)
 collision_layer = 2

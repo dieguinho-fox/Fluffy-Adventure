@@ -529,6 +529,14 @@ collision_layer = 2
 position = Vector2(-83, 537)
 shape = SubResource("RectangleShape2D_frflr")
 
+[node name="parede invisivel2" type="StaticBody2D" parent="." unique_id=655038995]
+position = Vector2(8594, -104)
+collision_layer = 2
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="parede invisivel2" unique_id=1172206644]
+position = Vector2(-83, 537)
+shape = SubResource("RectangleShape2D_frflr")
+
 [node name="goal" parent="." unique_id=1397360120 instance=ExtResource("7_6x057")]
 position = Vector2(8153, 591)
 script = ExtResource("9_kg84j")

@@ -1,0 +1,212 @@
+[gd_scene format=3 uid="uid://bty3rbykgph4o"]
+
+[ext_resource type="Script" uid="uid://4r67mkqbrl8a" path="res://Scripts/GDScript/carregamentos de mundos/run_carregamento.gd" id="1_2g1ej"]
+[ext_resource type="Script" uid="uid://dx066d86alpba" path="res://Scripts/GDScript/Traducao/carregandomundotraduzivel.gd" id="2_s1s2v"]
+[ext_resource type="FontFile" uid="uid://ckw4qondl5cjc" path="res://Fontes/RevMiniPixel.ttf" id="3_yh2sq"]
+[ext_resource type="Texture2D" uid="uid://chqexw3fqj0mn" path="res://Sprites/Diego/dash.png" id="4_2g1ej"]
+[ext_resource type="Texture2D" uid="uid://cj2goxjnjjnxg" path="res://Interface/Tutoriais/Teclado/Keyboard_shift.png" id="5_efery"]
+[ext_resource type="Texture2D" uid="uid://ch7g5xsvrcuvv" path="res://Interface/Tutoriais/Playstation/PS4_R1.png" id="6_fh22k"]
+[ext_resource type="Texture2D" uid="uid://cbvacntew6o8v" path="res://Interface/Tutoriais/Xbox 360/360_RB.png" id="7_0esp5"]
+[ext_resource type="Texture2D" uid="uid://cegfh8epxljva" path="res://Interface/Tutoriais/Xbox One/XboxOne_RB.png" id="8_p8c1c"]
+[ext_resource type="Texture2D" uid="uid://ct385ulsra3dv" path="res://Interface/Tutoriais/Xbox Series/Xbox_Right_Bumper.png" id="9_3hvry"]
+[ext_resource type="Texture2D" uid="uid://ctngl4b8n8443" path="res://Interface/Celular e Tablet/Controles/ui_buttons_arrow_right_NORMAL.png" id="10_pci3j"]
+
+[sub_resource type="LabelSettings" id="LabelSettings_oknt7"]
+font = ExtResource("3_yh2sq")
+font_size = 75
+
+[sub_resource type="LabelSettings" id="LabelSettings_1l6h1"]
+font = ExtResource("3_yh2sq")
+font_size = 65
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_tewqv"]
+atlas = ExtResource("4_2g1ej")
+region = Rect2(0, 0, 192, 192)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_65sy1"]
+atlas = ExtResource("4_2g1ej")
+region = Rect2(192, 0, 192, 192)
+
+[sub_resource type="SpriteFrames" id="SpriteFrames_g368r"]
+animations = [{
+"frames": [{
+"duration": 1.5,
+"texture": SubResource("AtlasTexture_tewqv")
+}, {
+"duration": 1.5,
+"texture": SubResource("AtlasTexture_65sy1")
+}],
+"loop": true,
+"name": &"default",
+"speed": 12.0
+}]
+
+[node name="runcarregamento" type="Control" unique_id=1255049872]
+layout_mode = 3
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+script = ExtResource("1_2g1ej")
+
+[node name="ColorRect" type="ColorRect" parent="." unique_id=181610801]
+layout_mode = 0
+offset_right = 2122.0
+offset_bottom = 1440.0
+color = Color(0, 0, 0, 1)
+
+[node name="VBoxContainer" type="VBoxContainer" parent="." unique_id=261861459]
+layout_mode = 1
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -147.0
+offset_top = -123.5
+offset_right = 147.0
+offset_bottom = 123.5
+grow_horizontal = 2
+grow_vertical = 2
+script = ExtResource("2_s1s2v")
+
+[node name="mundo" type="Label" parent="VBoxContainer" unique_id=168442024]
+visible = false
+layout_mode = 2
+text = "Mundo"
+label_settings = SubResource("LabelSettings_oknt7")
+horizontal_alignment = 1
+
+[node name="mundo2" type="Label" parent="VBoxContainer" unique_id=2043871111]
+visible = false
+layout_mode = 2
+text = "Vidas:"
+label_settings = SubResource("LabelSettings_oknt7")
+horizontal_alignment = 1
+
+[node name="life_counter" type="Label" parent="." unique_id=1879121634]
+visible = false
+layout_mode = 0
+offset_left = 1080.0
+offset_top = 507.0
+offset_right = 1120.0
+offset_bottom = 587.0
+text = "1"
+label_settings = SubResource("LabelSettings_1l6h1")
+
+[node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="." unique_id=1729369165]
+position = Vector2(875, 525)
+sprite_frames = SubResource("SpriteFrames_g368r")
+autoplay = "default"
+
+[node name="dica" type="Label" parent="." unique_id=1975475209]
+layout_mode = 1
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -20.0
+offset_top = -40.0
+offset_right = 20.0
+offset_bottom = 40.0
+grow_horizontal = 2
+grow_vertical = 2
+text = "="
+label_settings = SubResource("LabelSettings_1l6h1")
+
+[node name="TextureButton" type="TextureButton" parent="." unique_id=1496444334]
+layout_mode = 1
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = 38.0
+offset_top = -171.0
+offset_right = 102.0
+offset_bottom = -107.0
+grow_horizontal = 2
+grow_vertical = 2
+texture_normal = ExtResource("5_efery")
+
+[node name="TextureButton2" type="TextureButton" parent="." unique_id=845489012]
+layout_mode = 1
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = 46.0
+offset_top = -123.0
+offset_right = 146.0
+offset_bottom = -23.0
+grow_horizontal = 2
+grow_vertical = 2
+scale = Vector2(0.5, 0.5)
+texture_normal = ExtResource("6_fh22k")
+
+[node name="TextureButton3" type="TextureButton" parent="." unique_id=2142750031]
+layout_mode = 1
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = 46.0
+offset_top = -81.0
+offset_right = 146.0
+offset_bottom = 19.0
+grow_horizontal = 2
+grow_vertical = 2
+scale = Vector2(0.5, 0.5)
+texture_normal = ExtResource("7_0esp5")
+
+[node name="TextureButton4" type="TextureButton" parent="." unique_id=89602610]
+layout_mode = 1
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = 46.0
+offset_top = -39.0
+offset_right = 146.0
+offset_bottom = 61.0
+grow_horizontal = 2
+grow_vertical = 2
+scale = Vector2(0.5, 0.5)
+texture_normal = ExtResource("8_p8c1c")
+
+[node name="TextureButton5" type="TextureButton" parent="." unique_id=918076353]
+layout_mode = 1
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = 46.0
+offset_top = 5.0
+offset_right = 146.0
+offset_bottom = 105.0
+grow_horizontal = 2
+grow_vertical = 2
+scale = Vector2(0.5, 0.5)
+texture_normal = ExtResource("9_3hvry")
+
+[node name="TextureButton6" type="TextureButton" parent="." unique_id=234304847]
+layout_mode = 1
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = 46.0
+offset_top = 51.0
+offset_right = 146.0
+offset_bottom = 151.0
+grow_horizontal = 2
+grow_vertical = 2
+scale = Vector2(1.5, 1.5)
+texture_normal = ExtResource("10_pci3j")
