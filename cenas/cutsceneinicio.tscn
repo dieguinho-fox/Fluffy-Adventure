@@ -1,7 +1,7 @@
 [gd_scene format=3 uid="uid://b7vq0qwmg3lt4"]
 
 [ext_resource type="Script" uid="uid://b0tsmnb0b5kay" path="res://Scripts/GDScript/Cutscenes/inicio.gd" id="1_gee3o"]
-[ext_resource type="VideoStream" uid="uid://bp03rrg0nu05q" path="res://Cutscenes/Start.ogv" id="1_mau64"]
+[ext_resource type="VideoStream" uid="uid://b6oqndspdv0h5" path="res://Cutscenes/Start.ogv" id="1_mau64"]
 [ext_resource type="Script" uid="uid://drvys8aeuhe4a" path="res://Scripts/GDScript/Cutscenes/legendas/cutsceneinicio.gd" id="3_1b3t3"]
 [ext_resource type="Texture2D" uid="uid://ctngl4b8n8443" path="res://Interface/Celular e Tablet/Controles/ui_buttons_arrow_right_NORMAL.png" id="3_ie44s"]
 [ext_resource type="Texture2D" uid="uid://cumy4oggpvlkl" path="res://Interface/Celular e Tablet/Controles/ui_buttons_arrow_right_PRESSED.png" id="4_gjg4g"]

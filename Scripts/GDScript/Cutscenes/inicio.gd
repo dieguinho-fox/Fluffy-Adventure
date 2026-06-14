@@ -22,8 +22,7 @@ func _ready() -> void:
 
 
 func start_timer() -> void:
-	# Cria um timer de 41.1 segundos
-	var timer = get_tree().create_timer(41.100)
+	var timer = get_tree().create_timer(46.400)
 	await timer.timeout
 
 	# Mostra o cursor novamente antes de mudar de cena

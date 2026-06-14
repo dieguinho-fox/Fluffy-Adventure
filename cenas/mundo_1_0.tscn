@@ -516,11 +516,10 @@ scale = Vector2(1.0000004, 1.0000001)
 shape = SubResource("RectangleShape2D_d7o21")
 
 [node name="player" parent="." unique_id=130762371 groups=["enemies"] instance=ExtResource("4_qlgsv")]
-position = Vector2(0, 9)
+position = Vector2(91, 574)
 collision_mask = 6
 
 [node name="ANewDay" type="AudioStreamPlayer2D" parent="player" unique_id=684230763]
-position = Vector2(401, 552)
 stream = ExtResource("23_ii1to")
 autoplay = true
 bus = &"Music"
@@ -541,6 +540,10 @@ layout_mode = 1
 anchors_preset = 15
 anchor_right = 1.0
 anchor_bottom = 1.0
+offset_left = -189.0
+offset_top = -556.0
+offset_right = -189.0
+offset_bottom = -556.0
 grow_horizontal = 2
 grow_vertical = 2
 color = Color(0.5647059, 0.78039217, 0, 0.08235294)

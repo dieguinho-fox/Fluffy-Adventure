@@ -46,6 +46,10 @@ var is_dashing := false
 var dash_timer := 0.0
 var dash_cooldown_timer := 0.0
 var dash_direction := 1.0
+var can_use_door := false
+var current_door = null
+
+var using_door := false
 
 var is_dead := false
 var death_velocity := 0.0
@@ -57,6 +61,7 @@ var afterimage_timer := 0.0
 @onready var remote_transform := $remote as RemoteTransform2D
 @onready var jump_sfx: AudioStreamPlayer2D = $jump_sfx as AudioStreamPlayer2D
 @onready var playerdie_sfx: AudioStreamPlayer2D = $playerdie_sfx as AudioStreamPlayer2D
+@onready var transicao: ColorRect = $transicao
 
 # TIMER
 @onready var game_timer: Timer = $HUD/control/container/timer_container/game_timer
@@ -78,6 +83,48 @@ func _ready() -> void:
 	game_timer.timeout.connect(_on_game_timer_timeout)
 
 	game_timer.start()
+
+func usar_porta() -> void:
+	if current_door == null:
+		return
+
+	using_door = true
+	velocity = Vector2.ZERO
+
+	animation.speed_scale = 1.0
+	animation.play("door_anim")
+
+	# Escurece em 1 segundo
+	var tween := create_tween()
+	tween.tween_property(transicao, "modulate:a", 1.0, 1.0)
+
+	await tween.finished
+
+	# Teleporta com a tela preta
+	teleportar_porta()
+
+	animation.play("idle")
+
+	# Volta ao normal em 1 segundo
+	tween = create_tween()
+	tween.tween_property(transicao, "modulate:a", 0.0, 1.0)
+
+	await tween.finished
+
+	using_door = false
+
+
+func teleportar_porta() -> void:
+	if current_door == null:
+		return
+
+	for door in get_tree().get_nodes_in_group("doors"):
+		if door.door_id == current_door.target_door_id:
+			print("Antes:", global_position)
+			global_position = door.get_node("SpawnPoint").global_position
+			velocity = Vector2.ZERO
+			print("Depois:", global_position)
+			break
 
 func _physics_process(delta: float) -> void:
 
@@ -101,12 +148,27 @@ func _physics_process(delta: float) -> void:
 
 		return
 
+	# ===============================
+	# PORTA
+	# ===============================
+	if using_door:
+		#move_and_slide()
+		return
+
 	# Atualiza cooldown do dash
 	if dash_cooldown_timer > 0.0:
 		dash_cooldown_timer -= delta
 
 		if dash_cooldown_timer < 0.0:
 			dash_cooldown_timer = 0.0
+
+	if (
+		can_use_door
+		and current_door != null
+		and Input.is_action_just_pressed("ui_up")
+	):
+		usar_porta()
+		return
 
 	# ===============================
 	# DASH

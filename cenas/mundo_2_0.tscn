@@ -937,11 +937,10 @@ collision_layer = 2
 shape = SubResource("RectangleShape2D_a1wl8")
 
 [node name="player" parent="." unique_id=1163388104 instance=ExtResource("11_k6fpf")]
-position = Vector2(21, 451)
+position = Vector2(148, 1016)
 collision_mask = 6
 
 [node name="Cave" type="AudioStreamPlayer2D" parent="player" unique_id=114285147]
-position = Vector2(83, 486)
 stream = ExtResource("13_xqnpc")
 autoplay = true
 bus = &"Music"

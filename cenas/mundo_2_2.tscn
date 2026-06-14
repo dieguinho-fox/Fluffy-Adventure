@@ -24,10 +24,10 @@
 [ext_resource type="Texture2D" uid="uid://c0vwu1he4ct81" path="res://Interface/Celular e Tablet/Controles/pause_PRESSED.png" id="23_46pbp"]
 [ext_resource type="Texture2D" uid="uid://ciufj2nc7m7gt" path="res://Interface/Celular e Tablet/Controles/dialog_NORMAL.png" id="24_rjabs"]
 [ext_resource type="Texture2D" uid="uid://b8ifip1osgpbl" path="res://Interface/Celular e Tablet/Controles/dialog_PRESSED.png" id="25_qs3yk"]
+[ext_resource type="Script" uid="uid://cqg8ep1c2brcd" path="res://Scripts/GDScript/ir_mundo3D.gd" id="26_uqead"]
 [ext_resource type="Script" uid="uid://bfidcfkdcrrxa" path="res://Scripts/GDScript/toggle_run_enemy.gd" id="27_l46d8"]
 [ext_resource type="PackedScene" uid="uid://d240houftwb70" path="res://cenas/Prefabs/deathzone.tscn" id="28_uqead"]
 [ext_resource type="PackedScene" uid="uid://bd44jeqrcs4fg" path="res://cenas/Prefabs/pause_menu.tscn" id="29_61h5h"]
-[ext_resource type="Script" uid="uid://cvpgcggf3tu5s" path="res://Scripts/GDScript/desativar luz.gd" id="31_ke4ye"]
 
 [sub_resource type="TileSetAtlasSource" id="TileSetAtlasSource_3v5mp"]
 texture = ExtResource("3_4m7xi")
@@ -1105,11 +1105,10 @@ position = Vector2(22191, -662)
 script = ExtResource("10_l46d8")
 
 [node name="player" parent="." unique_id=1163388104 instance=ExtResource("11_f3eyr")]
-position = Vector2(9508, 450)
+position = Vector2(9899, 1015)
 collision_mask = 6
 
 [node name="A rain day" type="AudioStreamPlayer2D" parent="player" unique_id=114285147]
-position = Vector2(83, 486)
 stream = ExtResource("12_uqead")
 autoplay = true
 bus = &"Music"
@@ -1118,7 +1117,6 @@ parameters/looping = true
 [node name="DiegoLuz" type="Sprite2D" parent="player" unique_id=20151012]
 modulate = Color(1, 1, 1, 0.49019608)
 z_index = 4
-position = Vector2(194, 553)
 scale = Vector2(0.2, 0.2)
 texture = ExtResource("13_ipe88")
 
@@ -1222,8 +1220,9 @@ action = "advance_message"
 layer = 9999
 
 [node name="Area2D2" type="Area2D" parent="." unique_id=118422812]
-position = Vector2(22179, 480)
-script = ExtResource("31_ke4ye")
+position = Vector2(16074, 351)
+scale = Vector2(13.04, 0.24000001)
+script = ExtResource("26_uqead")
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="Area2D2" unique_id=669213004]
 position = Vector2(34, -320.5)

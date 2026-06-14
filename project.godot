@@ -15,7 +15,7 @@ compatibility/default_parent_skeleton_in_mesh_instance_3d=true
 [application]
 
 config/name="Fluffy Adventure"
-config/version="1.0.5b"
+config/version="1.0.6b"
 run/main_scene="uid://juq4o2ekqgia"
 config/use_custom_user_dir=true
 config/quit_on_go_back=false
@@ -35,7 +35,7 @@ Avisofimdosuportewindows="*uid://bqxijt2nv3d4j"
 DialogManager="*uid://dxe1ef6xlctfj"
 Achievements="*uid://kfwa0tbkqiho"
 DebugOverlay="*uid://b6tx8h8b7ewet"
-DiscordSDKLoader="*res://addons/discord-sdk-gd/nodes/core_updater.gd"
+DiscordSDKLoader="*uid://b1v6dmah60lsf"
 DiscordSdk="*uid://dm1p1xrrrua83"
 
 [debug]
@@ -64,6 +64,7 @@ enabled=PackedStringArray("res://addons/discord-sdk-gd/plugin.cfg", "res://addon
 
 enemies=""
 player=""
+doors=""
 
 [input]
 

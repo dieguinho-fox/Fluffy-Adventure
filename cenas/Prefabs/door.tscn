@@ -1,0 +1,24 @@
+[gd_scene format=3 uid="uid://fgpnmeqeoigd"]
+
+[ext_resource type="Texture2D" uid="uid://ofrgae5uefbt" path="res://Tilesets/House tileset/House Door.png" id="1_51ls8"]
+[ext_resource type="Script" uid="uid://ca4llj6ijoyv5" path="res://Scripts/GDScript/door.gd" id="2_fiymo"]
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_51ls8"]
+
+[node name="door" type="Sprite2D" unique_id=1249859960 groups=["doors"]]
+scale = Vector2(6.5, 6.5)
+texture = ExtResource("1_51ls8")
+script = ExtResource("2_fiymo")
+
+[node name="Area2D" type="Area2D" parent="." unique_id=1492957691]
+position = Vector2(-7.538462, 15.538462)
+scale = Vector2(0.56307685, 0.046153665)
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Area2D" unique_id=557693007]
+shape = SubResource("RectangleShape2D_51ls8")
+
+[node name="SpawnPoint" type="Marker2D" parent="." unique_id=1236893812]
+position = Vector2(-7.5384617, 2.4615386)
+
+[connection signal="body_entered" from="Area2D" to="." method="_on_area_2d_body_entered"]
+[connection signal="body_exited" from="Area2D" to="." method="_on_area_2d_body_exited"]

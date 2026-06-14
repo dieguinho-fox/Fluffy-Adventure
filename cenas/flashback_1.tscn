@@ -596,7 +596,7 @@ animation = &"idle"
 autoplay = "idle"
 
 [node name="player" parent="." unique_id=130762371 groups=["enemies"] instance=ExtResource("8_y4vir")]
-position = Vector2(0, 9)
+position = Vector2(155, 574)
 collision_mask = 6
 
 [node name="interface" type="Control" parent="player" unique_id=1955319815]
@@ -614,6 +614,10 @@ layout_mode = 1
 anchors_preset = 15
 anchor_right = 1.0
 anchor_bottom = 1.0
+offset_left = -189.0
+offset_top = -556.0
+offset_right = -189.0
+offset_bottom = -556.0
 grow_horizontal = 2
 grow_vertical = 2
 color = Color(0, 0.29803923, 0.3372549, 0.12941177)

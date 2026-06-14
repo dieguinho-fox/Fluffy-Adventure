@@ -1111,11 +1111,10 @@ position = Vector2(23088, 446)
 script = ExtResource("9_bvdy4")
 
 [node name="player" parent="." unique_id=1163388104 instance=ExtResource("10_fumog")]
-position = Vector2(11086, -505)
+position = Vector2(11274, 60)
 collision_mask = 6
 
 [node name="Peace" type="AudioStreamPlayer2D" parent="player" unique_id=114285147]
-position = Vector2(83, 486)
 stream = ExtResource("11_wx7io")
 volume_db = 5.333
 autoplay = true
@@ -1125,7 +1124,6 @@ parameters/looping = true
 [node name="DiegoLuz" type="Sprite2D" parent="player" unique_id=20151012]
 modulate = Color(1, 1, 1, 0.49019608)
 z_index = 4
-position = Vector2(194, 553)
 scale = Vector2(0.2, 0.2)
 texture = ExtResource("13_6d4ui")
 
