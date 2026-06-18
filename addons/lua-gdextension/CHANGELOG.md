@@ -1,5 +1,78 @@
 # Changelog
-## [Unreleased](https://github.com/gilzoide/lua-gdextension/compare/0.6.1...HEAD)
+## [Unreleased](https://github.com/gilzoide/lua-gdextension/compare/0.8.1...HEAD)
+
+
+## [0.8.1](https://github.com/gilzoide/lua-gdextension/releases/tag/0.8.1)
+### Added
+- Construct `Callable` from function in Lua code:
+  ```lua
+  local c = Callable(function() end)
+  ```
+
+### Fixed
+- `Variant.__len` metamethod
+
+### Change
+- Updated Lua to 5.4.8
+- Updated LuaJIT to commit 18b087cd2cd4ddc4a79782bf155383a689d5093d
+
+
+## [0.8.0](https://github.com/gilzoide/lua-gdextension/releases/tag/0.8.0)
+### Added
+- `LuaState` GC-related methods: `collect_garbage`, `step_gc`, `stop_gc`, `restart_gc`, `is_gc_running`, `get_memory_used`, `change_gc_mode_incremental`, `change_gc_mode_generational`, `supports_gc_mode`
+- Support for to-be-closed `Variant` variables in Lua 5.4+ (not supported in LuaJIT).
+  Example:
+  ```lua
+  do
+    local file<close> = FileAccess:open(...)
+    -- `file` is automatically freed at the end of the scope,
+    -- closing the opened file without waiting for garbage collection
+  end
+  ```
+
+### Fixed
+- `LuaScript`s have their `_init` method called when instantiated from scene
+- Calls to `Variant.duplicate` now correctly trigger methods in objects that support it, fixing calls to `Node.duplicate` and `Resource.duplicate` for example
+- Node metadata set in the inspector is now correctly set as metadata instead of regular raw data
+- Force a full garbage collection on `LuaScriptLanguage`'s state to make sure all Variants are collected, releasing cyclic references from `LuaScriptInstance`/`LuaScript` to the `LuaState` itself.
+- Make sure owner Objects inherit from the class extended by Lua scripts.
+  E.g.: attaching a Lua script that extends `RefCounted` to `Node` objects now gives an error
+- Support for loading `LuaScript`s using valid `uid://` paths in builds
+
+### Changed
+- Godot 4.5 is now the minimum version necessary to use this addon
+- Updated godot-cpp to 10.0.0-rc1 using api_version=4.6
+- `LuaScriptInstance`'s owner object is passed as `self` to methods instead of the data table.
+- `LuaScriptInstance` now uses a Dictionary for storing data instead of a Lua table.
+
+
+## [0.7.0](https://github.com/gilzoide/lua-gdextension/releases/tag/0.7.0)
+### Added
+- Support for setting up RPC method configurations in `LuaScript`s via a table or Dictionary called `rpc_config`.
+  Use the new `rpc` global function that mimics GDScript's [@rpc annotation](https://docs.godotengine.org/en/stable/classes/class_%40gdscript.html#class-gdscript-annotation-rpc) for the values.
+  ```lua
+  MyClass.rpc_config = {
+    method1 = rpc("authority", "unreliable_ordered", "call_local", 1),
+    method2 = rpc("any_peer", "reliable", "call_remote"),
+  }
+  ```
+- Support for accessing constants and enums from `VariantType`s, such as `Vector2.ZERO` and `Vector2.Axis`.
+- Support for power operator between Variants.
+  Even if only `int` and `float` support them and most people won't ever use them as `Variant` values, add it for completion.
+- [Lua Language Server (LLS)](https://luals.github.io/) definition files + `.luarc.json` configuration file that helps with code completion in IDEs that support it
+- `export_*` functions for Lua Scripts mimicking GDScript's annotations, such as `export_range` and `export_file`
+- `GDCLASS` function that returns a table suitable for defining Godot Classes in LuaScripts.
+  The only thing special about it is that `pairs` iterates over its keys in order of insertion, so that its properties and methods are shown in order of definition in the Godot Editor.
+- Calling `get_method_list` on objects with a `LuaScript` attached now returns methods defined in script
+- Support for Android devices with 16KB page sizes
+
+### Fixed
+- Increment reference count of returned `LuaState` from `LuaObject.get_lua_state`
+- Memory leak when indexing Variants with numbers
+- Avoid losing exported properties in scenes/resources when reloading a Lua script fails
+
+### Changed
+- Updated godot-cpp to 4.5
 
 
 ## [0.6.1](https://github.com/gilzoide/lua-gdextension/releases/tag/0.6.1)

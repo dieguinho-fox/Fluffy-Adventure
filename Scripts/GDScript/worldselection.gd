@@ -62,3 +62,9 @@ func _on_m_20_pressed() -> void:
 	get_tree().change_scene_to_file("res://cenas/mundo_2_0_carregamento.tscn")
 func _on_2_0_pressed() -> void:
 	get_tree().change_scene_to_file("res://cenas/mundo_2_1_carregamento.tscn")
+func _on__pressed() -> void:
+	get_tree().change_scene_to_file("res://cenas/mundo_2_2_carregamento.tscn")
+func _on_23_pressed() -> void:
+	get_tree().change_scene_to_file("res://cenas/run_carregamento.tscn")
+func _on_3_0_pressed() -> void:
+	get_tree().change_scene_to_file("res://cenas/mundo_3_0_carregamento.tscn")

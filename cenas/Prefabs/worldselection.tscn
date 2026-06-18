@@ -1,7 +1,7 @@
 [gd_scene format=3 uid="uid://o61bickv1nsr"]
 
 [ext_resource type="Script" uid="uid://cjkx8eg7qdwhm" path="res://Scripts/GDScript/worldselection.gd" id="1_32s7f"]
-[ext_resource type="FontFile" uid="uid://ckw4qondl5cjc" path="res://Fontes/RevMiniPixel.ttf" id="2_tx7ge"]
+[ext_resource type="FontFile" uid="uid://bjw68y3gx2d3k" path="res://Fontes/RevMiniPixel.ttf" id="2_tx7ge"]
 [ext_resource type="Script" uid="uid://u36irusew3d0" path="res://Scripts/Lua/worldselectionativo.lua" id="3_tx7ge"]
 
 [sub_resource type="LabelSettings" id="LabelSettings_7p0gx"]
@@ -136,6 +136,37 @@ text = "Mundo 2-1
 "
 flat = true
 
+[node name="2-2" type="Button" parent="VBoxContainer" unique_id=1391435800]
+layout_mode = 2
+theme_override_colors/font_focus_color = Color(0.9490196, 0.9490196, 0, 1)
+theme_override_colors/font_pressed_color = Color(1, 0.69411767, 0, 1)
+theme_override_colors/font_hover_color = Color(0.9490196, 0.9490196, 0, 1)
+theme_override_fonts/font = ExtResource("2_tx7ge")
+theme_override_font_sizes/font_size = 75
+text = "Mundo 2-2
+"
+flat = true
+
+[node name="2-3" type="Button" parent="VBoxContainer" unique_id=1722247976]
+layout_mode = 2
+theme_override_colors/font_focus_color = Color(0.9490196, 0.9490196, 0, 1)
+theme_override_colors/font_pressed_color = Color(1, 0.69411767, 0, 1)
+theme_override_colors/font_hover_color = Color(0.9490196, 0.9490196, 0, 1)
+theme_override_fonts/font = ExtResource("2_tx7ge")
+theme_override_font_sizes/font_size = 75
+text = "run"
+flat = true
+
+[node name="3-0" type="Button" parent="VBoxContainer" unique_id=420983736]
+layout_mode = 2
+theme_override_colors/font_focus_color = Color(0.9490196, 0.9490196, 0, 1)
+theme_override_colors/font_pressed_color = Color(1, 0.69411767, 0, 1)
+theme_override_colors/font_hover_color = Color(0.9490196, 0.9490196, 0, 1)
+theme_override_fonts/font = ExtResource("2_tx7ge")
+theme_override_font_sizes/font_size = 75
+text = "Mundo 3-0"
+flat = true
+
 [node name="Node" type="Node" parent="." unique_id=1599314809]
 script = ExtResource("3_tx7ge")
 
@@ -146,3 +177,6 @@ script = ExtResource("3_tx7ge")
 [connection signal="pressed" from="VBoxContainer/1-3" to="." method="_on_m_13_pressed"]
 [connection signal="pressed" from="VBoxContainer/2-0" to="." method="_on_m_20_pressed"]
 [connection signal="pressed" from="VBoxContainer/2-1" to="." method="_on_2_0_pressed"]
+[connection signal="pressed" from="VBoxContainer/2-2" to="." method="_on__pressed"]
+[connection signal="pressed" from="VBoxContainer/2-3" to="." method="_on_23_pressed"]
+[connection signal="pressed" from="VBoxContainer/3-0" to="." method="_on_3_0_pressed"]

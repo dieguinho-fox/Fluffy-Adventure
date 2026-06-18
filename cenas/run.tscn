@@ -931,8 +931,8 @@ position = Vector2(9741, 65)
 collision_mask = 6
 
 [node name="RUN" type="AudioStreamPlayer2D" parent="player" unique_id=114285147]
-position = Vector2(83, 486)
 stream = ExtResource("11_upwci")
+autoplay = true
 bus = &"Music"
 parameters/looping = true
 

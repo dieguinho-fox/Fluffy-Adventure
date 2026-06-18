@@ -1,4 +1,4 @@
-# Copyright (C) 2025 Gil Barbosa Reis.
+# Copyright (C) 2026 Gil Barbosa Reis.
 # 
 # Permission is hereby granted, free of charge, to any person obtaining a copy of
 # this software and associated documentation files (the “Software”), to deal in
@@ -39,6 +39,8 @@ func reset():
 	_lua = LuaState.new()
 	_lua.open_libraries()
 	_lua.registry.print = _printn
+	_lua.globals.package.path = ProjectSettings.get_setting_with_override("lua_gdextension/lua_script_language/package_path")
+	_lua.globals.package.cpath = ProjectSettings.get_setting_with_override("lua_gdextension/lua_script_language/package_c_path")
 	_lua.load_string(r"""
 		local tab_size = ...
 		local indent = string.rep(' ', tab_size)

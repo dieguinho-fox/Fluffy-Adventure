@@ -1,6 +1,6 @@
 # Lua GDExtension
-[![Godot Asset Library page](https://img.shields.io/static/v1?logo=godotengine&label=asset%20library%20%28Lua%205.4%29&color=478CBF&message=0.6.1)](https://godotengine.org/asset-library/asset/2330)
-[![Godot Asset Library page](https://img.shields.io/static/v1?logo=godotengine&label=asset%20library%20%28LuaJIT%29&color=478CBF&message=0.6.1)](https://godotengine.org/asset-library/asset/2330)
+[![Godot Asset Library page](https://img.shields.io/static/v1?logo=godotengine&label=asset%20library%20%28Lua%205.4%29&color=478CBF&message=0.8.1)](https://godotengine.org/asset-library/asset/2330)
+[![Godot Asset Library page](https://img.shields.io/static/v1?logo=godotengine&label=asset%20library%20%28LuaJIT%29&color=478CBF&message=0.8.1)](https://godotengine.org/asset-library/asset/2330)
 [![Build and Test workflow](https://github.com/gilzoide/lua-gdextension/actions/workflows/build.yml/badge.svg)](https://github.com/gilzoide/lua-gdextension/actions/workflows/build.yml)
 
 <img src="addons/lua-gdextension/icon.png" alt="Lua GDExtension icon" width="150" height="150"/>
@@ -53,12 +53,7 @@ local LuaBouncingLogo = {
 	
 	-- Declare properties
 	linear_velocity = export(100),
-	initial_angle = export({
-		type = float,
-		default = 0,
-		hint = PROPERTY_HINT_RANGE,
-		hint_string = "0,360,degrees"
-	}),
+	initial_angle = export_range(-360, 360, "degrees", float),
 	-- Declare signals
 	bounced = signal(),
 }
@@ -70,6 +65,10 @@ function LuaBouncingLogo:_ready()
 
 	-- To connect a signal in Lua, you can use the method name just like in GDScript
 	self.bounced:connect(self._on_bounced)
+	-- Or you can use a Callable constructed from a lua function
+	self.ready:connect(Callable(function()
+		print("This works!")
+	end))
 end
 
 -- Called every frame. 'delta' is the elapsed time since the previous frame.
@@ -86,6 +85,12 @@ end
 function LuaBouncingLogo:_on_bounced()
 	print("Bounced =D")
 end
+
+-- Setup method RPC configs by creating the `rpc_config` table
+-- Each key is a method name and the value is a `rpc` config like GDScript's `@rpc`
+LuaBouncingLogo.rpc_config = {
+	_on_bounced = rpc("authority", "unreliable_ordered", "call_local", 1),
+}
 
 -- Return the metadata table for the script to be usable by Godot objects
 return LuaBouncingLogo
@@ -222,7 +227,8 @@ lua.do_string("""
 - [X] Lua ScriptLanguageExtension
   + [X] Add support for property hints / usage flags (including export)
   + [X] Add support for property getter / setter
-  + [ ] Add `export_*` functions mimicking GDScript annotations for better UX
+  + [X] Add `export_*` functions mimicking GDScript annotations for better UX
+  + [X] Add support for setting up method RPC configurations
 - [X] Support for building with LuaJIT
 - [X] Support WebAssembly platform
 - [X] Support Windows arm64 platform

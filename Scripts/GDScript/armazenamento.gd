@@ -10,6 +10,9 @@ extends Control
 
 
 func _ready():
+	$VBoxContainer/ApagarCache.text = tr("Excluir cache")
+	$VBoxContainer/ApagarSave.text = tr("Excluir save")
+	$VBoxContainer/ApagarTudo.text = tr("Excluir tudo")
 	$VBoxContainer/ApagarCache.grab_focus()
 
 	btn_apagar_cache.pressed.connect(_on_apagar_cache)

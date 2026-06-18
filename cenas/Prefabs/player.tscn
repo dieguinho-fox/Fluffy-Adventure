@@ -12,7 +12,7 @@
 [ext_resource type="AudioStream" uid="uid://dk1q8osv6xxx" path="res://Musicas/you died.ogg" id="9_u4fjm"]
 [ext_resource type="Script" uid="uid://btfpom1p1iwjj" path="res://Scripts/GDScript/hud_1_3.gd" id="10_043va"]
 [ext_resource type="Script" uid="uid://d1lhqfo1jxf05" path="res://Scripts/GDScript/hud_manager.gd" id="11_ry8wb"]
-[ext_resource type="FontFile" uid="uid://ckw4qondl5cjc" path="res://Fontes/RevMiniPixel.ttf" id="12_lgjom"]
+[ext_resource type="FontFile" uid="uid://bjw68y3gx2d3k" path="res://Fontes/RevMiniPixel.ttf" id="12_lgjom"]
 
 [sub_resource type="CapsuleShape2D" id="CapsuleShape2D_8v4ht"]
 radius = 23.0
@@ -139,7 +139,7 @@ animations = [{
 "duration": 1.5,
 "texture": SubResource("AtlasTexture_e1f1r")
 }],
-"loop": true,
+"loop": 1,
 "name": &"dash",
 "speed": 12.0
 }, {
@@ -147,7 +147,7 @@ animations = [{
 "duration": 1.0,
 "texture": SubResource("AtlasTexture_fk5tn")
 }],
-"loop": true,
+"loop": 1,
 "name": &"death",
 "speed": 8.0
 }, {
@@ -158,7 +158,7 @@ animations = [{
 "duration": 1.0,
 "texture": SubResource("AtlasTexture_siryi")
 }],
-"loop": false,
+"loop": 0,
 "name": &"death_falling",
 "speed": 8.0
 }, {
@@ -172,7 +172,7 @@ animations = [{
 "duration": 1.8,
 "texture": SubResource("AtlasTexture_1dh2j")
 }],
-"loop": false,
+"loop": 0,
 "name": &"door_anim",
 "speed": 8.0
 }, {
@@ -531,7 +531,7 @@ animations = [{
 "duration": 1.0,
 "texture": SubResource("AtlasTexture_w0qxt")
 }],
-"loop": true,
+"loop": 1,
 "name": &"falling",
 "speed": 8.0
 }, {
@@ -605,7 +605,7 @@ animations = [{
 "duration": 1.0,
 "texture": SubResource("AtlasTexture_8amgn")
 }],
-"loop": false,
+"loop": 0,
 "name": &"idle",
 "speed": 8.0
 }, {
@@ -616,7 +616,7 @@ animations = [{
 "duration": 1.5,
 "texture": SubResource("AtlasTexture_kewdr")
 }],
-"loop": true,
+"loop": 1,
 "name": &"jump",
 "speed": 12.0
 }, {
@@ -639,7 +639,7 @@ animations = [{
 "duration": 1.0,
 "texture": SubResource("AtlasTexture_smmp1")
 }],
-"loop": true,
+"loop": 1,
 "name": &"run",
 "speed": 8.0
 }, {
@@ -650,7 +650,7 @@ animations = [{
 "duration": 1.0,
 "texture": SubResource("AtlasTexture_1m1ag")
 }],
-"loop": true,
+"loop": 1,
 "name": &"wait",
 "speed": 5.0
 }]
@@ -740,7 +740,7 @@ size_flags_vertical = 0
 text = "MOEDAS:"
 label_settings = SubResource("LabelSettings_gloi6")
 
-[node name="coins_counter" type="Label" parent="HUD/control/container/coins_container" unique_id=1111115879]
+[node name="coins_counter" type="Label" parent="HUD/control/container/coins_container" unique_id=1111115879 groups=["ignore_language_font"]]
 layout_mode = 2
 size_flags_vertical = 0
 text = "0000"
@@ -756,7 +756,7 @@ size_flags_vertical = 0
 text = "TEMPO:"
 label_settings = SubResource("LabelSettings_gloi6")
 
-[node name="timer_counter" type="Label" parent="HUD/control/container/timer_container" unique_id=468483504]
+[node name="timer_counter" type="Label" parent="HUD/control/container/timer_container" unique_id=468483504 groups=["ignore_language_font"]]
 layout_mode = 2
 size_flags_horizontal = 2
 size_flags_vertical = 0
@@ -776,7 +776,7 @@ size_flags_vertical = 0
 text = "PONTOS:"
 label_settings = SubResource("LabelSettings_gloi6")
 
-[node name="score_counter" type="Label" parent="HUD/control/container/score_container" unique_id=1832684511]
+[node name="score_counter" type="Label" parent="HUD/control/container/score_container" unique_id=1832684511 groups=["ignore_language_font"]]
 layout_mode = 2
 size_flags_horizontal = 8
 size_flags_vertical = 0
@@ -793,7 +793,7 @@ size_flags_vertical = 8
 text = "VIDAS:"
 label_settings = SubResource("LabelSettings_gloi6")
 
-[node name="live_counter" type="Label" parent="HUD/control/container/live_container" unique_id=4747211]
+[node name="live_counter" type="Label" parent="HUD/control/container/live_container" unique_id=4747211 groups=["ignore_language_font"]]
 layout_mode = 2
 size_flags_horizontal = 8
 size_flags_vertical = 8

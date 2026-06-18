@@ -2,7 +2,7 @@
 
 [ext_resource type="Texture2D" uid="uid://p35kvnv5ffh1" path="res://Tilesets/Seasonal Tilesets/1 - Grassland/Background parts/_Complete_static_BG_(288 x 208).png" id="1_dby0d"]
 [ext_resource type="Script" uid="uid://dicou7khocpjd" path="res://Scripts/GDScript/video.gd" id="1_urd13"]
-[ext_resource type="FontFile" uid="uid://ckw4qondl5cjc" path="res://Fontes/RevMiniPixel.ttf" id="3_nowvq"]
+[ext_resource type="FontFile" uid="uid://bjw68y3gx2d3k" path="res://Fontes/RevMiniPixel.ttf" id="3_nowvq"]
 [ext_resource type="Script" uid="uid://80cgcc4cmag6" path="res://Scripts/GDScript/Traducao/traducoesvideo.gd" id="3_urd13"]
 
 [sub_resource type="LabelSettings" id="LabelSettings_r85el"]
@@ -89,7 +89,7 @@ text = "Limite de FPS"
 label_settings = SubResource("LabelSettings_r85el")
 horizontal_alignment = 1
 
-[node name="limite" type="OptionButton" parent="VBoxContainer" unique_id=1312895960]
+[node name="limite" type="OptionButton" parent="VBoxContainer" unique_id=1312895960 groups=["ignore_language_font"]]
 layout_mode = 2
 theme_override_colors/font_focus_color = Color(0.9490196, 0.9490196, 0, 1)
 theme_override_fonts/font = ExtResource("3_nowvq")
@@ -118,7 +118,7 @@ text = "Resolução"
 label_settings = SubResource("LabelSettings_r85el")
 horizontal_alignment = 1
 
-[node name="Resolucoes" type="OptionButton" parent="VBoxContainer" unique_id=1812696509]
+[node name="Resolucoes" type="OptionButton" parent="VBoxContainer" unique_id=1812696509 groups=["ignore_language_font"]]
 layout_mode = 2
 theme_override_colors/font_focus_color = Color(0.9490196, 0.9490196, 0, 1)
 theme_override_fonts/font = ExtResource("3_nowvq")
