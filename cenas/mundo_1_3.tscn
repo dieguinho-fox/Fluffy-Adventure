@@ -25,6 +25,9 @@
 [ext_resource type="PackedScene" uid="uid://bd44jeqrcs4fg" path="res://cenas/Prefabs/pause_menu.tscn" id="22_rd88y"]
 [ext_resource type="Texture2D" uid="uid://b8ifip1osgpbl" path="res://Interface/Celular e Tablet/Controles/dialog_PRESSED.png" id="23_3o2fs"]
 [ext_resource type="AudioStream" uid="uid://csd5sknf2t5xj" path="res://Musicas/A tropical place.ogg" id="23_jduu8"]
+[ext_resource type="Texture2D" uid="uid://ppcev3wmn6pu" path="res://Sprites/Outros/white_fox_handsup.png" id="26_iac4y"]
+[ext_resource type="Script" uid="uid://cjyilkk4crwo3" path="res://Scripts/GDScript/playanim.gd" id="27_3o2fs"]
+[ext_resource type="Texture2D" uid="uid://fhau3o24pqhq" path="res://Sprites/Outros/Dalf1.png" id="28_3o2fs"]
 
 [sub_resource type="TileSetAtlasSource" id="TileSetAtlasSource_1x7ye"]
 texture = ExtResource("3_1e282")
@@ -148,6 +151,58 @@ size = Vector2(97, 557)
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_bxil3"]
 size = Vector2(104, 712)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_6waoy"]
+atlas = ExtResource("26_iac4y")
+region = Rect2(0, 0, 192, 192)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_1h1gg"]
+atlas = ExtResource("26_iac4y")
+region = Rect2(192, 0, 192, 192)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_7csx1"]
+atlas = ExtResource("26_iac4y")
+region = Rect2(384, 0, 192, 192)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_mvupy"]
+atlas = ExtResource("26_iac4y")
+region = Rect2(0, 192, 192, 192)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_3046x"]
+atlas = ExtResource("26_iac4y")
+region = Rect2(192, 192, 192, 192)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_mvr50"]
+atlas = ExtResource("26_iac4y")
+region = Rect2(384, 192, 192, 192)
+
+[sub_resource type="SpriteFrames" id="SpriteFrames_3sytw"]
+animations = [{
+"frames": [{
+"duration": 4.0,
+"texture": SubResource("AtlasTexture_6waoy")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_1h1gg")
+}, {
+"duration": 2.0,
+"texture": SubResource("AtlasTexture_7csx1")
+}, {
+"duration": 2.0,
+"texture": SubResource("AtlasTexture_mvupy")
+}, {
+"duration": 2.0,
+"texture": SubResource("AtlasTexture_3046x")
+}, {
+"duration": 2.0,
+"texture": SubResource("AtlasTexture_mvr50")
+}],
+"loop": 0,
+"name": &"idle",
+"speed": 8.0
+}]
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_3sytw"]
 
 [node name="Mundo1-3" type="Node2D" unique_id=399720955]
 script = ExtResource("1_ipdgm")
@@ -533,5 +588,23 @@ layer = 9999
 position = Vector2(12601, 768)
 shape = SubResource("RectangleShape2D_bxil3")
 
+[node name="White Fox" type="AnimatedSprite2D" parent="." unique_id=556567361]
+position = Vector2(12812, 1009)
+sprite_frames = SubResource("SpriteFrames_3sytw")
+animation = &"idle"
+
+[node name="playanim" type="Area2D" parent="." unique_id=1814023305]
+position = Vector2(12301, 875.99994)
+scale = Vector2(12.396028, 94.77094)
+script = ExtResource("27_3o2fs")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="playanim" unique_id=166795549]
+shape = SubResource("RectangleShape2D_3sytw")
+
+[node name="Dalf1" type="Sprite2D" parent="." unique_id=1144561596]
+position = Vector2(12858, 1016)
+texture = ExtResource("28_3o2fs")
+
 [connection signal="changed" from="Level2" to="." method="quebrar_chao"]
 [connection signal="body_entered" from="breakbox" to="." method="_on_hurtbox_body_entered"]
+[connection signal="body_entered" from="playanim" to="playanim" method="_on_body_entered"]

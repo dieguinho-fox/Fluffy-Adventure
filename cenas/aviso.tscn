@@ -1,7 +1,7 @@
 [gd_scene format=3 uid="uid://juq4o2ekqgia"]
 
 [ext_resource type="Script" uid="uid://ds533bcttt41x" path="res://Scripts/GDScript/aviso_de_luzes_piscantes.gd" id="1_iq6uc"]
-[ext_resource type="FontFile" uid="uid://ckw4qondl5cjc" path="res://Fontes/RevMiniPixel.ttf" id="1_u1px2"]
+[ext_resource type="FontFile" uid="uid://bjw68y3gx2d3k" path="res://Fontes/RevMiniPixel.ttf" id="1_u1px2"]
 [ext_resource type="Texture2D" uid="uid://ctngl4b8n8443" path="res://Interface/Celular e Tablet/Controles/ui_buttons_arrow_right_NORMAL.png" id="3_ullt7"]
 [ext_resource type="Texture2D" uid="uid://cumy4oggpvlkl" path="res://Interface/Celular e Tablet/Controles/ui_buttons_arrow_right_PRESSED.png" id="4_42edk"]
 [ext_resource type="Script" uid="uid://bqxijt2nv3d4j" path="res://Scripts/C#/avisofimdosuportewindows.cs" id="5_42edk"]
@@ -142,3 +142,5 @@ script = ExtResource("6_vxiha")
 
 [node name="AndroidToast" type="Node" parent="." unique_id=943749917]
 script = ExtResource("7_vxiha")
+
+[node name="KeepAndroidOpen" type="Node" parent="." unique_id=352105781]

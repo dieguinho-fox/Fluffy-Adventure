@@ -10,9 +10,14 @@
 [ext_resource type="PackedScene" uid="uid://ciwhdlostkeo7" path="res://cenas/Prefabs/goal.tscn" id="8_hc3ra"]
 [ext_resource type="Script" uid="uid://isk8dtbwo5e7" path="res://Scripts/GDScript/goalflash1.gd" id="9_ipng8"]
 [ext_resource type="PackedScene" uid="uid://culml5grvkbv" path="res://cenas/Prefabs/player_hurt.tscn" id="10_fvfut"]
+[ext_resource type="Texture2D" uid="uid://beoardebc1p8t" path="res://Sprites/Outros/Morto2.png" id="10_x225q"]
 [ext_resource type="Script" uid="uid://2mlt4bvi5qfb" path="res://Scripts/GDScript/mundo1-0/interface.gd" id="11_bjiar"]
+[ext_resource type="Texture2D" uid="uid://xac3roey31ek" path="res://Sprites/Outros/Morto3.png" id="11_gr8bq"]
+[ext_resource type="Texture2D" uid="uid://ttwkuwl6hs1o" path="res://Sprites/Outros/Morto4.png" id="12_erbfd"]
 [ext_resource type="AudioStream" uid="uid://bqn1c17768eec" path="res://Musicas/Flashback.ogg" id="12_snx5i"]
+[ext_resource type="Texture2D" uid="uid://d18vf614e51su" path="res://Sprites/Outros/Hurt1.png" id="13_erbfd"]
 [ext_resource type="Texture2D" uid="uid://ccovodndo6bqy" path="res://Interface/Celular e Tablet/Controles/ui_buttons_arrow_left_NORMAL.png" id="14_8kdp3"]
+[ext_resource type="Texture2D" uid="uid://cvvawtfikrgc0" path="res://Sprites/Outros/Hurt2.png" id="14_n882p"]
 [ext_resource type="Texture2D" uid="uid://dy04coxs2ymg2" path="res://Interface/Celular e Tablet/Controles/ui_buttons_arrow_left_PRESSED.png" id="15_revvr"]
 [ext_resource type="Texture2D" uid="uid://ctngl4b8n8443" path="res://Interface/Celular e Tablet/Controles/ui_buttons_arrow_right_NORMAL.png" id="16_hu3v0"]
 [ext_resource type="Texture2D" uid="uid://cumy4oggpvlkl" path="res://Interface/Celular e Tablet/Controles/ui_buttons_arrow_right_PRESSED.png" id="17_lpwty"]
@@ -480,7 +485,14 @@ tile_set = SubResource("TileSet_y4vir")
 z_index = 2
 position = Vector2(135, 735)
 scale = Vector2(-4.708, 4.592)
-tile_map_data = PackedByteArray("AADY//7/AAABAAUAAADX//7/AAABAAUAAADW//7/AAABAAUAAADZ//7/AAABAAUAAADb//3/AAABAAEAAADS//7/AAAGAAUAAADR//7/AAAGAAUAAADQ//7/AAAGAAUAAADP//7/AAAGAAUAAADO//7/AAAGAAUAAADT//7/AAAHAAUAAADN//7/AAAFAAUAAADk//7/AAAGAAUAAADj//7/AAAGAAUAAADi//7/AAAGAAUAAADh//7/AAAGAAUAAADg//7/AAAGAAUAAADf//7/AAAHAAUAAADl//7/AAAFAAUAAADK//3/AAABAAEAAADH//3/AAABAAEAAADD//3/AAABAAEAAADA//3/AAABAAEAAAC+//3/AAABAAEAAAC6//3/AAABAAEAAAC3//3/AAABAAEAAAC0//3/AAABAAEAAACv//3/AAABAAEAAACr//3/AAABAAEAAACn//3/AAABAAEAAACi//3/AAABAAEAAACe//3/AAABAAEAAACa//3/AAABAAEAAACT//3/AAABAAEAAACQ//3/AAABAAEAAACL//3/AAABAAEAAAD9//3/AAABAAEAAAACAP3/AAABAAEAAAD4//3/AAABAAEAAADz//3/AAABAAEAAADv//3/AAABAAEAAADr//3/AAABAAEAAADm//3/AAABAAEAAADe//3/AAABAAEAAADY//3/AAABAAEAAADS//3/AAABAAEAAADP//3/AAABAAEAAADI//3/AAABAAEAAADC//3/AAABAAEAAAC8//3/AAABAAEAAAC1//3/AAABAAEAAACt//3/AAABAAEAAACl//3/AAABAAEAAACO//3/AAABAAEAAACJ//3/AAABAAEAAAA=")
+tile_map_data = PackedByteArray("AAAIAP3/AAABAAEAAADi//3/AAABAAEAAADa//3/AAABAAEAAADe//3/AAABAAEAAADQ//3/AAABAAEAAADD//3/AAABAAEAAAC8//3/AAABAAEAAAC2//3/AAABAAEAAACn//3/AAABAAEAAACB//3/AAABAAEAAAA=")
+tile_set = SubResource("TileSet_y4vir")
+
+[node name="Level5" type="TileMapLayer" parent="." unique_id=1230811143]
+z_index = 2
+position = Vector2(135, 735)
+scale = Vector2(-4.708, 4.592)
+tile_map_data = PackedByteArray("AADL//r/AQADAAIAAADL//v/AQADAAIAAADL//z/AQADAAIAAADL//3/AQADAAIAAADL//7/AQADAAIAAADL////AQADAAIAAADL/wAAAQADAAIAAADL/wEAAQADAAIAAADL/wIAAQADAAIAAADL/wMAAQADAAIAAADL/wQAAQADAAIAAADL/wUAAQADAAIAAADL/wYAAQADAAIAAADL/wcAAQAEAAIAAADM//r/AQAEAAIAAADM//v/AQAEAAIAAADM//z/AQAEAAIAAADM//3/AQAEAAIAAADM//7/AQAEAAIAAADM////AQAEAAIAAADM/wAAAQAEAAIAAADM/wEAAQAEAAIAAADM/wIAAQAEAAIAAADM/wMAAQAEAAIAAADM/wQAAQAEAAIAAADM/wUAAQAEAAIAAADM/wYAAQAEAAIAAADM/wcAAQAEAAIAAADN//r/AQAEAAIAAADN//v/AQAEAAIAAADN//z/AQAEAAIAAADN//3/AQAEAAIAAADN//7/AQAEAAIAAADN////AQAEAAIAAADN/wAAAQAEAAIAAADN/wEAAQAEAAIAAADN/wIAAQAEAAIAAADN/wMAAQAEAAIAAADN/wQAAQAEAAIAAADN/wUAAQAEAAIAAADN/wYAAQAEAAIAAADN/wcAAQAEAAIAAADO//r/AQAEAAIAAADO//v/AQAEAAIAAADO//z/AQAEAAIAAADO//3/AQAEAAIAAADO//7/AQAEAAIAAADO////AQAEAAIAAADO/wAAAQAEAAIAAADO/wEAAQAEAAIAAADO/wIAAQAEAAIAAADO/wMAAQAEAAIAAADO/wQAAQAEAAIAAADO/wUAAQAEAAIAAADO/wYAAQAEAAIAAADO/wcAAQAEAAIAAADP//r/AQAEAAIAAADP//v/AQAEAAIAAADP//z/AQAEAAIAAADP//3/AQAEAAIAAADP//7/AQAEAAIAAADP////AQAEAAIAAADP/wAAAQAEAAIAAADP/wEAAQAEAAIAAADP/wIAAQAEAAIAAADP/wMAAQAEAAIAAADP/wQAAQAEAAIAAADP/wUAAQAEAAIAAADP/wYAAQAEAAIAAADP/wcAAQAEAAIAAADQ/wcAAQAFAAIAAADQ/wYAAQAFAAIAAADQ/wUAAQAFAAIAAADQ/wQAAQAFAAIAAADQ/wMAAQAFAAIAAADQ/wIAAQAFAAIAAADQ/wEAAQAFAAIAAADQ/wAAAQAFAAIAAADQ////AQAFAAIAAADQ//7/AQAFAAIAAADQ//3/AQAFAAIAAADQ//z/AQAFAAIAAADQ//v/AQAFAAIAAADQ//r/AQAFAAIAAADL//n/AQADAAEAAADM//n/AQAEAAEAAADN//n/AQAEAAEAAADO//n/AQAEAAEAAADP//n/AQAEAAEAAADQ//n/AQAFAAEAAADQ//f/AAABAAEAAADM//f/AAAJAAEAAADP//j/AAABAAUAAADL//j/AAABAAUAAAA=")
 tile_set = SubResource("TileSet_y4vir")
 
 [node name="parede invisivel" type="StaticBody2D" parent="." unique_id=835790958]
@@ -501,6 +513,43 @@ shape = SubResource("RectangleShape2D_frflr")
 [node name="goal" parent="." unique_id=1397360120 instance=ExtResource("8_hc3ra")]
 position = Vector2(8153, 591)
 script = ExtResource("9_ipng8")
+
+[node name="mortos e machucados" type="Node2D" parent="." unique_id=1587605882]
+
+[node name="Morto2" type="Sprite2D" parent="mortos e machucados" unique_id=1385272720]
+position = Vector2(5067, 597)
+texture = ExtResource("10_x225q")
+flip_h = true
+
+[node name="Morto3" type="Sprite2D" parent="mortos e machucados" unique_id=2125767965]
+z_index = 2
+position = Vector2(3890, 336)
+texture = ExtResource("11_gr8bq")
+
+[node name="Morto4" type="Sprite2D" parent="mortos e machucados" unique_id=2128501614]
+position = Vector2(2738, 620)
+texture = ExtResource("12_erbfd")
+
+[node name="Morto5" type="Sprite2D" parent="mortos e machucados" unique_id=939886110]
+z_index = 2
+position = Vector2(3874, 154)
+texture = ExtResource("10_x225q")
+
+[node name="Hurt1" type="Sprite2D" parent="mortos e machucados" unique_id=314207961]
+position = Vector2(6376, 584)
+texture = ExtResource("13_erbfd")
+
+[node name="Hurt2" type="Sprite2D" parent="mortos e machucados" unique_id=1008104194]
+position = Vector2(7435, 588)
+texture = ExtResource("14_n882p")
+
+[node name="Hurt3" type="Sprite2D" parent="mortos e machucados" unique_id=636751125]
+position = Vector2(8383, 590)
+texture = ExtResource("14_n882p")
+
+[node name="Hurt4" type="Sprite2D" parent="mortos e machucados" unique_id=1244098993]
+position = Vector2(8684, 590)
+texture = ExtResource("13_erbfd")
 
 [node name="player hurt" parent="." unique_id=2020173120 instance=ExtResource("10_fvfut")]
 position = Vector2(139, 574)
@@ -547,10 +596,10 @@ layout_mode = 1
 anchors_preset = 15
 anchor_right = 1.0
 anchor_bottom = 1.0
-offset_left = -1509.0
-offset_top = -231.0
-offset_right = 2218.0
-offset_bottom = 1729.0
+offset_left = -1447.0
+offset_top = -197.0
+offset_right = 2280.0
+offset_bottom = 1763.0
 grow_horizontal = 2
 grow_vertical = 2
 scale = Vector2(3.9599993, 1)
