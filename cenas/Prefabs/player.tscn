@@ -8,6 +8,7 @@
 [ext_resource type="Texture2D" uid="uid://clebdlmjrpjfs" path="res://Sprites/Diego/door_anim.png" id="4_ry8wb"]
 [ext_resource type="Texture2D" uid="uid://crqn1swkm4nu8" path="res://Sprites/Diego/jump.png" id="5_8v4ht"]
 [ext_resource type="Texture2D" uid="uid://cwvy8rcp7p6fn" path="res://Sprites/Diego/walk.png" id="5_15dsx"]
+[ext_resource type="Texture2D" uid="uid://dh4h8hb8bieq2" path="res://Sprites/Diego/fallingstart.png" id="5_lgjom"]
 [ext_resource type="AudioStream" uid="uid://decjp4oosx58g" path="res://Efeitos sonoros/458884__lilmati__retro-jump-03.wav" id="6_pdysa"]
 [ext_resource type="AudioStream" uid="uid://dk1q8osv6xxx" path="res://Musicas/you died.ogg" id="9_u4fjm"]
 [ext_resource type="Script" uid="uid://btfpom1p1iwjj" path="res://Scripts/GDScript/hud_1_3.gd" id="10_043va"]
@@ -177,6 +178,9 @@ animations = [{
 "speed": 8.0
 }, {
 "frames": [{
+"duration": 0.5,
+"texture": ExtResource("5_lgjom")
+}, {
 "duration": 1.0,
 "texture": SubResource("AtlasTexture_0vjdf")
 }, {
@@ -684,7 +688,7 @@ shape = SubResource("CapsuleShape2D_8v4ht")
 z_index = 1
 texture_filter = 1
 sprite_frames = SubResource("SpriteFrames_4y2i1")
-animation = &"door_anim"
+animation = &"falling"
 autoplay = "idle"
 
 [node name="hurtbox" type="Area2D" parent="." unique_id=1702360898]

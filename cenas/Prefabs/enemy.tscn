@@ -1,12 +1,29 @@
 [gd_scene format=3 uid="uid://ch31uymdxgroi"]
 
 [ext_resource type="Script" uid="uid://bwt1j4jv4vr1p" path="res://Scripts/GDScript/enemy.gd" id="1_a5wpj"]
+[ext_resource type="Texture2D" uid="uid://bdsxoeidq6lk4" path="res://Sprites/Green fox/falling.png" id="2_1lwoj"]
 [ext_resource type="Texture2D" uid="uid://c4hoir5fu0mfg" path="res://Sprites/Green fox/walk.png" id="2_w8aud"]
 [ext_resource type="PackedScene" uid="uid://ccrovap4elgk8" path="res://cenas/Prefabs/hitbox.tscn" id="4_475k7"]
 
 [sub_resource type="CapsuleShape2D" id="CapsuleShape2D_fyj1t"]
 radius = 14.0
 height = 132.0
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_ys7tp"]
+atlas = ExtResource("2_1lwoj")
+region = Rect2(0, 0, 192, 192)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_pgbe6"]
+atlas = ExtResource("2_1lwoj")
+region = Rect2(192, 0, 192, 192)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_lrvay"]
+atlas = ExtResource("2_1lwoj")
+region = Rect2(0, 192, 192, 192)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_x05qo"]
+atlas = ExtResource("2_1lwoj")
+region = Rect2(192, 192, 192, 192)
 
 [sub_resource type="AtlasTexture" id="AtlasTexture_1lwoj"]
 atlas = ExtResource("2_w8aud")
@@ -28,6 +45,107 @@ region = Rect2(192, 192, 192, 192)
 animations = [{
 "frames": [{
 "duration": 1.0,
+"texture": SubResource("AtlasTexture_ys7tp")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_pgbe6")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_lrvay")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_x05qo")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_lrvay")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_x05qo")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_lrvay")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_x05qo")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_lrvay")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_x05qo")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_lrvay")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_x05qo")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_lrvay")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_x05qo")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_lrvay")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_x05qo")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_lrvay")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_x05qo")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_lrvay")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_x05qo")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_lrvay")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_x05qo")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_lrvay")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_x05qo")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_lrvay")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_x05qo")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_lrvay")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_x05qo")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_lrvay")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_x05qo")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_lrvay")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_x05qo")
+}],
+"loop": 1,
+"name": &"falling",
+"speed": 8.0
+}, {
+"frames": [{
+"duration": 1.0,
 "texture": SubResource("AtlasTexture_1lwoj")
 }, {
 "duration": 1.0,
@@ -45,7 +163,7 @@ animations = [{
 "duration": 1.0,
 "texture": SubResource("AtlasTexture_2wyk1")
 }],
-"loop": true,
+"loop": 1,
 "name": &"run",
 "speed": 8.0
 }]
@@ -65,7 +183,7 @@ shape = SubResource("CapsuleShape2D_fyj1t")
 [node name="anim" type="AnimatedSprite2D" parent="." unique_id=494381496]
 position = Vector2(-4, 5)
 sprite_frames = SubResource("SpriteFrames_y08tv")
-animation = &"run"
+animation = &"falling"
 autoplay = "run"
 flip_h = true
 

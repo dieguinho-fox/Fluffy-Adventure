@@ -11,7 +11,7 @@
 [ext_resource type="PackedScene" uid="uid://ciwhdlostkeo7" path="res://cenas/Prefabs/goal.tscn" id="9_26jea"]
 [ext_resource type="Script" uid="uid://dy5p2tfs0odjy" path="res://Scripts/GDScript/goal 3_0.gd" id="10_1t5ae"]
 [ext_resource type="PackedScene" uid="uid://cbhmeaix3cti0" path="res://cenas/Prefabs/player.tscn" id="11_yqkxn"]
-[ext_resource type="AudioStream" uid="uid://b224sukvhyhgc" path="res://Musicas/Another Worlds.ogg" id="12_rislj"]
+[ext_resource type="AudioStream" uid="uid://kkvdlsmg3pah" path="res://Musicas/Fight.ogg" id="12_dgt1v"]
 [ext_resource type="Texture2D" uid="uid://ccovodndo6bqy" path="res://Interface/Celular e Tablet/Controles/ui_buttons_arrow_left_NORMAL.png" id="13_imrrv"]
 [ext_resource type="Texture2D" uid="uid://dy04coxs2ymg2" path="res://Interface/Celular e Tablet/Controles/ui_buttons_arrow_left_PRESSED.png" id="14_1q5t3"]
 [ext_resource type="Texture2D" uid="uid://ctngl4b8n8443" path="res://Interface/Celular e Tablet/Controles/ui_buttons_arrow_right_NORMAL.png" id="15_rygy8"]
@@ -201,9 +201,8 @@ script = ExtResource("10_1t5ae")
 position = Vector2(14447, 4470)
 collision_mask = 6
 
-[node name="Another Worlds" type="AudioStreamPlayer2D" parent="player" unique_id=114285147]
-position = Vector2(83, 486)
-stream = ExtResource("12_rislj")
+[node name="Fight" type="AudioStreamPlayer2D" parent="player" unique_id=114285147]
+stream = ExtResource("12_dgt1v")
 autoplay = true
 bus = &"Music"
 parameters/looping = true
@@ -322,4 +321,4 @@ text = "5"
 label_settings = SubResource("LabelSettings_3sytw")
 
 [node name="SpawnManager" parent="." unique_id=2028926061 instance=ExtResource("26_qt8hj")]
-position = Vector2(16171, 3268)
+position = Vector2(15813, 3497)

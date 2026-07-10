@@ -52,7 +52,8 @@ func spawn_until_full():
 
 	while Globals.enemies_alive < MAX_ALIVE and Globals.enemies_remaining > Globals.enemies_alive:
 
-		await get_tree().create_timer(SPAWN_DELAY).timeout
+		if !await wait(SPAWN_DELAY):
+			return
 
 		if spawn_point == null:
 			push_error("Spawn Point não foi definido!")
@@ -81,7 +82,8 @@ func _enemy_died():
 
 		print("Wave concluída!")
 
-		await get_tree().create_timer(2.0).timeout
+		if !await wait(2.0):
+			return
 
 		Globals.wave += 1
 
@@ -95,3 +97,14 @@ func _enemy_died():
 
 	# Ainda faltam inimigos? Enche novamente até 5 vivos.
 	spawn_until_full()
+
+func wait(seconds: float) -> bool:
+	if !is_inside_tree():
+		return false
+
+	await get_tree().create_timer(seconds).timeout
+
+	if !is_inside_tree():
+		return false
+
+	return true
