@@ -321,4 +321,4 @@ text = "5"
 label_settings = SubResource("LabelSettings_3sytw")
 
 [node name="SpawnManager" parent="." unique_id=2028926061 instance=ExtResource("26_qt8hj")]
-position = Vector2(15813, 3497)
+position = Vector2(16056, 3271)

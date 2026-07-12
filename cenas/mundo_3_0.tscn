@@ -871,3 +871,11 @@ action = "advance_message"
 
 [node name="pause_menu" parent="." unique_id=377924223 instance=ExtResource("23_jgv8i")]
 layer = 9999
+
+[node name="ColorRect" type="ColorRect" parent="." unique_id=918152392]
+offset_left = 15983.0
+offset_top = 4211.0
+offset_right = 16023.0
+offset_bottom = 4251.0
+scale = Vector2(10.04, 5.4400196)
+color = Color(0, 0, 0, 1)

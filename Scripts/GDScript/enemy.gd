@@ -31,6 +31,16 @@ func _physics_process(delta: float) -> void:
 
 	move_and_slide()
 
+	# ===============================
+	# ANIMAÇÕES
+	# ===============================
+	if not is_on_floor():
+		if anim.animation != "falling":
+			anim.play("falling")
+	else:
+		if anim.animation != "run":
+			anim.play("run")
+
 func _on_anim_animation_finished(anim_name: StringName) -> void:
 	if anim_name == "hurtenemy":
 		owner.queue_free()
