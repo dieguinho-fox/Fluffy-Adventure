@@ -349,14 +349,11 @@ func _on_game_timer_timeout() -> void:
 	else:
 		tempo_label.modulate = Color.WHITE
 
-	# Tempo acabou
+# Tempo acabou
 	if tempo >= LIMITE_TEMPO:
 		game_timer.stop()
 
-		# força game over após a animação
-		vidas = 0
-		salvar_vidas()
-
+	# Trata como uma morte normal (perde apenas uma vida)
 		perder_vida()
 
 func atualizar_hud() -> void:
