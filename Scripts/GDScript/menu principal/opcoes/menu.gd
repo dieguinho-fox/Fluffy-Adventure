@@ -14,7 +14,7 @@ const RUBIS_SAVE_PATH: String = "user://rubis.bin"
 const VIDAS_INICIAIS: int = 3
 
 # 🔧 SUA VERSÃO ATUAL
-const CURRENT_VERSION: String = "1.0.8b"
+const CURRENT_VERSION: String = "1.1.0b"
 
 var texts_normal: Array[String] = [
 	"Beta!",

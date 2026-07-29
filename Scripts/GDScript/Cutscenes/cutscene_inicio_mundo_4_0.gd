@@ -1,6 +1,6 @@
 extends Node2D
 
-@export var next_scene_path: String = "res://cenas/mundo_2_2_carregamento.tscn"
+@export var next_scene_path: String = "res://cenas/boss_fight_1_carregamento.tscn"
 @onready var skipbtn = $skipbtn # ajuste o caminho se necessário
 
 func _ready() -> void:
@@ -22,7 +22,7 @@ func _ready() -> void:
 
 
 func start_timer() -> void:
-	var timer = get_tree().create_timer(4.00)
+	var timer = get_tree().create_timer(12.43)
 	await timer.timeout
 
 	# Mostra o cursor novamente antes de mudar de cena

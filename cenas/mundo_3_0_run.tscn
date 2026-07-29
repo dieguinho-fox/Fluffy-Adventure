@@ -2,7 +2,6 @@
 
 [ext_resource type="Script" uid="uid://d4nsta2tqwt4i" path="res://Scripts/GDScript/mundo_1_0.gd" id="1_jdk2k"]
 [ext_resource type="Texture2D" uid="uid://dad4x8xedybmv" path="res://Tilesets/House tileset/House background.png" id="2_ut6jq"]
-[ext_resource type="Texture2D" uid="uid://p35kvnv5ffh1" path="res://Tilesets/Seasonal Tilesets/1 - Grassland/Background parts/_Complete_static_BG_(288 x 208).png" id="3_h84ut"]
 [ext_resource type="Texture2D" uid="uid://0v1cuoolvltc" path="res://Tilesets/House tileset/house tileset.png" id="4_38th4"]
 [ext_resource type="Texture2D" uid="uid://dd1a55wl6bhis" path="res://Tilesets/House tileset/House entities.png" id="5_f6uvp"]
 [ext_resource type="Texture2D" uid="uid://i2n007epu8mc" path="res://Tilesets/Seasonal Tilesets/1 - Grassland/Extra_plants (16 x 16).png" id="6_3lbmf"]
@@ -25,6 +24,9 @@
 [ext_resource type="PackedScene" uid="uid://bd44jeqrcs4fg" path="res://cenas/Prefabs/pause_menu.tscn" id="23_lhntr"]
 [ext_resource type="Script" uid="uid://dm6xtyggf3kik" path="res://Scripts/GDScript/cooldown.gd" id="24_h84ut"]
 [ext_resource type="FontFile" uid="uid://bjw68y3gx2d3k" path="res://Fontes/RevMiniPixel.ttf" id="24_ut6jq"]
+
+[sub_resource type="CompressedTexture2D" id="CompressedTexture2D_ut6jq"]
+load_path = "res://.godot/imported/_Complete_static_BG_(288 x 208).png-6da9f1980eb1b0fc63f0cfdf407976ee.ctex"
 
 [sub_resource type="TileSetAtlasSource" id="TileSetAtlasSource_54aic"]
 texture = ExtResource("4_38th4")
@@ -192,41 +194,41 @@ outline_color = Color(0.4, 0, 0, 1)
 [node name="mundo 3-0 run" type="Node2D" unique_id=2080345368]
 script = ExtResource("1_jdk2k")
 
-[node name="BG" type="Parallax2D" parent="." unique_id=380315334]
-repeat_size = Vector2(2304, 0)
-repeat_times = 38
-
-[node name="CompleteStaticBg(288X208)" type="Sprite2D" parent="BG" unique_id=1349153769]
-z_index = -1
-position = Vector2(-377.00003, 312)
-scale = Vector2(8, 7.675)
-texture = ExtResource("2_ut6jq")
-
 [node name="BG3" type="Parallax2D" parent="." unique_id=1512855289]
-z_index = 1
-scroll_offset = Vector2(25039, 0)
+scroll_offset = Vector2(-3577, 0)
 repeat_size = Vector2(2304, 0)
 repeat_times = 7
 
 [node name="CompleteStaticBg(288X208)" type="Sprite2D" parent="BG3" unique_id=1269414866]
-z_index = 1
-position = Vector2(15464, 312)
+position = Vector2(16432, 312.00003)
 scale = Vector2(8, 7.675)
-texture = ExtResource("3_h84ut")
+texture = SubResource("CompressedTexture2D_ut6jq")
 
 [node name="BG2" type="Parallax2D" parent="." unique_id=1905025823]
-scroll_offset = Vector2(0, 3447)
+scroll_offset = Vector2(-6529, 2801)
 repeat_size = Vector2(2304, 0)
 repeat_times = 38
 
 [node name="CompleteStaticBg(288X208)" type="Sprite2D" parent="BG2" unique_id=634879428]
-z_index = -1
-position = Vector2(-377.00003, 312)
+position = Vector2(-427.00003, 958)
+scale = Vector2(8, 7.675)
+texture = ExtResource("2_ut6jq")
+
+[node name="BG" type="Parallax2D" parent="." unique_id=380315334]
+scroll_offset = Vector2(20865, 435)
+repeat_size = Vector2(2304, 0)
+repeat_times = 5
+
+[node name="CompleteStaticBg(288X208)" type="Sprite2D" parent="BG" unique_id=1349153769]
+z_index = -11
+position = Vector2(1206, -123)
 scale = Vector2(8, 7.675)
 texture = ExtResource("2_ut6jq")
 
 [node name="Level4" type="TileMapLayer" parent="." unique_id=1938564082]
 modulate = Color(0.42621174, 0.42621168, 0.42621166, 1)
+z_index = 1
+z_as_relative = false
 position = Vector2(134.99997, 734.99976)
 rotation = 3.1415927
 scale = Vector2(4.7084303, -4.5924973)
@@ -326,7 +328,7 @@ position = Vector2(8069, 1038)
 script = ExtResource("10_rhll1")
 
 [node name="player" parent="." unique_id=2020173120 instance=ExtResource("11_jdk2k")]
-position = Vector2(15745, 4469)
+position = Vector2(6950, 1015)
 
 [node name="Fight" type="AudioStreamPlayer2D" parent="player" unique_id=114285147]
 position = Vector2(83, 486)

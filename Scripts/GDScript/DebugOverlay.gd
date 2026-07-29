@@ -3,10 +3,10 @@ extends CanvasLayer
 # =========================
 # CONFIGURAÇÃO
 # =========================
-var enabled := false
+var enabled := true
 
 # Versões
-var build_version := "1.1.0b_build09072026" # <- EDITA AQUI
+var build_version := "1.1.0b_build29072026" # <- EDITA AQUI
 var dotnet_windows_linux := ".NET 8"
 var dotnet_android := ".NET 9"
 var lua_version := "Lua 5.4"

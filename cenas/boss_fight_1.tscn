@@ -26,6 +26,7 @@
 [ext_resource type="Script" uid="uid://dm861khvmnl7h" path="res://Scripts/GDScript/wave.gd" id="24_dgt1v"]
 [ext_resource type="FontFile" uid="uid://bjw68y3gx2d3k" path="res://Fontes/RevMiniPixel.ttf" id="24_rxfmn"]
 [ext_resource type="PackedScene" uid="uid://lcq6lc4m4v8p" path="res://cenas/Prefabs/spawn_manager.tscn" id="26_qt8hj"]
+[ext_resource type="Texture2D" uid="uid://deofji6w471jo" path="res://Sprites/Outros/Dalf2.png" id="27_qt8hj"]
 
 [sub_resource type="TileSetAtlasSource" id="TileSetAtlasSource_irmqs"]
 texture = ExtResource("3_4f7k3")
@@ -90,6 +91,28 @@ font = ExtResource("24_rxfmn")
 font_color = Color(1, 0, 0, 1)
 outline_size = 5
 outline_color = Color(0.4, 0, 0, 1)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_u23qm"]
+atlas = ExtResource("27_qt8hj")
+region = Rect2(0, 0, 192, 192)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_25mas"]
+atlas = ExtResource("27_qt8hj")
+region = Rect2(192, 0, 192, 192)
+
+[sub_resource type="SpriteFrames" id="SpriteFrames_3sytw"]
+animations = [{
+"frames": [{
+"duration": 20.0,
+"texture": SubResource("AtlasTexture_u23qm")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_25mas")
+}],
+"loop": 1,
+"name": &"idle",
+"speed": 8.0
+}]
 
 [node name="boss_fight1" type="Node2D" unique_id=2080345368]
 script = ExtResource("1_asxpw")
@@ -322,3 +345,9 @@ label_settings = SubResource("LabelSettings_3sytw")
 
 [node name="SpawnManager" parent="." unique_id=2028926061 instance=ExtResource("26_qt8hj")]
 position = Vector2(16056, 3271)
+
+[node name="Dalf" type="AnimatedSprite2D" parent="." unique_id=1399721745]
+position = Vector2(16557, 4465)
+sprite_frames = SubResource("SpriteFrames_3sytw")
+animation = &"idle"
+autoplay = "idle"

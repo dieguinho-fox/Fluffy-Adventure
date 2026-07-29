@@ -8,7 +8,7 @@
 [ext_resource type="Texture2D" uid="uid://daif3mchgicg0" path="res://Tilesets/Seasonal Tilesets/2 - Autumn Forest/Terrain (16 x 16).png" id="6_n882p"]
 [ext_resource type="Texture2D" uid="uid://b1dxqsc4ik8bu" path="res://Tilesets/Seasonal Tilesets/2 - Autumn Forest/Autumn_entities (16 x 16).png" id="7_hjwbl"]
 [ext_resource type="PackedScene" uid="uid://ciwhdlostkeo7" path="res://cenas/Prefabs/goal.tscn" id="8_hc3ra"]
-[ext_resource type="Script" uid="uid://isk8dtbwo5e7" path="res://Scripts/GDScript/goalflash1.gd" id="9_ipng8"]
+[ext_resource type="Script" uid="uid://3w7qg8ycijgr" path="res://Scripts/GDScript/goal_flash2.gd" id="9_erbfd"]
 [ext_resource type="PackedScene" uid="uid://culml5grvkbv" path="res://cenas/Prefabs/player_hurt.tscn" id="10_fvfut"]
 [ext_resource type="Texture2D" uid="uid://beoardebc1p8t" path="res://Sprites/Outros/Morto2.png" id="10_x225q"]
 [ext_resource type="Script" uid="uid://2mlt4bvi5qfb" path="res://Scripts/GDScript/mundo1-0/interface.gd" id="11_bjiar"]
@@ -512,7 +512,7 @@ shape = SubResource("RectangleShape2D_frflr")
 
 [node name="goal" parent="." unique_id=1397360120 instance=ExtResource("8_hc3ra")]
 position = Vector2(8153, 591)
-script = ExtResource("9_ipng8")
+script = ExtResource("9_erbfd")
 
 [node name="mortos e machucados" type="Node2D" parent="." unique_id=1587605882]
 

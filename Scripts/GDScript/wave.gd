@@ -6,3 +6,9 @@ extends VBoxContainer
 func _process(_delta):
 	wave_counter.text = str(Globals.wave)
 	enemiesR_counter.text = str(Globals.enemies_remaining)
+
+# traduções
+
+func _ready() -> void:
+	$HBoxContainer/wave_label.text = tr("Onda")
+	$HBoxContainer2/enemiesR_label.text = tr("Inimigosrestantes")

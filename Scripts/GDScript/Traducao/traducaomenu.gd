@@ -13,7 +13,10 @@ const ALLOWED_SCENES := [
 	"res://cenas/mundo_2_2_carregamento.tscn",
 	"res://cenas/flashback_1_carregamento.tscn",
 	"res://cenas/run_carregamento.tscn",
-	"res://cenas/mundo_3_0_carregamento.tscn"
+	"res://cenas/mundo_3_0_carregamento.tscn",
+	"res://cenas/boss_fight_1_carregamento.tscn",
+	"res://cenas/mundo_3_0_run_carregamento.tscn",
+	"res://cenas/flashback_2_carregamento.tscn"
 ]
 
 @onready var btn_jogar := get_node_or_null("jogar")

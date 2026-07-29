@@ -2,7 +2,6 @@
 
 [ext_resource type="Script" uid="uid://bcmqsimlmsfta" path="res://Scripts/GDScript/Cutscenes/cutscene_inicio_batalha1.gd" id="1_fc5mf"]
 [ext_resource type="VideoStream" uid="uid://kkr7kn6hodwe" path="res://Cutscenes/Início-da-batalha-1.ogv" id="2_f44pr"]
-[ext_resource type="Script" uid="uid://cdp00lk1hwgm5" path="res://Scripts/GDScript/Cutscenes/legendas/cutsceneiniciomundo22.gd" id="3_d8ikr"]
 [ext_resource type="FontFile" uid="uid://bjw68y3gx2d3k" path="res://Fontes/RevMiniPixel.ttf" id="4_kbbvy"]
 [ext_resource type="Texture2D" uid="uid://ctngl4b8n8443" path="res://Interface/Celular e Tablet/Controles/ui_buttons_arrow_right_NORMAL.png" id="5_ti26q"]
 [ext_resource type="Texture2D" uid="uid://cumy4oggpvlkl" path="res://Interface/Celular e Tablet/Controles/ui_buttons_arrow_right_PRESSED.png" id="6_we1kp"]
@@ -16,13 +15,13 @@ outline_color = Color(0, 0, 0, 1)
 
 [node name="Node2D" type="Node2D" unique_id=466068300]
 script = ExtResource("1_fc5mf")
+next_scene_path = "res://cenas/boss_fight_1_carregamento.tscn"
 
 [node name="VideoStreamPlayer" type="VideoStreamPlayer" parent="." unique_id=2050535888]
 offset_right = 40.0
 offset_bottom = 40.0
 stream = ExtResource("2_f44pr")
 autoplay = true
-script = ExtResource("3_d8ikr")
 
 [node name="legenda" type="Label" parent="VideoStreamPlayer" unique_id=1295814820]
 visible = false

@@ -15,7 +15,7 @@ compatibility/default_parent_skeleton_in_mesh_instance_3d=true
 [application]
 
 config/name="Fluffy Adventure"
-config/version="1.0.8b"
+config/version="1.1.0b"
 run/main_scene="uid://juq4o2ekqgia"
 config/use_custom_user_dir=true
 config/quit_on_go_back=false
@@ -66,6 +66,10 @@ enemies=""
 player=""
 doors=""
 ignore_language_font="ignorar a mudança de fonte caso o idioma seja alterado"
+
+[gui]
+
+theme/default_font_antialiasing=0
 
 [input]
 

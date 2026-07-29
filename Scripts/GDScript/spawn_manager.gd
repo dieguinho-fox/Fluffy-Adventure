@@ -92,7 +92,7 @@ func _enemy_died():
 		else:
 			print("Todas as ondas foram concluídas!")
 			# Coloque aqui o evento de fim da batalha.
-			get_tree().change_scene_to_file("res://cenas/continua.tscn")
+			get_tree().change_scene_to_file("res://cenas/cutscene_bat1_final.tscn")
 		return
 
 	# Ainda faltam inimigos? Enche novamente até 5 vivos.

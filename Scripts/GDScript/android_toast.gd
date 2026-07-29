@@ -3,7 +3,7 @@ extends Node
 # ===============================
 # CONFIGURAÇÃO
 # ===============================
-const SHOW_PREVIEW_TOAST := false
+const SHOW_PREVIEW_TOAST := true
 
 func _ready():
 	if SHOW_PREVIEW_TOAST:

@@ -1,0 +1,52 @@
+[gd_scene format=3 uid="uid://bn5c8r14bvk0o"]
+
+[ext_resource type="Script" uid="uid://b0pka5qbrt3iy" path="res://Scripts/GDScript/Cutscenes/cutscene_inicio_mundo_4_0.gd" id="1_p8vwf"]
+[ext_resource type="VideoStream" uid="uid://ckfmyc2x0gwn" path="res://Cutscenes/Início-do-mundo-4-0.ogv" id="2_a14on"]
+[ext_resource type="FontFile" uid="uid://bjw68y3gx2d3k" path="res://Fontes/RevMiniPixel.ttf" id="3_ks4xe"]
+[ext_resource type="Texture2D" uid="uid://ctngl4b8n8443" path="res://Interface/Celular e Tablet/Controles/ui_buttons_arrow_right_NORMAL.png" id="4_x6k4h"]
+[ext_resource type="Texture2D" uid="uid://cumy4oggpvlkl" path="res://Interface/Celular e Tablet/Controles/ui_buttons_arrow_right_PRESSED.png" id="5_5fw6v"]
+[ext_resource type="PackedScene" uid="uid://brycjken8w060" path="res://cenas/Prefabs/pular_cutscene.tscn" id="6_2lf6k"]
+
+[sub_resource type="LabelSettings" id="LabelSettings_1b3t3"]
+font = ExtResource("3_ks4xe")
+font_size = 30
+outline_size = 10
+outline_color = Color(0, 0, 0, 1)
+
+[node name="Node2D" type="Node2D" unique_id=466068300]
+script = ExtResource("1_p8vwf")
+next_scene_path = "res://cenas/flashback_2_carregamento.tscn"
+
+[node name="VideoStreamPlayer" type="VideoStreamPlayer" parent="." unique_id=2050535888]
+offset_right = 40.0
+offset_bottom = 40.0
+stream = ExtResource("2_a14on")
+autoplay = true
+
+[node name="legenda" type="Label" parent="VideoStreamPlayer" unique_id=1295814820]
+visible = false
+layout_mode = 1
+anchors_preset = 7
+anchor_left = 0.5
+anchor_top = 1.0
+anchor_right = 0.5
+anchor_bottom = 1.0
+offset_left = -65.0
+offset_top = -71.0
+offset_right = 66.0
+offset_bottom = -40.0
+grow_horizontal = 2
+grow_vertical = 0
+text = "LEGENDA"
+label_settings = SubResource("LabelSettings_1b3t3")
+horizontal_alignment = 1
+
+[node name="skipbtn" type="TouchScreenButton" parent="." unique_id=862303143]
+visible = false
+position = Vector2(1689.0002, 17.000002)
+scale = Vector2(6.34375, 6.25)
+texture_normal = ExtResource("4_x6k4h")
+texture_pressed = ExtResource("5_5fw6v")
+action = "ui_accept"
+
+[node name="Pular cutscene" parent="." unique_id=1579372191 instance=ExtResource("6_2lf6k")]
