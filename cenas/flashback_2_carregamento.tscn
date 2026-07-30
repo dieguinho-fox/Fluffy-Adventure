@@ -1,6 +1,6 @@
 [gd_scene format=3 uid="uid://4jpbnsyhh4tn"]
 
-[ext_resource type="Script" uid="uid://cnafhs23o6qoa" path="res://Scripts/GDScript/carregamentos de mundos/flashback_1_carregamento.gd" id="1_amdvx"]
+[ext_resource type="Script" uid="uid://ba7ydjvwljced" path="res://Scripts/GDScript/flashback_2_carregamento.gd" id="1_amdvx"]
 [ext_resource type="FontFile" uid="uid://bjw68y3gx2d3k" path="res://Fontes/RevMiniPixel.ttf" id="2_4ulwg"]
 
 [sub_resource type="LabelSettings" id="LabelSettings_oknt7"]
@@ -19,7 +19,6 @@ anchor_bottom = 1.0
 grow_horizontal = 2
 grow_vertical = 2
 script = ExtResource("1_amdvx")
-next_scene_path = "res://cenas/flashback_2.tscn"
 
 [node name="ColorRect" type="ColorRect" parent="." unique_id=181610801]
 layout_mode = 0

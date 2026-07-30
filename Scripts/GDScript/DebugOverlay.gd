@@ -3,7 +3,7 @@ extends CanvasLayer
 # =========================
 # CONFIGURAÇÃO
 # =========================
-var enabled := true
+var enabled := false
 
 # Versões
 var build_version := "1.1.0b_build29072026" # <- EDITA AQUI

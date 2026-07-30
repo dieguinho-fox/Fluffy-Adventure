@@ -1,6 +1,6 @@
 extends Control
 
-@export var next_scene_path: String = "res://cenas/mundo_1_1.tscn"
+@export var next_scene_path: String = "res://cenas/flashback_2.tscn"
 
 # Agora o progresso é salvo em formato binário (.bin)
 const PROGRESS_SAVE_PATH := "user://progress.bin"
