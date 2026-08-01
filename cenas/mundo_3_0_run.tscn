@@ -24,6 +24,8 @@
 [ext_resource type="PackedScene" uid="uid://bd44jeqrcs4fg" path="res://cenas/Prefabs/pause_menu.tscn" id="23_lhntr"]
 [ext_resource type="Script" uid="uid://dm6xtyggf3kik" path="res://Scripts/GDScript/cooldown.gd" id="24_h84ut"]
 [ext_resource type="FontFile" uid="uid://bjw68y3gx2d3k" path="res://Fontes/RevMiniPixel.ttf" id="24_ut6jq"]
+[ext_resource type="Texture2D" uid="uid://c8sp2wee844l1" path="res://Sprites/Outros/seta direita.png" id="25_38th4"]
+[ext_resource type="Texture2D" uid="uid://p6ix6pw7lu3l" path="res://Sprites/Outros/seta esquerda.png" id="26_f6uvp"]
 
 [sub_resource type="CompressedTexture2D" id="CompressedTexture2D_ut6jq"]
 load_path = "res://.godot/imported/_Complete_static_BG_(288 x 208).png-6da9f1980eb1b0fc63f0cfdf407976ee.ctex"
@@ -199,11 +201,6 @@ scroll_offset = Vector2(-3577, 0)
 repeat_size = Vector2(2304, 0)
 repeat_times = 7
 
-[node name="CompleteStaticBg(288X208)" type="Sprite2D" parent="BG3" unique_id=1269414866]
-position = Vector2(16432, 312.00003)
-scale = Vector2(8, 7.675)
-texture = SubResource("CompressedTexture2D_ut6jq")
-
 [node name="BG2" type="Parallax2D" parent="." unique_id=1905025823]
 scroll_offset = Vector2(-6529, 2801)
 repeat_size = Vector2(2304, 0)
@@ -224,6 +221,11 @@ z_index = -11
 position = Vector2(1206, -123)
 scale = Vector2(8, 7.675)
 texture = ExtResource("2_ut6jq")
+
+[node name="CompleteStaticBg(288X208)" type="Sprite2D" parent="." unique_id=1269414866]
+position = Vector2(8247, 312)
+scale = Vector2(8, 7.675)
+texture = SubResource("CompressedTexture2D_ut6jq")
 
 [node name="Level4" type="TileMapLayer" parent="." unique_id=1938564082]
 modulate = Color(0.42621174, 0.42621168, 0.42621166, 1)
@@ -328,7 +330,7 @@ position = Vector2(8069, 1038)
 script = ExtResource("10_rhll1")
 
 [node name="player" parent="." unique_id=2020173120 instance=ExtResource("11_jdk2k")]
-position = Vector2(6950, 1015)
+position = Vector2(15045, 4469)
 
 [node name="Fight" type="AudioStreamPlayer2D" parent="player" unique_id=114285147]
 position = Vector2(83, 486)
@@ -429,3 +431,11 @@ alignment = 1
 layout_mode = 2
 text = "00:30"
 label_settings = SubResource("LabelSettings_h84ut")
+
+[node name="SetaDireita" type="Sprite2D" parent="." unique_id=33835119]
+position = Vector2(4190, 982)
+texture = ExtResource("25_38th4")
+
+[node name="SetaEsquerda" type="Sprite2D" parent="." unique_id=401765072]
+position = Vector2(14442, 4442)
+texture = ExtResource("26_f6uvp")

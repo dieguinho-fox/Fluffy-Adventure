@@ -3,6 +3,7 @@
 [ext_resource type="Script" uid="uid://bt8w81q68jrmd" path="res://Scripts/GDScript/menu principal/opcoes/menu.gd" id="1_64url"]
 [ext_resource type="Texture2D" uid="uid://p35kvnv5ffh1" path="res://Tilesets/Seasonal Tilesets/1 - Grassland/Background parts/_Complete_static_BG_(288 x 208).png" id="2_hsu4v"]
 [ext_resource type="Script" uid="uid://dc6ahxsxnjmnp" path="res://Scripts/GDScript/Traducao/traducaomenu.gd" id="4_qcnrj"]
+[ext_resource type="Script" uid="uid://b16lrgg7fjf2t" path="res://Scripts/GDScript/versão.gd" id="5_hialk"]
 [ext_resource type="FontFile" uid="uid://bjw68y3gx2d3k" path="res://Fontes/RevMiniPixel.ttf" id="5_nxpqr"]
 [ext_resource type="AudioStream" uid="uid://dxvxmjvkvxjvl" path="res://Musicas/A rain day.ogg" id="6_dxv5o"]
 [ext_resource type="AudioStream" uid="uid://8pvnj6oj07tt" path="res://Musicas/Menu 1.ogg" id="6_nxpqr"]
@@ -166,12 +167,15 @@ anchor_left = 1.0
 anchor_top = 1.0
 anchor_right = 1.0
 anchor_bottom = 1.0
-offset_left = -124.0
-offset_top = -23.0
+offset_left = -96.0
+offset_top = -36.0
 grow_horizontal = 0
 grow_vertical = 0
-text = "v1.1.0b"
+text = "v1.0.0
+Windows sei la"
 label_settings = SubResource("LabelSettings_hsu4v")
+horizontal_alignment = 2
+script = ExtResource("5_hialk")
 
 [node name="copyright" type="Label" parent="." unique_id=1997261341]
 layout_mode = 1
