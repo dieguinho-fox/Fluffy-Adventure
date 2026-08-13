@@ -17,7 +17,7 @@ const VIDAS_INICIAIS: int = 3
 const CURRENT_VERSION: String = "1.1.0b"
 
 var texts_normal: Array[String] = [
-	"Beta!",
+	"Lançamento completo!",
 	"Não aperte Alt+F4",
 	"Alguém ler isso?",
 	"Agora em Linux!",
@@ -36,7 +36,6 @@ var texts_normal: Array[String] = [
 	"Quem colocou isso aqui?",
 	"Seboso",
 	"Eu consigo voar!!!",
-	"Finalmente beta",
 	"Não dê nem água",
 	"E nessa loucu--"
 ]

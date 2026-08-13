@@ -59,7 +59,8 @@ position = Vector2(1440, 511)
 scale = Vector2(10.238314, 10.058173)
 texture = ExtResource("2_hsu4v")
 
-[node name="titulo" type="Label" parent="." unique_id=766029547]
+[node name="edição" type="Label" parent="." unique_id=766029547]
+visible = false
 layout_mode = 1
 anchors_preset = 5
 anchor_left = 0.5
@@ -73,7 +74,7 @@ size_flags_vertical = 2
 text = "
 
 
-Beta"
+Edição"
 label_settings = SubResource("LabelSettings_64url")
 horizontal_alignment = 1
 

@@ -5,7 +5,9 @@ const RECOMPENSAS_PATH := "user://recompensas.save"
 const VIDAS_INICIAIS := 3
 
 @onready var live_counter: Label = $control/container/live_container/live_counter
+@onready var boss_hp_counter: Label = $control/container/dalflive_container/live_counter
 @onready var life: AudioStreamPlayer2D = $"../jump_sfx"
+@onready var boss_hp_container: Control = $control/container/dalflive_container
 
 var ultima_modificacao := 0
 
@@ -13,14 +15,29 @@ var ultima_modificacao := 0
 var ganhou_50_moedas := false
 var ganhou_100_moedas := false
 
+
 func _ready() -> void:
+	# Verifica se está na batalha final
+	var cena_atual := get_tree().current_scene
+	
+	if cena_atual != null and cena_atual.name == "batalha_final":
+		boss_hp_container.visible = true
+		atualizar_boss_hp()
+	else:
+		boss_hp_container.visible = false
+	
 	atualizar_vidas()
+	atualizar_boss_hp()
 
 	if FileAccess.file_exists(SAVE_PATH):
 		ultima_modificacao = FileAccess.get_modified_time(SAVE_PATH)
 
+
 func _process(_delta: float) -> void:
 	verificar_recompensas()
+
+	# Atualiza o HP do boss
+	atualizar_boss_hp()
 
 	if not FileAccess.file_exists(SAVE_PATH):
 		return
@@ -30,6 +47,7 @@ func _process(_delta: float) -> void:
 	if modificacao_atual != ultima_modificacao:
 		ultima_modificacao = modificacao_atual
 		atualizar_vidas()
+
 
 func atualizar_vidas() -> void:
 	var vidas := VIDAS_INICIAIS
@@ -42,6 +60,11 @@ func atualizar_vidas() -> void:
 
 	live_counter.text = str(vidas)
 
+
+func atualizar_boss_hp() -> void:
+	boss_hp_counter.text = str(Globals.final_boss_hp)
+
+
 func carregar_vidas() -> int:
 	var vidas := VIDAS_INICIAIS
 
@@ -53,17 +76,20 @@ func carregar_vidas() -> int:
 
 	return vidas
 
+
 func salvar_vidas(vidas: int) -> void:
 	var file := FileAccess.open(SAVE_PATH, FileAccess.WRITE)
 	if file:
 		file.store_32(vidas)
 		file.close()
 
+
 func adicionar_vida() -> void:
 	var vidas := carregar_vidas()
 	vidas += 1
 	salvar_vidas(vidas)
 	life.play()
+
 
 func carregar_recompensas() -> Dictionary:
 	var recompensas := {
@@ -81,11 +107,13 @@ func carregar_recompensas() -> Dictionary:
 
 	return recompensas
 
+
 func salvar_recompensas(recompensas: Dictionary) -> void:
 	var file := FileAccess.open(RECOMPENSAS_PATH, FileAccess.WRITE)
 	if file:
 		file.store_var(recompensas)
 		file.close()
+
 
 func verificar_recompensas() -> void:
 	# 50 moedas da fase

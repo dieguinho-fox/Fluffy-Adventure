@@ -15,13 +15,13 @@ compatibility/default_parent_skeleton_in_mesh_instance_3d=true
 [application]
 
 config/name="Fluffy Adventure"
-config/version="1.0.0"
+config/version="1.0.0 Pre Release 1"
 run/main_scene="uid://juq4o2ekqgia"
 config/use_custom_user_dir=true
 config/quit_on_go_back=false
 config/features=PackedStringArray("4.7", "C#", "GL Compatibility")
 boot_splash/bg_color=Color(0, 0, 0, 1)
-config/icon="uid://bawmkyrmx4cms"
+config/icon="uid://ceofg8g3e3kl0"
 boot_splash/minimum_display_time=200
 
 [autoload]
@@ -51,7 +51,7 @@ window/size/mode=2
 window/stretch/mode="viewport"
 window/stretch/aspect="ignore"
 window/handheld/orientation=4
-mouse_cursor/custom_image="uid://b2td3nacddftt"
+mouse_cursor/custom_image="uid://bkedrdpba4pwr"
 
 [dotnet]
 

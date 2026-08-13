@@ -804,6 +804,25 @@ size_flags_vertical = 8
 text = "X1"
 label_settings = SubResource("LabelSettings_x0odw")
 
+[node name="dalflive_container" type="HBoxContainer" parent="HUD/control/container" unique_id=980657636]
+visible = false
+layout_mode = 2
+size_flags_horizontal = 8
+
+[node name="live_label" type="Label" parent="HUD/control/container/dalflive_container" unique_id=1308484427]
+layout_mode = 2
+size_flags_horizontal = 4
+size_flags_vertical = 8
+text = "DALF:"
+label_settings = SubResource("LabelSettings_gloi6")
+
+[node name="live_counter" type="Label" parent="HUD/control/container/dalflive_container" unique_id=311978434 groups=["ignore_language_font"]]
+layout_mode = 2
+size_flags_horizontal = 0
+size_flags_vertical = 8
+text = "X1"
+label_settings = SubResource("LabelSettings_x0odw")
+
 [node name="transicao" type="ColorRect" parent="." unique_id=1050668975]
 modulate = Color(1, 1, 1, 0)
 z_index = 10
