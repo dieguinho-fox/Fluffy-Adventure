@@ -3,7 +3,7 @@
 ; ======================================================
 
 #define MyAppName "Fluffy Adventure"
-#define MyAppVersion "1.0.6b"
+#define MyAppVersion "1.0.0_pre2"
 #define MyAppPublisher "Fluffy Studios"
 #define MyAppExeName "Fluffy Adventure.exe"
 
@@ -83,12 +83,24 @@ Source: "C:\Users\diego\Documents\Fluffy-Adventure-main\Executaveis\Windows\disc
 Source: "C:\Users\diego\Documents\Fluffy-Adventure-main\Executaveis\Windows\discord_game_sdk_binding.dll"; \
     DestDir: "{app}"; \
     Flags: ignoreversion overwritereadonly
+    
+Source: "C:\Users\diego\Documents\Fluffy-Adventure-main\Executaveis\Windows\discord_game_sdk_binding_debug.dll"; \
+  DestDir: "{app}"; \
+  Flags: ignoreversion overwritereadonly
 
 Source: "C:\Users\diego\Documents\Fluffy-Adventure-main\Executaveis\Windows\libluagdextension.windows.template_release.x86_32.dll"; \
     DestDir: "{app}"; \
     Flags: ignoreversion overwritereadonly
 
 Source: "C:\Users\diego\Documents\Fluffy-Adventure-main\Executaveis\Windows\libluagdextension.windows.template_release.x86_64.dll"; \
+    DestDir: "{app}"; \
+    Flags: ignoreversion overwritereadonly
+    
+Source: "C:\Users\diego\Documents\Fluffy-Adventure-main\Executaveis\Windows\libluagdextension.windows.template_debug.x86_32.dll"; \
+    DestDir: "{app}"; \
+    Flags: ignoreversion overwritereadonly
+
+Source: "C:\Users\diego\Documents\Fluffy-Adventure-main\Executaveis\Windows\libluagdextension.windows.template_debug.x86_64.dll"; \
     DestDir: "{app}"; \
     Flags: ignoreversion overwritereadonly
 
