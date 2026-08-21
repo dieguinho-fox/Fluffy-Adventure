@@ -1,0 +1,51 @@
+[gd_scene format=3 uid="uid://b0cx6puswiupe"]
+
+[ext_resource type="Script" uid="uid://dwfcrn1c52xby" path="res://Scripts/GDScript/Cutscenes/cutscene_bat_1_inicio.gd" id="1_ek5dg"]
+[ext_resource type="VideoStream" uid="uid://kkr7kn6hodwe" path="res://Cutscenes/Início-da-batalha-1.ogv" id="2_w24ad"]
+[ext_resource type="FontFile" uid="uid://bjw68y3gx2d3k" path="res://Fontes/RevMiniPixel.ttf" id="3_cjd5f"]
+[ext_resource type="Texture2D" uid="uid://ctngl4b8n8443" path="res://Interface/Celular e Tablet/Controles/ui_buttons_arrow_right_NORMAL.png" id="4_6y2a5"]
+[ext_resource type="Texture2D" uid="uid://cumy4oggpvlkl" path="res://Interface/Celular e Tablet/Controles/ui_buttons_arrow_right_PRESSED.png" id="5_jegkp"]
+[ext_resource type="PackedScene" uid="uid://brycjken8w060" path="res://cenas/Prefabs/pular_cutscene.tscn" id="6_xvnvl"]
+
+[sub_resource type="LabelSettings" id="LabelSettings_1b3t3"]
+font = ExtResource("3_cjd5f")
+font_size = 30
+outline_size = 10
+outline_color = Color(0, 0, 0, 1)
+
+[node name="Node2D" type="Node2D" unique_id=466068300]
+script = ExtResource("1_ek5dg")
+
+[node name="VideoStreamPlayer" type="VideoStreamPlayer" parent="." unique_id=2050535888]
+offset_right = 40.0
+offset_bottom = 40.0
+stream = ExtResource("2_w24ad")
+autoplay = true
+
+[node name="legenda" type="Label" parent="VideoStreamPlayer" unique_id=1295814820]
+visible = false
+layout_mode = 1
+anchors_preset = 7
+anchor_left = 0.5
+anchor_top = 1.0
+anchor_right = 0.5
+anchor_bottom = 1.0
+offset_left = -65.0
+offset_top = -71.0
+offset_right = 66.0
+offset_bottom = -40.0
+grow_horizontal = 2
+grow_vertical = 0
+text = "LEGENDA"
+label_settings = SubResource("LabelSettings_1b3t3")
+horizontal_alignment = 1
+
+[node name="skipbtn" type="TouchScreenButton" parent="." unique_id=862303143]
+visible = false
+position = Vector2(1689.0002, 17.000002)
+scale = Vector2(6.34375, 6.25)
+texture_normal = ExtResource("4_6y2a5")
+texture_pressed = ExtResource("5_jegkp")
+action = "ui_accept"
+
+[node name="Pular cutscene" parent="." unique_id=1579372191 instance=ExtResource("6_xvnvl")]

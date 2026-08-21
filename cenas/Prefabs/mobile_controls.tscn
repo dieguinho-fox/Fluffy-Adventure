@@ -1,0 +1,69 @@
+[gd_scene format=3 uid="uid://dm5v7yitx6pb"]
+
+[ext_resource type="Texture2D" uid="uid://ccovodndo6bqy" path="res://Interface/Celular e Tablet/Controles/ui_buttons_arrow_left_NORMAL.png" id="1_2ltv7"]
+[ext_resource type="Texture2D" uid="uid://dy04coxs2ymg2" path="res://Interface/Celular e Tablet/Controles/ui_buttons_arrow_left_PRESSED.png" id="2_fe0ie"]
+[ext_resource type="Texture2D" uid="uid://ctngl4b8n8443" path="res://Interface/Celular e Tablet/Controles/ui_buttons_arrow_right_NORMAL.png" id="3_51n0o"]
+[ext_resource type="Texture2D" uid="uid://cumy4oggpvlkl" path="res://Interface/Celular e Tablet/Controles/ui_buttons_arrow_right_PRESSED.png" id="4_lrsxq"]
+[ext_resource type="Texture2D" uid="uid://clrcif5srxl1d" path="res://Interface/Celular e Tablet/Controles/ui_buttons_arrow_up_NORMAL.png" id="5_ddab8"]
+[ext_resource type="Texture2D" uid="uid://80xqxrigu50p" path="res://Interface/Celular e Tablet/Controles/ui_buttons_arrow_up_PRESSED.png" id="6_1scfh"]
+[ext_resource type="Texture2D" uid="uid://bj3mi4056cm0m" path="res://Interface/Celular e Tablet/Controles/pause_NORMAL.png" id="7_8viaj"]
+[ext_resource type="Texture2D" uid="uid://c0vwu1he4ct81" path="res://Interface/Celular e Tablet/Controles/pause_PRESSED.png" id="8_qtojp"]
+[ext_resource type="Texture2D" uid="uid://ciufj2nc7m7gt" path="res://Interface/Celular e Tablet/Controles/dialog_NORMAL.png" id="9_s07dk"]
+[ext_resource type="Texture2D" uid="uid://b8ifip1osgpbl" path="res://Interface/Celular e Tablet/Controles/dialog_PRESSED.png" id="10_1vfi2"]
+
+[node name="mobile controls" type="CanvasLayer" unique_id=1044015296]
+layer = 9998
+
+[node name="ui_left" type="TouchScreenButton" parent="." unique_id=2140230329]
+position = Vector2(9.000001, 721.00006)
+scale = Vector2(6.5, 6.5)
+texture_normal = ExtResource("1_2ltv7")
+texture_pressed = ExtResource("2_fe0ie")
+passby_press = true
+action = "andar_esquerda"
+
+[node name="ui_right" type="TouchScreenButton" parent="." unique_id=871557831]
+position = Vector2(223, 721)
+scale = Vector2(6.5, 6.5)
+texture_normal = ExtResource("3_51n0o")
+texture_pressed = ExtResource("4_lrsxq")
+passby_press = true
+action = "andar_direita"
+
+[node name="ui_jump" type="TouchScreenButton" parent="." unique_id=449953712]
+position = Vector2(1708, 721)
+scale = Vector2(6.5, 6.5)
+texture_normal = ExtResource("5_ddab8")
+texture_pressed = ExtResource("6_1scfh")
+action = "ui_accept"
+
+[node name="ui_pause" type="TouchScreenButton" parent="." unique_id=961973625]
+position = Vector2(1741, 37)
+scale = Vector2(5, 5)
+texture_normal = ExtResource("7_8viaj")
+texture_pressed = ExtResource("8_qtojp")
+action = "ui_cancel"
+
+[node name="ui_dash" type="TouchScreenButton" parent="." unique_id=1024584930]
+position = Vector2(1712.0001, 491)
+scale = Vector2(6.5, 6.5)
+texture_normal = ExtResource("3_51n0o")
+texture_pressed = ExtResource("4_lrsxq")
+passby_press = true
+action = "dash"
+
+[node name="ui_dialog" type="TouchScreenButton" parent="." unique_id=1999822846]
+visible = false
+position = Vector2(1741, 320)
+scale = Vector2(5, 5)
+texture_normal = ExtResource("9_s07dk")
+texture_pressed = ExtResource("10_1vfi2")
+action = "interact"
+
+[node name="ui_advance" type="TouchScreenButton" parent="." unique_id=1273714227]
+visible = false
+position = Vector2(1571, 320.00006)
+scale = Vector2(5, 5)
+texture_normal = ExtResource("3_51n0o")
+texture_pressed = ExtResource("4_lrsxq")
+action = "advance_message"

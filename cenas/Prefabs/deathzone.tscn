@@ -1,0 +1,13 @@
+[gd_scene format=3 uid="uid://d240houftwb70"]
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_4iq5d"]
+
+[node name="deathzone" type="Area2D" unique_id=853434053 groups=["enemies"]]
+z_index = 5
+collision_layer = 4
+collision_mask = 255
+
+[node name="collision" type="CollisionShape2D" parent="." unique_id=1684267267 groups=["enemies"]]
+shape = SubResource("RectangleShape2D_4iq5d")
+
+[connection signal="body_entered" from="." to="." method="_on_body_entered"]

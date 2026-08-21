@@ -1,0 +1,653 @@
+[gd_scene format=3 uid="uid://dwat4k37b1fg4"]
+
+[ext_resource type="Script" uid="uid://cbftx0l3x5kew" path="res://Scripts/GDScript/tutorial_inicial.gd" id="1_2cj5h"]
+[ext_resource type="Texture2D" uid="uid://2x7kiluvxa1s" path="res://Interface/Tutoriais/Teclado/Keyboard_a.png" id="1_rtjog"]
+[ext_resource type="FontFile" uid="uid://bjw68y3gx2d3k" path="res://Fontes/RevMiniPixel.ttf" id="2_2cj5h"]
+[ext_resource type="Texture2D" uid="uid://cco7kbib6n355" path="res://Interface/Tutoriais/Teclado/Keyboard_w.png" id="2_t5p4s"]
+[ext_resource type="Texture2D" uid="uid://7l2myts8oaqv" path="res://Interface/Tutoriais/Teclado/Keyboard_d.png" id="3_vol5d"]
+[ext_resource type="Texture2D" uid="uid://mbq2g2r62kll" path="res://Interface/Tutoriais/Teclado/Keyboard_space.png" id="4_giqmu"]
+[ext_resource type="Texture2D" uid="uid://boxp2tjqirg0x" path="res://Interface/Tutoriais/Teclado/Keyboard_escape.png" id="5_n1mak"]
+[ext_resource type="Texture2D" uid="uid://bu237sbelqlb8" path="res://Interface/Tutoriais/Playstation/PS4_Left.png" id="6_5c8fa"]
+[ext_resource type="Texture2D" uid="uid://chcaoxybu6a3o" path="res://Interface/Tutoriais/Teclado/Keyboard_o.png" id="7_4b0bm"]
+[ext_resource type="Texture2D" uid="uid://c2x86s80dlq1s" path="res://Interface/Tutoriais/Playstation/PS4_Right.png" id="7_pwxpb"]
+[ext_resource type="Texture2D" uid="uid://o16g5xoei3sa" path="res://Interface/Tutoriais/Teclado/Keyboard_m.png" id="8_0anv0"]
+[ext_resource type="Texture2D" uid="uid://nrf81b426wug" path="res://Interface/Tutoriais/Playstation/PS4_Cross.png" id="8_5nhp4"]
+[ext_resource type="Texture2D" uid="uid://cj2goxjnjjnxg" path="res://Interface/Tutoriais/Teclado/Keyboard_shift.png" id="9_qqyr5"]
+[ext_resource type="Texture2D" uid="uid://b0d71mpeyvlwh" path="res://Interface/Tutoriais/Playstation/PS4_Circle.png" id="9_uxeiu"]
+[ext_resource type="Texture2D" uid="uid://difkwmuig5mr7" path="res://Interface/Tutoriais/Xbox 360/360_Left.png" id="10_x3o6n"]
+[ext_resource type="Texture2D" uid="uid://cn15t8jbc86qx" path="res://Interface/Tutoriais/Xbox 360/360_Right.png" id="11_w4myg"]
+[ext_resource type="Texture2D" uid="uid://mgkxcbuga7rf" path="res://Interface/Tutoriais/Playstation/PS4_Up.png" id="11_x14k2"]
+[ext_resource type="Texture2D" uid="uid://ddw152803chd1" path="res://Interface/Tutoriais/Xbox 360/360_A.png" id="12_ri6s0"]
+[ext_resource type="Texture2D" uid="uid://dg8tsum83kag4" path="res://Interface/Tutoriais/Xbox 360/360_B.png" id="13_4b0bm"]
+[ext_resource type="Texture2D" uid="uid://ckwjct71op3p2" path="res://Interface/Tutoriais/Playstation/PS4_Square.png" id="13_d8u7o"]
+[ext_resource type="Texture2D" uid="uid://tuw1kxp8e35f" path="res://Interface/Tutoriais/Xbox One/Xbox_One_D-pad_Left.png" id="14_0anv0"]
+[ext_resource type="Texture2D" uid="uid://dfc6ro1ivx0gp" path="res://Interface/Tutoriais/Playstation/PS4_Triangle.png" id="14_h6lq1"]
+[ext_resource type="Texture2D" uid="uid://d1t3cyrngbnvv" path="res://Interface/Tutoriais/Xbox One/Xbox_One_D-pad_Right.png" id="15_d8u7o"]
+[ext_resource type="Texture2D" uid="uid://ch7g5xsvrcuvv" path="res://Interface/Tutoriais/Playstation/PS4_R1.png" id="16_86xn7"]
+[ext_resource type="Texture2D" uid="uid://drshv1yf1f3xm" path="res://Interface/Tutoriais/Xbox One/Xbox_A.png" id="16_h6lq1"]
+[ext_resource type="Texture2D" uid="uid://2462podydvdg" path="res://Interface/Tutoriais/Xbox One/Xbox_B.png" id="17_eyfl0"]
+[ext_resource type="Texture2D" uid="uid://bkronfncgao8i" path="res://Interface/Tutoriais/Xbox Series/Xbox_Series_D-pad_Left.png" id="18_psb35"]
+[ext_resource type="Texture2D" uid="uid://byd3fgg0qoiyw" path="res://Interface/Tutoriais/Xbox 360/360_X.png" id="19_eyfl0"]
+[ext_resource type="Texture2D" uid="uid://i3ekrjvq12n1" path="res://Interface/Tutoriais/Xbox 360/360_Up.png" id="19_ho33b"]
+[ext_resource type="Texture2D" uid="uid://b2rsr1ps42vgn" path="res://Interface/Tutoriais/Xbox Series/Xbox_Series_D-pad_Right.png" id="19_qqyr5"]
+[ext_resource type="Texture2D" uid="uid://nk8d7ifq5oge" path="res://Interface/Tutoriais/Xbox 360/360_Y.png" id="20_psb35"]
+[ext_resource type="Script" uid="uid://bw1b3e8c7awrf" path="res://Scripts/GDScript/Traducao/traducao_tutorial.gd" id="21_vol5d"]
+[ext_resource type="Texture2D" uid="uid://cbvacntew6o8v" path="res://Interface/Tutoriais/Xbox 360/360_RB.png" id="23_ekcne"]
+[ext_resource type="Texture2D" uid="uid://bhw7f7lqw33ar" path="res://Interface/Tutoriais/Xbox One/Xbox_X.png" id="25_qqyr5"]
+[ext_resource type="Texture2D" uid="uid://3yf1u6m17h6x" path="res://Interface/Tutoriais/Xbox One/Xbox_Y.png" id="26_86xn7"]
+[ext_resource type="Texture2D" uid="uid://dhpkob5gaf55t" path="res://Interface/Tutoriais/Xbox One/XboxOne_Up.png" id="27_aamt0"]
+[ext_resource type="Texture2D" uid="uid://d4n0pd4h0o8hv" path="res://Interface/Tutoriais/Xbox Series/Xbox_X.png" id="29_ekcne"]
+[ext_resource type="Texture2D" uid="uid://bjcliavovwfry" path="res://Interface/Tutoriais/Xbox Series/Xbox_Y.png" id="30_j5eja"]
+[ext_resource type="Texture2D" uid="uid://cegfh8epxljva" path="res://Interface/Tutoriais/Xbox One/XboxOne_RB.png" id="30_vkk6e"]
+[ext_resource type="Script" uid="uid://dbg06041gcgsi" path="res://Scripts/Lua/tutorialfuncional.lua" id="32_0anv0"]
+[ext_resource type="Texture2D" uid="uid://dqvvuiyc2lhxt" path="res://Interface/Tutoriais/Xbox Series/Xbox_Series_D-pad_Up.png" id="35_l3lbi"]
+[ext_resource type="Texture2D" uid="uid://ct385ulsra3dv" path="res://Interface/Tutoriais/Xbox Series/Xbox_Right_Bumper.png" id="35_t5p4s"]
+
+[sub_resource type="LabelSettings" id="LabelSettings_86xn7"]
+font = ExtResource("2_2cj5h")
+font_size = 30
+outline_size = 10
+outline_color = Color(0, 0, 0, 1)
+
+[node name="Tutorial Inicial" type="CanvasLayer" unique_id=1579372191]
+script = ExtResource("1_2cj5h")
+
+[node name="KeyboardTutorial" type="CanvasLayer" parent="." unique_id=694026263]
+
+[node name="Fade" type="Control" parent="KeyboardTutorial" unique_id=1421898739]
+layout_mode = 3
+anchors_preset = 0
+offset_right = 40.0
+offset_bottom = 40.0
+
+[node name="VBoxContainer" type="VBoxContainer" parent="KeyboardTutorial/Fade" unique_id=953529635]
+layout_mode = 1
+anchors_preset = 6
+anchor_left = 1.0
+anchor_top = 0.5
+anchor_right = 1.0
+anchor_bottom = 0.5
+offset_left = 1455.0
+offset_top = 386.0
+offset_right = 1880.0
+offset_bottom = 654.0
+grow_horizontal = 0
+grow_vertical = 2
+
+[node name="Abrir porta" type="HBoxContainer" parent="KeyboardTutorial/Fade/VBoxContainer" unique_id=373976833]
+layout_mode = 2
+
+[node name="TextureButton" type="TextureButton" parent="KeyboardTutorial/Fade/VBoxContainer/Abrir porta" unique_id=1706274283]
+layout_mode = 2
+texture_normal = ExtResource("2_t5p4s")
+
+[node name="Label" type="Label" parent="KeyboardTutorial/Fade/VBoxContainer/Abrir porta" unique_id=2074458861]
+layout_mode = 2
+text = "Abrir porta"
+label_settings = SubResource("LabelSettings_86xn7")
+
+[node name="Andar esquerda" type="HBoxContainer" parent="KeyboardTutorial/Fade/VBoxContainer" unique_id=176647110]
+layout_mode = 2
+
+[node name="TextureButton" type="TextureButton" parent="KeyboardTutorial/Fade/VBoxContainer/Andar esquerda" unique_id=1298632920]
+layout_mode = 2
+texture_normal = ExtResource("1_rtjog")
+
+[node name="Label" type="Label" parent="KeyboardTutorial/Fade/VBoxContainer/Andar esquerda" unique_id=1034355426]
+layout_mode = 2
+text = "Andar para a esquerda"
+label_settings = SubResource("LabelSettings_86xn7")
+
+[node name="Andar direita" type="HBoxContainer" parent="KeyboardTutorial/Fade/VBoxContainer" unique_id=728421132]
+layout_mode = 2
+
+[node name="TextureButton" type="TextureButton" parent="KeyboardTutorial/Fade/VBoxContainer/Andar direita" unique_id=505318006]
+layout_mode = 2
+texture_normal = ExtResource("3_vol5d")
+
+[node name="Label" type="Label" parent="KeyboardTutorial/Fade/VBoxContainer/Andar direita" unique_id=1974649678]
+layout_mode = 2
+text = "Andar para a direita"
+label_settings = SubResource("LabelSettings_86xn7")
+
+[node name="Pular" type="HBoxContainer" parent="KeyboardTutorial/Fade/VBoxContainer" unique_id=795562693]
+layout_mode = 2
+
+[node name="TextureButton" type="TextureButton" parent="KeyboardTutorial/Fade/VBoxContainer/Pular" unique_id=975890733]
+layout_mode = 2
+texture_normal = ExtResource("4_giqmu")
+
+[node name="Label" type="Label" parent="KeyboardTutorial/Fade/VBoxContainer/Pular" unique_id=596008157]
+layout_mode = 2
+text = "Pular"
+label_settings = SubResource("LabelSettings_86xn7")
+
+[node name="Pausar" type="HBoxContainer" parent="KeyboardTutorial/Fade/VBoxContainer" unique_id=1787111871]
+layout_mode = 2
+
+[node name="TextureButton" type="TextureButton" parent="KeyboardTutorial/Fade/VBoxContainer/Pausar" unique_id=1797502835]
+layout_mode = 2
+texture_normal = ExtResource("5_n1mak")
+
+[node name="Label" type="Label" parent="KeyboardTutorial/Fade/VBoxContainer/Pausar" unique_id=1866145940]
+layout_mode = 2
+text = "Pausar o jogo"
+label_settings = SubResource("LabelSettings_86xn7")
+
+[node name="Dialogo" type="HBoxContainer" parent="KeyboardTutorial/Fade/VBoxContainer" unique_id=776044440]
+layout_mode = 2
+
+[node name="TextureButton" type="TextureButton" parent="KeyboardTutorial/Fade/VBoxContainer/Dialogo" unique_id=1691747300]
+layout_mode = 2
+texture_normal = ExtResource("7_4b0bm")
+
+[node name="Label" type="Label" parent="KeyboardTutorial/Fade/VBoxContainer/Dialogo" unique_id=33605698]
+layout_mode = 2
+text = "Abrir dialógo"
+label_settings = SubResource("LabelSettings_86xn7")
+
+[node name="Avancar" type="HBoxContainer" parent="KeyboardTutorial/Fade/VBoxContainer" unique_id=693305794]
+layout_mode = 2
+
+[node name="TextureButton" type="TextureButton" parent="KeyboardTutorial/Fade/VBoxContainer/Avancar" unique_id=1282246976]
+layout_mode = 2
+texture_normal = ExtResource("8_0anv0")
+
+[node name="Label" type="Label" parent="KeyboardTutorial/Fade/VBoxContainer/Avancar" unique_id=1193913325]
+layout_mode = 2
+text = "Avançar dialógo"
+label_settings = SubResource("LabelSettings_86xn7")
+
+[node name="Dash" type="HBoxContainer" parent="KeyboardTutorial/Fade/VBoxContainer" unique_id=1915945116]
+layout_mode = 2
+
+[node name="TextureButton" type="TextureButton" parent="KeyboardTutorial/Fade/VBoxContainer/Dash" unique_id=279441143]
+layout_mode = 2
+texture_normal = ExtResource("9_qqyr5")
+
+[node name="Label" type="Label" parent="KeyboardTutorial/Fade/VBoxContainer/Dash" unique_id=992702431]
+layout_mode = 2
+text = "Dash"
+label_settings = SubResource("LabelSettings_86xn7")
+
+[node name="PlaystationTutorial" type="CanvasLayer" parent="." unique_id=1724704547]
+visible = false
+
+[node name="Fade" type="Control" parent="PlaystationTutorial" unique_id=1565770803]
+layout_mode = 3
+anchors_preset = 0
+offset_right = 40.0
+offset_bottom = 40.0
+
+[node name="VBoxContainer" type="VBoxContainer" parent="PlaystationTutorial/Fade" unique_id=260950789]
+layout_mode = 1
+anchors_preset = 6
+anchor_left = 1.0
+anchor_top = 0.5
+anchor_right = 1.0
+anchor_bottom = 0.5
+offset_left = 1419.0
+offset_top = 314.0
+offset_right = 1880.0
+offset_bottom = 726.0
+grow_horizontal = 0
+grow_vertical = 2
+
+[node name="Abrir porta" type="HBoxContainer" parent="PlaystationTutorial/Fade/VBoxContainer" unique_id=1956059766]
+layout_mode = 2
+
+[node name="TextureButton" type="TextureButton" parent="PlaystationTutorial/Fade/VBoxContainer/Abrir porta" unique_id=2063703303]
+layout_mode = 2
+texture_normal = ExtResource("11_x14k2")
+
+[node name="Label" type="Label" parent="PlaystationTutorial/Fade/VBoxContainer/Abrir porta" unique_id=574556088]
+layout_mode = 2
+text = "Abrir porta"
+label_settings = SubResource("LabelSettings_86xn7")
+
+[node name="Andar esquerda" type="HBoxContainer" parent="PlaystationTutorial/Fade/VBoxContainer" unique_id=150190423]
+layout_mode = 2
+
+[node name="TextureButton" type="TextureButton" parent="PlaystationTutorial/Fade/VBoxContainer/Andar esquerda" unique_id=1455428116]
+layout_mode = 2
+texture_normal = ExtResource("6_5c8fa")
+
+[node name="Label" type="Label" parent="PlaystationTutorial/Fade/VBoxContainer/Andar esquerda" unique_id=444233169]
+layout_mode = 2
+text = "Andar para a esquerda"
+label_settings = SubResource("LabelSettings_86xn7")
+
+[node name="Andar direita" type="HBoxContainer" parent="PlaystationTutorial/Fade/VBoxContainer" unique_id=1661530733]
+layout_mode = 2
+
+[node name="TextureButton" type="TextureButton" parent="PlaystationTutorial/Fade/VBoxContainer/Andar direita" unique_id=1610314922]
+layout_mode = 2
+texture_normal = ExtResource("7_pwxpb")
+
+[node name="Label" type="Label" parent="PlaystationTutorial/Fade/VBoxContainer/Andar direita" unique_id=414443605]
+layout_mode = 2
+text = "Andar para a direita"
+label_settings = SubResource("LabelSettings_86xn7")
+
+[node name="Pular" type="HBoxContainer" parent="PlaystationTutorial/Fade/VBoxContainer" unique_id=826608127]
+layout_mode = 2
+
+[node name="TextureButton" type="TextureButton" parent="PlaystationTutorial/Fade/VBoxContainer/Pular" unique_id=280751038]
+layout_mode = 2
+texture_normal = ExtResource("8_5nhp4")
+
+[node name="Label" type="Label" parent="PlaystationTutorial/Fade/VBoxContainer/Pular" unique_id=1269492088]
+layout_mode = 2
+text = "Pular"
+label_settings = SubResource("LabelSettings_86xn7")
+
+[node name="Pausar" type="HBoxContainer" parent="PlaystationTutorial/Fade/VBoxContainer" unique_id=1676901151]
+layout_mode = 2
+
+[node name="TextureButton" type="TextureButton" parent="PlaystationTutorial/Fade/VBoxContainer/Pausar" unique_id=2069466452]
+layout_mode = 2
+texture_normal = ExtResource("9_uxeiu")
+
+[node name="Label" type="Label" parent="PlaystationTutorial/Fade/VBoxContainer/Pausar" unique_id=508248037]
+layout_mode = 2
+text = "Pausar o jogo"
+label_settings = SubResource("LabelSettings_86xn7")
+
+[node name="Dialogo" type="HBoxContainer" parent="PlaystationTutorial/Fade/VBoxContainer" unique_id=477775205]
+layout_mode = 2
+
+[node name="TextureButton" type="TextureButton" parent="PlaystationTutorial/Fade/VBoxContainer/Dialogo" unique_id=1763479417]
+layout_mode = 2
+texture_normal = ExtResource("13_d8u7o")
+
+[node name="Label" type="Label" parent="PlaystationTutorial/Fade/VBoxContainer/Dialogo" unique_id=1147275247]
+layout_mode = 2
+text = "Abrir dialógo"
+label_settings = SubResource("LabelSettings_86xn7")
+
+[node name="Avancar" type="HBoxContainer" parent="PlaystationTutorial/Fade/VBoxContainer" unique_id=1218170713]
+layout_mode = 2
+
+[node name="TextureButton" type="TextureButton" parent="PlaystationTutorial/Fade/VBoxContainer/Avancar" unique_id=425777243]
+layout_mode = 2
+texture_normal = ExtResource("14_h6lq1")
+
+[node name="Label" type="Label" parent="PlaystationTutorial/Fade/VBoxContainer/Avancar" unique_id=1103182257]
+layout_mode = 2
+text = "Avançar dialógo"
+label_settings = SubResource("LabelSettings_86xn7")
+
+[node name="Dash" type="HBoxContainer" parent="PlaystationTutorial/Fade/VBoxContainer" unique_id=572944938]
+layout_mode = 2
+
+[node name="TextureButton" type="TextureButton" parent="PlaystationTutorial/Fade/VBoxContainer/Dash" unique_id=713566016]
+layout_mode = 2
+texture_normal = ExtResource("16_86xn7")
+
+[node name="Label" type="Label" parent="PlaystationTutorial/Fade/VBoxContainer/Dash" unique_id=461840790]
+layout_mode = 2
+text = "Dash"
+label_settings = SubResource("LabelSettings_86xn7")
+
+[node name="Xbox360Tutorial" type="CanvasLayer" parent="." unique_id=1462020398]
+visible = false
+
+[node name="Fade" type="Control" parent="Xbox360Tutorial" unique_id=230739254]
+layout_mode = 3
+anchors_preset = 0
+offset_right = 40.0
+offset_bottom = 40.0
+
+[node name="VBoxContainer" type="VBoxContainer" parent="Xbox360Tutorial/Fade" unique_id=1566889163]
+layout_mode = 1
+anchors_preset = 6
+anchor_left = 1.0
+anchor_top = 0.5
+anchor_right = 1.0
+anchor_bottom = 0.5
+offset_left = 1419.0
+offset_top = 314.0
+offset_right = 1880.0
+offset_bottom = 726.0
+grow_horizontal = 0
+grow_vertical = 2
+
+[node name="Abrir porta" type="HBoxContainer" parent="Xbox360Tutorial/Fade/VBoxContainer" unique_id=1199359267]
+layout_mode = 2
+
+[node name="TextureButton" type="TextureButton" parent="Xbox360Tutorial/Fade/VBoxContainer/Abrir porta" unique_id=517191512]
+layout_mode = 2
+texture_normal = ExtResource("19_ho33b")
+
+[node name="Label" type="Label" parent="Xbox360Tutorial/Fade/VBoxContainer/Abrir porta" unique_id=1772424225]
+layout_mode = 2
+text = "Abrir porta"
+label_settings = SubResource("LabelSettings_86xn7")
+
+[node name="Andar esquerda" type="HBoxContainer" parent="Xbox360Tutorial/Fade/VBoxContainer" unique_id=1315956359]
+layout_mode = 2
+
+[node name="TextureButton" type="TextureButton" parent="Xbox360Tutorial/Fade/VBoxContainer/Andar esquerda" unique_id=1723580457]
+layout_mode = 2
+texture_normal = ExtResource("10_x3o6n")
+
+[node name="Label" type="Label" parent="Xbox360Tutorial/Fade/VBoxContainer/Andar esquerda" unique_id=1733227192]
+layout_mode = 2
+text = "Andar para a esquerda"
+label_settings = SubResource("LabelSettings_86xn7")
+
+[node name="Andar direita" type="HBoxContainer" parent="Xbox360Tutorial/Fade/VBoxContainer" unique_id=1870637844]
+layout_mode = 2
+
+[node name="TextureButton" type="TextureButton" parent="Xbox360Tutorial/Fade/VBoxContainer/Andar direita" unique_id=1546421905]
+layout_mode = 2
+texture_normal = ExtResource("11_w4myg")
+
+[node name="Label" type="Label" parent="Xbox360Tutorial/Fade/VBoxContainer/Andar direita" unique_id=522764587]
+layout_mode = 2
+text = "Andar para a direita"
+label_settings = SubResource("LabelSettings_86xn7")
+
+[node name="Pular" type="HBoxContainer" parent="Xbox360Tutorial/Fade/VBoxContainer" unique_id=1135268698]
+layout_mode = 2
+
+[node name="TextureButton" type="TextureButton" parent="Xbox360Tutorial/Fade/VBoxContainer/Pular" unique_id=547861838]
+layout_mode = 2
+texture_normal = ExtResource("12_ri6s0")
+
+[node name="Label" type="Label" parent="Xbox360Tutorial/Fade/VBoxContainer/Pular" unique_id=1353104564]
+layout_mode = 2
+text = "Pular"
+label_settings = SubResource("LabelSettings_86xn7")
+
+[node name="Pausar" type="HBoxContainer" parent="Xbox360Tutorial/Fade/VBoxContainer" unique_id=821484812]
+layout_mode = 2
+
+[node name="TextureButton" type="TextureButton" parent="Xbox360Tutorial/Fade/VBoxContainer/Pausar" unique_id=1039598670]
+layout_mode = 2
+texture_normal = ExtResource("13_4b0bm")
+
+[node name="Label" type="Label" parent="Xbox360Tutorial/Fade/VBoxContainer/Pausar" unique_id=1148087683]
+layout_mode = 2
+text = "Pausar o jogo"
+label_settings = SubResource("LabelSettings_86xn7")
+
+[node name="Dialogo" type="HBoxContainer" parent="Xbox360Tutorial/Fade/VBoxContainer" unique_id=120366857]
+layout_mode = 2
+
+[node name="TextureButton" type="TextureButton" parent="Xbox360Tutorial/Fade/VBoxContainer/Dialogo" unique_id=543469940]
+layout_mode = 2
+texture_normal = ExtResource("19_eyfl0")
+
+[node name="Label" type="Label" parent="Xbox360Tutorial/Fade/VBoxContainer/Dialogo" unique_id=1413034915]
+layout_mode = 2
+text = "Abrir dialógo"
+label_settings = SubResource("LabelSettings_86xn7")
+
+[node name="Avancar" type="HBoxContainer" parent="Xbox360Tutorial/Fade/VBoxContainer" unique_id=526102607]
+layout_mode = 2
+
+[node name="TextureButton" type="TextureButton" parent="Xbox360Tutorial/Fade/VBoxContainer/Avancar" unique_id=1634941280]
+layout_mode = 2
+texture_normal = ExtResource("20_psb35")
+
+[node name="Label" type="Label" parent="Xbox360Tutorial/Fade/VBoxContainer/Avancar" unique_id=973795629]
+layout_mode = 2
+text = "Avançar dialógo"
+label_settings = SubResource("LabelSettings_86xn7")
+
+[node name="Dash" type="HBoxContainer" parent="Xbox360Tutorial/Fade/VBoxContainer" unique_id=1157923444]
+layout_mode = 2
+
+[node name="TextureButton" type="TextureButton" parent="Xbox360Tutorial/Fade/VBoxContainer/Dash" unique_id=360913238]
+layout_mode = 2
+texture_normal = ExtResource("23_ekcne")
+
+[node name="Label" type="Label" parent="Xbox360Tutorial/Fade/VBoxContainer/Dash" unique_id=931708892]
+layout_mode = 2
+text = "Dash"
+label_settings = SubResource("LabelSettings_86xn7")
+
+[node name="XboxOneTutorial" type="CanvasLayer" parent="." unique_id=749062876]
+visible = false
+
+[node name="Fade" type="Control" parent="XboxOneTutorial" unique_id=891528415]
+layout_mode = 3
+anchors_preset = 0
+offset_right = 40.0
+offset_bottom = 40.0
+
+[node name="VBoxContainer" type="VBoxContainer" parent="XboxOneTutorial/Fade" unique_id=1515478770]
+layout_mode = 1
+anchors_preset = 6
+anchor_left = 1.0
+anchor_top = 0.5
+anchor_right = 1.0
+anchor_bottom = 0.5
+offset_left = 1419.0
+offset_top = 314.0
+offset_right = 1880.0
+offset_bottom = 726.0
+grow_horizontal = 0
+grow_vertical = 2
+
+[node name="Abrir porta" type="HBoxContainer" parent="XboxOneTutorial/Fade/VBoxContainer" unique_id=440223411]
+layout_mode = 2
+
+[node name="TextureButton" type="TextureButton" parent="XboxOneTutorial/Fade/VBoxContainer/Abrir porta" unique_id=662955170]
+layout_mode = 2
+texture_normal = ExtResource("27_aamt0")
+
+[node name="Label" type="Label" parent="XboxOneTutorial/Fade/VBoxContainer/Abrir porta" unique_id=128570365]
+layout_mode = 2
+text = "Abrir porta"
+label_settings = SubResource("LabelSettings_86xn7")
+
+[node name="Andar esquerda" type="HBoxContainer" parent="XboxOneTutorial/Fade/VBoxContainer" unique_id=388287703]
+layout_mode = 2
+
+[node name="TextureButton" type="TextureButton" parent="XboxOneTutorial/Fade/VBoxContainer/Andar esquerda" unique_id=77076863]
+layout_mode = 2
+texture_normal = ExtResource("14_0anv0")
+
+[node name="Label" type="Label" parent="XboxOneTutorial/Fade/VBoxContainer/Andar esquerda" unique_id=1369842828]
+layout_mode = 2
+text = "Andar para a esquerda"
+label_settings = SubResource("LabelSettings_86xn7")
+
+[node name="Andar direita" type="HBoxContainer" parent="XboxOneTutorial/Fade/VBoxContainer" unique_id=1993803947]
+layout_mode = 2
+
+[node name="TextureButton" type="TextureButton" parent="XboxOneTutorial/Fade/VBoxContainer/Andar direita" unique_id=1280262853]
+layout_mode = 2
+texture_normal = ExtResource("15_d8u7o")
+
+[node name="Label" type="Label" parent="XboxOneTutorial/Fade/VBoxContainer/Andar direita" unique_id=749623010]
+layout_mode = 2
+text = "Andar para a direita"
+label_settings = SubResource("LabelSettings_86xn7")
+
+[node name="Pular" type="HBoxContainer" parent="XboxOneTutorial/Fade/VBoxContainer" unique_id=885843946]
+layout_mode = 2
+
+[node name="TextureButton" type="TextureButton" parent="XboxOneTutorial/Fade/VBoxContainer/Pular" unique_id=1654003941]
+layout_mode = 2
+texture_normal = ExtResource("16_h6lq1")
+
+[node name="Label" type="Label" parent="XboxOneTutorial/Fade/VBoxContainer/Pular" unique_id=1107842256]
+layout_mode = 2
+text = "Pular"
+label_settings = SubResource("LabelSettings_86xn7")
+
+[node name="Pausar" type="HBoxContainer" parent="XboxOneTutorial/Fade/VBoxContainer" unique_id=1334100940]
+layout_mode = 2
+
+[node name="TextureButton" type="TextureButton" parent="XboxOneTutorial/Fade/VBoxContainer/Pausar" unique_id=56928755]
+layout_mode = 2
+texture_normal = ExtResource("17_eyfl0")
+
+[node name="Label" type="Label" parent="XboxOneTutorial/Fade/VBoxContainer/Pausar" unique_id=213596339]
+layout_mode = 2
+text = "Pausar o jogo"
+label_settings = SubResource("LabelSettings_86xn7")
+
+[node name="Dialogo" type="HBoxContainer" parent="XboxOneTutorial/Fade/VBoxContainer" unique_id=157520955]
+layout_mode = 2
+
+[node name="TextureButton" type="TextureButton" parent="XboxOneTutorial/Fade/VBoxContainer/Dialogo" unique_id=1642941334]
+layout_mode = 2
+texture_normal = ExtResource("25_qqyr5")
+
+[node name="Label" type="Label" parent="XboxOneTutorial/Fade/VBoxContainer/Dialogo" unique_id=1185429905]
+layout_mode = 2
+text = "Abrir dialógo"
+label_settings = SubResource("LabelSettings_86xn7")
+
+[node name="Avancar" type="HBoxContainer" parent="XboxOneTutorial/Fade/VBoxContainer" unique_id=821141952]
+layout_mode = 2
+
+[node name="TextureButton" type="TextureButton" parent="XboxOneTutorial/Fade/VBoxContainer/Avancar" unique_id=1312203017]
+layout_mode = 2
+texture_normal = ExtResource("26_86xn7")
+
+[node name="Label" type="Label" parent="XboxOneTutorial/Fade/VBoxContainer/Avancar" unique_id=251148104]
+layout_mode = 2
+text = "Avançar dialógo"
+label_settings = SubResource("LabelSettings_86xn7")
+
+[node name="Dash" type="HBoxContainer" parent="XboxOneTutorial/Fade/VBoxContainer" unique_id=1847233814]
+layout_mode = 2
+
+[node name="TextureButton" type="TextureButton" parent="XboxOneTutorial/Fade/VBoxContainer/Dash" unique_id=790654109]
+layout_mode = 2
+texture_normal = ExtResource("30_vkk6e")
+
+[node name="Label" type="Label" parent="XboxOneTutorial/Fade/VBoxContainer/Dash" unique_id=368285962]
+layout_mode = 2
+text = "Dash"
+label_settings = SubResource("LabelSettings_86xn7")
+
+[node name="XboxSeriesTutorial" type="CanvasLayer" parent="." unique_id=734971234]
+visible = false
+
+[node name="Fade" type="Control" parent="XboxSeriesTutorial" unique_id=739690914]
+layout_mode = 3
+anchors_preset = 0
+offset_right = 40.0
+offset_bottom = 40.0
+
+[node name="VBoxContainer" type="VBoxContainer" parent="XboxSeriesTutorial/Fade" unique_id=1167779966]
+layout_mode = 1
+anchors_preset = 6
+anchor_left = 1.0
+anchor_top = 0.5
+anchor_right = 1.0
+anchor_bottom = 0.5
+offset_left = 1419.0
+offset_top = 314.0
+offset_right = 1880.0
+offset_bottom = 726.0
+grow_horizontal = 0
+grow_vertical = 2
+
+[node name="Abrir porta" type="HBoxContainer" parent="XboxSeriesTutorial/Fade/VBoxContainer" unique_id=1740463049]
+layout_mode = 2
+
+[node name="TextureButton" type="TextureButton" parent="XboxSeriesTutorial/Fade/VBoxContainer/Abrir porta" unique_id=477170936]
+layout_mode = 2
+texture_normal = ExtResource("35_l3lbi")
+
+[node name="Label" type="Label" parent="XboxSeriesTutorial/Fade/VBoxContainer/Abrir porta" unique_id=1998814241]
+layout_mode = 2
+text = "Abrir porta"
+label_settings = SubResource("LabelSettings_86xn7")
+
+[node name="Andar esquerda" type="HBoxContainer" parent="XboxSeriesTutorial/Fade/VBoxContainer" unique_id=313563768]
+layout_mode = 2
+
+[node name="TextureButton" type="TextureButton" parent="XboxSeriesTutorial/Fade/VBoxContainer/Andar esquerda" unique_id=252561010]
+layout_mode = 2
+texture_normal = ExtResource("18_psb35")
+
+[node name="Label" type="Label" parent="XboxSeriesTutorial/Fade/VBoxContainer/Andar esquerda" unique_id=1965696285]
+layout_mode = 2
+text = "Andar para a esquerda"
+label_settings = SubResource("LabelSettings_86xn7")
+
+[node name="Andar direita" type="HBoxContainer" parent="XboxSeriesTutorial/Fade/VBoxContainer" unique_id=1993767112]
+layout_mode = 2
+
+[node name="TextureButton" type="TextureButton" parent="XboxSeriesTutorial/Fade/VBoxContainer/Andar direita" unique_id=2020383407]
+layout_mode = 2
+texture_normal = ExtResource("19_qqyr5")
+
+[node name="Label" type="Label" parent="XboxSeriesTutorial/Fade/VBoxContainer/Andar direita" unique_id=897374440]
+layout_mode = 2
+text = "Andar para a direita"
+label_settings = SubResource("LabelSettings_86xn7")
+
+[node name="Pular" type="HBoxContainer" parent="XboxSeriesTutorial/Fade/VBoxContainer" unique_id=1707468466]
+layout_mode = 2
+
+[node name="TextureButton" type="TextureButton" parent="XboxSeriesTutorial/Fade/VBoxContainer/Pular" unique_id=1114725464]
+layout_mode = 2
+texture_normal = ExtResource("16_h6lq1")
+
+[node name="Label" type="Label" parent="XboxSeriesTutorial/Fade/VBoxContainer/Pular" unique_id=1305614559]
+layout_mode = 2
+text = "Pular"
+label_settings = SubResource("LabelSettings_86xn7")
+
+[node name="Pausar" type="HBoxContainer" parent="XboxSeriesTutorial/Fade/VBoxContainer" unique_id=889365045]
+layout_mode = 2
+
+[node name="TextureButton" type="TextureButton" parent="XboxSeriesTutorial/Fade/VBoxContainer/Pausar" unique_id=534793299]
+layout_mode = 2
+texture_normal = ExtResource("17_eyfl0")
+
+[node name="Label" type="Label" parent="XboxSeriesTutorial/Fade/VBoxContainer/Pausar" unique_id=1078494143]
+layout_mode = 2
+text = "Pausar o jogo"
+label_settings = SubResource("LabelSettings_86xn7")
+
+[node name="Dialogo" type="HBoxContainer" parent="XboxSeriesTutorial/Fade/VBoxContainer" unique_id=254367434]
+layout_mode = 2
+
+[node name="TextureButton" type="TextureButton" parent="XboxSeriesTutorial/Fade/VBoxContainer/Dialogo" unique_id=1623117140]
+layout_mode = 2
+texture_normal = ExtResource("29_ekcne")
+
+[node name="Label" type="Label" parent="XboxSeriesTutorial/Fade/VBoxContainer/Dialogo" unique_id=840131054]
+layout_mode = 2
+text = "Abrir dialógo"
+label_settings = SubResource("LabelSettings_86xn7")
+
+[node name="Avancar" type="HBoxContainer" parent="XboxSeriesTutorial/Fade/VBoxContainer" unique_id=1425660896]
+layout_mode = 2
+
+[node name="TextureButton" type="TextureButton" parent="XboxSeriesTutorial/Fade/VBoxContainer/Avancar" unique_id=839885347]
+layout_mode = 2
+texture_normal = ExtResource("30_j5eja")
+
+[node name="Label" type="Label" parent="XboxSeriesTutorial/Fade/VBoxContainer/Avancar" unique_id=804686722]
+layout_mode = 2
+text = "Avançar dialógo"
+label_settings = SubResource("LabelSettings_86xn7")
+
+[node name="Dash" type="HBoxContainer" parent="XboxSeriesTutorial/Fade/VBoxContainer" unique_id=30066741]
+layout_mode = 2
+
+[node name="TextureButton" type="TextureButton" parent="XboxSeriesTutorial/Fade/VBoxContainer/Dash" unique_id=2074820761]
+layout_mode = 2
+texture_normal = ExtResource("35_t5p4s")
+
+[node name="Label" type="Label" parent="XboxSeriesTutorial/Fade/VBoxContainer/Dash" unique_id=1639874036]
+layout_mode = 2
+text = "Dash"
+label_settings = SubResource("LabelSettings_86xn7")
+
+[node name="Node" type="Node" parent="." unique_id=372438819]
+script = ExtResource("21_vol5d")
+
+[node name="Print" type="Node" parent="." unique_id=560210486]
+script = ExtResource("32_0anv0")

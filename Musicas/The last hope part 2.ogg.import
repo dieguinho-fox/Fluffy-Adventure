@@ -1,0 +1,19 @@
+[remap]
+
+importer="oggvorbisstr"
+type="AudioStreamOggVorbis"
+uid="uid://cspbi8g6l01rh"
+path="res://.godot/imported/The last hope part 2.ogg-883512eafa28e7d06815cd957ff8395a.oggvorbisstr"
+
+[deps]
+
+source_file="res://Musicas/The last hope part 2.ogg"
+dest_files=["res://.godot/imported/The last hope part 2.ogg-883512eafa28e7d06815cd957ff8395a.oggvorbisstr"]
+
+[params]
+
+loop=false
+loop_offset=0
+bpm=0
+beat_count=0
+bar_beats=4

@@ -1,0 +1,24 @@
+[remap]
+
+importer="wav"
+type="AudioStreamWAV"
+uid="uid://dg8xa4nqgq1ae"
+path="res://.godot/imported/402767__lilmati__retro-coin-03.wav-cfd4a8528d0b7cb4b6ea8b88216e2286.sample"
+
+[deps]
+
+source_file="res://Efeitos sonoros/402767__lilmati__retro-coin-03.wav"
+dest_files=["res://.godot/imported/402767__lilmati__retro-coin-03.wav-cfd4a8528d0b7cb4b6ea8b88216e2286.sample"]
+
+[params]
+
+force/8_bit=false
+force/mono=false
+force/max_rate=false
+force/max_rate_hz=44100
+edit/trim=false
+edit/normalize=false
+edit/loop_mode=0
+edit/loop_begin=0
+edit/loop_end=-1
+compress/mode=2

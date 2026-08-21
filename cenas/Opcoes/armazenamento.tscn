@@ -1,0 +1,114 @@
+[gd_scene format=3 uid="uid://rcd3i3dd2meo"]
+
+[ext_resource type="Script" uid="uid://ddtd7bbh3dsp" path="res://Scripts/GDScript/armazenamento.gd" id="1_ifrg7"]
+[ext_resource type="Texture2D" uid="uid://p35kvnv5ffh1" path="res://Tilesets/Seasonal Tilesets/1 - Grassland/Background parts/_Complete_static_BG_(288 x 208).png" id="2_k1xwe"]
+[ext_resource type="FontFile" uid="uid://ckw4qondl5cjc" path="res://Fontes/RevMiniPixel.ttf" id="4_sg8ht"]
+
+[sub_resource type="LabelSettings" id="LabelSettings_uhesk"]
+font = ExtResource("4_sg8ht")
+font_size = 75
+outline_size = 10
+outline_color = Color(0, 0, 0, 1)
+
+[node name="Armazenamento" type="Control" unique_id=1027993224]
+layout_mode = 3
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+script = ExtResource("1_ifrg7")
+
+[node name="CompleteStaticBg(288X208)" type="Sprite2D" parent="." unique_id=1004253058]
+position = Vector2(1440, 511)
+scale = Vector2(10.238314, 10.058173)
+texture = ExtResource("2_k1xwe")
+
+[node name="VBoxContainer" type="VBoxContainer" parent="." unique_id=1614000536]
+layout_mode = 1
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -20.0
+offset_top = -20.0
+offset_right = 20.0
+offset_bottom = 20.0
+grow_horizontal = 2
+grow_vertical = 2
+
+[node name="ArmazenamentoLabel" type="Label" parent="VBoxContainer" unique_id=2053394996]
+layout_mode = 2
+text = "Armazenamento"
+label_settings = SubResource("LabelSettings_uhesk")
+horizontal_alignment = 1
+
+[node name="Cache" type="HBoxContainer" parent="VBoxContainer" unique_id=210110703]
+layout_mode = 2
+
+[node name="Cache1" type="Label" parent="VBoxContainer/Cache" unique_id=1875869056]
+layout_mode = 2
+text = "0KB"
+label_settings = SubResource("LabelSettings_uhesk")
+horizontal_alignment = 1
+
+[node name="Saves" type="HBoxContainer" parent="VBoxContainer" unique_id=1977901411]
+layout_mode = 2
+
+[node name="Saves1" type="Label" parent="VBoxContainer/Saves" unique_id=1025381943]
+layout_mode = 2
+text = "0KB"
+label_settings = SubResource("LabelSettings_uhesk")
+horizontal_alignment = 1
+
+[node name="Total" type="HBoxContainer" parent="VBoxContainer" unique_id=1374187396]
+layout_mode = 2
+
+[node name="Total1" type="Label" parent="VBoxContainer/Total" unique_id=980621018]
+layout_mode = 2
+text = "0KB"
+label_settings = SubResource("LabelSettings_uhesk")
+horizontal_alignment = 1
+
+[node name="ApagarCache" type="Button" parent="VBoxContainer" unique_id=1981421386]
+layout_mode = 2
+theme_override_colors/font_focus_color = Color(0.9490196, 0.9490196, 0, 1)
+theme_override_colors/font_pressed_color = Color(1, 0.69411767, 0, 1)
+theme_override_colors/font_hover_color = Color(0.9490196, 0.9490196, 0, 1)
+theme_override_fonts/font = ExtResource("4_sg8ht")
+theme_override_font_sizes/font_size = 75
+text = "Excluir Cache"
+
+[node name="ApagarSave" type="Button" parent="VBoxContainer" unique_id=1645668143]
+layout_mode = 2
+theme_override_colors/font_focus_color = Color(0.9490196, 0.9490196, 0, 1)
+theme_override_colors/font_pressed_color = Color(1, 0.69411767, 0, 1)
+theme_override_colors/font_hover_color = Color(0.9490196, 0.9490196, 0, 1)
+theme_override_fonts/font = ExtResource("4_sg8ht")
+theme_override_font_sizes/font_size = 75
+text = "Excluir Saves"
+
+[node name="ApagarTudo" type="Button" parent="VBoxContainer" unique_id=1382141710]
+layout_mode = 2
+theme_override_colors/font_focus_color = Color(0.9490196, 0.9490196, 0, 1)
+theme_override_colors/font_pressed_color = Color(1, 0.69411767, 0, 1)
+theme_override_colors/font_hover_color = Color(0.9490196, 0.9490196, 0, 1)
+theme_override_fonts/font = ExtResource("4_sg8ht")
+theme_override_font_sizes/font_size = 75
+text = "Excluir Tudo"
+
+[node name="Voltar" type="Button" parent="VBoxContainer" unique_id=118132092]
+layout_mode = 2
+theme_override_colors/font_focus_color = Color(0.9490196, 0.9490196, 0, 1)
+theme_override_colors/font_pressed_color = Color(1, 0.69411767, 0, 1)
+theme_override_colors/font_hover_color = Color(0.9490196, 0.9490196, 0, 1)
+theme_override_fonts/font = ExtResource("4_sg8ht")
+theme_override_font_sizes/font_size = 75
+text = "Voltar"
+
+[connection signal="pressed" from="VBoxContainer/ApagarCache" to="." method="_on_voltar_pressed"]
+[connection signal="pressed" from="VBoxContainer/ApagarSave" to="." method="_on_voltar_pressed"]
+[connection signal="pressed" from="VBoxContainer/ApagarTudo" to="." method="_on_voltar_pressed"]
+[connection signal="pressed" from="VBoxContainer/Voltar" to="." method="_on_voltarpraoptions_pressed"]
+[connection signal="pressed" from="VBoxContainer/Voltar" to="." method="_on_voltar_pressed"]

@@ -1,0 +1,49 @@
+[gd_scene format=3 uid="uid://dbjsxbx6fkwqv"]
+
+[ext_resource type="Texture2D" uid="uid://btu11qn54d1q8" path="res://Conquistas/Ícones/bloqueado.png" id="1_ljxf3"]
+[ext_resource type="Script" uid="uid://blqb3xjxdebg3" path="res://Scripts/GDScript/ConquistaUI.gd" id="1_omo42"]
+[ext_resource type="FontFile" uid="uid://ckw4qondl5cjc" path="res://Fontes/RevMiniPixel.ttf" id="2_omo42"]
+
+[sub_resource type="LabelSettings" id="LabelSettings_tujdf"]
+font = ExtResource("2_omo42")
+font_size = 30
+outline_size = 10
+outline_color = Color(0, 0, 0, 1)
+
+[sub_resource type="LabelSettings" id="LabelSettings_skpcm"]
+font = ExtResource("2_omo42")
+font_size = 20
+outline_size = 10
+outline_color = Color(0, 0, 0, 1)
+
+[node name="Conquista" type="CanvasLayer" unique_id=2093762186]
+script = ExtResource("1_omo42")
+
+[node name="Background" type="ColorRect" parent="." unique_id=1652147231]
+anchors_preset = 5
+anchor_left = 0.5
+anchor_right = 0.5
+offset_left = -482.75
+offset_right = 482.75
+offset_bottom = 208.0
+grow_horizontal = 2
+color = Color(0, 0, 0, 0.28627452)
+
+[node name="HBoxContainer" type="HBoxContainer" parent="Background" unique_id=1545259430]
+layout_mode = 0
+offset_top = 8.0
+offset_right = 658.0
+offset_bottom = 200.0
+theme_override_constants/separation = 30
+
+[node name="Icon" type="TextureButton" parent="Background/HBoxContainer" unique_id=939916606]
+layout_mode = 2
+texture_normal = ExtResource("1_ljxf3")
+
+[node name="Name" type="Label" parent="Background/HBoxContainer" unique_id=1794818131]
+layout_mode = 2
+label_settings = SubResource("LabelSettings_tujdf")
+
+[node name="Description" type="Label" parent="Background/HBoxContainer" unique_id=335929332]
+layout_mode = 2
+label_settings = SubResource("LabelSettings_skpcm")

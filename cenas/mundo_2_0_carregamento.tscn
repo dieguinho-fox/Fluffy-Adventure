@@ -1,0 +1,73 @@
+[gd_scene format=3 uid="uid://bdhmb3gmwckp8"]
+
+[ext_resource type="Script" uid="uid://blcnll2yt2coc" path="res://Scripts/GDScript/carregamentos de mundos/mundo_2_0_carregamento.gd" id="1_asvof"]
+[ext_resource type="Script" uid="uid://dx066d86alpba" path="res://Scripts/GDScript/Traducao/carregandomundotraduzivel.gd" id="2_i1k3w"]
+[ext_resource type="FontFile" uid="uid://ckw4qondl5cjc" path="res://Fontes/RevMiniPixel.ttf" id="3_u5vwg"]
+
+[sub_resource type="LabelSettings" id="LabelSettings_oknt7"]
+font = ExtResource("3_u5vwg")
+font_size = 75
+
+[sub_resource type="LabelSettings" id="LabelSettings_1l6h1"]
+font = ExtResource("3_u5vwg")
+font_size = 65
+
+[node name="mundo2-0carregamento" type="Control" unique_id=1255049872]
+layout_mode = 3
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+script = ExtResource("1_asvof")
+
+[node name="ColorRect" type="ColorRect" parent="." unique_id=181610801]
+layout_mode = 0
+offset_right = 2122.0
+offset_bottom = 1440.0
+color = Color(0, 0, 0, 1)
+
+[node name="VBoxContainer" type="VBoxContainer" parent="." unique_id=261861459]
+layout_mode = 1
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -147.0
+offset_top = -123.5
+offset_right = 147.0
+offset_bottom = 123.5
+grow_horizontal = 2
+grow_vertical = 2
+script = ExtResource("2_i1k3w")
+
+[node name="mundo" type="Label" parent="VBoxContainer" unique_id=168442024]
+layout_mode = 2
+text = "Mundo"
+label_settings = SubResource("LabelSettings_oknt7")
+horizontal_alignment = 1
+
+[node name="mundo2" type="Label" parent="VBoxContainer" unique_id=2043871111]
+layout_mode = 2
+text = "Vidas:"
+label_settings = SubResource("LabelSettings_oknt7")
+horizontal_alignment = 1
+
+[node name="life_counter" type="Label" parent="." unique_id=1879121634]
+layout_mode = 0
+offset_left = 1080.0
+offset_top = 507.0
+offset_right = 1120.0
+offset_bottom = 587.0
+text = "1"
+label_settings = SubResource("LabelSettings_1l6h1")
+
+[node name="Label2" type="Label" parent="." unique_id=774224743]
+layout_mode = 0
+offset_left = 1083.0
+offset_top = 423.0
+offset_right = 1189.0
+offset_bottom = 503.0
+text = "2-0"
+label_settings = SubResource("LabelSettings_1l6h1")

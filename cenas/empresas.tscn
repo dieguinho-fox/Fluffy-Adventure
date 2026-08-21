@@ -1,0 +1,23 @@
+[gd_scene format=3 uid="uid://5abv6ejhwrfh"]
+
+[ext_resource type="Script" uid="uid://b38qkvb4mr6wb" path="res://Scripts/GDScript/empresas.gd" id="1_firmo"]
+[ext_resource type="VideoStream" uid="uid://l5gl74qw0tqr" path="res://Cutscenes/Fluffy_Studios_Abertura.ogv" id="4_firmo"]
+
+[node name="Empresas" type="Control" unique_id=1178521580]
+layout_mode = 3
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+script = ExtResource("1_firmo")
+
+[node name="VideoStreamPlayer" type="VideoStreamPlayer" parent="." unique_id=1475520910]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+stream = ExtResource("4_firmo")
+autoplay = true

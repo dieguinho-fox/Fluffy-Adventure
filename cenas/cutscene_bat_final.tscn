@@ -1,0 +1,38 @@
+[gd_scene format=3 uid="uid://bgaqq7c8gf8ph"]
+
+[ext_resource type="Script" uid="uid://cnc3trigpovsm" path="res://Scripts/GDScript/Cutscenes/cutscene_batfinal_inicio.gd" id="1_end7u"]
+[ext_resource type="VideoStream" uid="uid://c2lontkyb1xus" path="res://Cutscenes/the last fight.ogv" id="2_6upwe"]
+[ext_resource type="FontFile" uid="uid://bjw68y3gx2d3k" path="res://Fontes/RevMiniPixel.ttf" id="3_tmye3"]
+
+[sub_resource type="LabelSettings" id="LabelSettings_1b3t3"]
+font = ExtResource("3_tmye3")
+font_size = 30
+outline_size = 10
+outline_color = Color(0, 0, 0, 1)
+
+[node name="Node2D" type="Node2D" unique_id=466068300]
+script = ExtResource("1_end7u")
+
+[node name="VideoStreamPlayer" type="VideoStreamPlayer" parent="." unique_id=2050535888]
+offset_right = 40.0
+offset_bottom = 40.0
+stream = ExtResource("2_6upwe")
+autoplay = true
+
+[node name="legenda" type="Label" parent="VideoStreamPlayer" unique_id=1295814820]
+visible = false
+layout_mode = 1
+anchors_preset = 7
+anchor_left = 0.5
+anchor_top = 1.0
+anchor_right = 0.5
+anchor_bottom = 1.0
+offset_left = -65.0
+offset_top = -71.0
+offset_right = 66.0
+offset_bottom = -40.0
+grow_horizontal = 2
+grow_vertical = 0
+text = "LEGENDA"
+label_settings = SubResource("LabelSettings_1b3t3")
+horizontal_alignment = 1

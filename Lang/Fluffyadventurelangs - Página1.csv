@@ -1,0 +1,92 @@
+,pt_BR,en,pt,es,fr,fr_CA,jp
+Jogar,Novo Jogo,New Game,Novo Jogo,Nuevo Juego,Nouvelle partie,Nouvelle partie,新しいゲーム
+Opcoes,Opções,Options,Opções,Opciones,Paramètres,Options,オプション
+Sair,Sair,Quit Game,Sair,Salir,Quitter,Se déconnecter,離脱
+Carregando,Carregando...,Loading...,A carregar...,Cargando...,Chargement...,Veuillez patienter...,読み込んでいます...
+Mundo,Mundo,World,Mundo,Mundo,Monde,Monde,ワールド
+Tela cheia,Tela Cheia,Full Screen,Ecrã Inteiro,Pantalla completa,Plein écran,Plein écran,フルスクリーン
+Vidas mundo,"Diego
+Vidas:","Diego
+Lives:","Diego
+Vidas:","Diego
+Vidas:","Diego
+Vies :","Diego
+Vies :","Diego
+生活:"
+Fim de jogo,Fim de jogo,Game over,Fim de jogo,Fin del Juego,Fin de partie,Fin de partie,対戦を終える
+Voltar,Voltar,Back,Voltar,Volver,Retour,Retour,戻る
+Idiomas,Idiomas,Languages,Idiomas,Lenguajes,Langues,Langues,言語
+Vidas,Vidas:,Lives:,Vidas:,Vidas:,Vies :,Vies :,生活:
+Pausado,Jogo pausado,Game paused,Jogo em Pausa,Juego en pausa,Jeu en pause,Jeu en pause,ゲームを一時停止中
+Continuar,Continuar,Resume,Retomar,Continuar,Continuer,Continuer,続ける
+Menu,Voltar ao menu,Go to menu,Voltar a ementa,Volver al menú,Retour au menu,Retour au menu,メニューに戻る
+Creditos,Créditos,Credits,Créditos,Créditos,Crédits,Crédits,クレジット
+Moedas,Moedas:,Coins:,Moedas:,Monedas,Pièces :,Pièces :,コイン:
+Pontos,Pontos:,Score:,Pontos:,Puntos:,Buts :,Buts :,ゴール：
+Video,Vídeo,Video,Vídeo,Vídeo,Vidéo,Vidéo,動画
+Audio,Áudio,Audio,Áudio,Audio,Audio,Audio,音声
+Limite de FPS,Limite de FPS,FPS Limit,Limite de FPS,Límite de FPS,Limite de FPS,Limite de FPS,FPS 制限モード
+Ilimitado,Ilimitado,Unlimited,Ilimitado,Ilimitadas,Illimitée,Illimité,無制限
+Resolucao,Resolução,Resolution,Resolução,Resolución,Résolution,Résolution,解像度
+Desativar musica,Desativar música,Mute Music,Desativar música,Silenciar Música,Désactiver la musique,Désactiver la musique,音楽をミュート
+Desativar som,Desativar som,Mute Sound,Desativar o som,Desactivar el sonido,Désactiver le son,Désactiver le son,消音
+Saida de som,Saída de som,Speakerphone,Saída de som,Salida de sonido,Sortie audio,Sortie audio,音の出力
+Linear,Linear,Linear,Linear,Lineal,Linéaire,Linéaire,線形軸表示
+Nearest,Nearest (padrão),Nearest (default),Nearest (padrão),Más cercano (predeterminado),Plus proche (par défaut),Plus proche (par défaut),最も近い（デフォルト）
+Filtro de texturas,Filtro de texturas,Texture Filter,Filtro de texturas,Filtro de textura,Filtre de texture,Filtre de texture,テクスチャフィルタリング
+Continuar jogo,Continuar,Resume Game,Retomar,Continuar,Continuer,Continuer,続ける
+Pular a cutscene,Para pular a cutscene,For skip cutscene,Para saltar a cutscene,Para omitir la escena,Pour passer la cinématique,Pour passer la cinématique,カットシーンをスキップするには
+Andar para a esquerda,Andar para a esquerda,Move Left,Andar para a esquerda,Caminar a Izquierda,Aller à gauche,Aller à gauche,左へ移動
+Andar para a direita,Andar para a direita,Move Right,Andar para a direita,Caminar a Derecha,Aller à droite,Aller à droite,右へ移動
+Pular,Pular,Jump,Saltar,Saltar,Sauter,Sauter,スキップ
+Pausar o jogo,Pausar o jogo,Pause the game,Suspender jogo,Pausar juego,Mettre le jeu en pause,Mettre le jeu en pause,ゲームの一時停止
+Pular os créditos,Para pular os créditos,For skip credits,Para saltar os créditos,Para omitir los créditos,Pour passer le générique,Pour passer le générique,クレジットをスキップするには
+Conquistas,Conquistas,Achievements,Proezas,Logros,Réalisations,Réalisations,実績
+DIALOG1_HELPER_1,Olá raposa!,Hello fox!,Olá raposa!,¡Hola zorro!,Bonjour renard !,Salut le renard !,こんにちはキツネ！
+DIALOG2_HELPER_2,Aqui você deverá escolher qual ir,Here you will have to choose which one to go to.,Aqui terá de escolher qual ir,Aquí tendrás que elegir a cuál ir.,Vous devrez ici choisir lequel choisir.,Vous devrez ici choisir lequel choisir.,ここで、どちらに行くかを選択する必要があります。
+DIALOG3_HELPER_3,Caminho errado e talvez você não saia com vida,"Wrong path, and you might not get out alive.",Caminho errado e talvez não saia com vida,Camino equivocado y puede que no salgas con vida.,"Mauvais chemin, et vous risquez de ne pas vous en sortir vivant.","Mauvais chemin, et vous risquez de ne pas vous en sortir vivant.",道を間違えると、生きて出られないかもしれない。
+Armazenamento,Armazenamento,Storage,Armazenamento,Almacenamiento,Stockage,Entreposage,ストレージ
+Excluir cache,Excluir Cache,Clear Cache,Apagar Cache,Eliminar Cache,Vider le cache,Vider le cache,キャッシュの削除
+Excluir save,Excluir Saves,Clear Saves,Apagar Saves,Eliminar partidas guardadas,Supprimer les sauvegardes,Supprimer les sauvegardes,保存の削除
+Excluir tudo,Excluir Tudo,Clear All,Apagar Tudo,Eliminar todo,Supprimer tout,Supprimer tout,すべて削除
+DIALOG1_GOLDY_1,Olá diego...,Hello Diego...,Olá diego...,Hola Diego...,Salut Diego...,Salut Diego...,こんにちは、ディエゴさん…
+DIALOG1_GOLDY_2,"O dalf me enviou aqui pra te matar, mas eu não quero te machucar...","Dalf sent me here to kill you, but I don't want to hurt you...","O dalf enviou-me aqui para te matar, mas eu não te quero magoar...","Dalf me envió aquí para matarte, pero no quiero hacerte daño...","Dalf m'a envoyé ici pour te tuer, mais je ne veux pas te faire de mal...","Dalf m'a envoyé ici pour te tuer, mais je ne veux pas te faire de mal...",ダルフは君を殺すために私をここに送り込んだが、私はあなたを傷つけたくない…。
+DIALOG1_GOLDY_3,Ele me ameaçou... eu não tive escolha,He threatened me... I had no choice.,Ele ameaçou-me... não tive escolha,Me amenazó... No tuve otra opción.,Il m'a menacé... Je n'avais pas le choix.,Il m'a menacé... J'avais pas le choix.,彼は私を脅迫した…私には選択の余地がなかった。
+DIALOG1_GOLDY_4,"Eu quero te ajudar, eu sei de basicamente tudo da base dele","I want to help you, I know basically everything about his foundation.","Quero ajudar-te, sei basicamente tudo da base dele","Quiero ayudarte, conozco prácticamente todo sobre su fundación.","Je veux vous aider, je connais pratiquement tout sur sa fondation.","Je veux vous aider, je connais pratiquement tout sur sa fondation.",あなたを助けたいんです。彼の財団については、ほぼ全て知っています。
+DIALOG1_GOLDY_5,"Tome esse celular antigo, e use seu poder de brilhar porque lá em baixo não tem iluminação",Grab that old cell phone and use its power to shine because there's no light down there.,"Pegue neste telemóvel antigo, e use o seu poder de brilhar porque lá em baixo não há iluminação","Coge ese viejo teléfono móvil y usa su potencia para iluminar, porque ahí abajo no hay luz.","Prends ce vieux téléphone portable et utilise sa puissance pour briller, car il n'y a pas de lumière là-bas.","Prends ce vieux cellulaire et utilise sa puissance pour briller, car il n'y a pas de lumière là-bas.",古い携帯電話を取り出して、その力を使って照らしてください。なぜなら、そこには光がないからです。
+DIALOG1_GOLDY_6,"E tome cuidado velho amigo, boa sorte","Be careful, old friend, good luck.","E cuidado velho amigo, boa sorte","Y ten cuidado, viejo amigo, buena suerte.","Et fais attention, mon vieil ami, bonne chance.","Et fais attention, mon vieil ami, bonne chance.",気をつけて、旧友よ。幸運を祈る。
+Dialogo,Abrir dialógo,Open dialogue,Abrir diálogo,Diálogo abierto,Dialogue ouvert,Dialogue ouvert,オープンな対話
+Avancar,Avançar dialógo,Advance dialogue,Avançar diálogo,Diálogo anticipado,Dialogue préliminaire,Dialogue préliminaire,会話を先行させる
+Aviso,Aviso,Warning,Aviso,Aviso,Avertissement,Avertissement,免責事項
+luzespiscantes,"Este jogo contém luzes piscantes
+se você for sensível é recomendado
+que você não jogue esse jogo","This game contains flashing lights
+if you are sensitive it is recommended
+don't play this game","Este jogo contém luzes intermitentes
+se for sensível é recomendado
+que não jogue este jogo","Este juego contiene luces intermitentes.
+Si eres sensible a las luces intermitentes
+te recomendamos no jugar","Ce jeu contient des lumières clignotantes.
+Si vous êtes sensible à ces effets
+il est déconseillé de jouer à ce jeu","Ce jeu contient des lumières clignotantes.
+Si vous êtes sensible à ces effets
+il est déconseillé de jouer à ce jeu","このゲームには点滅する光が含まれています。
+
+光に敏感な方は
+このゲームをプレイしないことをお勧めします"
+teclapc,"(aperte qualquer tecla pra continuar...)
+","(press any key to continue...)
+","(carregue em qualquer tecla para continuar...)
+","(Pulsa cualquier tecla para continuar...)
+","(Appuyez sur n'importe quelle touche pour continuer...)
+",(Appuyez sur n'importe quelle touche pour continuer...),"（続行するには任意のキーを押してください…）"
+teclamobile,"(aperte o botão acima pra continuar...)
+","(press the button above to continue...)
+","(carregue no botão acima para continuar...)
+","(Pulsa el botón de arriba para continuar...)
+","(Appuyez sur le bouton ci-dessus pour continuer...)
+",(Appuyez sur le bouton ci-dessus pour continuer...),"（上のボタンを押して続行してください…）"
+Dash,Dash,Dash,Dash,Dash,Dash,Dash,ダッシュ
+Tempo,TEMPO:,TIMER:,TEMPO:,TIEMPO:,TEMPS :,TEMPS :,時間：
+Onda,Onda:,Wave:,Onda:,Onda:,Vague :,Vague :,波：
+Inimigosrestantes,Inimigos restantes:,Enemies left:,Inimigos restantes:,Enemigos restantes:,Ennemis restants :,Ennemis restants :,残っている敵：

@@ -1,0 +1,8 @@
+.godot/ 
+.import/ 
+Executaveis/ 
+.github/ 
+export_presets.cfg 
+android/build/ 
+android/ 
+addons/lua-gdextension/ 

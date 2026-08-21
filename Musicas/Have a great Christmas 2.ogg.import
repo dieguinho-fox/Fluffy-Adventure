@@ -1,0 +1,19 @@
+[remap]
+
+importer="oggvorbisstr"
+type="AudioStreamOggVorbis"
+uid="uid://cdl4b2hp2cegp"
+path="res://.godot/imported/Have a great Christmas 2.ogg-170f8bde07a35f813503a3fb6fe11884.oggvorbisstr"
+
+[deps]
+
+source_file="res://Musicas/Have a great Christmas 2.ogg"
+dest_files=["res://.godot/imported/Have a great Christmas 2.ogg-170f8bde07a35f813503a3fb6fe11884.oggvorbisstr"]
+
+[params]
+
+loop=false
+loop_offset=0
+bpm=0
+beat_count=0
+bar_beats=4

@@ -1,0 +1,340 @@
+[gd_scene format=3 uid="uid://culml5grvkbv"]
+
+[ext_resource type="Script" uid="uid://cg5gqlvcmkvg3" path="res://Scripts/GDScript/player_hurt.gd" id="1_u4jki"]
+[ext_resource type="Texture2D" uid="uid://cs80njaecoj7p" path="res://Sprites/Diego/death.png" id="2_kxl7e"]
+[ext_resource type="Texture2D" uid="uid://cb7og0ffqo4ku" path="res://Sprites/Diego Hurt/end.png" id="3_svlge"]
+[ext_resource type="Texture2D" uid="uid://ds75kdly6sktr" path="res://Sprites/Diego Hurt/idle.png" id="4_7do8q"]
+[ext_resource type="Texture2D" uid="uid://xg6uyqr4yyai" path="res://Sprites/Diego Hurt/walk.png" id="5_428xo"]
+[ext_resource type="Texture2D" uid="uid://crswxqa8k0d80" path="res://Sprites/Diego Hurt/wake up.png" id="6_30gjt"]
+[ext_resource type="AudioStream" uid="uid://decjp4oosx58g" path="res://Efeitos sonoros/458884__lilmati__retro-jump-03.wav" id="7_qbbm0"]
+[ext_resource type="AudioStream" uid="uid://dk1q8osv6xxx" path="res://Musicas/you died.ogg" id="8_1sgop"]
+[ext_resource type="Script" uid="uid://btfpom1p1iwjj" path="res://Scripts/GDScript/hud_1_3.gd" id="9_5pqbb"]
+[ext_resource type="Script" uid="uid://d1lhqfo1jxf05" path="res://Scripts/GDScript/hud_manager.gd" id="10_2hyew"]
+[ext_resource type="FontFile" uid="uid://bjw68y3gx2d3k" path="res://Fontes/RevMiniPixel.ttf" id="11_75r88"]
+
+[sub_resource type="CapsuleShape2D" id="CapsuleShape2D_8v4ht"]
+radius = 23.0
+height = 120.0
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_fk5tn"]
+atlas = ExtResource("2_kxl7e")
+region = Rect2(0, 0, 192, 192)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_lm5wc"]
+atlas = ExtResource("2_kxl7e")
+region = Rect2(192, 0, 192, 192)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_siryi"]
+atlas = ExtResource("2_kxl7e")
+region = Rect2(0, 192, 192, 192)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_jwt0l"]
+atlas = ExtResource("3_svlge")
+region = Rect2(0, 0, 192, 192)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_mumdf"]
+atlas = ExtResource("3_svlge")
+region = Rect2(192, 0, 192, 192)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_bekvy"]
+atlas = ExtResource("4_7do8q")
+region = Rect2(0, 0, 192, 192)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_wvos0"]
+atlas = ExtResource("4_7do8q")
+region = Rect2(192, 0, 192, 192)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_ydxl1"]
+atlas = ExtResource("5_428xo")
+region = Rect2(0, 0, 192, 192)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_6y65x"]
+atlas = ExtResource("5_428xo")
+region = Rect2(192, 0, 192, 192)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_8gpmk"]
+atlas = ExtResource("5_428xo")
+region = Rect2(384, 0, 192, 192)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_4a6ri"]
+atlas = ExtResource("5_428xo")
+region = Rect2(0, 192, 192, 192)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_671j7"]
+atlas = ExtResource("5_428xo")
+region = Rect2(192, 192, 192, 192)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_rl435"]
+atlas = ExtResource("5_428xo")
+region = Rect2(384, 192, 192, 192)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_3mc3y"]
+atlas = ExtResource("5_428xo")
+region = Rect2(0, 384, 192, 192)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_lnli1"]
+atlas = ExtResource("6_30gjt")
+region = Rect2(0, 0, 192, 192)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_4msio"]
+atlas = ExtResource("6_30gjt")
+region = Rect2(192, 0, 192, 192)
+
+[sub_resource type="SpriteFrames" id="SpriteFrames_lnw2e"]
+animations = [{
+"frames": [{
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_fk5tn")
+}],
+"loop": 1,
+"name": &"death",
+"speed": 8.0
+}, {
+"frames": [{
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_lm5wc")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_siryi")
+}],
+"loop": 0,
+"name": &"death_falling",
+"speed": 8.0
+}, {
+"frames": [{
+"duration": 1.5,
+"texture": SubResource("AtlasTexture_jwt0l")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_mumdf")
+}],
+"loop": 1,
+"name": &"end",
+"speed": 5.0
+}, {
+"frames": [{
+"duration": 20.0,
+"texture": SubResource("AtlasTexture_bekvy")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_wvos0")
+}],
+"loop": 1,
+"name": &"idle",
+"speed": 8.0
+}, {
+"frames": [{
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_ydxl1")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_6y65x")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_8gpmk")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_4a6ri")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_671j7")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_rl435")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_3mc3y")
+}],
+"loop": 1,
+"name": &"run",
+"speed": 8.0
+}, {
+"frames": [{
+"duration": 10.0,
+"texture": SubResource("AtlasTexture_lnli1")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_4msio")
+}],
+"loop": 0,
+"name": &"wakeup",
+"speed": 5.0
+}]
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_vv33d"]
+size = Vector2(62, 62)
+
+[sub_resource type="LabelSettings" id="LabelSettings_u4jki"]
+font = ExtResource("11_75r88")
+font_size = 35
+outline_size = 10
+outline_color = Color(0, 0, 0, 1)
+
+[sub_resource type="LabelSettings" id="LabelSettings_kxl7e"]
+font = ExtResource("11_75r88")
+font_size = 35
+outline_size = 10
+outline_color = Color(0, 0, 0, 1)
+
+[node name="player hurt" type="CharacterBody2D" unique_id=2020173120 groups=["player"]]
+collision_mask = 22
+script = ExtResource("1_u4jki")
+
+[node name="collision" type="CollisionShape2D" parent="." unique_id=1713478387]
+position = Vector2(-4, 24)
+shape = SubResource("CapsuleShape2D_8v4ht")
+
+[node name="animator" type="AnimationPlayer" parent="." unique_id=929091486]
+
+[node name="anim" type="AnimatedSprite2D" parent="." unique_id=666785980]
+z_index = 1
+texture_filter = 1
+sprite_frames = SubResource("SpriteFrames_lnw2e")
+animation = &"end"
+autoplay = "idle"
+
+[node name="hurtbox" type="Area2D" parent="." unique_id=1702360898]
+position = Vector2(-5, 16)
+collision_layer = 32
+collision_mask = 4
+
+[node name="collision" type="CollisionShape2D" parent="hurtbox" unique_id=722549262]
+shape = SubResource("RectangleShape2D_vv33d")
+debug_color = Color(0.9882353, 0, 0, 0.41960785)
+
+[node name="jump_sfx" type="AudioStreamPlayer2D" parent="." unique_id=111120420]
+stream = ExtResource("7_qbbm0")
+volume_db = -7.0
+bus = &"SFX"
+
+[node name="playerdie_sfx" type="AudioStreamPlayer2D" parent="." unique_id=922843319]
+stream = ExtResource("8_1sgop")
+volume_db = -7.0
+bus = &"SFX"
+
+[node name="Camera2D" type="Camera2D" parent="." unique_id=1686278167]
+scale = Vector2(0.5307262, -2.0890107)
+
+[node name="HUD" type="CanvasLayer" parent="." unique_id=633713960]
+layer = 9997
+script = ExtResource("9_5pqbb")
+
+[node name="control" type="Control" parent="HUD" unique_id=2075970714]
+layout_mode = 3
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+script = ExtResource("10_2hyew")
+
+[node name="container" type="MarginContainer" parent="HUD/control" unique_id=1874730770]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+
+[node name="coins_container" type="HBoxContainer" parent="HUD/control/container" unique_id=1711992390]
+layout_mode = 2
+
+[node name="coins_label" type="Label" parent="HUD/control/container/coins_container" unique_id=442825836]
+layout_mode = 2
+size_flags_horizontal = 4
+size_flags_vertical = 0
+text = "MOEDAS:"
+label_settings = SubResource("LabelSettings_u4jki")
+
+[node name="coins_counter" type="Label" parent="HUD/control/container/coins_container" unique_id=798919471 groups=["ignore_language_font"]]
+layout_mode = 2
+size_flags_vertical = 0
+text = "0000"
+label_settings = SubResource("LabelSettings_kxl7e")
+
+[node name="timer_container" type="HBoxContainer" parent="HUD/control/container" unique_id=755743788]
+layout_mode = 2
+
+[node name="timer_label" type="Label" parent="HUD/control/container/timer_container" unique_id=907502664]
+layout_mode = 2
+size_flags_horizontal = 10
+size_flags_vertical = 0
+text = "TEMPO:"
+label_settings = SubResource("LabelSettings_u4jki")
+
+[node name="timer_counter" type="Label" parent="HUD/control/container/timer_container" unique_id=893820154 groups=["ignore_language_font"]]
+layout_mode = 2
+size_flags_horizontal = 2
+size_flags_vertical = 0
+text = "00:00"
+label_settings = SubResource("LabelSettings_kxl7e")
+
+[node name="game_timer" type="Timer" parent="HUD/control/container/timer_container" unique_id=741326513]
+autostart = true
+
+[node name="score_container" type="HBoxContainer" parent="HUD/control/container" unique_id=960349252]
+layout_mode = 2
+
+[node name="score_label" type="Label" parent="HUD/control/container/score_container" unique_id=1800499494]
+layout_mode = 2
+size_flags_horizontal = 10
+size_flags_vertical = 0
+text = "PONTOS:"
+label_settings = SubResource("LabelSettings_u4jki")
+
+[node name="score_counter" type="Label" parent="HUD/control/container/score_container" unique_id=757835666 groups=["ignore_language_font"]]
+layout_mode = 2
+size_flags_horizontal = 8
+size_flags_vertical = 0
+text = "000000"
+label_settings = SubResource("LabelSettings_kxl7e")
+
+[node name="live_container" type="HBoxContainer" parent="HUD/control/container" unique_id=1807874892]
+layout_mode = 2
+
+[node name="live_label" type="Label" parent="HUD/control/container/live_container" unique_id=976089523]
+layout_mode = 2
+size_flags_horizontal = 8
+size_flags_vertical = 8
+text = "VIDAS:"
+label_settings = SubResource("LabelSettings_u4jki")
+
+[node name="live_counter" type="Label" parent="HUD/control/container/live_container" unique_id=1466643940 groups=["ignore_language_font"]]
+layout_mode = 2
+size_flags_horizontal = 8
+size_flags_vertical = 8
+text = "X1"
+label_settings = SubResource("LabelSettings_kxl7e")
+
+[node name="dalflive_container" type="HBoxContainer" parent="HUD/control/container" unique_id=835754740]
+visible = false
+layout_mode = 2
+size_flags_horizontal = 8
+
+[node name="live_label" type="Label" parent="HUD/control/container/dalflive_container" unique_id=1428836971]
+layout_mode = 2
+size_flags_horizontal = 4
+size_flags_vertical = 8
+text = "DALF:"
+label_settings = SubResource("LabelSettings_u4jki")
+
+[node name="live_counter" type="Label" parent="HUD/control/container/dalflive_container" unique_id=1948027612 groups=["ignore_language_font"]]
+layout_mode = 2
+size_flags_horizontal = 0
+size_flags_vertical = 8
+text = "X1"
+label_settings = SubResource("LabelSettings_kxl7e")
+
+[node name="transicao" type="ColorRect" parent="." unique_id=1050668975]
+modulate = Color(1, 1, 1, 0)
+z_index = 10
+offset_left = -960.0
+offset_top = -540.0
+offset_right = -920.0
+offset_bottom = -500.0
+scale = Vector2(52.068546, 28.142889)
+color = Color(0, 0, 0, 1)
+
+[connection signal="animation_finished" from="anim" to="." method="_on_anim_animation_finished"]
+[connection signal="area_entered" from="hurtbox" to="." method="_on_hurtbox_area_entered"]
+[connection signal="body_entered" from="hurtbox" to="." method="_on_hurtbox_body_entered"]

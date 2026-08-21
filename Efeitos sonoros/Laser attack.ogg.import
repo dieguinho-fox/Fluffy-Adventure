@@ -1,0 +1,19 @@
+[remap]
+
+importer="oggvorbisstr"
+type="AudioStreamOggVorbis"
+uid="uid://jbn8ug1s8vt5"
+path="res://.godot/imported/Laser attack.ogg-df7c11d769ec661217689d9923e692db.oggvorbisstr"
+
+[deps]
+
+source_file="res://Efeitos sonoros/Laser attack.ogg"
+dest_files=["res://.godot/imported/Laser attack.ogg-df7c11d769ec661217689d9923e692db.oggvorbisstr"]
+
+[params]
+
+loop=false
+loop_offset=0
+bpm=0
+beat_count=0
+bar_beats=4

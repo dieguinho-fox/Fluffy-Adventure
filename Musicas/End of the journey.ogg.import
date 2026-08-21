@@ -1,0 +1,19 @@
+[remap]
+
+importer="oggvorbisstr"
+type="AudioStreamOggVorbis"
+uid="uid://c06u2ridolrqv"
+path="res://.godot/imported/End of the journey.ogg-ce8d420083506887b5c18901334eb6af.oggvorbisstr"
+
+[deps]
+
+source_file="res://Musicas/End of the journey.ogg"
+dest_files=["res://.godot/imported/End of the journey.ogg-ce8d420083506887b5c18901334eb6af.oggvorbisstr"]
+
+[params]
+
+loop=false
+loop_offset=0
+bpm=0
+beat_count=0
+bar_beats=4

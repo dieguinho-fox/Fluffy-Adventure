@@ -1,0 +1,252 @@
+[gd_scene format=3 uid="uid://7ksqqenlbry"]
+
+[ext_resource type="Texture2D" uid="uid://p35kvnv5ffh1" path="res://Tilesets/Seasonal Tilesets/1 - Grassland/Background parts/_Complete_static_BG_(288 x 208).png" id="1_dby0d"]
+[ext_resource type="Script" uid="uid://dicou7khocpjd" path="res://Scripts/GDScript/video.gd" id="1_urd13"]
+[ext_resource type="FontFile" uid="uid://bjw68y3gx2d3k" path="res://Fontes/RevMiniPixel.ttf" id="3_nowvq"]
+[ext_resource type="Script" uid="uid://80cgcc4cmag6" path="res://Scripts/GDScript/Traducao/traducoesvideo.gd" id="3_urd13"]
+[ext_resource type="Script" uid="uid://b2d880ewt77h0" path="res://Scripts/C#/Resolucoes.cs" id="5_nowvq"]
+
+[sub_resource type="LabelSettings" id="LabelSettings_r85el"]
+font = ExtResource("3_nowvq")
+font_size = 75
+outline_size = 10
+outline_color = Color(0, 0, 0, 1)
+
+[sub_resource type="LabelSettings" id="LabelSettings_nowvq"]
+font = ExtResource("3_nowvq")
+font_size = 50
+outline_size = 10
+outline_color = Color(0, 0, 0, 1)
+
+[node name="Video" type="Control" unique_id=1464317872]
+layout_mode = 3
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+script = ExtResource("1_urd13")
+
+[node name="CompleteStaticBg(288X208)" type="Sprite2D" parent="." unique_id=422706305]
+position = Vector2(1440, 511)
+scale = Vector2(10.238314, 10.058173)
+texture = ExtResource("1_dby0d")
+
+[node name="ScrollContainer" type="ScrollContainer" parent="." unique_id=515191607]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+
+[node name="VBoxContainer" type="VBoxContainer" parent="ScrollContainer" unique_id=214908146]
+layout_mode = 2
+size_flags_horizontal = 6
+script = ExtResource("3_urd13")
+
+[node name="VideoLabel" type="Label" parent="ScrollContainer/VBoxContainer" unique_id=1310678707]
+layout_mode = 2
+text = "Vídeo"
+label_settings = SubResource("LabelSettings_r85el")
+horizontal_alignment = 1
+
+[node name="TelaCheia" type="CheckBox" parent="ScrollContainer/VBoxContainer" unique_id=849535289]
+layout_mode = 2
+theme_override_colors/font_focus_color = Color(0.9490196, 0.9490196, 0, 1)
+theme_override_colors/font_pressed_color = Color(0, 0.9137255, 0, 1)
+theme_override_colors/font_hover_color = Color(0.9490196, 0.9490196, 0, 1)
+theme_override_fonts/font = ExtResource("3_nowvq")
+theme_override_font_sizes/font_size = 35
+text = "Tela Cheia"
+alignment = 1
+
+[node name="Legendas" type="CheckBox" parent="ScrollContainer/VBoxContainer" unique_id=971849977]
+layout_mode = 2
+theme_override_colors/font_focus_color = Color(0.9490196, 0.9490196, 0, 1)
+theme_override_colors/font_pressed_color = Color(0, 0.9137255, 0, 1)
+theme_override_colors/font_hover_color = Color(0.9490196, 0.9490196, 0, 1)
+theme_override_fonts/font = ExtResource("3_nowvq")
+theme_override_font_sizes/font_size = 35
+text = "Legendas"
+alignment = 1
+
+[node name="DesempenhoLabel" type="Label" parent="ScrollContainer/VBoxContainer" unique_id=1992030151]
+layout_mode = 2
+text = "Desempenho"
+label_settings = SubResource("LabelSettings_r85el")
+horizontal_alignment = 1
+
+[node name="Cutscenes" type="CheckBox" parent="ScrollContainer/VBoxContainer" unique_id=2093777333]
+layout_mode = 2
+theme_override_colors/font_focus_color = Color(0.9490196, 0.9490196, 0, 1)
+theme_override_colors/font_pressed_color = Color(0, 0.9137255, 0, 1)
+theme_override_colors/font_hover_color = Color(0.9490196, 0.9490196, 0, 1)
+theme_override_fonts/font = ExtResource("3_nowvq")
+theme_override_font_sizes/font_size = 35
+text = "Desativar cutscenes"
+alignment = 1
+
+[node name="FPSLabel" type="Label" parent="ScrollContainer/VBoxContainer" unique_id=1030436794]
+layout_mode = 2
+text = "FPS"
+label_settings = SubResource("LabelSettings_r85el")
+horizontal_alignment = 1
+
+[node name="VSync" type="CheckBox" parent="ScrollContainer/VBoxContainer" unique_id=608310727]
+layout_mode = 2
+theme_override_colors/font_focus_color = Color(0.9490196, 0.9490196, 0, 1)
+theme_override_colors/font_pressed_color = Color(0, 0.9137255, 0, 1)
+theme_override_colors/font_hover_color = Color(0.9490196, 0.9490196, 0, 1)
+theme_override_fonts/font = ExtResource("3_nowvq")
+theme_override_font_sizes/font_size = 35
+button_pressed = true
+text = "V-sync"
+alignment = 1
+
+[node name="LimiteFPSLabel" type="Label" parent="ScrollContainer/VBoxContainer" unique_id=2017634640]
+layout_mode = 2
+text = "Limite de FPS"
+label_settings = SubResource("LabelSettings_r85el")
+horizontal_alignment = 1
+
+[node name="limite" type="OptionButton" parent="ScrollContainer/VBoxContainer" unique_id=1312895960 groups=["ignore_language_font"]]
+layout_mode = 2
+theme_override_colors/font_focus_color = Color(0.9490196, 0.9490196, 0, 1)
+theme_override_fonts/font = ExtResource("3_nowvq")
+theme_override_font_sizes/font_size = 50
+alignment = 1
+selected = 1
+item_count = 7
+popup/item_0/text = "30"
+popup/item_0/id = 0
+popup/item_1/text = "60"
+popup/item_1/id = 1
+popup/item_2/text = "75"
+popup/item_2/id = 2
+popup/item_3/text = "120"
+popup/item_3/id = 3
+popup/item_4/text = "144"
+popup/item_4/id = 4
+popup/item_5/text = "240"
+popup/item_5/id = 5
+popup/item_6/text = "Ilimitado"
+popup/item_6/id = 6
+
+[node name="ResolucaoLabel" type="Label" parent="ScrollContainer/VBoxContainer" unique_id=380412772]
+layout_mode = 2
+text = "Resolução"
+label_settings = SubResource("LabelSettings_r85el")
+horizontal_alignment = 1
+
+[node name="Resolucoes" type="OptionButton" parent="ScrollContainer/VBoxContainer" unique_id=1812696509 groups=["ignore_language_font"]]
+layout_mode = 2
+theme_override_colors/font_focus_color = Color(0.9490196, 0.9490196, 0, 1)
+theme_override_fonts/font = ExtResource("3_nowvq")
+theme_override_font_sizes/font_size = 50
+alignment = 1
+script = ExtResource("5_nowvq")
+
+[node name="TextureLabel" type="Label" parent="ScrollContainer/VBoxContainer" unique_id=1837627641]
+layout_mode = 2
+text = "Filtro de texturas"
+label_settings = SubResource("LabelSettings_r85el")
+horizontal_alignment = 1
+
+[node name="TextureFilter" type="OptionButton" parent="ScrollContainer/VBoxContainer" unique_id=681880621]
+layout_mode = 2
+theme_override_colors/font_focus_color = Color(0.9490196, 0.9490196, 0, 1)
+theme_override_fonts/font = ExtResource("3_nowvq")
+theme_override_font_sizes/font_size = 50
+alignment = 1
+selected = 0
+item_count = 2
+popup/item_0/text = "Nearest (padrão)"
+popup/item_0/id = 0
+popup/item_1/text = "Linear"
+popup/item_1/id = 1
+
+[node name="AntiserrilhadoLabel" type="Label" parent="ScrollContainer/VBoxContainer" unique_id=6692270]
+layout_mode = 2
+text = "Anti Serrilhado"
+label_settings = SubResource("LabelSettings_r85el")
+horizontal_alignment = 1
+
+[node name="Antiserrilhado" type="OptionButton" parent="ScrollContainer/VBoxContainer" unique_id=896084628]
+layout_mode = 2
+theme_override_colors/font_focus_color = Color(0.9490196, 0.9490196, 0, 1)
+theme_override_fonts/font = ExtResource("3_nowvq")
+theme_override_font_sizes/font_size = 50
+alignment = 1
+selected = 0
+item_count = 4
+popup/item_0/text = "Off (Fastest)"
+popup/item_0/id = 0
+popup/item_1/text = "2x (Average)"
+popup/item_1/id = 1
+popup/item_2/text = "4x (Slow)"
+popup/item_2/id = 2
+popup/item_3/text = "8x (Slowest)"
+popup/item_3/id = 3
+
+[node name="OpcoesPreDefinidasBox" type="VBoxContainer" parent="ScrollContainer/VBoxContainer" unique_id=45618267]
+layout_mode = 2
+
+[node name="PreLabel" type="Label" parent="ScrollContainer/VBoxContainer/OpcoesPreDefinidasBox" unique_id=717785962]
+layout_mode = 2
+text = "Opções pre definidas"
+label_settings = SubResource("LabelSettings_nowvq")
+horizontal_alignment = 1
+
+[node name="low" type="Button" parent="ScrollContainer/VBoxContainer/OpcoesPreDefinidasBox" unique_id=1306142350]
+layout_mode = 2
+theme_override_colors/font_focus_color = Color(0.9490196, 0.9490196, 0, 1)
+theme_override_colors/font_pressed_color = Color(1, 0.69411767, 0, 1)
+theme_override_colors/font_hover_color = Color(0.9490196, 0.9490196, 0, 1)
+theme_override_fonts/font = ExtResource("3_nowvq")
+theme_override_font_sizes/font_size = 50
+text = "Baixo"
+
+[node name="medium" type="Button" parent="ScrollContainer/VBoxContainer/OpcoesPreDefinidasBox" unique_id=372184448]
+layout_mode = 2
+theme_override_colors/font_focus_color = Color(0.9490196, 0.9490196, 0, 1)
+theme_override_colors/font_pressed_color = Color(1, 0.69411767, 0, 1)
+theme_override_colors/font_hover_color = Color(0.9490196, 0.9490196, 0, 1)
+theme_override_fonts/font = ExtResource("3_nowvq")
+theme_override_font_sizes/font_size = 50
+text = "Médio"
+
+[node name="high" type="Button" parent="ScrollContainer/VBoxContainer/OpcoesPreDefinidasBox" unique_id=2042802370]
+layout_mode = 2
+theme_override_colors/font_focus_color = Color(0.9490196, 0.9490196, 0, 1)
+theme_override_colors/font_pressed_color = Color(1, 0.69411767, 0, 1)
+theme_override_colors/font_hover_color = Color(0.9490196, 0.9490196, 0, 1)
+theme_override_fonts/font = ExtResource("3_nowvq")
+theme_override_font_sizes/font_size = 50
+text = "Alto"
+
+[node name="mobilechoose" type="Button" parent="ScrollContainer/VBoxContainer/OpcoesPreDefinidasBox" unique_id=921850041]
+layout_mode = 2
+theme_override_colors/font_focus_color = Color(0.9490196, 0.9490196, 0, 1)
+theme_override_colors/font_pressed_color = Color(1, 0.69411767, 0, 1)
+theme_override_colors/font_hover_color = Color(0.9490196, 0.9490196, 0, 1)
+theme_override_fonts/font = ExtResource("3_nowvq")
+theme_override_font_sizes/font_size = 50
+text = "Escolha do sistema"
+
+[node name="Voltar" type="Button" parent="ScrollContainer/VBoxContainer" unique_id=1270430119]
+layout_mode = 2
+theme_override_colors/font_focus_color = Color(0.9490196, 0.9490196, 0, 1)
+theme_override_colors/font_pressed_color = Color(1, 0.69411767, 0, 1)
+theme_override_colors/font_hover_color = Color(0.9490196, 0.9490196, 0, 1)
+theme_override_fonts/font = ExtResource("3_nowvq")
+theme_override_font_sizes/font_size = 75
+text = "Voltar"
+
+[connection signal="toggled" from="ScrollContainer/VBoxContainer/TelaCheia" to="." method="_on_tela_cheia_toggled"]
+[connection signal="toggled" from="ScrollContainer/VBoxContainer/Legendas" to="." method="_on_legendas_toggled"]
+[connection signal="toggled" from="ScrollContainer/VBoxContainer/VSync" to="." method="_on_v_sync_toggled"]
+[connection signal="item_selected" from="ScrollContainer/VBoxContainer/limite" to="." method="_on_limite_item_selected"]
+[connection signal="item_selected" from="ScrollContainer/VBoxContainer/TextureFilter" to="." method="_on_texture_filter_item_selected"]
+[connection signal="item_selected" from="ScrollContainer/VBoxContainer/Antiserrilhado" to="." method="_on_antiserrilhado_item_selected"]
+[connection signal="pressed" from="ScrollContainer/VBoxContainer/Voltar" to="." method="_on_voltar_pressed"]
