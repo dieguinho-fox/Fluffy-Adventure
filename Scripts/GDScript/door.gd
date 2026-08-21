@@ -2,7 +2,7 @@ extends Sprite2D
 
 @export var door_id: String = ""
 @export var target_door_id: String = ""
-@onready var ui_door: TouchScreenButton = $"../../controls/ui_door"
+@onready var ui_door: TouchScreenButton = $"../../mobile controls/ui_door"
 
 func _on_area_2d_body_entered(body: Node2D):
 	if body.is_in_group("player"):

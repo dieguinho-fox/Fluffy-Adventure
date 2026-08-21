@@ -1,12 +1,13 @@
 [gd_scene format=3 uid="uid://b7vq0qwmg3lt4"]
 
 [ext_resource type="Script" uid="uid://b0tsmnb0b5kay" path="res://Scripts/GDScript/Cutscenes/inicio.gd" id="1_gee3o"]
-[ext_resource type="VideoStream" uid="uid://b6oqndspdv0h5" path="res://Cutscenes/Start.ogv" id="1_mau64"]
+[ext_resource type="VideoStream" uid="uid://b6oqndspdv0h5" path="res://Cutscenes/start.ogv" id="1_mau64"]
 [ext_resource type="Script" uid="uid://drvys8aeuhe4a" path="res://Scripts/GDScript/Cutscenes/legendas/cutsceneinicio.gd" id="3_1b3t3"]
 [ext_resource type="Texture2D" uid="uid://ctngl4b8n8443" path="res://Interface/Celular e Tablet/Controles/ui_buttons_arrow_right_NORMAL.png" id="3_ie44s"]
 [ext_resource type="Texture2D" uid="uid://cumy4oggpvlkl" path="res://Interface/Celular e Tablet/Controles/ui_buttons_arrow_right_PRESSED.png" id="4_gjg4g"]
-[ext_resource type="FontFile" uid="uid://ckw4qondl5cjc" path="res://Fontes/RevMiniPixel.ttf" id="5_gjg4g"]
+[ext_resource type="FontFile" uid="uid://bjw68y3gx2d3k" path="res://Fontes/RevMiniPixel.ttf" id="5_gjg4g"]
 [ext_resource type="PackedScene" uid="uid://brycjken8w060" path="res://cenas/Prefabs/pular_cutscene.tscn" id="7_d2ykl"]
+[ext_resource type="PackedScene" uid="uid://drronahrwofbq" path="res://cenas/Otimizações/cutscene_controller.tscn" id="8_57768"]
 
 [sub_resource type="LabelSettings" id="LabelSettings_1b3t3"]
 font = ExtResource("5_gjg4g")
@@ -50,3 +51,9 @@ texture_pressed = ExtResource("4_gjg4g")
 action = "ui_accept"
 
 [node name="Pular cutscene" parent="." unique_id=1579372191 instance=ExtResource("7_d2ykl")]
+
+[node name="Cutscene controller" parent="." unique_id=975602357 instance=ExtResource("8_57768")]
+
+[node name="Cutscene controller" parent="Cutscene controller" unique_id=655045190 node_paths=PackedStringArray("video") instance=ExtResource("8_57768")]
+video = NodePath("../../VideoStreamPlayer")
+cena_destino = "uid://lp40ic7lnko5"

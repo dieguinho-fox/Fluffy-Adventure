@@ -60,6 +60,14 @@ texture_normal = ExtResource("9_s07dk")
 texture_pressed = ExtResource("10_1vfi2")
 action = "interact"
 
+[node name="ui_door" type="TouchScreenButton" parent="." unique_id=1582024311]
+visible = false
+position = Vector2(1741, 320)
+scale = Vector2(5, 5)
+texture_normal = ExtResource("9_s07dk")
+texture_pressed = ExtResource("10_1vfi2")
+action = "abrir_porta"
+
 [node name="ui_advance" type="TouchScreenButton" parent="." unique_id=1273714227]
 visible = false
 position = Vector2(1571, 320.00006)

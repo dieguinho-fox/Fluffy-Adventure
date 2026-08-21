@@ -15,7 +15,7 @@ func _ready() -> void:
 
 	# No Android, mostra os controles apenas se não houver
 	# teclado ou controle físico conectado.
-	if sistema == "Windows":
+	if sistema == "Android":
 		controles.visible = not existe_teclado_ou_controle()
 	else:
 		controles.visible = false

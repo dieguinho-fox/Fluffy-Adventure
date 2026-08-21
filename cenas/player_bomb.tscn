@@ -662,13 +662,13 @@ animations = [{
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_vv33d"]
 size = Vector2(62, 62)
 
-[sub_resource type="LabelSettings" id="LabelSettings_gloi6"]
+[sub_resource type="LabelSettings" id="LabelSettings_jxjyd"]
 font = ExtResource("14_v67n1")
 font_size = 35
 outline_size = 10
 outline_color = Color(0, 0, 0, 1)
 
-[sub_resource type="LabelSettings" id="LabelSettings_x0odw"]
+[sub_resource type="LabelSettings" id="LabelSettings_55j7v"]
 font = ExtResource("14_v67n1")
 font_size = 35
 outline_size = 10
@@ -713,11 +713,11 @@ bus = &"SFX"
 [node name="Camera2D" type="Camera2D" parent="." unique_id=1686278167]
 scale = Vector2(0.5307262, -2.0890107)
 
-[node name="HUD" type="CanvasLayer" parent="." unique_id=2097013676]
+[node name="HUD" type="CanvasLayer" parent="." unique_id=1083160280]
 layer = 9997
 script = ExtResource("12_smqgp")
 
-[node name="control" type="Control" parent="HUD" unique_id=1334415699]
+[node name="control" type="Control" parent="HUD" unique_id=537918873]
 layout_mode = 3
 anchors_preset = 15
 anchor_right = 1.0
@@ -726,7 +726,7 @@ grow_horizontal = 2
 grow_vertical = 2
 script = ExtResource("13_ht6wj")
 
-[node name="container" type="MarginContainer" parent="HUD/control" unique_id=1327252057]
+[node name="container" type="MarginContainer" parent="HUD/control" unique_id=369298406]
 layout_mode = 1
 anchors_preset = 15
 anchor_right = 1.0
@@ -734,75 +734,94 @@ anchor_bottom = 1.0
 grow_horizontal = 2
 grow_vertical = 2
 
-[node name="coins_container" type="HBoxContainer" parent="HUD/control/container" unique_id=165085776]
+[node name="coins_container" type="HBoxContainer" parent="HUD/control/container" unique_id=942462037]
 layout_mode = 2
 
-[node name="coins_label" type="Label" parent="HUD/control/container/coins_container" unique_id=283505949]
+[node name="coins_label" type="Label" parent="HUD/control/container/coins_container" unique_id=2075203387]
 layout_mode = 2
 size_flags_horizontal = 4
 size_flags_vertical = 0
 text = "MOEDAS:"
-label_settings = SubResource("LabelSettings_gloi6")
+label_settings = SubResource("LabelSettings_jxjyd")
 
-[node name="coins_counter" type="Label" parent="HUD/control/container/coins_container" unique_id=1111115879 groups=["ignore_language_font"]]
+[node name="coins_counter" type="Label" parent="HUD/control/container/coins_container" unique_id=1212536370 groups=["ignore_language_font"]]
 layout_mode = 2
 size_flags_vertical = 0
 text = "0000"
-label_settings = SubResource("LabelSettings_x0odw")
+label_settings = SubResource("LabelSettings_55j7v")
 
-[node name="timer_container" type="HBoxContainer" parent="HUD/control/container" unique_id=578481906]
+[node name="timer_container" type="HBoxContainer" parent="HUD/control/container" unique_id=1432354496]
 layout_mode = 2
 
-[node name="timer_label" type="Label" parent="HUD/control/container/timer_container" unique_id=432539611]
+[node name="timer_label" type="Label" parent="HUD/control/container/timer_container" unique_id=1949961752]
 layout_mode = 2
 size_flags_horizontal = 10
 size_flags_vertical = 0
 text = "TEMPO:"
-label_settings = SubResource("LabelSettings_gloi6")
+label_settings = SubResource("LabelSettings_jxjyd")
 
-[node name="timer_counter" type="Label" parent="HUD/control/container/timer_container" unique_id=468483504 groups=["ignore_language_font"]]
+[node name="timer_counter" type="Label" parent="HUD/control/container/timer_container" unique_id=1323084284 groups=["ignore_language_font"]]
 layout_mode = 2
 size_flags_horizontal = 2
 size_flags_vertical = 0
 text = "00:00"
-label_settings = SubResource("LabelSettings_x0odw")
+label_settings = SubResource("LabelSettings_55j7v")
 
-[node name="game_timer" type="Timer" parent="HUD/control/container/timer_container" unique_id=1080461662]
+[node name="game_timer" type="Timer" parent="HUD/control/container/timer_container" unique_id=520810843]
 autostart = true
 
-[node name="score_container" type="HBoxContainer" parent="HUD/control/container" unique_id=514643370]
+[node name="score_container" type="HBoxContainer" parent="HUD/control/container" unique_id=9749486]
 layout_mode = 2
 
-[node name="score_label" type="Label" parent="HUD/control/container/score_container" unique_id=1110882719]
+[node name="score_label" type="Label" parent="HUD/control/container/score_container" unique_id=1001851260]
 layout_mode = 2
 size_flags_horizontal = 10
 size_flags_vertical = 0
 text = "PONTOS:"
-label_settings = SubResource("LabelSettings_gloi6")
+label_settings = SubResource("LabelSettings_jxjyd")
 
-[node name="score_counter" type="Label" parent="HUD/control/container/score_container" unique_id=1832684511 groups=["ignore_language_font"]]
+[node name="score_counter" type="Label" parent="HUD/control/container/score_container" unique_id=730107075 groups=["ignore_language_font"]]
 layout_mode = 2
 size_flags_horizontal = 8
 size_flags_vertical = 0
 text = "000000"
-label_settings = SubResource("LabelSettings_x0odw")
+label_settings = SubResource("LabelSettings_55j7v")
 
-[node name="live_container" type="HBoxContainer" parent="HUD/control/container" unique_id=343342080]
+[node name="live_container" type="HBoxContainer" parent="HUD/control/container" unique_id=681370041]
 layout_mode = 2
 
-[node name="live_label" type="Label" parent="HUD/control/container/live_container" unique_id=1001426803]
+[node name="live_label" type="Label" parent="HUD/control/container/live_container" unique_id=819194491]
 layout_mode = 2
 size_flags_horizontal = 8
 size_flags_vertical = 8
 text = "VIDAS:"
-label_settings = SubResource("LabelSettings_gloi6")
+label_settings = SubResource("LabelSettings_jxjyd")
 
-[node name="live_counter" type="Label" parent="HUD/control/container/live_container" unique_id=4747211 groups=["ignore_language_font"]]
+[node name="live_counter" type="Label" parent="HUD/control/container/live_container" unique_id=620958178 groups=["ignore_language_font"]]
 layout_mode = 2
 size_flags_horizontal = 8
 size_flags_vertical = 8
 text = "X1"
-label_settings = SubResource("LabelSettings_x0odw")
+label_settings = SubResource("LabelSettings_55j7v")
+
+[node name="dalflive_container" type="HBoxContainer" parent="HUD/control/container" unique_id=413227491]
+visible = false
+layout_mode = 2
+size_flags_horizontal = 8
+
+[node name="live_label" type="Label" parent="HUD/control/container/dalflive_container" unique_id=1815750863]
+layout_mode = 2
+size_flags_horizontal = 4
+size_flags_vertical = 8
+text = "DALF:"
+label_settings = SubResource("LabelSettings_jxjyd")
+
+[node name="live_counter" type="Label" parent="HUD/control/container/dalflive_container" unique_id=746329885 groups=["ignore_language_font"]]
+layout_mode = 2
+size_flags_horizontal = 0
+size_flags_vertical = 8
+text = "X1"
+label_settings = SubResource("LabelSettings_55j7v")
 
 [node name="transicao" type="ColorRect" parent="." unique_id=1050668975]
 modulate = Color(1, 1, 1, 0)
@@ -817,4 +836,3 @@ color = Color(0, 0, 0, 1)
 [connection signal="animation_finished" from="anim" to="." method="_on_anim_animation_finished"]
 [connection signal="area_entered" from="hurtbox" to="." method="_on_hurtbox_area_entered"]
 [connection signal="body_entered" from="hurtbox" to="." method="_on_hurtbox_body_entered"]
-[connection signal="timeout" from="HUD/control/container/timer_container/game_timer" to="." method="_on_game_timer_timeout"]

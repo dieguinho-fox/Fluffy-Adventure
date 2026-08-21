@@ -7,6 +7,7 @@
 [ext_resource type="Texture2D" uid="uid://ctngl4b8n8443" path="res://Interface/Celular e Tablet/Controles/ui_buttons_arrow_right_NORMAL.png" id="5_q03t2"]
 [ext_resource type="Texture2D" uid="uid://cumy4oggpvlkl" path="res://Interface/Celular e Tablet/Controles/ui_buttons_arrow_right_PRESSED.png" id="6_jnttp"]
 [ext_resource type="PackedScene" uid="uid://brycjken8w060" path="res://cenas/Prefabs/pular_cutscene.tscn" id="7_utrph"]
+[ext_resource type="PackedScene" uid="uid://drronahrwofbq" path="res://cenas/Otimizações/cutscene_controller.tscn" id="8_5pmho"]
 
 [sub_resource type="LabelSettings" id="LabelSettings_1b3t3"]
 font = ExtResource("4_c0kqw")
@@ -52,3 +53,6 @@ texture_pressed = ExtResource("6_jnttp")
 action = "ui_accept"
 
 [node name="Pular cutscene" parent="." unique_id=1579372191 instance=ExtResource("7_utrph")]
+
+[node name="Cutscene controller" parent="." unique_id=975602357 node_paths=PackedStringArray("video") instance=ExtResource("8_5pmho")]
+video = NodePath("../VideoStreamPlayer")

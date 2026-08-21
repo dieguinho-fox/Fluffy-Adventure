@@ -3,6 +3,7 @@
 [ext_resource type="Script" uid="uid://cnc3trigpovsm" path="res://Scripts/GDScript/Cutscenes/cutscene_batfinal_inicio.gd" id="1_end7u"]
 [ext_resource type="VideoStream" uid="uid://c2lontkyb1xus" path="res://Cutscenes/the last fight.ogv" id="2_6upwe"]
 [ext_resource type="FontFile" uid="uid://bjw68y3gx2d3k" path="res://Fontes/RevMiniPixel.ttf" id="3_tmye3"]
+[ext_resource type="PackedScene" uid="uid://drronahrwofbq" path="res://cenas/Otimizações/cutscene_controller.tscn" id="4_6upwe"]
 
 [sub_resource type="LabelSettings" id="LabelSettings_1b3t3"]
 font = ExtResource("3_tmye3")
@@ -36,3 +37,7 @@ grow_vertical = 0
 text = "LEGENDA"
 label_settings = SubResource("LabelSettings_1b3t3")
 horizontal_alignment = 1
+
+[node name="Cutscene controller" parent="VideoStreamPlayer" unique_id=975602357 node_paths=PackedStringArray("video") instance=ExtResource("4_6upwe")]
+video = NodePath("..")
+cena_destino = "uid://ce4wy1t35tqwt"

@@ -5,6 +5,7 @@
 [ext_resource type="FontFile" uid="uid://bjw68y3gx2d3k" path="res://Fontes/RevMiniPixel.ttf" id="3_nowvq"]
 [ext_resource type="Script" uid="uid://80cgcc4cmag6" path="res://Scripts/GDScript/Traducao/traducoesvideo.gd" id="3_urd13"]
 [ext_resource type="Script" uid="uid://b2d880ewt77h0" path="res://Scripts/C#/Resolucoes.cs" id="5_nowvq"]
+[ext_resource type="Script" uid="uid://c25g58my0y3b0" path="res://Scripts/GDScript/opcoes_pre_definidas.gd" id="6_r85el"]
 
 [sub_resource type="LabelSettings" id="LabelSettings_r85el"]
 font = ExtResource("3_nowvq")
@@ -191,6 +192,7 @@ popup/item_3/id = 3
 
 [node name="OpcoesPreDefinidasBox" type="VBoxContainer" parent="ScrollContainer/VBoxContainer" unique_id=45618267]
 layout_mode = 2
+script = ExtResource("6_r85el")
 
 [node name="PreLabel" type="Label" parent="ScrollContainer/VBoxContainer/OpcoesPreDefinidasBox" unique_id=717785962]
 layout_mode = 2
