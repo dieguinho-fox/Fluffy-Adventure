@@ -51,7 +51,6 @@ func _ready() -> void:
 
 	if _load_saved_scene():
 		btn_continuar.visible = true
-		btn_continuar.pressed.connect(_on_continuar_pressed)
 		print("✅ Botão CONTINUAR exibido e conectado")
 	else:
 		print("🚫 Botão CONTINUAR oculto")

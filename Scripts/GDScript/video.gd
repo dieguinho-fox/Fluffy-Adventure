@@ -30,23 +30,30 @@ const MSAA_2D_VALUES := [
 	Viewport.MSAA_8X
 ]
 
+
 # ==============================
 # Ready
 # ==============================
 func _ready():
 	$ScrollContainer/VBoxContainer/TelaCheia.grab_focus()
 
+	var is_android: bool = OS.get_name() == "Android"
+
 	# ==============================
-	# Remover opções de resolução no Android
+	# Opções exclusivas do Android
 	# ==============================
-	if OS.get_name() == "Android":
+	if is_android:
 		$ScrollContainer/VBoxContainer/ResolucaoLabel.queue_free()
 		$ScrollContainer/VBoxContainer/Resolucoes.queue_free()
+	else:
+		# Controles na tela só existe no Android
+		$ScrollContainer/VBoxContainer/Controles.visible = false
 
 	var config := ConfigFile.new()
 	var err := config.load(CONFIG_PATH)
 
 	if err == OK:
+
 		# ==============================
 		# Fullscreen
 		# ==============================
@@ -56,6 +63,7 @@ func _ready():
 
 		_set_fullscreen(fullscreen)
 		$ScrollContainer/VBoxContainer/TelaCheia.button_pressed = fullscreen
+
 
 		# ==============================
 		# VSync
@@ -67,6 +75,7 @@ func _ready():
 		$ScrollContainer/VBoxContainer/VSync.button_pressed = vsync
 		_update_vsync(vsync)
 		_update_fps_dropdown_visibility(vsync)
+
 
 		# ==============================
 		# FPS
@@ -80,6 +89,7 @@ func _ready():
 		$ScrollContainer/VBoxContainer/limite.selected = fps_id
 		_apply_fps_limit(fps_id)
 
+
 		# ==============================
 		# Filtro de textura
 		# ==============================
@@ -91,6 +101,7 @@ func _ready():
 
 		$ScrollContainer/VBoxContainer/TextureFilter.selected = filter_id
 		_apply_texture_filter(filter_id)
+
 
 		# ==============================
 		# Antiserrilhado
@@ -104,6 +115,7 @@ func _ready():
 		$ScrollContainer/VBoxContainer/Antiserrilhado.selected = msaa_id
 		_apply_msaa_2d(msaa_id)
 
+
 		# ==============================
 		# Legendas
 		# ==============================
@@ -112,6 +124,7 @@ func _ready():
 		)
 
 		$ScrollContainer/VBoxContainer/Legendas.button_pressed = legendas_enabled
+
 
 		# ==============================
 		# Cutscenes
@@ -122,18 +135,59 @@ func _ready():
 
 		$ScrollContainer/VBoxContainer/Cutscenes.button_pressed = cutscenes_disabled
 
-		# Atualiza a variável global
 		Globals.cutscenes_disabled = cutscenes_disabled
 
-		print("🎞️ Configuração de cutscenes carregada: ", cutscenes_disabled)
+		print(
+			"🎞️ Configuração de cutscenes carregada: ",
+			cutscenes_disabled
+		)
+
+
+		# ==============================
+		# Controles
+		# ==============================
+		var controles_enabled: bool = bool(
+			config.get_value("gameplay", "controles", true)
+		)
+
+		$ScrollContainer/VBoxContainer/Controles.button_pressed = controles_enabled
+
+		Globals.controles_enabled = controles_enabled
+
+		print(
+			"🎮 Controles na tela: ",
+			"ATIVADOS" if controles_enabled else "DESATIVADOS"
+		)
+
+
+		# ==============================
+		# Tutoriais
+		# ==============================
+		var tutoriais_enabled: bool = bool(
+			config.get_value("gameplay", "tutoriais", true)
+		)
+
+		$ScrollContainer/VBoxContainer/Tutoriais.button_pressed = tutoriais_enabled
+
+		Globals.tutoriais_enabled = tutoriais_enabled
+
+		print(
+			"📖 Tutoriais: ",
+			"ATIVADOS" if tutoriais_enabled else "DESATIVADOS"
+		)
 
 	else:
+
 		# ==============================
 		# Configuração padrão
 		# ==============================
 		Globals.cutscenes_disabled = false
+		Globals.controles_enabled = true
+		Globals.tutoriais_enabled = true
 
 		$ScrollContainer/VBoxContainer/Cutscenes.button_pressed = false
+		$ScrollContainer/VBoxContainer/Controles.button_pressed = true
+		$ScrollContainer/VBoxContainer/Tutoriais.button_pressed = true
 
 		_save_settings(
 			false,
@@ -141,10 +195,11 @@ func _ready():
 			0,
 			0,
 			true,
-			false
+			false,
+			true,
+			true
 		)
 
-		# Aplica os padrões
 		$ScrollContainer/VBoxContainer/Antiserrilhado.selected = 0
 		_apply_msaa_2d(0)
 
@@ -193,7 +248,11 @@ func _on_limite_item_selected(index: int) -> void:
 
 
 func _apply_fps_limit(id: int) -> void:
-	id = clamp(id, 0, fps_values.size() - 1)
+	id = clamp(\
+		id,
+		0,
+		fps_values.size() - 1
+	)
 
 	if not $ScrollContainer/VBoxContainer/VSync.button_pressed:
 		Engine.max_fps = fps_values[id]
@@ -214,7 +273,11 @@ func _on_texture_filter_item_selected(index: int) -> void:
 
 
 func _apply_texture_filter(id: int) -> void:
-	id = clamp(id, 0, TEXTURE_FILTERS.size() - 1)
+	id = clamp(
+		id,
+		0,
+		TEXTURE_FILTERS.size() - 1
+	)
 
 	RenderingServer.viewport_set_default_canvas_item_texture_filter(
 		get_viewport().get_viewport_rid(),
@@ -235,7 +298,11 @@ func _on_antiserrilhado_item_selected(index: int) -> void:
 
 
 func _apply_msaa_2d(id: int) -> void:
-	id = clamp(id, 0, MSAA_2D_VALUES.size() - 1)
+	id = clamp(
+		id,
+		0,
+		MSAA_2D_VALUES.size() - 1
+	)
 
 	var msaa: int = MSAA_2D_VALUES[id]
 
@@ -272,7 +339,6 @@ func _on_legendas_toggled(toggled_on: bool) -> void:
 # Cutscenes
 # ==============================
 func _on_cutscenes_toggled(toggled_on: bool) -> void:
-	# Atualiza imediatamente o estado global
 	Globals.cutscenes_disabled = toggled_on
 
 	print(
@@ -280,34 +346,35 @@ func _on_cutscenes_toggled(toggled_on: bool) -> void:
 		"DESATIVADAS" if toggled_on else "ATIVADAS"
 	)
 
-	# Salva imediatamente no arquivo
-	var config := ConfigFile.new()
+	_save_current_settings()
 
-	var err := config.load(CONFIG_PATH)
 
-	if err != OK and err != ERR_FILE_NOT_FOUND:
-		push_error(
-			"Não foi possível carregar config.cfg antes de salvar cutscenes."
-		)
-		return
+# ==============================
+# Controles
+# ==============================
+func _on_controles_toggled(toggled_on: bool) -> void:
+	Globals.controles_enabled = toggled_on
 
-	config.set_value(
-		"video",
-		"cutscenes_disabled",
-		toggled_on
+	print(
+		"🎮 Controles:",
+		"ATIVADOS" if toggled_on else "DESATIVADOS"
 	)
 
-	var save_err := config.save(CONFIG_PATH)
+	_save_current_settings()
 
-	if save_err == OK:
-		print(
-			"💾 Cutscenes salvas:",
-			toggled_on
-		)
-	else:
-		push_error(
-			"Erro ao salvar cutscenes. Código: %s" % save_err
-		)
+
+# ==============================
+# Tutoriais
+# ==============================
+func _on_tutoriais_toggled(toggled_on: bool) -> void:
+	Globals.tutoriais_enabled = toggled_on
+
+	print(
+		"📖 Tutoriais:",
+		"ATIVADOS" if toggled_on else "DESATIVADOS"
+	)
+
+	_save_current_settings()
 
 
 # ==============================
@@ -320,7 +387,9 @@ func _save_current_settings() -> void:
 		$ScrollContainer/VBoxContainer/TextureFilter.get_selected_id(),
 		$ScrollContainer/VBoxContainer/Antiserrilhado.get_selected_id(),
 		$ScrollContainer/VBoxContainer/Legendas.button_pressed,
-		$ScrollContainer/VBoxContainer/Cutscenes.button_pressed
+		$ScrollContainer/VBoxContainer/Cutscenes.button_pressed,
+		$ScrollContainer/VBoxContainer/Controles.button_pressed,
+		$ScrollContainer/VBoxContainer/Tutoriais.button_pressed
 	)
 
 
@@ -330,11 +399,16 @@ func _save_settings(
 	texture_filter_id: int,
 	msaa_2d_id: int,
 	legendas: bool,
-	cutscenes_disabled: bool
+	cutscenes_disabled: bool,
+	controles_enabled: bool,
+	tutoriais_enabled: bool
 ) -> void:
+
 	var config := ConfigFile.new()
 
-	# Tenta carregar as configurações existentes primeiro.
+	# ==============================
+	# Carregar configurações existentes
+	# ==============================
 	var load_err := config.load(CONFIG_PATH)
 
 	if load_err != OK and load_err != ERR_FILE_NOT_FOUND:
@@ -343,6 +417,10 @@ func _save_settings(
 		)
 		return
 
+
+	# ==============================
+	# Vídeo
+	# ==============================
 	config.set_value(
 		"video",
 		"fullscreen",
@@ -385,6 +463,26 @@ func _save_settings(
 		cutscenes_disabled
 	)
 
+
+	# ==============================
+	# Gameplay
+	# ==============================
+	config.set_value(
+		"gameplay",
+		"controles",
+		controles_enabled
+	)
+
+	config.set_value(
+		"gameplay",
+		"tutoriais",
+		tutoriais_enabled
+	)
+
+
+	# ==============================
+	# Salvar
+	# ==============================
 	var save_err := config.save(CONFIG_PATH)
 
 	if save_err == OK:
@@ -399,7 +497,8 @@ func _save_settings(
 # Voltar
 # ==============================
 func _on_voltar_pressed() -> void:
-	# Garante que tudo seja salvo antes de sair.
 	_save_current_settings()
 
-	get_tree().change_scene_to_file("res://cenas/opcoes.tscn")
+	get_tree().change_scene_to_file(
+		"res://cenas/opcoes.tscn"
+	)

@@ -9,11 +9,6 @@ var coins := 1
 
 var collected := false
 
-func _ready():
-	# garante que moedas fora da tela não ficam gastando nada
-	notifier.screen_entered.connect(_on_enter)
-	notifier.screen_exited.connect(_on_exit)
-
 func _on_body_entered(body: Node2D) -> void:
 	$anim.play("collect")
 	#evita a colisão dupla de moedas

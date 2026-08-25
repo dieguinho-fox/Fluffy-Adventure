@@ -1,9 +1,9 @@
 extends Node2D
 
 @onready var texture: Sprite2D = $texture
-@onready var ui_dialog: TouchScreenButton = $"../../controls/ui_dialog"
+@onready var ui_dialog: TouchScreenButton = $"../../mobile controls/ui_dialog"
 @onready var area_sign: Area2D = $area_sign
-@onready var ui_advance: TouchScreenButton = $"../../controls/ui_advance"
+@onready var ui_advance: TouchScreenButton = $"../../mobile controls/ui_advance"
 
 const lines : Array[String] = [
 	"DIALOG1_HELPER_1",
