@@ -5,6 +5,9 @@ extends Node
 # ==========================================
 
 var cutscenes_disabled: bool = false
+var controles_enabled: bool = true
+var tutoriais_enabled: bool = true
+var legendas_enabled: bool = true
 
 
 # ==========================================

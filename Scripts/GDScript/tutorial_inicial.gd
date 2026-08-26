@@ -18,28 +18,27 @@ extends CanvasLayer
 var current_layer: CanvasLayer
 var current_fade: Control
 var fading := false
-var teclado_detectado := false
 
 
 func _ready() -> void:
+
+	# ============================================================
+	# VERIFICAR SE OS TUTORIAIS ESTÃO ATIVADOS
+	# ============================================================
+
+	if not Globals.tutoriais_enabled:
+		print("📖 Tutoriais desativados. Removendo tutorial da cena.")
+		queue_free()
+		return
+
+	# ============================================================
+	# TUTORIAIS ATIVADOS
+	# ============================================================
+
+	print("📖 Tutoriais ativados.")
+
 	hide_all()
 	detect_controller()
-
-
-# ============================================================
-# INPUT
-# ============================================================
-
-func _input(event: InputEvent) -> void:
-
-	# Se um teclado for utilizado
-	if event is InputEventKey:
-		if event.pressed and not teclado_detectado:
-			teclado_detectado = true
-
-			# Só mostra o teclado se não houver controle
-			if Input.get_connected_joypads().is_empty():
-				show_tutorial(keyboard_layer, keyboard_fade)
 
 
 # ============================================================
@@ -47,6 +46,7 @@ func _input(event: InputEvent) -> void:
 # ============================================================
 
 func hide_all() -> void:
+
 	for layer in [
 		keyboard_layer,
 		playstation_layer,
@@ -71,10 +71,12 @@ func hide_all() -> void:
 # ============================================================
 
 func show_tutorial(layer: CanvasLayer, fade: Control) -> void:
+
 	hide_all()
 
 	current_layer = layer
 	current_fade = fade
+
 	current_layer.visible = true
 	current_fade.modulate.a = 1.0
 
@@ -90,6 +92,7 @@ func show_tutorial(layer: CanvasLayer, fade: Control) -> void:
 # ============================================================
 
 func start_fade() -> void:
+
 	if fading or current_fade == null:
 		return
 
@@ -115,72 +118,133 @@ func start_fade() -> void:
 # ============================================================
 
 func detect_controller() -> void:
+
 	var joypads := Input.get_connected_joypads()
 
-	# Nenhum controle conectado.
-	# Vamos esperar uma tecla para detectar o teclado.
+	# ============================================================
+	# NENHUM CONTROLE
+	# ============================================================
+
 	if joypads.is_empty():
+		show_tutorial(
+			keyboard_layer,
+			keyboard_fade
+		)
+
 		return
 
-	# Verificar todos os controles conectados
+
+	# ============================================================
+	# VERIFICAR CONTROLES CONECTADOS
+	# ============================================================
+
 	for joypad_id in joypads:
 
 		var controller_name := Input.get_joy_name(joypad_id).to_lower()
 
-		print("Controle detectado: ", controller_name)
+		print("🎮 Controle detectado: ", controller_name)
 
-		# ====================================================
+
+		# ========================================================
 		# XBOX 360
-		# ====================================================
+		# ========================================================
 
 		if controller_name.contains("xbox 360"):
-			show_tutorial(xbox360_layer, xbox360_fade)
+			show_tutorial(
+				xbox360_layer,
+				xbox360_fade
+			)
+
 			return
 
-		# ====================================================
+
+		# ========================================================
 		# XBOX ONE
-		# ====================================================
+		# ========================================================
 
 		if controller_name.contains("xbox one"):
-			show_tutorial(xboxone_layer, xboxone_fade)
+			show_tutorial(
+				xboxone_layer,
+				xboxone_fade
+			)
+
 			return
 
-		# ====================================================
+
+		# ========================================================
 		# XBOX SERIES
-		# ====================================================
+		# ========================================================
 
 		if controller_name.contains("xbox series"):
-			show_tutorial(xboxseries_layer, xboxseries_fade)
+			show_tutorial(
+				xboxseries_layer,
+				xboxseries_fade
+			)
+
 			return
+
 
 		# Alguns controles Xbox aparecem assim
 		if controller_name.contains("xbox wireless"):
-			show_tutorial(xboxseries_layer, xboxseries_fade)
+			show_tutorial(
+				xboxseries_layer,
+				xboxseries_fade
+			)
+
 			return
 
-		# ====================================================
+
+		# ========================================================
 		# PLAYSTATION
-		# ====================================================
+		# ========================================================
 
 		if controller_name.contains("playstation"):
-			show_tutorial(playstation_layer, playstation_fade)
+			show_tutorial(
+				playstation_layer,
+				playstation_fade
+			)
+
 			return
+
 
 		if controller_name.contains("dualshock"):
-			show_tutorial(playstation_layer, playstation_fade)
+			show_tutorial(
+				playstation_layer,
+				playstation_fade
+			)
+
 			return
+
 
 		if controller_name.contains("dualsense"):
-			show_tutorial(playstation_layer, playstation_fade)
+			show_tutorial(
+				playstation_layer,
+				playstation_fade
+			)
+
 			return
+
 
 		if controller_name.contains("ps4"):
-			show_tutorial(playstation_layer, playstation_fade)
+			show_tutorial(
+				playstation_layer,
+				playstation_fade
+			)
+
 			return
+
 
 		if controller_name.contains("ps5"):
-			show_tutorial(playstation_layer, playstation_fade)
+			show_tutorial(
+				playstation_layer,
+				playstation_fade
+			)
+
 			return
 
-	# Controle desconhecido:
-	# não mostra tutorial.
+
+	# ============================================================
+	# CONTROLE DESCONHECIDO
+	# ============================================================
+
+	print("🎮 Controle desconhecido. Tutorial não identificado.")
