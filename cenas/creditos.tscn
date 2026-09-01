@@ -1,27 +1,46 @@
 [gd_scene format=3 uid="uid://i6yynl7gabdf"]
 
 [ext_resource type="Script" uid="uid://dk6odmxntokgo" path="res://Scripts/GDScript/carregamentos de mundos/creditos.gd" id="1_rdysq"]
-[ext_resource type="VideoStream" uid="uid://b2ur2oc4xllvv" path="res://Cutscenes/creditos.ogv" id="4_itarq"]
+[ext_resource type="VideoStream" uid="uid://dqlmp14heujkk" path="res://Cutscenes/Finais/Final bom.ogv" id="2_a1hbf"]
+[ext_resource type="Script" uid="uid://bidriebdgeia3" path="res://Scripts/GDScript/Cutscenes/legendas/legendas_final_bom.gd" id="3_a1hbf"]
+[ext_resource type="FontFile" uid="uid://bjw68y3gx2d3k" path="res://Fontes/RevMiniPixel.ttf" id="4_64e61"]
 [ext_resource type="Texture2D" uid="uid://ctngl4b8n8443" path="res://Interface/Celular e Tablet/Controles/ui_buttons_arrow_right_NORMAL.png" id="4_wapq7"]
 [ext_resource type="Texture2D" uid="uid://cumy4oggpvlkl" path="res://Interface/Celular e Tablet/Controles/ui_buttons_arrow_right_PRESSED.png" id="5_0bxsp"]
 [ext_resource type="PackedScene" uid="uid://t7y2bmhrjp3i" path="res://cenas/Prefabs/pular_creditos.tscn" id="5_wapq7"]
 [ext_resource type="Script" uid="uid://dhfaoapsp425q" path="res://Scripts/Lua/chegounoscreditos.lua" id="6_0bxsp"]
 
+[sub_resource type="LabelSettings" id="LabelSettings_ymg7j"]
+font = ExtResource("4_64e61")
+font_size = 30
+outline_size = 10
+outline_color = Color(0, 0, 0, 1)
+
 [node name="Node2D" type="Node2D" unique_id=651858455]
 script = ExtResource("1_rdysq")
 
-[node name="Control" type="Control" parent="." unique_id=1352906559]
-layout_mode = 3
-anchors_preset = 15
-anchor_right = 1.0
-anchor_bottom = 1.0
-grow_horizontal = 2
-grow_vertical = 2
-
-[node name="VideoStreamPlayer" type="VideoStreamPlayer" parent="Control" unique_id=936407638]
-layout_mode = 1
-stream = ExtResource("4_itarq")
+[node name="VideoStreamPlayer" type="VideoStreamPlayer" parent="." unique_id=732369515]
+offset_right = 1920.0
+offset_bottom = 1080.0
+stream = ExtResource("2_a1hbf")
 autoplay = true
+script = ExtResource("3_a1hbf")
+
+[node name="legenda" type="Label" parent="VideoStreamPlayer" unique_id=293253337]
+layout_mode = 1
+anchors_preset = 7
+anchor_left = 0.5
+anchor_top = 1.0
+anchor_right = 0.5
+anchor_bottom = 1.0
+offset_left = -65.0
+offset_top = -71.0
+offset_right = 66.0
+offset_bottom = -40.0
+grow_horizontal = 2
+grow_vertical = 0
+text = "LEGENDA"
+label_settings = SubResource("LabelSettings_ymg7j")
+horizontal_alignment = 1
 
 [node name="skipbtn" type="TouchScreenButton" parent="." unique_id=564767805]
 visible = false

@@ -1,0 +1,46 @@
+[gd_scene format=3 uid="uid://dtt1mwf4lwlq3"]
+
+[ext_resource type="Script" uid="uid://b7016gb5jrm2y" path="res://Scripts/GDScript/créditos_lite.gd" id="1_dgu0n"]
+[ext_resource type="FontFile" uid="uid://bjw68y3gx2d3k" path="res://Fontes/RevMiniPixel.ttf" id="2_bdn5r"]
+[ext_resource type="Texture2D" uid="uid://ctngl4b8n8443" path="res://Interface/Celular e Tablet/Controles/ui_buttons_arrow_right_NORMAL.png" id="3_1ab38"]
+[ext_resource type="Texture2D" uid="uid://cumy4oggpvlkl" path="res://Interface/Celular e Tablet/Controles/ui_buttons_arrow_right_PRESSED.png" id="4_8wmwa"]
+[ext_resource type="PackedScene" uid="uid://t7y2bmhrjp3i" path="res://cenas/Prefabs/pular_creditos.tscn" id="5_qusm5"]
+[ext_resource type="Script" uid="uid://dhfaoapsp425q" path="res://Scripts/Lua/chegounoscreditos.lua" id="6_6l0p2"]
+
+[sub_resource type="LabelSettings" id="LabelSettings_a7dk0"]
+font = ExtResource("2_bdn5r")
+font_size = 75
+outline_size = 10
+outline_color = Color(0, 0, 0, 1)
+
+[node name="Node2D" type="Node2D" unique_id=651858455]
+script = ExtResource("1_dgu0n")
+
+[node name="creditos" type="Label" parent="." unique_id=293253337]
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = 796.0
+offset_top = 502.0
+offset_right = 1124.0
+offset_bottom = 578.0
+grow_horizontal = 2
+grow_vertical = 2
+text = "CRÉDITOS"
+label_settings = SubResource("LabelSettings_a7dk0")
+horizontal_alignment = 1
+
+[node name="skipbtn" type="TouchScreenButton" parent="." unique_id=564767805]
+visible = false
+position = Vector2(1689.0002, 17.000002)
+scale = Vector2(6.34375, 6.25)
+texture_normal = ExtResource("3_1ab38")
+texture_pressed = ExtResource("4_8wmwa")
+action = "skip_credits"
+
+[node name="Pular creditos" parent="." unique_id=1579372191 instance=ExtResource("5_qusm5")]
+
+[node name="Node" type="Node" parent="." unique_id=314239508]
+script = ExtResource("6_6l0p2")
