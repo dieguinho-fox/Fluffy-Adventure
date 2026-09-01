@@ -12,16 +12,7 @@
 [ext_resource type="Script" uid="uid://dy5p2tfs0odjy" path="res://Scripts/GDScript/goal 3_0.gd" id="10_1t5ae"]
 [ext_resource type="PackedScene" uid="uid://cbhmeaix3cti0" path="res://cenas/Prefabs/player.tscn" id="11_yqkxn"]
 [ext_resource type="AudioStream" uid="uid://kkvdlsmg3pah" path="res://Musicas/Fight.ogg" id="12_dgt1v"]
-[ext_resource type="Texture2D" uid="uid://ccovodndo6bqy" path="res://Interface/Celular e Tablet/Controles/ui_buttons_arrow_left_NORMAL.png" id="13_imrrv"]
-[ext_resource type="Texture2D" uid="uid://dy04coxs2ymg2" path="res://Interface/Celular e Tablet/Controles/ui_buttons_arrow_left_PRESSED.png" id="14_1q5t3"]
-[ext_resource type="Texture2D" uid="uid://ctngl4b8n8443" path="res://Interface/Celular e Tablet/Controles/ui_buttons_arrow_right_NORMAL.png" id="15_rygy8"]
-[ext_resource type="Texture2D" uid="uid://cumy4oggpvlkl" path="res://Interface/Celular e Tablet/Controles/ui_buttons_arrow_right_PRESSED.png" id="16_y2h2e"]
-[ext_resource type="Texture2D" uid="uid://clrcif5srxl1d" path="res://Interface/Celular e Tablet/Controles/ui_buttons_arrow_up_NORMAL.png" id="17_bcydk"]
-[ext_resource type="Texture2D" uid="uid://80xqxrigu50p" path="res://Interface/Celular e Tablet/Controles/ui_buttons_arrow_up_PRESSED.png" id="18_vqkw1"]
-[ext_resource type="Texture2D" uid="uid://bj3mi4056cm0m" path="res://Interface/Celular e Tablet/Controles/pause_NORMAL.png" id="19_i4n24"]
-[ext_resource type="Texture2D" uid="uid://c0vwu1he4ct81" path="res://Interface/Celular e Tablet/Controles/pause_PRESSED.png" id="20_xwha0"]
-[ext_resource type="Texture2D" uid="uid://ciufj2nc7m7gt" path="res://Interface/Celular e Tablet/Controles/dialog_NORMAL.png" id="21_gjrw7"]
-[ext_resource type="Texture2D" uid="uid://b8ifip1osgpbl" path="res://Interface/Celular e Tablet/Controles/dialog_PRESSED.png" id="22_mq4r7"]
+[ext_resource type="PackedScene" uid="uid://dm5v7yitx6pb" path="res://cenas/Prefabs/mobile_controls.tscn" id="18_mqe3c"]
 [ext_resource type="PackedScene" uid="uid://bd44jeqrcs4fg" path="res://cenas/Prefabs/pause_menu.tscn" id="23_1f44a"]
 [ext_resource type="Script" uid="uid://dm861khvmnl7h" path="res://Scripts/GDScript/wave.gd" id="24_dgt1v"]
 [ext_resource type="FontFile" uid="uid://bjw68y3gx2d3k" path="res://Fontes/RevMiniPixel.ttf" id="24_rxfmn"]
@@ -230,72 +221,6 @@ autoplay = true
 bus = &"Music"
 parameters/looping = true
 
-[node name="controls" type="CanvasLayer" parent="." unique_id=1234343291]
-layer = 9998
-visible = false
-
-[node name="ui_left" type="TouchScreenButton" parent="controls" unique_id=1545616926]
-position = Vector2(9.000001, 721.00006)
-scale = Vector2(6.5, 6.5)
-texture_normal = ExtResource("13_imrrv")
-texture_pressed = ExtResource("14_1q5t3")
-passby_press = true
-action = "ui_left"
-
-[node name="ui_right" type="TouchScreenButton" parent="controls" unique_id=301060333]
-position = Vector2(223, 721)
-scale = Vector2(6.5, 6.5)
-texture_normal = ExtResource("15_rygy8")
-texture_pressed = ExtResource("16_y2h2e")
-passby_press = true
-action = "ui_right"
-
-[node name="ui_jump" type="TouchScreenButton" parent="controls" unique_id=99505398]
-position = Vector2(1708, 721)
-scale = Vector2(6.5, 6.5)
-texture_normal = ExtResource("17_bcydk")
-texture_pressed = ExtResource("18_vqkw1")
-action = "ui_accept"
-
-[node name="ui_pause" type="TouchScreenButton" parent="controls" unique_id=1403770772]
-position = Vector2(1741, 37)
-scale = Vector2(5, 5)
-texture_normal = ExtResource("19_i4n24")
-texture_pressed = ExtResource("20_xwha0")
-action = "ui_cancel"
-
-[node name="ui_dash" type="TouchScreenButton" parent="controls" unique_id=890866588]
-position = Vector2(1712.0001, 491)
-scale = Vector2(6.5, 6.5)
-texture_normal = ExtResource("15_rygy8")
-texture_pressed = ExtResource("16_y2h2e")
-passby_press = true
-action = "dash"
-
-[node name="ui_dialog" type="TouchScreenButton" parent="controls" unique_id=1126829047]
-visible = false
-position = Vector2(1741, 320)
-scale = Vector2(5, 5)
-texture_normal = ExtResource("21_gjrw7")
-texture_pressed = ExtResource("22_mq4r7")
-action = "interact"
-
-[node name="ui_door" type="TouchScreenButton" parent="controls" unique_id=1748180333]
-visible = false
-position = Vector2(1741, 320)
-scale = Vector2(5, 5)
-texture_normal = ExtResource("21_gjrw7")
-texture_pressed = ExtResource("22_mq4r7")
-action = "ui_up"
-
-[node name="ui_advance" type="TouchScreenButton" parent="controls" unique_id=1032065428]
-visible = false
-position = Vector2(1571, 320.00006)
-scale = Vector2(5, 5)
-texture_normal = ExtResource("15_rygy8")
-texture_pressed = ExtResource("16_y2h2e")
-action = "advance_message"
-
 [node name="pause_menu" parent="." unique_id=377924223 instance=ExtResource("23_1f44a")]
 layer = 9999
 
@@ -351,3 +276,5 @@ position = Vector2(16557, 4465)
 sprite_frames = SubResource("SpriteFrames_3sytw")
 animation = &"idle"
 autoplay = "idle"
+
+[node name="mobile controls" parent="." unique_id=1044015296 instance=ExtResource("18_mqe3c")]

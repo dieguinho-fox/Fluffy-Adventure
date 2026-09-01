@@ -37,10 +37,14 @@ func _ready():
 	$"../Xbox360Tutorial/Fade/VBoxContainer/Avancar/Label".text = tr("Avancar")
 	$"../XboxOneTutorial/Fade/VBoxContainer/Avancar/Label".text = tr("Avancar")
 	$"../XboxSeriesTutorial/Fade/VBoxContainer/Avancar/Label".text = tr("Avancar")
-		# Dash
+	# Dash
 	$"../KeyboardTutorial/Fade/VBoxContainer/Dash/Label".text = tr("Dash")
 	$"../PlaystationTutorial/Fade/VBoxContainer/Dash/Label".text = tr("Dash")
 	$"../Xbox360Tutorial/Fade/VBoxContainer/Dash/Label".text = tr("Dash")
 	$"../XboxOneTutorial/Fade/VBoxContainer/Dash/Label".text = tr("Dash")
 	$"../XboxSeriesTutorial/Fade/VBoxContainer/Dash/Label".text = tr("Dash")
-	
+	# Abrir porta
+	$"../KeyboardTutorial/Fade/VBoxContainer/Abrir porta/Label".text = tr("Abrir porta")
+	$"../PlaystationTutorial/Fade/VBoxContainer/Abrir porta/Label".text = tr("Abrir porta")
+	$"../Xbox360Tutorial/Fade/VBoxContainer/Abrir porta/Label".text = tr("Abrir porta")
+	$"../XboxOneTutorial/Fade/VBoxContainer/Abrir porta/Label".text = tr("Abrir porta")

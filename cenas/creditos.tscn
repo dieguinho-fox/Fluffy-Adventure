@@ -7,7 +7,8 @@
 [ext_resource type="Texture2D" uid="uid://ctngl4b8n8443" path="res://Interface/Celular e Tablet/Controles/ui_buttons_arrow_right_NORMAL.png" id="4_wapq7"]
 [ext_resource type="Texture2D" uid="uid://cumy4oggpvlkl" path="res://Interface/Celular e Tablet/Controles/ui_buttons_arrow_right_PRESSED.png" id="5_0bxsp"]
 [ext_resource type="PackedScene" uid="uid://t7y2bmhrjp3i" path="res://cenas/Prefabs/pular_creditos.tscn" id="5_wapq7"]
-[ext_resource type="Script" uid="uid://dhfaoapsp425q" path="res://Scripts/Lua/chegounoscreditos.lua" id="6_0bxsp"]
+[ext_resource type="PackedScene" uid="uid://drronahrwofbq" path="res://cenas/Otimizações/cutscene_controller.tscn" id="8_a1hbf"]
+[ext_resource type="Script" uid="uid://3je4wrf73g35" path="res://Scripts/GDScript/apagar_progresso.gd" id="8_r2w5d"]
 
 [sub_resource type="LabelSettings" id="LabelSettings_ymg7j"]
 font = ExtResource("4_64e61")
@@ -53,4 +54,8 @@ action = "skip_credits"
 [node name="Pular creditos" parent="." unique_id=1579372191 instance=ExtResource("5_wapq7")]
 
 [node name="Node" type="Node" parent="." unique_id=314239508]
-script = ExtResource("6_0bxsp")
+script = ExtResource("8_r2w5d")
+
+[node name="Cutscene controller" parent="." unique_id=975602357 node_paths=PackedStringArray("video") instance=ExtResource("8_a1hbf")]
+video = NodePath("")
+cena_destino = "uid://dtt1mwf4lwlq3"

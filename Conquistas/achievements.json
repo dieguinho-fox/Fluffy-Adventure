@@ -110,5 +110,93 @@
 	  "fr_CA": "Jouez pendant la phase bêta !",
 	  "jp": "ベータ期間中にプレイしよう！"
 	}
+},
+"final_ruim": {
+	"icon": "res://Conquistas/Ícones/Final ruim.png",
+	"secret": true,
+"name": {
+  "pt_BR": "Final Ruim",
+  "pt": "Final Mau",
+  "en": "Bad Ending",
+  "es": "Final Malo",
+  "fr": "Mauvaise Fin",
+  "fr_CA": "Mauvaise Fin",
+  "jp": "バッドエンド"
+},
+"description": {
+  "pt_BR": "Consiga o final ruim",
+  "pt": "Consiga o final mau",
+  "en": "Get the bad ending",
+  "es": "Consigue el final malo",
+  "fr": "Obtenez la mauvaise fin",
+  "fr_CA": "Obtenez la mauvaise fin",
+  "jp": "バッドエンドを見よう！"
+	}
+},
+"final_neutro": {
+	"icon": "res://Conquistas/Ícones/Final neutro.png",
+	"secret": true,
+"name": {
+  "pt_BR": "Final Neutro",
+  "pt": "Final Neutro",
+  "en": "Neutral Ending",
+  "es": "Final Neutral",
+  "fr": "Fin Neutre",
+  "fr_CA": "Fin Neutre",
+  "jp": "ニュートラルエンド"
+},
+"description": {
+  "pt_BR": "Consiga o final neutro",
+  "pt": "Consiga o final neutro",
+  "en": "Get the neutral ending",
+  "es": "Consigue el final neutral",
+  "fr": "Obtenez la fin neutre",
+  "fr_CA": "Obtenez la fin neutre",
+  "jp": "ニュートラルエンドを見よう！"
+	}
+},
+"final_bom": {
+	"icon": "res://Conquistas/Ícones/Final bom.png",
+	"secret": true,
+"name": {
+  "pt_BR": "Final Bom",
+  "pt": "Final Bom",
+  "en": "Good Ending",
+  "es": "Final Bueno",
+  "fr": "Bonne Fin",
+  "fr_CA": "Bonne Fin",
+  "jp": "グッドエンド"
+},
+"description": {
+  "pt_BR": "Consiga o final bom",
+  "pt": "Consiga o final bom",
+  "en": "Get the good ending",
+  "es": "Consigue el final bueno",
+  "fr": "Obtenez la bonne fin",
+  "fr_CA": "Obtenez la bonne fin",
+  "jp": "グッドエンドを見よう！"
+	}
+},
+"final_secreto": {
+	"icon": "res://Conquistas/Ícones/Final secreto.png",
+	"secret": true,
+"name": {
+  "pt_BR": "Final Secreto",
+  "pt": "Final Bom",
+  "en": "Good Ending",
+  "es": "Final Bueno",
+  "fr": "Bonne Fin",
+  "fr_CA": "Bonne Fin",
+  "jp": "グッドエンド"
+},
+"description": {
+  "pt_BR": "Você é paciente",
+  "pt": "Consiga o final bom",
+  "en": "Get the good ending",
+  "es": "Consigue el final bueno",
+  "fr": "Obtenez la bonne fin",
+  "fr_CA": "Obtenez la bonne fin",
+  "jp": "グッドエンドを見よう！"
+	}
 }
 }

@@ -1,0 +1,60 @@
+[gd_scene format=3 uid="uid://beiyxsv8laa7m"]
+
+[ext_resource type="Script" uid="uid://cdgxoe378vn1e" path="res://Scripts/GDScript/Cutscenes/cutscene_final_ruim.gd" id="1_45haa"]
+[ext_resource type="VideoStream" uid="uid://dlv3w1akygui1" path="res://Cutscenes/Finais/Final ruim.ogv" id="2_45haa"]
+[ext_resource type="FontFile" uid="uid://bjw68y3gx2d3k" path="res://Fontes/RevMiniPixel.ttf" id="3_hd41f"]
+[ext_resource type="Texture2D" uid="uid://ctngl4b8n8443" path="res://Interface/Celular e Tablet/Controles/ui_buttons_arrow_right_NORMAL.png" id="4_xsrwc"]
+[ext_resource type="Texture2D" uid="uid://cumy4oggpvlkl" path="res://Interface/Celular e Tablet/Controles/ui_buttons_arrow_right_PRESSED.png" id="5_22pl0"]
+[ext_resource type="PackedScene" uid="uid://brycjken8w060" path="res://cenas/Prefabs/pular_cutscene.tscn" id="6_m05ol"]
+[ext_resource type="PackedScene" uid="uid://drronahrwofbq" path="res://cenas/Otimizações/cutscene_controller.tscn" id="7_ppes8"]
+[ext_resource type="Script" uid="uid://3je4wrf73g35" path="res://Scripts/GDScript/apagar_progresso.gd" id="8_q8oq2"]
+
+[sub_resource type="LabelSettings" id="LabelSettings_1b3t3"]
+font = ExtResource("3_hd41f")
+font_size = 30
+outline_size = 10
+outline_color = Color(0, 0, 0, 1)
+
+[node name="Final ruim" type="Node2D" unique_id=466068300]
+script = ExtResource("1_45haa")
+
+[node name="VideoStreamPlayer" type="VideoStreamPlayer" parent="." unique_id=2050535888]
+offset_right = 40.0
+offset_bottom = 40.0
+stream = ExtResource("2_45haa")
+autoplay = true
+
+[node name="legenda" type="Label" parent="VideoStreamPlayer" unique_id=1295814820]
+visible = false
+layout_mode = 1
+anchors_preset = 7
+anchor_left = 0.5
+anchor_top = 1.0
+anchor_right = 0.5
+anchor_bottom = 1.0
+offset_left = -65.0
+offset_top = -71.0
+offset_right = 66.0
+offset_bottom = -40.0
+grow_horizontal = 2
+grow_vertical = 0
+text = "LEGENDA"
+label_settings = SubResource("LabelSettings_1b3t3")
+horizontal_alignment = 1
+
+[node name="skipbtn" type="TouchScreenButton" parent="." unique_id=862303143]
+visible = false
+position = Vector2(1689.0002, 17.000002)
+scale = Vector2(6.34375, 6.25)
+texture_normal = ExtResource("4_xsrwc")
+texture_pressed = ExtResource("5_22pl0")
+action = "ui_accept"
+
+[node name="Pular cutscene" parent="." unique_id=1579372191 instance=ExtResource("6_m05ol")]
+
+[node name="Cutscene controller" parent="." unique_id=975602357 node_paths=PackedStringArray("video") instance=ExtResource("7_ppes8")]
+video = NodePath("../VideoStreamPlayer")
+cena_destino = "uid://dtt1mwf4lwlq3"
+
+[node name="Node" type="Node" parent="." unique_id=1245348409]
+script = ExtResource("8_q8oq2")

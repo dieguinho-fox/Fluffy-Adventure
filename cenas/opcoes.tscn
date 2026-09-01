@@ -4,7 +4,7 @@
 [ext_resource type="Texture2D" uid="uid://p35kvnv5ffh1" path="res://Tilesets/Seasonal Tilesets/1 - Grassland/Background parts/_Complete_static_BG_(288 x 208).png" id="2_5ha7l"]
 [ext_resource type="Script" uid="uid://blnyaonruk7cb" path="res://Scripts/GDScript/Traducao/opcoestraduzivel.gd" id="3_uhesk"]
 [ext_resource type="AudioStream" uid="uid://bvnvg4kdw8xw8" path="res://Musicas/Options.ogg" id="4_66gc6"]
-[ext_resource type="FontFile" uid="uid://ckw4qondl5cjc" path="res://Fontes/RevMiniPixel.ttf" id="4_uhesk"]
+[ext_resource type="FontFile" uid="uid://bjw68y3gx2d3k" path="res://Fontes/RevMiniPixel.ttf" id="4_uhesk"]
 
 [sub_resource type="LabelSettings" id="LabelSettings_uhesk"]
 font = ExtResource("4_uhesk")
@@ -66,6 +66,7 @@ theme_override_font_sizes/font_size = 75
 text = "Armazenamento"
 
 [node name="Creditos" type="Button" parent="VBoxContainer" unique_id=579527202]
+visible = false
 layout_mode = 2
 theme_override_colors/font_focus_color = Color(0.9490196, 0.9490196, 0, 1)
 theme_override_colors/font_pressed_color = Color(1, 0.69411767, 0, 1)

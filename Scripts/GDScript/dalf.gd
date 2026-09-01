@@ -14,8 +14,10 @@ enum State {
 @export var dash_speed := 1000.0
 @export var idle_time := 2.5
 
-# Cena que será aberta quando o boss morrer
-@export_file("*.tscn") var cena_vitoria := "res://cenas/continua.tscn"
+# Cenas que serão abertas quando o boss morrer
+@export_file("*.tscn") var cena_menos_3_rubis := "res://cenas/final_ruim.tscn"
+@export_file("*.tscn") var cena_menos_7_rubis := "res://cenas/final_neutro.tscn"
+@export_file("*.tscn") var cena_7_rubis := "res://cenas/continua.tscn"
 
 # Posição onde o boss fica durante os ataques
 @export var wait_position: Marker2D
@@ -65,6 +67,9 @@ var state := State.IDLE
 var pode_receber_dano := true
 var dano_cooldown := 0.2
 
+# Impede que o boss continue executando código depois da morte
+var boss_morto := false
+
 # Timer do afterimage
 var afterimage_timer := 0.0
 
@@ -76,13 +81,22 @@ var dash_limit := 6
 
 
 # ==========================================
+# CAMINHO DOS RUBIS
+# ==========================================
+
+const SAVE_PATH := "user://rubis.bin"
+
+
+# ==========================================
 # AVISO DO LASER
 # ==========================================
 
 func _on_laser_ativando(id: int) -> void:
 
-	# O laser começou a ser disparado.
-	# Toca o som do ataque.
+	if boss_morto:
+		return
+
+	# O laser começou a ser disparado
 	if laser_attack != null:
 		laser_attack.play()
 
@@ -94,6 +108,9 @@ func _on_laser_ativando(id: int) -> void:
 # ==========================================
 
 func mostrar_aviso(id: int, tipo: String) -> void:
+
+	if boss_morto:
+		return
 
 	if warnings_root == null:
 		return
@@ -153,6 +170,9 @@ func _ready():
 # ==========================================
 
 func _physics_process(delta):
+
+	if boss_morto:
+		return
 
 	# Gravidade
 	if not is_on_floor():
@@ -249,6 +269,9 @@ func atualizar_limite_dashes():
 
 func iniciar_batalha():
 
+	if boss_morto:
+		return
+
 	state = State.IDLE
 
 	dash_count = 0
@@ -259,6 +282,9 @@ func iniciar_batalha():
 
 	await get_tree().create_timer(idle_time).timeout
 
+	if boss_morto or not is_inside_tree():
+		return
+
 	iniciar_dash()
 
 
@@ -267,6 +293,9 @@ func iniciar_batalha():
 # ==========================================
 
 func iniciar_dash():
+
+	if boss_morto or not is_inside_tree():
+		return
 
 	# Atualiza o limite caso a fase tenha mudado
 	atualizar_limite_dashes()
@@ -287,6 +316,9 @@ func iniciar_dash():
 # ==========================================
 
 func finalizar_dash():
+
+	if boss_morto:
+		return
 
 	if state != State.DASH:
 		return
@@ -343,6 +375,9 @@ func finalizar_dash():
 
 			await get_tree().create_timer(idle_time).timeout
 
+			if boss_morto or not is_inside_tree():
+				return
+
 			iniciar_dash()
 
 			return
@@ -361,6 +396,9 @@ func finalizar_dash():
 
 	await get_tree().create_timer(idle_time).timeout
 
+	if boss_morto or not is_inside_tree():
+		return
+
 	iniciar_dash()
 
 
@@ -369,6 +407,9 @@ func finalizar_dash():
 # ==========================================
 
 func ir_para_posicao_ataque():
+
+	if boss_morto or not is_inside_tree():
+		return
 
 	state = State.WAIT
 
@@ -384,21 +425,16 @@ func ir_para_posicao_ataque():
 	# RESETAR ORIENTAÇÃO
 	# ======================================
 
-	# Sprite normal
 	anim.flip_h = false
 
-	# Direção padrão
 	direction = -1
 
-	# RayCast padrão
 	wall_detector.scale.x = 1
 
 	wall_detector.force_raycast_update()
 
-	# Animação de espera
 	anim.play("wait")
 
-	# Inicia os ataques
 	await executar_ataques()
 
 
@@ -407,6 +443,9 @@ func ir_para_posicao_ataque():
 # ==========================================
 
 func executar_ataques():
+
+	if boss_morto:
+		return
 
 	state = State.ATTACK
 
@@ -442,6 +481,9 @@ func executar_ataques():
 
 		await ativar_espinho_aleatorio()
 
+		if boss_morto:
+			return
+
 		await ativar_laser_aleatorio()
 
 
@@ -456,10 +498,15 @@ func executar_ataques():
 
 		await ativar_espinho_aleatorio()
 
+		if boss_morto:
+			return
+
 		await ativar_laser_aleatorio()
 
 
-	# Depois dos ataques
+	if boss_morto:
+		return
+
 	await ir_para_posicao_final()
 
 
@@ -468,6 +515,9 @@ func executar_ataques():
 # ==========================================
 
 func ativar_espinho_aleatorio():
+
+	if boss_morto:
+		return
 
 	if spikes_root == null:
 		return
@@ -483,19 +533,18 @@ func ativar_espinho_aleatorio():
 
 		Globals.final_boss_spike_id = espinho.espinho_id
 
-		# Boss começa ataque
 		anim.play("atack")
 
-		# Mostra aviso
 		mostrar_aviso(
 			Globals.final_boss_spike_id,
 			"espinhos"
 		)
 
-		# Executa ataque
 		await espinho.ativar()
 
-		# Esconde aviso
+		if boss_morto:
+			return
+
 		esconder_aviso(
 			Globals.final_boss_spike_id
 		)
@@ -508,6 +557,9 @@ func ativar_espinho_aleatorio():
 # ==========================================
 
 func ativar_laser_aleatorio():
+
+	if boss_morto:
+		return
 
 	if lasers_root == null:
 		return
@@ -523,7 +575,6 @@ func ativar_laser_aleatorio():
 
 		Globals.final_boss_laser_id = laser.laser_id
 
-		# Boss começa ataque
 		anim.play("atack")
 
 		# ==================================
@@ -546,13 +597,6 @@ func ativar_laser_aleatorio():
 		# CONECTA SINAL DO LASER
 		# ==================================
 
-		# Quando o laser realmente for ativado,
-		# _on_laser_ativando() será chamado.
-		#
-		# É nesse momento que:
-		# - o aviso desaparece
-		# - laser_attack toca
-
 		if not laser.laser_ativando.is_connected(_on_laser_ativando):
 
 			laser.laser_ativando.connect(
@@ -566,6 +610,9 @@ func ativar_laser_aleatorio():
 
 		await laser.activate()
 
+		if boss_morto:
+			return
+
 		Globals.final_boss_laser_id = -1
 
 
@@ -574,6 +621,9 @@ func ativar_laser_aleatorio():
 # ==========================================
 
 func ir_para_posicao_final():
+
+	if boss_morto or not is_inside_tree():
+		return
 
 	state = State.IDLE
 
@@ -584,17 +634,16 @@ func ir_para_posicao_final():
 
 		global_position = after_attack_position.global_position
 
-
-	# Idle imediatamente
 	anim.play("idle")
 
-	# Reinicia contador para a próxima sequência
 	dash_count = 0
 
-	# Atualiza limite de acordo com a fase atual
 	atualizar_limite_dashes()
 
 	await get_tree().create_timer(idle_time).timeout
+
+	if boss_morto or not is_inside_tree():
+		return
 
 	iniciar_dash()
 
@@ -605,27 +654,31 @@ func ir_para_posicao_final():
 
 func _on_hitbox_body_entered(body: Node2D):
 
+	if boss_morto:
+		return
+
 	if not pode_receber_dano:
 		return
 
-	# Só aceita CharacterBody2D
 	if not body is CharacterBody2D:
 		return
 
-	# Só recebe dano se o jogador estiver caindo
 	if body.velocity.y <= 0:
 		return
 
-	# Dano
 	receber_dano(500)
 
-	# Faz o jogador pular novamente
+	if boss_morto:
+		return
+
 	body.velocity.y = -400.0
 
-	# Cooldown
 	pode_receber_dano = false
 
 	await get_tree().create_timer(dano_cooldown).timeout
+
+	if not is_inside_tree():
+		return
 
 	pode_receber_dano = true
 
@@ -635,6 +688,9 @@ func _on_hitbox_body_entered(body: Node2D):
 # ==========================================
 
 func receber_dano(dano: int):
+
+	if boss_morto:
+		return
 
 	Globals.final_boss_hp -= dano
 
@@ -655,12 +711,43 @@ func receber_dano(dano: int):
 
 
 # ==========================================
+# CARREGAR RUBIS
+# ==========================================
+
+func carregar_rubis() -> int:
+
+	if not FileAccess.file_exists(SAVE_PATH):
+		return 0
+
+	var file := FileAccess.open(SAVE_PATH, FileAccess.READ)
+
+	if file == null:
+		return 0
+
+	var dados: Variant = file.get_var()
+
+	file.close()
+
+	if dados is Dictionary:
+
+		if dados.has("quantidade"):
+			return int(dados["quantidade"])
+
+	return 0
+
+
+# ==========================================
 # MORTE DO BOSS
 # ==========================================
 
 func morrer():
 
-	# Evita que o boss continue executando
+	if boss_morto:
+		return
+
+	boss_morto = true
+
+	# Impede que o boss continue executando
 	state = State.IDLE
 
 	velocity = Vector2.ZERO
@@ -671,9 +758,47 @@ func morrer():
 	# Para possíveis animações
 	anim.stop()
 
-	# Troca para a cena de vitória
-	if cena_vitoria != "":
-		get_tree().change_scene_to_file(cena_vitoria)
+	# ======================================
+	# LÊ A QUANTIDADE DE RUBIS
+	# ======================================
+
+	var quantidade_rubis := carregar_rubis()
+
+	print("Rubis:", quantidade_rubis)
+
+	# ======================================
+	# ESCOLHE A CENA
+	# ======================================
+
+	var cena_destino := ""
+
+	if quantidade_rubis < 3:
+
+		# 0, 1 ou 2 rubis
+		cena_destino = cena_menos_3_rubis
+
+	elif quantidade_rubis < 7:
+
+		# 3, 4, 5 ou 6 rubis
+		cena_destino = cena_menos_7_rubis
+
+	else:
+
+		# Exatamente 7 ou mais
+		cena_destino = cena_7_rubis
+
+
+	# ======================================
+	# TROCA DE CENA
+	# ======================================
+
+	if cena_destino != "" and ResourceLoader.exists(cena_destino):
+
+		get_tree().change_scene_to_file(cena_destino)
+
+	else:
+
+		print("ERRO: Cena de destino não encontrada: ", cena_destino)
 
 
 # ==========================================
@@ -709,7 +834,9 @@ func verificar_fase():
 
 func criar_afterimage() -> void:
 
-	# Obtém a textura do frame atual
+	if boss_morto:
+		return
+
 	var textura: Texture2D = anim.sprite_frames.get_frame_texture(
 		anim.animation,
 		anim.frame
@@ -718,25 +845,19 @@ func criar_afterimage() -> void:
 	if textura == null:
 		return
 
-	# Cria o fantasma
 	var ghost := Sprite2D.new()
 
 	ghost.texture = textura
 
-	# Copia posição
 	ghost.global_position = anim.global_position
 
-	# Copia rotação
 	ghost.global_rotation = anim.global_rotation
 
-	# Escala fixa
 	ghost.scale = Vector2.ONE
 
-	# Copia propriedades visuais
 	ghost.centered = anim.centered
 	ghost.offset = anim.offset
 
-	# Copia orientação do boss
 	ghost.flip_h = anim.flip_h
 	ghost.flip_v = anim.flip_v
 
@@ -747,8 +868,6 @@ func criar_afterimage() -> void:
 	ghost.z_index = 0
 	ghost.z_as_relative = false
 
-	# Mantém o afterimage dentro do mesmo
-	# nível de desenho do boss.
 	ghost.z_as_relative = true
 
 	# Transparência inicial
@@ -774,3 +893,4 @@ func criar_afterimage() -> void:
 
 	# Remove automaticamente
 	tween.finished.connect(ghost.queue_free)
+	

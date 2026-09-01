@@ -6,7 +6,7 @@ extends CanvasLayer
 var enabled := true
 
 # Versões
-var build_version := "1.0.0_pre2" # <- EDITA AQUI
+var build_version := "1.0.0_rc1" # <- EDITA AQUI
 var dotnet_windows_linux := ".NET 8"
 var dotnet_android := ".NET 9"
 var lua_version := "Lua 5.4"

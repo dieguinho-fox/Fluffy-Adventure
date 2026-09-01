@@ -54,6 +54,9 @@ var using_door := false
 var is_dead := false
 var death_velocity := 0.0
 
+# Indica se a morte aconteceu porque o tempo acabou
+var morreu_por_tempo := false
+
 # Temporizador do afterimage
 var afterimage_timer := 0.0
 
@@ -66,6 +69,7 @@ var afterimage_timer := 0.0
 # TIMER
 @onready var game_timer: Timer = $HUD/control/container/timer_container/game_timer
 @onready var tempo_label: Label = $HUD/control/container/timer_container/timer_counter
+
 
 func _ready() -> void:
 	$HUD/control/container/coins_container/coins_label.text = tr("Moedas")
@@ -83,6 +87,7 @@ func _ready() -> void:
 	game_timer.timeout.connect(_on_game_timer_timeout)
 
 	game_timer.start()
+
 
 func usar_porta() -> void:
 	if current_door == null:
@@ -126,6 +131,7 @@ func teleportar_porta() -> void:
 			print("Depois:", global_position)
 			break
 
+
 func _physics_process(delta: float) -> void:
 
 	# ===============================
@@ -152,7 +158,6 @@ func _physics_process(delta: float) -> void:
 	# PORTA
 	# ===============================
 	if using_door:
-		#move_and_slide()
 		return
 
 	# Atualiza cooldown do dash
@@ -208,11 +213,20 @@ func _physics_process(delta: float) -> void:
 
 	if direction != 0.0:
 		# Acelera gradualmente até SPEED
-		velocity.x = move_toward(velocity.x, direction * SPEED, ACCELERATION * delta)
+		velocity.x = move_toward(
+			velocity.x,
+			direction * SPEED,
+			ACCELERATION * delta
+		)
+
 		animation.scale.x = direction
 	else:
 		# Desacelera gradualmente até parar
-		velocity.x = move_toward(velocity.x, 0.0, FRICTION * delta)
+		velocity.x = move_toward(
+			velocity.x,
+			0.0,
+			FRICTION * delta
+		)
 
 	# Pulo
 	if Input.is_action_just_pressed("ui_accept") and is_on_floor() and can_jump:
@@ -242,11 +256,19 @@ func _physics_process(delta: float) -> void:
 
 			# Apenas a animação "run" muda de velocidade
 			var velocidade_horizontal: float = abs(velocity.x)
-			var velocidade_normalizada: float = clamp(velocidade_horizontal / SPEED, 0.0, 1.0)
+			var velocidade_normalizada: float = clamp(
+				velocidade_horizontal / SPEED,
+				0.0,
+				1.0
+			)
 
 			# 0.375 ≈ 3 FPS se o "run" estiver configurado em 8 FPS
 			# 1.0 = 8 FPS (velocidade normal)
-			animation.speed_scale = lerp(0.375, 1.0, velocidade_normalizada)
+			animation.speed_scale = lerp(
+				0.375,
+				1.0,
+				velocidade_normalizada
+			)
 		else:
 			# Idle/Wait sempre na velocidade normal
 			animation.speed_scale = 1.0
@@ -258,6 +280,7 @@ func _physics_process(delta: float) -> void:
 				animation.play("idle")
 			elif not animation.is_playing():
 				animation.play("wait")
+
 
 func iniciar_dash() -> void:
 	is_dashing = true
@@ -273,6 +296,7 @@ func iniciar_dash() -> void:
 
 	# Mantém o sprite virado corretamente
 	animation.scale.x = dash_direction
+
 
 func criar_afterimage() -> void:
 	# Obtém a textura do frame atual
@@ -327,6 +351,7 @@ func criar_afterimage() -> void:
 	# Remove automaticamente
 	tween.finished.connect(ghost.queue_free)
 
+
 # ===============================
 # TIMER
 # ===============================
@@ -349,21 +374,26 @@ func _on_game_timer_timeout() -> void:
 	else:
 		tempo_label.modulate = Color.WHITE
 
-	# Tempo acabou
+	# ===============================
+	# TEMPO ACABOU
+	# ===============================
 	if tempo >= LIMITE_TEMPO:
 		game_timer.stop()
 
-		# força game over após a animação
-		vidas = 0
-		salvar_vidas()
+		# Marca que essa morte foi causada pelo tempo
+		morreu_por_tempo = true
 
+		# Não precisa zerar as vidas.
+		# A morte por tempo leva diretamente ao final secreto.
 		perder_vida()
+
 
 func atualizar_hud() -> void:
 	var minutos = tempo / 60
 	var segundos = tempo % 60
 
 	tempo_label.text = "%02d:%02d" % [minutos, segundos]
+
 
 # ===============================
 # DETECÇÃO DE INIMIGOS / DEATHZONE
@@ -372,11 +402,13 @@ func _on_hurtbox_body_entered(body: Node2D) -> void:
 	if body.is_in_group("enemies") and not is_dead:
 		perder_vida()
 
+
 func _on_hurtbox_area_entered(area: Area2D) -> void:
 	print(area.name)
 
 	if area.is_in_group("enemies") and not is_dead:
 		perder_vida()
+
 
 # ===============================
 # SISTEMA DE VIDAS
@@ -413,11 +445,18 @@ func perder_vida() -> void:
 	# Inicia animação de morte
 	animation.play("death")
 
+	# ===============================
+	# NÃO PERDE VIDA SE FOR O FINAL SECRETO
+	# ===============================
+	if morreu_por_tempo:
+		return
+
 	# Só remove vida se ainda tiver
 	if vidas > 0:
 		vidas -= 1
 
 	salvar_vidas()
+
 
 func finalizar_morte() -> void:
 
@@ -431,11 +470,26 @@ func finalizar_morte() -> void:
 	if music_bus != -1:
 		AudioServer.set_bus_mute(music_bus, false)
 
+	# ===============================
+	# FINAL SECRETO
+	# ===============================
+	if morreu_por_tempo:
+		# Libera a conquista
+		Achievements.unlock_achievement("final_secreto")
+
+		# Vai diretamente para os créditos lite
+		get_tree().change_scene_to_file("res://cenas/creditos_lite.tscn")
+		return
+
+	# ===============================
+	# MORTE NORMAL
+	# ===============================
 	if vidas <= 0:
 		zerar_vidas()
 		get_tree().change_scene_to_file("res://cenas/gameover.tscn")
 	else:
 		ir_para_tela_de_carregamento()
+
 
 func ir_para_tela_de_carregamento() -> void:
 	var cena_atual := get_tree().current_scene.scene_file_path
@@ -443,6 +497,7 @@ func ir_para_tela_de_carregamento() -> void:
 	var caminho := "res://cenas/%s_carregamento.tscn" % nome_base
 
 	get_tree().change_scene_to_file(caminho)
+
 
 # ===============================
 # SAVE / LOAD
@@ -453,6 +508,7 @@ func salvar_vidas() -> void:
 	if file:
 		file.store_32(vidas)
 		file.close()
+
 
 func carregar_vidas() -> void:
 	if FileAccess.file_exists(SAVE_PATH):
@@ -469,6 +525,7 @@ func carregar_vidas() -> void:
 	else:
 		vidas = VIDAS_INICIAIS
 		salvar_vidas()
+
 
 func zerar_vidas() -> void:
 	if FileAccess.file_exists(SAVE_PATH):

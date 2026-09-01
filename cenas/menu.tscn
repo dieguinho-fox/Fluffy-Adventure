@@ -125,6 +125,7 @@ theme_override_font_sizes/font_size = 75
 text = "Continuar"
 
 [node name="final" type="Button" parent="botoes" unique_id=1609214233]
+visible = false
 texture_filter = 1
 layout_mode = 2
 size_flags_horizontal = 4

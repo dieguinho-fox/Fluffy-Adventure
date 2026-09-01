@@ -1,0 +1,60 @@
+[gd_scene format=3 uid="uid://boja10tmdhqwh"]
+
+[ext_resource type="Script" uid="uid://d06eqy7oybv0r" path="res://Scripts/GDScript/Cutscenes/cutscene_final_neutro.gd" id="1_5pii2"]
+[ext_resource type="VideoStream" uid="uid://7nljx0i0par8" path="res://Cutscenes/Finais/Final neutro.ogv" id="2_5pii2"]
+[ext_resource type="Script" uid="uid://dbtx65ir0l1su" path="res://Scripts/GDScript/Cutscenes/legendas/cutscene_final_neutro.gd" id="3_aoqye"]
+[ext_resource type="FontFile" uid="uid://bjw68y3gx2d3k" path="res://Fontes/RevMiniPixel.ttf" id="4_ejn2x"]
+[ext_resource type="Texture2D" uid="uid://ctngl4b8n8443" path="res://Interface/Celular e Tablet/Controles/ui_buttons_arrow_right_NORMAL.png" id="5_ij81s"]
+[ext_resource type="Texture2D" uid="uid://cumy4oggpvlkl" path="res://Interface/Celular e Tablet/Controles/ui_buttons_arrow_right_PRESSED.png" id="6_i4yb5"]
+[ext_resource type="PackedScene" uid="uid://brycjken8w060" path="res://cenas/Prefabs/pular_cutscene.tscn" id="7_5pii2"]
+[ext_resource type="PackedScene" uid="uid://drronahrwofbq" path="res://cenas/Otimizações/cutscene_controller.tscn" id="8_lklx5"]
+[ext_resource type="Script" uid="uid://3je4wrf73g35" path="res://Scripts/GDScript/apagar_progresso.gd" id="9_bkri8"]
+
+[sub_resource type="LabelSettings" id="LabelSettings_ymg7j"]
+font = ExtResource("4_ejn2x")
+font_size = 30
+outline_size = 10
+outline_color = Color(0, 0, 0, 1)
+
+[node name="Final neutro" type="Node2D" unique_id=651858455]
+script = ExtResource("1_5pii2")
+
+[node name="VideoStreamPlayer" type="VideoStreamPlayer" parent="." unique_id=732369515]
+offset_right = 1920.0
+offset_bottom = 1080.0
+stream = ExtResource("2_5pii2")
+autoplay = true
+script = ExtResource("3_aoqye")
+
+[node name="legenda" type="Label" parent="VideoStreamPlayer" unique_id=293253337]
+layout_mode = 1
+anchors_preset = 7
+anchor_left = 0.5
+anchor_top = 1.0
+anchor_right = 0.5
+anchor_bottom = 1.0
+offset_left = -65.0
+offset_top = -71.0
+offset_right = 66.0
+offset_bottom = -40.0
+grow_horizontal = 2
+grow_vertical = 0
+text = "LEGENDA"
+label_settings = SubResource("LabelSettings_ymg7j")
+horizontal_alignment = 1
+
+[node name="skipbtn" type="TouchScreenButton" parent="." unique_id=564767805]
+visible = false
+position = Vector2(1689.0002, 17.000002)
+scale = Vector2(6.34375, 6.25)
+texture_normal = ExtResource("5_ij81s")
+texture_pressed = ExtResource("6_i4yb5")
+action = "ui_accept"
+
+[node name="Pular cutscene" parent="." unique_id=1579372191 instance=ExtResource("7_5pii2")]
+
+[node name="Cutscene controller" parent="." unique_id=975602357 instance=ExtResource("8_lklx5")]
+cena_destino = "uid://dtt1mwf4lwlq3"
+
+[node name="Node" type="Node" parent="." unique_id=1495648528]
+script = ExtResource("9_bkri8")
