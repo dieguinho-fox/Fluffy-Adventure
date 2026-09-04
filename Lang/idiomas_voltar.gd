@@ -36,4 +36,4 @@ func _on_jp_pressed():
 # Voltar
 
 func _on_voltar_pressed():
-	get_tree().change_scene_to_file("res://cenas/opcoes.tscn")
+	get_tree().change_scene_to_file("res://cenas/menu.tscn")

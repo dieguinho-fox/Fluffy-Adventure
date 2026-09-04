@@ -56,6 +56,5 @@ action = "skip_credits"
 [node name="Node" type="Node" parent="." unique_id=314239508]
 script = ExtResource("8_r2w5d")
 
-[node name="Cutscene controller" parent="." unique_id=975602357 node_paths=PackedStringArray("video") instance=ExtResource("8_a1hbf")]
-video = NodePath("")
+[node name="Cutscene controller" parent="." unique_id=975602357 instance=ExtResource("8_a1hbf")]
 cena_destino = "uid://dtt1mwf4lwlq3"

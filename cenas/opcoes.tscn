@@ -2,13 +2,62 @@
 
 [ext_resource type="Script" uid="uid://c0vhq0lp38b53" path="res://Scripts/GDScript/menu principal/opcoes/opcoes.gd" id="1_c0g00"]
 [ext_resource type="Texture2D" uid="uid://p35kvnv5ffh1" path="res://Tilesets/Seasonal Tilesets/1 - Grassland/Background parts/_Complete_static_BG_(288 x 208).png" id="2_5ha7l"]
-[ext_resource type="Script" uid="uid://blnyaonruk7cb" path="res://Scripts/GDScript/Traducao/opcoestraduzivel.gd" id="3_uhesk"]
 [ext_resource type="AudioStream" uid="uid://bvnvg4kdw8xw8" path="res://Musicas/Options.ogg" id="4_66gc6"]
 [ext_resource type="FontFile" uid="uid://bjw68y3gx2d3k" path="res://Fontes/RevMiniPixel.ttf" id="4_uhesk"]
+[ext_resource type="Script" uid="uid://dfsby1g2mdmrg" path="res://Scripts/GDScript/audio.gd" id="5_d1jbt"]
+[ext_resource type="Script" uid="uid://80cgcc4cmag6" path="res://Scripts/GDScript/Traducao/traducoesvideo.gd" id="5_vpwnb"]
+[ext_resource type="Script" uid="uid://b2d880ewt77h0" path="res://Scripts/C#/Resolucoes.cs" id="6_akg0d"]
+[ext_resource type="Script" uid="uid://b6gdahja7s3tf" path="res://Scripts/GDScript/Traducao/traducoesaudio.gd" id="6_nmqb5"]
+[ext_resource type="Script" uid="uid://d37d102ahmsrl" path="res://Scripts/C#/AudioOutputSelector.cs" id="7_j5mii"]
+[ext_resource type="Script" uid="uid://c25g58my0y3b0" path="res://Scripts/GDScript/opcoes_pre_definidas.gd" id="7_oe885"]
+[ext_resource type="Script" uid="uid://ddtd7bbh3dsp" path="res://Scripts/GDScript/armazenamento.gd" id="8_4y3kj"]
+[ext_resource type="FontFile" uid="uid://b02m11qf0egxn" path="res://Fontes/at01.ttf" id="8_c8rbc"]
+[ext_resource type="Texture2D" uid="uid://ckrfa6yirrmjj" path="res://Lang/Icones de países/en-us.svg" id="9_2kd8c"]
+[ext_resource type="Script" uid="uid://burg016d43cw2" path="res://Scripts/GDScript/acessibilidade.gd" id="9_bmhq2"]
+[ext_resource type="Texture2D" uid="uid://ds8y5noieq70r" path="res://Lang/Icones de países/es.svg" id="10_eg8fj"]
+[ext_resource type="Script" uid="uid://okjl3tfgt4vi" path="res://Scripts/GDScript/Traducao/acessibilidade_traducao.gd" id="10_nmqb5"]
+[ext_resource type="Texture2D" uid="uid://cl52hsieomsp0" path="res://Lang/Icones de países/fr.svg" id="11_1tltq"]
+[ext_resource type="Texture2D" uid="uid://cmydlfuvgn6at" path="res://Lang/Icones de países/ca.svg" id="12_154is"]
+[ext_resource type="Script" uid="uid://dkcyi57h7fbv2" path="res://Lang/idiomas_voltar.gd" id="12_j2v27"]
+[ext_resource type="FontFile" uid="uid://chh3a5hytvr2y" path="res://Fontes/Mona10.ttf" id="13_4mdug"]
+[ext_resource type="Texture2D" uid="uid://cavxpyphwges6" path="res://Lang/Icones de países/jp.svg" id="14_e4ixh"]
+[ext_resource type="Texture2D" uid="uid://b01nae06rwat4" path="res://Lang/Icones de países/pt-br.svg" id="15_d1jbt"]
+[ext_resource type="Texture2D" uid="uid://c8dqkj7ngcbli" path="res://Lang/Icones de países/pt-pt.svg" id="16_nmqb5"]
+[ext_resource type="Script" uid="uid://dicou7khocpjd" path="res://Scripts/GDScript/video.gd" id="22_pd4e0"]
 
-[sub_resource type="LabelSettings" id="LabelSettings_uhesk"]
+[sub_resource type="LabelSettings" id="LabelSettings_a456c"]
 font = ExtResource("4_uhesk")
 font_size = 75
+outline_size = 10
+outline_color = Color(0, 0, 0, 1)
+
+[sub_resource type="LabelSettings" id="LabelSettings_vpwnb"]
+font = ExtResource("4_uhesk")
+font_size = 75
+outline_size = 10
+outline_color = Color(0, 0, 0, 1)
+
+[sub_resource type="LabelSettings" id="LabelSettings_4vc6w"]
+font = ExtResource("4_uhesk")
+font_size = 75
+outline_size = 10
+outline_color = Color(0, 0, 0, 1)
+
+[sub_resource type="LabelSettings" id="LabelSettings_j5mii"]
+font = ExtResource("8_c8rbc")
+font_size = 100
+outline_size = 10
+outline_color = Color(0, 0, 0, 1)
+
+[sub_resource type="LabelSettings" id="LabelSettings_40bwo"]
+font = ExtResource("4_uhesk")
+font_size = 45
+outline_size = 10
+outline_color = Color(0, 0, 0, 1)
+
+[sub_resource type="LabelSettings" id="LabelSettings_obn2y"]
+font = ExtResource("4_uhesk")
+font_size = 50
 outline_size = 10
 outline_color = Color(0, 0, 0, 1)
 
@@ -26,7 +75,82 @@ position = Vector2(1440, 511)
 scale = Vector2(10.238314, 10.058173)
 texture = ExtResource("2_5ha7l")
 
-[node name="VBoxContainer" type="VBoxContainer" parent="." unique_id=1614000536]
+[node name="FluffyAdventureOptions" type="AudioStreamPlayer2D" parent="." unique_id=959333788]
+position = Vector2(825, 591)
+stream = ExtResource("4_66gc6")
+autoplay = true
+bus = &"Music"
+parameters/looping = true
+
+[node name="Páginas" type="HBoxContainer" parent="." unique_id=179240256]
+layout_mode = 1
+anchors_preset = 5
+anchor_left = 0.5
+anchor_right = 0.5
+offset_left = -591.0
+offset_right = 591.0
+offset_bottom = 54.0
+grow_horizontal = 2
+alignment = 1
+
+[node name="Áudio" type="Button" parent="Páginas" unique_id=1665558113]
+layout_mode = 2
+theme_override_colors/font_color = Color(0, 1, 0, 1)
+theme_override_colors/font_focus_color = Color(1, 1, 0, 1)
+theme_override_colors/font_pressed_color = Color(1, 0.69411767, 0, 1)
+theme_override_colors/font_hover_color = Color(1, 1, 0, 1)
+theme_override_fonts/font = ExtResource("4_uhesk")
+theme_override_font_sizes/font_size = 45
+text = "Áudio"
+
+[node name="Armazenamento" type="Button" parent="Páginas" unique_id=493598351]
+layout_mode = 2
+theme_override_colors/font_focus_color = Color(1, 1, 0, 1)
+theme_override_colors/font_pressed_color = Color(1, 0.69411767, 0, 1)
+theme_override_colors/font_hover_color = Color(1, 1, 0, 1)
+theme_override_fonts/font = ExtResource("4_uhesk")
+theme_override_font_sizes/font_size = 45
+text = "Armazenamento"
+
+[node name="Acessibilidade" type="Button" parent="Páginas" unique_id=982613315]
+layout_mode = 2
+theme_override_colors/font_focus_color = Color(1, 1, 0, 1)
+theme_override_colors/font_pressed_color = Color(1, 0.69411767, 0, 1)
+theme_override_colors/font_hover_color = Color(1, 1, 0, 1)
+theme_override_fonts/font = ExtResource("4_uhesk")
+theme_override_font_sizes/font_size = 45
+text = "Acessibilidade"
+
+[node name="Idiomas" type="Button" parent="Páginas" unique_id=437840249]
+layout_mode = 2
+theme_override_colors/font_focus_color = Color(1, 1, 0, 1)
+theme_override_colors/font_pressed_color = Color(1, 0.69411767, 0, 1)
+theme_override_colors/font_hover_color = Color(1, 1, 0, 1)
+theme_override_fonts/font = ExtResource("4_uhesk")
+theme_override_font_sizes/font_size = 45
+text = "Idiomas"
+
+[node name="Vídeo" type="Button" parent="Páginas" unique_id=341940938]
+layout_mode = 2
+theme_override_colors/font_focus_color = Color(1, 1, 0, 1)
+theme_override_colors/font_pressed_color = Color(1, 0.69411767, 0, 1)
+theme_override_colors/font_hover_color = Color(1, 1, 0, 1)
+theme_override_fonts/font = ExtResource("4_uhesk")
+theme_override_font_sizes/font_size = 45
+text = "Vídeo"
+
+[node name="Áudio" type="Control" parent="." unique_id=887706604]
+visible = false
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+offset_top = 69.0
+grow_horizontal = 2
+grow_vertical = 2
+script = ExtResource("5_d1jbt")
+
+[node name="VBoxContainer" type="VBoxContainer" parent="Áudio" unique_id=1474501994]
 layout_mode = 1
 anchors_preset = 8
 anchor_left = 0.5
@@ -39,70 +163,49 @@ offset_right = 20.0
 offset_bottom = 20.0
 grow_horizontal = 2
 grow_vertical = 2
-script = ExtResource("3_uhesk")
+script = ExtResource("6_nmqb5")
 
-[node name="OpcoesLabel" type="Label" parent="VBoxContainer" unique_id=2053394996]
+[node name="AudioLabel" type="Label" parent="Áudio/VBoxContainer" unique_id=915864212]
 layout_mode = 2
-text = "Opcoes"
-label_settings = SubResource("LabelSettings_uhesk")
+text = "Áudio"
+label_settings = SubResource("LabelSettings_a456c")
 horizontal_alignment = 1
 
-[node name="Audio" type="Button" parent="VBoxContainer" unique_id=1287497316]
+[node name="MusicOff" type="CheckBox" parent="Áudio/VBoxContainer" unique_id=1481940681]
 layout_mode = 2
 theme_override_colors/font_focus_color = Color(0.9490196, 0.9490196, 0, 1)
-theme_override_colors/font_pressed_color = Color(1, 0.69411767, 0, 1)
+theme_override_colors/font_pressed_color = Color(0, 0.9137255, 0, 1)
 theme_override_colors/font_hover_color = Color(0.9490196, 0.9490196, 0, 1)
 theme_override_fonts/font = ExtResource("4_uhesk")
-theme_override_font_sizes/font_size = 75
-text = "Áudio"
+theme_override_font_sizes/font_size = 35
+text = "Desativar música"
+alignment = 1
 
-[node name="Armazenamento" type="Button" parent="VBoxContainer" unique_id=188575999]
+[node name="SoundOff" type="CheckBox" parent="Áudio/VBoxContainer" unique_id=1414830598]
 layout_mode = 2
 theme_override_colors/font_focus_color = Color(0.9490196, 0.9490196, 0, 1)
-theme_override_colors/font_pressed_color = Color(1, 0.69411767, 0, 1)
+theme_override_colors/font_pressed_color = Color(0, 0.9137255, 0, 1)
 theme_override_colors/font_hover_color = Color(0.9490196, 0.9490196, 0, 1)
 theme_override_fonts/font = ExtResource("4_uhesk")
-theme_override_font_sizes/font_size = 75
-text = "Armazenamento"
+theme_override_font_sizes/font_size = 35
+text = "Desativar som"
+alignment = 1
 
-[node name="Creditos" type="Button" parent="VBoxContainer" unique_id=579527202]
-visible = false
+[node name="AudioLabel2" type="Label" parent="Áudio/VBoxContainer" unique_id=171853814]
+layout_mode = 2
+text = "Saída de som"
+label_settings = SubResource("LabelSettings_a456c")
+horizontal_alignment = 1
+
+[node name="Saida" type="OptionButton" parent="Áudio/VBoxContainer" unique_id=265944592]
 layout_mode = 2
 theme_override_colors/font_focus_color = Color(0.9490196, 0.9490196, 0, 1)
-theme_override_colors/font_pressed_color = Color(1, 0.69411767, 0, 1)
-theme_override_colors/font_hover_color = Color(0.9490196, 0.9490196, 0, 1)
 theme_override_fonts/font = ExtResource("4_uhesk")
-theme_override_font_sizes/font_size = 75
-text = "Créditos"
+theme_override_font_sizes/font_size = 50
+alignment = 1
+script = ExtResource("7_j5mii")
 
-[node name="Data" type="Button" parent="VBoxContainer" unique_id=1541101347]
-layout_mode = 2
-theme_override_colors/font_focus_color = Color(0.9490196, 0.9490196, 0, 1)
-theme_override_colors/font_pressed_color = Color(1, 0.69411767, 0, 1)
-theme_override_colors/font_hover_color = Color(0.9490196, 0.9490196, 0, 1)
-theme_override_fonts/font = ExtResource("4_uhesk")
-theme_override_font_sizes/font_size = 75
-text = "Data"
-
-[node name="Idiomas" type="Button" parent="VBoxContainer" unique_id=273156037]
-layout_mode = 2
-theme_override_colors/font_focus_color = Color(0.9490196, 0.9490196, 0, 1)
-theme_override_colors/font_pressed_color = Color(1, 0.69411767, 0, 1)
-theme_override_colors/font_hover_color = Color(0.9490196, 0.9490196, 0, 1)
-theme_override_fonts/font = ExtResource("4_uhesk")
-theme_override_font_sizes/font_size = 75
-text = "Idiomas"
-
-[node name="Video" type="Button" parent="VBoxContainer" unique_id=1801512786]
-layout_mode = 2
-theme_override_colors/font_focus_color = Color(0.9490196, 0.9490196, 0, 1)
-theme_override_colors/font_pressed_color = Color(1, 0.69411767, 0, 1)
-theme_override_colors/font_hover_color = Color(0.9490196, 0.9490196, 0, 1)
-theme_override_fonts/font = ExtResource("4_uhesk")
-theme_override_font_sizes/font_size = 75
-text = "Vídeo"
-
-[node name="Voltar" type="Button" parent="VBoxContainer" unique_id=118132092]
+[node name="Voltar" type="Button" parent="Áudio/VBoxContainer" unique_id=281665184]
 layout_mode = 2
 theme_override_colors/font_focus_color = Color(0.9490196, 0.9490196, 0, 1)
 theme_override_colors/font_pressed_color = Color(1, 0.69411767, 0, 1)
@@ -111,28 +214,495 @@ theme_override_fonts/font = ExtResource("4_uhesk")
 theme_override_font_sizes/font_size = 75
 text = "Voltar"
 
-[node name="FluffyAdventureOptions" type="AudioStreamPlayer2D" parent="." unique_id=959333788]
-position = Vector2(825, 591)
-stream = ExtResource("4_66gc6")
-autoplay = true
-bus = &"Music"
-parameters/looping = true
+[node name="Armazenamento" type="Control" parent="." unique_id=289502347]
+visible = false
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+offset_top = 76.0
+grow_horizontal = 2
+grow_vertical = 2
+script = ExtResource("8_4y3kj")
 
-[node name="FileDialog" type="FileDialog" parent="." unique_id=1833571103]
-oversampling_override = 1.0
-title = "Open a File or Directory"
-position = Vector2i(0, 36)
-file_mode = 3
-access = 1
-filters = PackedStringArray(".zip", ".txt", ".json")
-show_hidden_files = true
-use_native_dialog = true
+[node name="VBoxContainer" type="VBoxContainer" parent="Armazenamento" unique_id=1160634637]
+layout_mode = 1
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -20.0
+offset_top = -20.0
+offset_right = 20.0
+offset_bottom = 20.0
+grow_horizontal = 2
+grow_vertical = 2
 
-[connection signal="pressed" from="VBoxContainer/Audio" to="." method="_on_audio_pressed"]
-[connection signal="pressed" from="VBoxContainer/Armazenamento" to="." method="_on_armazenamento_pressed"]
-[connection signal="pressed" from="VBoxContainer/Creditos" to="." method="_on_creditos_pressed"]
-[connection signal="pressed" from="VBoxContainer/Data" to="." method="_on_data_pressed"]
-[connection signal="pressed" from="VBoxContainer/Idiomas" to="." method="_on_idiomas_pressed"]
-[connection signal="pressed" from="VBoxContainer/Video" to="." method="_on_video_pressed"]
-[connection signal="pressed" from="VBoxContainer/Voltar" to="." method="_on_voltar_pressed"]
-[connection signal="file_selected" from="FileDialog" to="." method="_on_file_dialog_file_selected"]
+[node name="ArmazenamentoLabel" type="Label" parent="Armazenamento/VBoxContainer" unique_id=1881997439]
+layout_mode = 2
+text = "Armazenamento"
+label_settings = SubResource("LabelSettings_vpwnb")
+horizontal_alignment = 1
+
+[node name="Cache" type="HBoxContainer" parent="Armazenamento/VBoxContainer" unique_id=31472466]
+layout_mode = 2
+
+[node name="Cache1" type="Label" parent="Armazenamento/VBoxContainer/Cache" unique_id=112778017]
+layout_mode = 2
+text = "0KB"
+label_settings = SubResource("LabelSettings_vpwnb")
+horizontal_alignment = 1
+
+[node name="Saves" type="HBoxContainer" parent="Armazenamento/VBoxContainer" unique_id=1745052588]
+layout_mode = 2
+
+[node name="Saves1" type="Label" parent="Armazenamento/VBoxContainer/Saves" unique_id=1810452970]
+layout_mode = 2
+text = "0KB"
+label_settings = SubResource("LabelSettings_vpwnb")
+horizontal_alignment = 1
+
+[node name="Total" type="HBoxContainer" parent="Armazenamento/VBoxContainer" unique_id=785067468]
+layout_mode = 2
+
+[node name="Total1" type="Label" parent="Armazenamento/VBoxContainer/Total" unique_id=1133638410]
+layout_mode = 2
+text = "0KB"
+label_settings = SubResource("LabelSettings_vpwnb")
+horizontal_alignment = 1
+
+[node name="ApagarCache" type="Button" parent="Armazenamento/VBoxContainer" unique_id=1198946545]
+layout_mode = 2
+theme_override_colors/font_focus_color = Color(0.9490196, 0.9490196, 0, 1)
+theme_override_colors/font_pressed_color = Color(1, 0.69411767, 0, 1)
+theme_override_colors/font_hover_color = Color(0.9490196, 0.9490196, 0, 1)
+theme_override_fonts/font = ExtResource("4_uhesk")
+theme_override_font_sizes/font_size = 75
+text = "Excluir Cache"
+
+[node name="ApagarSave" type="Button" parent="Armazenamento/VBoxContainer" unique_id=1829177249]
+layout_mode = 2
+theme_override_colors/font_focus_color = Color(0.9490196, 0.9490196, 0, 1)
+theme_override_colors/font_pressed_color = Color(1, 0.69411767, 0, 1)
+theme_override_colors/font_hover_color = Color(0.9490196, 0.9490196, 0, 1)
+theme_override_fonts/font = ExtResource("4_uhesk")
+theme_override_font_sizes/font_size = 75
+text = "Excluir Saves"
+
+[node name="ApagarTudo" type="Button" parent="Armazenamento/VBoxContainer" unique_id=1553355052]
+layout_mode = 2
+theme_override_colors/font_focus_color = Color(0.9490196, 0.9490196, 0, 1)
+theme_override_colors/font_pressed_color = Color(1, 0.69411767, 0, 1)
+theme_override_colors/font_hover_color = Color(0.9490196, 0.9490196, 0, 1)
+theme_override_fonts/font = ExtResource("4_uhesk")
+theme_override_font_sizes/font_size = 75
+text = "Excluir Tudo"
+
+[node name="Voltar" type="Button" parent="Armazenamento/VBoxContainer" unique_id=1831672365]
+layout_mode = 2
+theme_override_colors/font_focus_color = Color(0.9490196, 0.9490196, 0, 1)
+theme_override_colors/font_pressed_color = Color(1, 0.69411767, 0, 1)
+theme_override_colors/font_hover_color = Color(0.9490196, 0.9490196, 0, 1)
+theme_override_fonts/font = ExtResource("4_uhesk")
+theme_override_font_sizes/font_size = 75
+text = "Voltar"
+
+[node name="Acessibilidade" type="Control" parent="." unique_id=1138581808]
+visible = false
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+offset_top = 54.0
+grow_horizontal = 2
+grow_vertical = 2
+script = ExtResource("9_bmhq2")
+
+[node name="VBoxContainer" type="VBoxContainer" parent="Acessibilidade" unique_id=2080724230]
+layout_mode = 1
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -254.75
+offset_top = -138.0
+offset_right = 254.75
+offset_bottom = 138.0
+grow_horizontal = 2
+grow_vertical = 2
+size_flags_horizontal = 6
+script = ExtResource("10_nmqb5")
+
+[node name="TelaCheia" type="CheckBox" parent="Acessibilidade/VBoxContainer" unique_id=843377296]
+layout_mode = 2
+theme_override_colors/font_focus_color = Color(0.9490196, 0.9490196, 0, 1)
+theme_override_colors/font_pressed_color = Color(0, 0.9137255, 0, 1)
+theme_override_colors/font_hover_color = Color(0.9490196, 0.9490196, 0, 1)
+theme_override_fonts/font = ExtResource("4_uhesk")
+theme_override_font_sizes/font_size = 35
+text = "Tela Cheia"
+alignment = 1
+
+[node name="Legendas" type="CheckBox" parent="Acessibilidade/VBoxContainer" unique_id=335993213]
+layout_mode = 2
+theme_override_colors/font_focus_color = Color(0.9490196, 0.9490196, 0, 1)
+theme_override_colors/font_pressed_color = Color(0, 0.9137255, 0, 1)
+theme_override_colors/font_hover_color = Color(0.9490196, 0.9490196, 0, 1)
+theme_override_fonts/font = ExtResource("4_uhesk")
+theme_override_font_sizes/font_size = 35
+text = "Legendas"
+alignment = 1
+
+[node name="Controles" type="CheckBox" parent="Acessibilidade/VBoxContainer" unique_id=296102171]
+layout_mode = 2
+theme_override_colors/font_focus_color = Color(0.9490196, 0.9490196, 0, 1)
+theme_override_colors/font_pressed_color = Color(0, 0.9137255, 0, 1)
+theme_override_colors/font_hover_color = Color(0.9490196, 0.9490196, 0, 1)
+theme_override_fonts/font = ExtResource("4_uhesk")
+theme_override_font_sizes/font_size = 35
+button_pressed = true
+text = "Controles"
+alignment = 1
+
+[node name="Tutoriais" type="CheckBox" parent="Acessibilidade/VBoxContainer" unique_id=674716089]
+layout_mode = 2
+theme_override_colors/font_focus_color = Color(0.9490196, 0.9490196, 0, 1)
+theme_override_colors/font_pressed_color = Color(0, 0.9137255, 0, 1)
+theme_override_colors/font_hover_color = Color(0.9490196, 0.9490196, 0, 1)
+theme_override_fonts/font = ExtResource("4_uhesk")
+theme_override_font_sizes/font_size = 35
+button_pressed = true
+text = "Tutoriais"
+alignment = 1
+
+[node name="ResolucaoLabel" type="Label" parent="Acessibilidade/VBoxContainer" unique_id=907887482]
+layout_mode = 2
+text = "Resolução"
+label_settings = SubResource("LabelSettings_4vc6w")
+horizontal_alignment = 1
+
+[node name="Resolucoes" type="OptionButton" parent="Acessibilidade/VBoxContainer" unique_id=1679997723 groups=["ignore_language_font"]]
+layout_mode = 2
+theme_override_colors/font_focus_color = Color(0.9490196, 0.9490196, 0, 1)
+theme_override_fonts/font = ExtResource("4_uhesk")
+theme_override_font_sizes/font_size = 50
+alignment = 1
+script = ExtResource("6_akg0d")
+
+[node name="Voltar" type="Button" parent="Acessibilidade/VBoxContainer" unique_id=1895693082]
+layout_mode = 2
+theme_override_colors/font_focus_color = Color(0.9490196, 0.9490196, 0, 1)
+theme_override_colors/font_pressed_color = Color(1, 0.69411767, 0, 1)
+theme_override_colors/font_hover_color = Color(0.9490196, 0.9490196, 0, 1)
+theme_override_fonts/font = ExtResource("4_uhesk")
+theme_override_font_sizes/font_size = 75
+text = "Voltar"
+
+[node name="Idiomas" type="Control" parent="." unique_id=1407348646]
+visible = false
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+offset_top = 69.0
+grow_horizontal = 2
+grow_vertical = 2
+script = ExtResource("12_j2v27")
+
+[node name="VBoxContainer" type="VBoxContainer" parent="Idiomas" unique_id=430835364]
+layout_mode = 1
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -20.0
+offset_top = -20.0
+offset_right = 20.0
+offset_bottom = 20.0
+grow_horizontal = 2
+grow_vertical = 2
+
+[node name="IdiomasLabel" type="Label" parent="Idiomas/VBoxContainer" unique_id=788533940]
+layout_mode = 2
+text = "Idiomas"
+label_settings = SubResource("LabelSettings_j5mii")
+horizontal_alignment = 1
+
+[node name="en" type="Button" parent="Idiomas/VBoxContainer" unique_id=203828247 groups=["ignore_language_font"]]
+layout_mode = 2
+theme_override_colors/font_focus_color = Color(0.9490196, 0.9490196, 0, 1)
+theme_override_colors/font_pressed_color = Color(1, 0.69411767, 0, 1)
+theme_override_colors/font_hover_color = Color(0.9490196, 0.9490196, 0, 1)
+theme_override_fonts/font = ExtResource("4_uhesk")
+theme_override_font_sizes/font_size = 75
+text = "English"
+icon = ExtResource("9_2kd8c")
+
+[node name="es" type="Button" parent="Idiomas/VBoxContainer" unique_id=1459972331 groups=["ignore_language_font"]]
+layout_mode = 2
+theme_override_colors/font_focus_color = Color(0.9490196, 0.9490196, 0, 1)
+theme_override_colors/font_pressed_color = Color(1, 0.69411767, 0, 1)
+theme_override_colors/font_hover_color = Color(0.9490196, 0.9490196, 0, 1)
+theme_override_fonts/font = ExtResource("4_uhesk")
+theme_override_font_sizes/font_size = 75
+text = "Español"
+icon = ExtResource("10_eg8fj")
+
+[node name="fr" type="Button" parent="Idiomas/VBoxContainer" unique_id=630225492 groups=["ignore_language_font"]]
+layout_mode = 2
+theme_override_colors/font_focus_color = Color(0.9490196, 0.9490196, 0, 1)
+theme_override_colors/font_pressed_color = Color(1, 0.69411767, 0, 1)
+theme_override_colors/font_hover_color = Color(0.9490196, 0.9490196, 0, 1)
+theme_override_fonts/font = ExtResource("4_uhesk")
+theme_override_font_sizes/font_size = 75
+text = "Français"
+icon = ExtResource("11_1tltq")
+
+[node name="fr-ca" type="Button" parent="Idiomas/VBoxContainer" unique_id=223890234 groups=["ignore_language_font"]]
+layout_mode = 2
+theme_override_colors/font_focus_color = Color(0.9490196, 0.9490196, 0, 1)
+theme_override_colors/font_pressed_color = Color(1, 0.69411767, 0, 1)
+theme_override_colors/font_hover_color = Color(0.9490196, 0.9490196, 0, 1)
+theme_override_fonts/font = ExtResource("4_uhesk")
+theme_override_font_sizes/font_size = 75
+text = "Français (Canada)"
+icon = ExtResource("12_154is")
+
+[node name="jp" type="Button" parent="Idiomas/VBoxContainer" unique_id=538118608 groups=["ignore_language_font"]]
+layout_mode = 2
+theme_override_colors/font_focus_color = Color(0.9490196, 0.9490196, 0, 1)
+theme_override_colors/font_pressed_color = Color(1, 0.69411767, 0, 1)
+theme_override_colors/font_hover_color = Color(0.9490196, 0.9490196, 0, 1)
+theme_override_fonts/font = ExtResource("13_4mdug")
+theme_override_font_sizes/font_size = 75
+text = "日本語"
+icon = ExtResource("14_e4ixh")
+
+[node name="pt-br" type="Button" parent="Idiomas/VBoxContainer" unique_id=1427729500 groups=["ignore_language_font"]]
+layout_mode = 2
+theme_override_colors/font_focus_color = Color(0.9490196, 0.9490196, 0, 1)
+theme_override_colors/font_pressed_color = Color(1, 0.69411767, 0, 1)
+theme_override_colors/font_hover_color = Color(0.9490196, 0.9490196, 0, 1)
+theme_override_fonts/font = ExtResource("4_uhesk")
+theme_override_font_sizes/font_size = 75
+text = "Português (Brasil)"
+icon = ExtResource("15_d1jbt")
+
+[node name="pt-pt" type="Button" parent="Idiomas/VBoxContainer" unique_id=1719342953 groups=["ignore_language_font"]]
+layout_mode = 2
+theme_override_colors/font_focus_color = Color(0.9490196, 0.9490196, 0, 1)
+theme_override_colors/font_pressed_color = Color(1, 0.69411767, 0, 1)
+theme_override_colors/font_hover_color = Color(0.9490196, 0.9490196, 0, 1)
+theme_override_fonts/font = ExtResource("4_uhesk")
+theme_override_font_sizes/font_size = 75
+text = "Português (Portugal)"
+icon = ExtResource("16_nmqb5")
+
+[node name="Voltar" type="Button" parent="Idiomas/VBoxContainer" unique_id=1671034495]
+layout_mode = 2
+theme_override_colors/font_focus_color = Color(0.9490196, 0.9490196, 0, 1)
+theme_override_colors/font_pressed_color = Color(1, 0.69411767, 0, 1)
+theme_override_colors/font_hover_color = Color(0.9490196, 0.9490196, 0, 1)
+theme_override_fonts/font = ExtResource("4_uhesk")
+theme_override_font_sizes/font_size = 75
+text = "Voltar"
+
+[node name="Vídeo" type="Control" parent="." unique_id=1158635690]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+offset_top = 68.0
+offset_bottom = 68.0
+grow_horizontal = 2
+grow_vertical = 2
+script = ExtResource("22_pd4e0")
+
+[node name="VBoxContainer" type="VBoxContainer" parent="Vídeo" unique_id=1181280629]
+layout_mode = 0
+offset_left = 599.0
+offset_top = -7.0
+offset_right = 1312.0
+offset_bottom = 1452.0
+size_flags_horizontal = 6
+script = ExtResource("5_vpwnb")
+
+[node name="DesempenhoLabel" type="Label" parent="Vídeo/VBoxContainer" unique_id=1711627731]
+layout_mode = 2
+text = "Desempenho"
+label_settings = SubResource("LabelSettings_40bwo")
+horizontal_alignment = 1
+
+[node name="Cutscenes" type="CheckBox" parent="Vídeo/VBoxContainer" unique_id=2114592652]
+layout_mode = 2
+theme_override_colors/font_focus_color = Color(0.9490196, 0.9490196, 0, 1)
+theme_override_colors/font_pressed_color = Color(0, 0.9137255, 0, 1)
+theme_override_colors/font_hover_color = Color(0.9490196, 0.9490196, 0, 1)
+theme_override_fonts/font = ExtResource("4_uhesk")
+theme_override_font_sizes/font_size = 35
+text = "Desativar cutscenes"
+alignment = 1
+
+[node name="FPSLabel" type="Label" parent="Vídeo/VBoxContainer" unique_id=1616083285]
+layout_mode = 2
+text = "FPS"
+label_settings = SubResource("LabelSettings_40bwo")
+horizontal_alignment = 1
+
+[node name="VSync" type="CheckBox" parent="Vídeo/VBoxContainer" unique_id=962424621]
+layout_mode = 2
+theme_override_colors/font_focus_color = Color(0.9490196, 0.9490196, 0, 1)
+theme_override_colors/font_pressed_color = Color(0, 0.9137255, 0, 1)
+theme_override_colors/font_hover_color = Color(0.9490196, 0.9490196, 0, 1)
+theme_override_fonts/font = ExtResource("4_uhesk")
+theme_override_font_sizes/font_size = 35
+button_pressed = true
+text = "V-sync"
+alignment = 1
+
+[node name="LimiteFPSLabel" type="Label" parent="Vídeo/VBoxContainer" unique_id=1499797816]
+layout_mode = 2
+text = "Limite de FPS"
+label_settings = SubResource("LabelSettings_40bwo")
+horizontal_alignment = 1
+
+[node name="limite" type="OptionButton" parent="Vídeo/VBoxContainer" unique_id=344638596 groups=["ignore_language_font"]]
+layout_mode = 2
+theme_override_colors/font_focus_color = Color(0.9490196, 0.9490196, 0, 1)
+theme_override_fonts/font = ExtResource("4_uhesk")
+theme_override_font_sizes/font_size = 50
+alignment = 1
+selected = 1
+item_count = 7
+popup/item_0/text = "30"
+popup/item_0/id = 0
+popup/item_1/text = "60"
+popup/item_1/id = 1
+popup/item_2/text = "75"
+popup/item_2/id = 2
+popup/item_3/text = "120"
+popup/item_3/id = 3
+popup/item_4/text = "144"
+popup/item_4/id = 4
+popup/item_5/text = "240"
+popup/item_5/id = 5
+popup/item_6/text = "Ilimitado"
+popup/item_6/id = 6
+
+[node name="TextureLabel" type="Label" parent="Vídeo/VBoxContainer" unique_id=1706412802]
+layout_mode = 2
+text = "Filtro de texturas"
+label_settings = SubResource("LabelSettings_40bwo")
+horizontal_alignment = 1
+
+[node name="TextureFilter" type="OptionButton" parent="Vídeo/VBoxContainer" unique_id=478809608]
+layout_mode = 2
+theme_override_colors/font_focus_color = Color(0.9490196, 0.9490196, 0, 1)
+theme_override_fonts/font = ExtResource("4_uhesk")
+theme_override_font_sizes/font_size = 50
+alignment = 1
+selected = 0
+item_count = 2
+popup/item_0/text = "Nearest (padrão)"
+popup/item_0/id = 0
+popup/item_1/text = "Linear"
+popup/item_1/id = 1
+
+[node name="AntiserrilhadoLabel" type="Label" parent="Vídeo/VBoxContainer" unique_id=1351050385]
+layout_mode = 2
+text = "Anti Serrilhado"
+label_settings = SubResource("LabelSettings_40bwo")
+horizontal_alignment = 1
+
+[node name="Antiserrilhado" type="OptionButton" parent="Vídeo/VBoxContainer" unique_id=1716166217]
+layout_mode = 2
+theme_override_colors/font_focus_color = Color(0.9490196, 0.9490196, 0, 1)
+theme_override_fonts/font = ExtResource("4_uhesk")
+theme_override_font_sizes/font_size = 50
+alignment = 1
+selected = 0
+item_count = 4
+popup/item_0/text = "Off (Fastest)"
+popup/item_0/id = 0
+popup/item_1/text = "2x (Average)"
+popup/item_1/id = 1
+popup/item_2/text = "4x (Slow)"
+popup/item_2/id = 2
+popup/item_3/text = "8x (Slowest)"
+popup/item_3/id = 3
+
+[node name="OpcoesPreDefinidasBox" type="VBoxContainer" parent="Vídeo/VBoxContainer" unique_id=1319170260]
+layout_mode = 2
+script = ExtResource("7_oe885")
+
+[node name="PreLabel" type="Label" parent="Vídeo/VBoxContainer/OpcoesPreDefinidasBox" unique_id=1514961672]
+layout_mode = 2
+text = "Opções pre definidas"
+label_settings = SubResource("LabelSettings_obn2y")
+horizontal_alignment = 1
+
+[node name="low" type="Button" parent="Vídeo/VBoxContainer/OpcoesPreDefinidasBox" unique_id=2023186316]
+layout_mode = 2
+theme_override_colors/font_focus_color = Color(0.9490196, 0.9490196, 0, 1)
+theme_override_colors/font_pressed_color = Color(1, 0.69411767, 0, 1)
+theme_override_colors/font_hover_color = Color(0.9490196, 0.9490196, 0, 1)
+theme_override_fonts/font = ExtResource("4_uhesk")
+theme_override_font_sizes/font_size = 50
+text = "Baixo"
+
+[node name="medium" type="Button" parent="Vídeo/VBoxContainer/OpcoesPreDefinidasBox" unique_id=213926242]
+layout_mode = 2
+theme_override_colors/font_focus_color = Color(0.9490196, 0.9490196, 0, 1)
+theme_override_colors/font_pressed_color = Color(1, 0.69411767, 0, 1)
+theme_override_colors/font_hover_color = Color(0.9490196, 0.9490196, 0, 1)
+theme_override_fonts/font = ExtResource("4_uhesk")
+theme_override_font_sizes/font_size = 50
+text = "Médio"
+
+[node name="high" type="Button" parent="Vídeo/VBoxContainer/OpcoesPreDefinidasBox" unique_id=1324748523]
+layout_mode = 2
+theme_override_colors/font_focus_color = Color(0.9490196, 0.9490196, 0, 1)
+theme_override_colors/font_pressed_color = Color(1, 0.69411767, 0, 1)
+theme_override_colors/font_hover_color = Color(0.9490196, 0.9490196, 0, 1)
+theme_override_fonts/font = ExtResource("4_uhesk")
+theme_override_font_sizes/font_size = 50
+text = "Alto"
+
+[node name="mobilechoose" type="Button" parent="Vídeo/VBoxContainer/OpcoesPreDefinidasBox" unique_id=1853702161]
+layout_mode = 2
+theme_override_colors/font_focus_color = Color(0.9490196, 0.9490196, 0, 1)
+theme_override_colors/font_pressed_color = Color(1, 0.69411767, 0, 1)
+theme_override_colors/font_hover_color = Color(0.9490196, 0.9490196, 0, 1)
+theme_override_fonts/font = ExtResource("4_uhesk")
+theme_override_font_sizes/font_size = 50
+text = "Escolha do sistema"
+
+[node name="Voltar" type="Button" parent="Vídeo/VBoxContainer" unique_id=1856083518]
+layout_mode = 2
+theme_override_colors/font_focus_color = Color(0.9490196, 0.9490196, 0, 1)
+theme_override_colors/font_pressed_color = Color(1, 0.69411767, 0, 1)
+theme_override_colors/font_hover_color = Color(0.9490196, 0.9490196, 0, 1)
+theme_override_fonts/font = ExtResource("4_uhesk")
+theme_override_font_sizes/font_size = 75
+text = "Voltar"
+
+[connection signal="pressed" from="Áudio/VBoxContainer/Voltar" to="Áudio" method="_on_voltar_pressed"]
+[connection signal="pressed" from="Armazenamento/VBoxContainer/Voltar" to="Armazenamento" method="_on_voltar_pressed"]
+[connection signal="pressed" from="Acessibilidade/VBoxContainer/Voltar" to="Acessibilidade" method="_on_voltar_pressed"]
+[connection signal="pressed" from="Idiomas/VBoxContainer/en" to="Idiomas" method="_on_en_pressed"]
+[connection signal="pressed" from="Idiomas/VBoxContainer/es" to="Idiomas" method="_on_es_pressed"]
+[connection signal="pressed" from="Idiomas/VBoxContainer/fr" to="Idiomas" method="_on_fr_pressed"]
+[connection signal="pressed" from="Idiomas/VBoxContainer/fr-ca" to="Idiomas" method="_on_frca_pressed"]
+[connection signal="pressed" from="Idiomas/VBoxContainer/jp" to="Idiomas" method="_on_jp_pressed"]
+[connection signal="pressed" from="Idiomas/VBoxContainer/pt-br" to="Idiomas" method="_on_ptbr_pressed"]
+[connection signal="pressed" from="Idiomas/VBoxContainer/pt-pt" to="Idiomas" method="_on_ptpt_pressed"]
+[connection signal="pressed" from="Idiomas/VBoxContainer/Voltar" to="Idiomas" method="_on_voltar_pressed"]
+[connection signal="toggled" from="Vídeo/VBoxContainer/Cutscenes" to="Vídeo" method="_on_cutscenes_toggled"]
+[connection signal="toggled" from="Vídeo/VBoxContainer/VSync" to="Vídeo" method="_on_v_sync_toggled"]
+[connection signal="item_selected" from="Vídeo/VBoxContainer/limite" to="Vídeo" method="_on_limite_item_selected"]
+[connection signal="item_selected" from="Vídeo/VBoxContainer/TextureFilter" to="Vídeo" method="_on_texture_filter_item_selected"]
+[connection signal="item_selected" from="Vídeo/VBoxContainer/Antiserrilhado" to="Vídeo" method="_on_antiserrilhado_item_selected"]
+[connection signal="pressed" from="Vídeo/VBoxContainer/Voltar" to="Vídeo" method="_on_voltar_pressed"]

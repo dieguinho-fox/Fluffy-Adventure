@@ -165,7 +165,7 @@ func _physics_process(delta: float) -> void:
 	if (
 		can_use_door
 		and current_door != null
-		and Input.is_action_just_pressed("ui_up")
+		and Input.is_action_just_pressed("abrir_porta")
 	):
 		usar_porta()
 		return
@@ -204,7 +204,7 @@ func _physics_process(delta: float) -> void:
 		velocity += get_gravity() * delta
 
 	# Movimento lateral suave
-	var direction: float = Input.get_axis("ui_left", "ui_right")
+	var direction: float = Input.get_axis("andar_esquerda", "andar_direita")
 
 	if direction != 0.0:
 		# Acelera gradualmente até SPEED

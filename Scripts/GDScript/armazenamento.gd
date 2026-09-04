@@ -238,5 +238,5 @@ func delete_recursive(dir: DirAccess):
 # =========================
 # 🔙 VOLTAR
 # =========================
-func _on_voltarpraoptions_pressed() -> void:
-	get_tree().change_scene_to_file("res://cenas/opcoes.tscn")
+func _on_voltar_pressed() -> void:
+	get_tree().change_scene_to_file("res://cenas/menu.tscn")

@@ -15,7 +15,7 @@ compatibility/default_parent_skeleton_in_mesh_instance_3d=true
 [application]
 
 config/name="Fluffy Adventure"
-config/version="1.0.0 Release Candidate 1"
+config/version="1.0.0"
 run/main_scene="uid://juq4o2ekqgia"
 config/use_custom_user_dir=true
 config/quit_on_go_back=false
