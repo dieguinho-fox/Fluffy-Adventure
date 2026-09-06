@@ -77,6 +77,16 @@ func _apply_video_settings() -> void:
 		)
 	)
 
+	# ---------------------------------------------------------
+	# Android SEMPRE usa tela cheia
+	# ---------------------------------------------------------
+
+	if OS.get_name() == "Android":
+
+		fullscreen = true
+
+		print("📱 Android detectado: tela cheia forçada.")
+
 
 	# ---------------------------------------------------------
 	# Resolução
@@ -234,9 +244,24 @@ func _apply_video_settings() -> void:
 
 func _apply_default_video_settings() -> void:
 
-	DisplayServer.window_set_mode(
-		DisplayServer.WINDOW_MODE_WINDOWED
-	)
+	# ---------------------------------------------------------
+	# Android SEMPRE inicia em tela cheia
+	# ---------------------------------------------------------
+
+	if OS.get_name() == "Android":
+
+		DisplayServer.window_set_mode(
+			DisplayServer.WINDOW_MODE_FULLSCREEN
+		)
+
+		print("📱 Android detectado: tela cheia forçada.")
+
+	else:
+
+		DisplayServer.window_set_mode(
+			DisplayServer.WINDOW_MODE_WINDOWED
+		)
+
 
 	DisplayServer.window_set_vsync_mode(
 		DisplayServer.VSYNC_ENABLED

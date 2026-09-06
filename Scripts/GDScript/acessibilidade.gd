@@ -8,6 +8,17 @@ const CONFIG_PATH := "user://config.cfg"
 # ==============================
 func _ready() -> void:
 
+	# ==============================
+	# Tela cheia — somente PC
+	# ==============================
+
+	if OS.get_name() == "Android":
+
+		$VBoxContainer/TelaCheia.visible = false
+
+		print("📱 Android detectado: botão de tela cheia ocultado.")
+
+
 	var config := ConfigFile.new()
 	var err := config.load(CONFIG_PATH)
 
