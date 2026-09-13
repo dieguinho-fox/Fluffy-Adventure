@@ -18,6 +18,50 @@ func _ready() -> void:
 
 		print("📱 Android detectado: botão de tela cheia ocultado.")
 
+	else:
+
+		# Carrega o estado salvo da tela cheia
+		var config_fullscreen := ConfigFile.new()
+		var fullscreen_err := config_fullscreen.load(CONFIG_PATH)
+
+		if fullscreen_err == OK:
+
+			var fullscreen_enabled: bool = bool(
+				config_fullscreen.get_value(
+					"video",
+					"tela_cheia",
+					false
+				)
+			)
+
+			$VBoxContainer/TelaCheia.button_pressed = fullscreen_enabled
+
+			# Aplica o modo salvo
+			if fullscreen_enabled:
+				DisplayServer.window_set_mode(
+					DisplayServer.WINDOW_MODE_FULLSCREEN
+				)
+			else:
+				DisplayServer.window_set_mode(
+					DisplayServer.WINDOW_MODE_WINDOWED
+				)
+
+			print(
+				"🖥️ Tela cheia: ",
+				"ATIVADA"
+				if fullscreen_enabled
+				else "DESATIVADA"
+			)
+
+		else:
+
+			# Configuração padrão
+			$VBoxContainer/TelaCheia.button_pressed = false
+
+			DisplayServer.window_set_mode(
+				DisplayServer.WINDOW_MODE_WINDOWED
+			)
+
 
 	var config := ConfigFile.new()
 	var err := config.load(CONFIG_PATH)
@@ -27,6 +71,7 @@ func _ready() -> void:
 		# ==============================
 		# Legendas
 		# ==============================
+
 		var legendas_enabled: bool = bool(
 			config.get_value(
 				"video",
@@ -48,6 +93,7 @@ func _ready() -> void:
 		# ==============================
 		# Controles
 		# ==============================
+
 		var controles_enabled: bool = bool(
 			config.get_value(
 				"gameplay",
@@ -71,6 +117,7 @@ func _ready() -> void:
 		# ==============================
 		# Tutoriais
 		# ==============================
+
 		var tutoriais_enabled: bool = bool(
 			config.get_value(
 				"gameplay",
@@ -100,10 +147,50 @@ func _ready() -> void:
 		$VBoxContainer/Controles.button_pressed = true
 		$VBoxContainer/Tutoriais.button_pressed = true
 
+		if OS.get_name() != "Android":
+			$VBoxContainer/TelaCheia.button_pressed = false
+
+			DisplayServer.window_set_mode(
+				DisplayServer.WINDOW_MODE_WINDOWED
+			)
+
 		Globals.controles_enabled = true
 		Globals.tutoriais_enabled = true
 
 		_save_current_settings()
+
+
+# ==============================
+# TELA CHEIA
+# ==============================
+func _on_tela_cheia_toggled(
+	toggled_on: bool
+) -> void:
+
+	# Android não utiliza essa opção
+	if OS.get_name() == "Android":
+		return
+
+	print(
+		"🖥️ Tela cheia: ",
+		"ATIVADA"
+		if toggled_on
+		else "DESATIVADA"
+	)
+
+	if toggled_on:
+
+		DisplayServer.window_set_mode(
+			DisplayServer.WINDOW_MODE_FULLSCREEN
+		)
+
+	else:
+
+		DisplayServer.window_set_mode(
+			DisplayServer.WINDOW_MODE_WINDOWED
+		)
+
+	_save_current_settings()
 
 
 # ==============================
@@ -191,6 +278,19 @@ func _save_current_settings() -> void:
 
 
 	# ==============================
+	# TELA CHEIA
+	# ==============================
+
+	if OS.get_name() != "Android":
+
+		config.set_value(
+			"video",
+			"tela_cheia",
+			$VBoxContainer/TelaCheia.button_pressed
+		)
+
+
+	# ==============================
 	# Gameplay
 	# ==============================
 
@@ -214,10 +314,13 @@ func _save_current_settings() -> void:
 	var save_err := config.save(CONFIG_PATH)
 
 	if save_err == OK:
+
 		print(
-			"💾 Configurações de acessibilidade salvas."
+			"💾 Configurações salvas."
 		)
+
 	else:
+
 		push_error(
 			"Erro ao salvar configurações. Código: %s"
 			% save_err

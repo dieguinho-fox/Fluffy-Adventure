@@ -1,5 +1,5 @@
 [![License](https://img.shields.io/badge/Licença-CC0-blue.svg)](https://github.com/dieguinho-fox/Fluffy-Adventure/blob/main/LICENSE)
-[![Download](https://img.shields.io/badge/Download-beta-blue)](https://fluffy-adventure.kesug.com/)
+[![Download](https://img.shields.io/badge/Download-1.0.1-lime)](https://fluffy-adventure.kesug.com/)
 [![Crowdin](https://badges.crowdin.net/fluffy-adventure/localized.svg)](https://crowdin.com/project/fluffy-adventure)
 [![Website](https://img.shields.io/badge/Site-Oficial-blue)](https://fluffy-adventure.kesug.com)
 
@@ -15,8 +15,6 @@ O jogo apresenta um visual único, misturando pixel art com elementos desenhados
 * Desafios e quebra-cabeças
 * Sistema de conquistas
 * Suas escolhas ao longo da jornada irão influenciar o rumo da história, trazendo mais profundidade à experiência.
-
-⚠️ Algumas funcionalidades serão adicionadas em futuras atualizações.
 
 # Projeto requere:
 [Lua GDExtension](https://github.com/gilzoide/lua-gdextension)

@@ -7,8 +7,8 @@ public partial class Resolucoes : OptionButton
 {
 	private const string CONFIG_PATH = "user://config.cfg";
 
-	private const int MIN_WIDTH = 640;
-	private const int MIN_HEIGHT = 480;
+	private const int MIN_WIDTH = 800;
+	private const int MIN_HEIGHT = 600;
 
 	// ============================================================
 	// WINDOWS API
@@ -143,12 +143,10 @@ public partial class Resolucoes : OptionButton
 	// ============================================================
 
 	private bool loadingSettings = false;
+	private bool changingResolution = false;
 
 	private bool originalDisplayModeSaved = false;
-
 	private DEVMODE originalDisplayMode;
-
-	private bool changingResolution = false;
 
 	// ============================================================
 	// READY
@@ -178,7 +176,11 @@ public partial class Resolucoes : OptionButton
 			fullscreenButton.Toggled += OnFullscreenToggled;
 		}
 
-		// Carrega a resolução salva.
+		// Recupera o modo original caso ele tenha sido
+		// salvo antes de uma troca de cena.
+		LoadOriginalDisplayMode();
+
+		// Carrega a resolução escolhida pelo jogador.
 		LoadSavedResolution();
 
 		UpdateResolutionVisibility();
@@ -224,8 +226,13 @@ public partial class Resolucoes : OptionButton
 
 	private void OnFullscreenToggled(bool enabled)
 	{
+		if (!OperatingSystem.IsWindows())
+			return;
+
 		if (enabled)
 		{
+			// Guarda a resolução REAL do Windows antes
+			// de qualquer alteração.
 			SaveOriginalDisplayMode();
 
 			DisplayServer.WindowSetMode(
@@ -238,10 +245,18 @@ public partial class Resolucoes : OptionButton
 		}
 		else
 		{
+			// Sai do fullscreen primeiro.
+			DisplayServer.WindowSetMode(
+				DisplayServer.WindowMode.Windowed
+			);
+
+			// Restaura a resolução original do monitor.
 			RestoreOriginalDisplayMode();
 
-			DisplayServer.WindowSetMode(
-				DisplayServer.WindowMode.Maximized
+			// Depois que o monitor voltar à resolução original,
+			// restaura a janela maximizada.
+			CallDeferred(
+				MethodName.RestoreMaximizedWindow
 			);
 
 			UpdateResolutionVisibility();
@@ -249,7 +264,24 @@ public partial class Resolucoes : OptionButton
 	}
 
 	// ============================================================
-	// APLICAR RESOLUÇÃO SALVA
+	// RESTAURAR JANELA MAXIMIZADA
+	// ============================================================
+
+	private void RestoreMaximizedWindow()
+	{
+		DisplayServer.WindowSetMode(
+			DisplayServer.WindowMode.Maximized
+		);
+
+		UpdateResolutionVisibility();
+
+		GD.Print(
+			"🪟 Janela restaurada para maximizada."
+		);
+	}
+
+	// ============================================================
+	// APLICAR RESOLUÇÃO SALVA APÓS FULLSCREEN
 	// ============================================================
 
 	private void ApplySavedResolutionAfterFullscreen()
@@ -521,7 +553,7 @@ public partial class Resolucoes : OptionButton
 	}
 
 	// ============================================================
-	// RESTAURAR FULLSCREEN
+	// RESTAURAR FULLSCREEN DO GODOT
 	// ============================================================
 
 	private void RestoreGodotFullscreen()
@@ -559,30 +591,210 @@ public partial class Resolucoes : OptionButton
 
 	private void SaveOriginalDisplayMode()
 	{
-		if (originalDisplayModeSaved)
+		// Se já existe um modo original salvo,
+		// NÃO substitui.
+		//
+		// Isso permite sair e voltar para as configurações
+		// enquanto continua em fullscreen.
+		if (HasSavedOriginalDisplayMode())
+		{
+			LoadOriginalDisplayMode();
 			return;
+		}
 
-		originalDisplayMode =
+		DEVMODE mode =
 			new DEVMODE();
 
-		originalDisplayMode.dmSize =
+		mode.dmSize =
 			(short)Marshal.SizeOf<DEVMODE>();
 
 		if (
-			EnumDisplaySettings(
+			!EnumDisplaySettings(
 				null,
 				ENUM_CURRENT_SETTINGS,
-				ref originalDisplayMode))
+				ref mode))
 		{
-			originalDisplayModeSaved = true;
+			GD.PrintErr(
+				"❌ Não foi possível salvar o modo original."
+			);
 
-			GD.Print(
-				$"💾 Modo original: " +
-				$"{originalDisplayMode.dmPelsWidth}x" +
-				$"{originalDisplayMode.dmPelsHeight} " +
-				$"@ {originalDisplayMode.dmDisplayFrequency}Hz"
+			return;
+		}
+
+		originalDisplayMode = mode;
+		originalDisplayModeSaved = true;
+
+		SaveOriginalDisplayModeToConfig(mode);
+
+		GD.Print(
+			$"💾 Modo original salvo: " +
+			$"{mode.dmPelsWidth}x" +
+			$"{mode.dmPelsHeight} " +
+			$"@ {mode.dmDisplayFrequency}Hz"
+		);
+	}
+
+	// ============================================================
+	// SALVAR MODO ORIGINAL NO CONFIG
+	// ============================================================
+
+	private void SaveOriginalDisplayModeToConfig(
+		DEVMODE mode)
+	{
+		ConfigFile config =
+			new ConfigFile();
+
+		Error loadError =
+			config.Load(CONFIG_PATH);
+
+		if (
+			loadError != Error.Ok &&
+			loadError != Error.FileNotFound)
+		{
+			GD.PrintErr(
+				$"❌ Erro ao carregar config.cfg: {loadError}"
+			);
+
+			return;
+		}
+
+		config.SetValue(
+			"video",
+			"original_width",
+			mode.dmPelsWidth
+		);
+
+		config.SetValue(
+			"video",
+			"original_height",
+			mode.dmPelsHeight
+		);
+
+		config.SetValue(
+			"video",
+			"original_refresh_rate",
+			mode.dmDisplayFrequency
+		);
+
+		config.SetValue(
+			"video",
+			"original_bits_per_pixel",
+			mode.dmBitsPerPel
+		);
+
+		config.SetValue(
+			"video",
+			"original_resolution_saved",
+			true
+		);
+
+		Error saveError =
+			config.Save(CONFIG_PATH);
+
+		if (saveError != Error.Ok)
+		{
+			GD.PrintErr(
+				$"❌ Erro ao salvar modo original: {saveError}"
 			);
 		}
+	}
+
+	// ============================================================
+	// CARREGAR MODO ORIGINAL
+	// ============================================================
+
+	private void LoadOriginalDisplayMode()
+	{
+		ConfigFile config =
+			new ConfigFile();
+
+		Error error =
+			config.Load(CONFIG_PATH);
+
+		if (error != Error.Ok)
+			return;
+
+		bool saved =
+			(bool)config.GetValue(
+				"video",
+				"original_resolution_saved",
+				false
+			);
+
+		if (!saved)
+			return;
+
+		DEVMODE mode =
+			new DEVMODE();
+
+		mode.dmSize =
+			(short)Marshal.SizeOf<DEVMODE>();
+
+		mode.dmPelsWidth =
+			(int)config.GetValue(
+				"video",
+				"original_width",
+				0
+			);
+
+		mode.dmPelsHeight =
+			(int)config.GetValue(
+				"video",
+				"original_height",
+				0
+			);
+
+		mode.dmDisplayFrequency =
+			(int)config.GetValue(
+				"video",
+				"original_refresh_rate",
+				0
+			);
+
+		mode.dmBitsPerPel =
+			(int)config.GetValue(
+				"video",
+				"original_bits_per_pixel",
+				0
+			);
+
+		mode.dmFields =
+			DM_PELSWIDTH |
+			DM_PELSHEIGHT |
+			DM_BITSPERPEL |
+			DM_DISPLAYFREQUENCY;
+
+		originalDisplayMode = mode;
+		originalDisplayModeSaved = true;
+
+		GD.Print(
+			$"📂 Modo original recuperado: " +
+			$"{mode.dmPelsWidth}x" +
+			$"{mode.dmPelsHeight} " +
+			$"@ {mode.dmDisplayFrequency}Hz"
+		);
+	}
+
+	// ============================================================
+	// VERIFICAR SE EXISTE MODO ORIGINAL SALVO
+	// ============================================================
+
+	private bool HasSavedOriginalDisplayMode()
+	{
+		ConfigFile config =
+			new ConfigFile();
+
+		Error error =
+			config.Load(CONFIG_PATH);
+
+		if (error != Error.Ok)
+			return false;
+
+		return (bool)config.GetValue(
+			"video",
+			"original_resolution_saved",
+			false
+		);
 	}
 
 	// ============================================================
@@ -591,8 +803,21 @@ public partial class Resolucoes : OptionButton
 
 	private void RestoreOriginalDisplayMode()
 	{
+		// Tenta recuperar do config caso a cena tenha
+		// sido destruída anteriormente.
 		if (!originalDisplayModeSaved)
+		{
+			LoadOriginalDisplayMode();
+		}
+
+		if (!originalDisplayModeSaved)
+		{
+			GD.PrintErr(
+				"❌ Nenhuma resolução original encontrada para restaurar."
+			);
+
 			return;
+		}
 
 		int result =
 			ChangeDisplaySettings(
@@ -605,6 +830,8 @@ public partial class Resolucoes : OptionButton
 			GD.Print(
 				"🖥️ Resolução original restaurada."
 			);
+
+			ClearOriginalDisplayModeFromConfig();
 		}
 		else
 		{
@@ -618,6 +845,62 @@ public partial class Resolucoes : OptionButton
 	}
 
 	// ============================================================
+	// APAGAR RESOLUÇÃO ORIGINAL SALVA
+	// ============================================================
+
+	private void ClearOriginalDisplayModeFromConfig()
+	{
+		ConfigFile config =
+			new ConfigFile();
+
+		Error error =
+			config.Load(CONFIG_PATH);
+
+		if (error != Error.Ok)
+			return;
+
+		config.SetValue(
+			"video",
+			"original_resolution_saved",
+			false
+		);
+
+		config.SetValue(
+			"video",
+			"original_width",
+			0
+		);
+
+		config.SetValue(
+			"video",
+			"original_height",
+			0
+		);
+
+		config.SetValue(
+			"video",
+			"original_refresh_rate",
+			0
+		);
+
+		config.SetValue(
+			"video",
+			"original_bits_per_pixel",
+			0
+		);
+
+		Error saveError =
+			config.Save(CONFIG_PATH);
+
+		if (saveError != Error.Ok)
+		{
+			GD.PrintErr(
+				$"❌ Erro ao limpar modo original: {saveError}"
+			);
+		}
+	}
+
+	// ============================================================
 	// SALVAR RESOLUÇÃO
 	// ============================================================
 
@@ -626,8 +909,6 @@ public partial class Resolucoes : OptionButton
 		ConfigFile config =
 			new ConfigFile();
 
-		// Carrega o arquivo existente para não apagar
-		// as outras configurações do jogo.
 		Error loadError =
 			config.Load(CONFIG_PATH);
 
@@ -697,7 +978,6 @@ public partial class Resolucoes : OptionButton
 				0
 			);
 
-		// Verifica se o ID ainda existe.
 		if (
 			savedId < 0 ||
 			savedId >= resolutions.Count)

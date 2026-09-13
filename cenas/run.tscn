@@ -13,7 +13,6 @@
 [ext_resource type="Script" uid="uid://2mlt4bvi5qfb" path="res://Scripts/GDScript/mundo1-0/interface.gd" id="13_xlh3x"]
 [ext_resource type="PackedScene" uid="uid://dm5v7yitx6pb" path="res://cenas/Prefabs/mobile_controls.tscn" id="17_c62cv"]
 [ext_resource type="PackedScene" uid="uid://bd44jeqrcs4fg" path="res://cenas/Prefabs/pause_menu.tscn" id="24_4g61e"]
-[ext_resource type="Script" uid="uid://cvpgcggf3tu5s" path="res://Scripts/GDScript/desativar luz.gd" id="25_e8q4g"]
 [ext_resource type="PackedScene" uid="uid://ch31uymdxgroi" path="res://cenas/Prefabs/enemy.tscn" id="26_66nht"]
 [ext_resource type="Script" uid="uid://clhx1t573siii" path="res://Scripts/GDScript/enemy_run.gd" id="27_y1sow"]
 [ext_resource type="PackedScene" uid="uid://d240houftwb70" path="res://cenas/Prefabs/deathzone.tscn" id="28_weqj8"]
@@ -868,9 +867,6 @@ texture = ExtResource("4_4t5nw")
 [sub_resource type="TileSet" id="TileSet_tff2y"]
 sources/0 = SubResource("TileSetAtlasSource_4ow6d")
 
-[sub_resource type="RectangleShape2D" id="RectangleShape2D_cs82x"]
-size = Vector2(88, 889)
-
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_y1sow"]
 size = Vector2(97, 557)
 
@@ -898,7 +894,7 @@ tile_map_data = PackedByteArray("AABg/+v/BAAJAAMAAABg/+z/BAAJAAMAAABg/+3/BAAJAAM
 tile_set = SubResource("TileSet_x53vw")
 
 [node name="parede invisivel2" type="StaticBody2D" parent="." unique_id=2001586015]
-position = Vector2(8193, -892)
+position = Vector2(9129, -892)
 collision_layer = 2
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="parede invisivel2" unique_id=2025853040]
@@ -973,14 +969,6 @@ color = Color(0.05882353, 0, 0.050980393, 0.7764706)
 [node name="pause_menu" parent="." unique_id=377924223 instance=ExtResource("24_4g61e")]
 layer = 9999
 
-[node name="Area2D2" type="Area2D" parent="." unique_id=118422812]
-position = Vector2(22179, 480)
-script = ExtResource("25_e8q4g")
-
-[node name="CollisionShape2D" type="CollisionShape2D" parent="Area2D2" unique_id=669213004]
-position = Vector2(34, -320.5)
-shape = SubResource("RectangleShape2D_cs82x")
-
 [node name="enemy" parent="." unique_id=1149491587 instance=ExtResource("26_66nht")]
 position = Vector2(9175, 56)
 script = ExtResource("27_y1sow")
@@ -999,5 +987,3 @@ position = Vector2(14600.999, 443)
 scale = Vector2(26.843254, -3.6557496)
 
 [node name="mobile controls" parent="." unique_id=1044015296 instance=ExtResource("17_c62cv")]
-
-[connection signal="body_entered" from="Area2D2" to="Area2D2" method="_on_body_entered"]

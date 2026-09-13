@@ -57,6 +57,9 @@ var death_velocity := 0.0
 # Indica se a morte aconteceu porque o tempo acabou
 var morreu_por_tempo := false
 
+# Guarda o estado original da música antes da morte
+var music_was_muted := false
+
 # Temporizador do afterimage
 var afterimage_timer := 0.0
 
@@ -430,10 +433,16 @@ func perder_vida() -> void:
 	set_collision_layer_value(1, false)
 	set_collision_mask_value(1, false)
 
-	# Muta a música
+	# ==========================================
+	# GUARDA O ESTADO ORIGINAL DA MÚSICA
+	# ==========================================
 	var music_bus := AudioServer.get_bus_index("Music")
 
 	if music_bus != -1:
+		# Guarda se a música JÁ estava mutada
+		music_was_muted = AudioServer.is_bus_mute(music_bus)
+
+		# Silencia a música durante a animação de morte
 		AudioServer.set_bus_mute(music_bus, true)
 
 	# Toca som de morte
@@ -464,11 +473,18 @@ func finalizar_morte() -> void:
 	if playerdie_sfx.playing:
 		return
 
-	# Desmuta a música
+	# ==========================================
+	# RESTAURA O ESTADO ORIGINAL DA MÚSICA
+	# ==========================================
 	var music_bus := AudioServer.get_bus_index("Music")
 
 	if music_bus != -1:
-		AudioServer.set_bus_mute(music_bus, false)
+		# Se estava mutada antes da morte,
+		# continua mutada.
+		#
+		# Se estava ligada antes da morte,
+		# volta a ficar ligada.
+		AudioServer.set_bus_mute(music_bus, music_was_muted)
 
 	# ===============================
 	# FINAL SECRETO

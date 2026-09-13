@@ -21,3 +21,8 @@ func start_timer() -> void:
 	# Mostra o cursor novamente antes de mudar de cena
 	Input.set_mouse_mode(Input.MOUSE_MODE_VISIBLE)
 	get_tree().change_scene_to_file(next_scene_path)
+
+func _unhandled_input(event):
+	if event.is_action("ui_accept"):
+		get_tree().change_scene_to_file(next_scene_path)
+		Input.set_mouse_mode(Input.MOUSE_MODE_VISIBLE)

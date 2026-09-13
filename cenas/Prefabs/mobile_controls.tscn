@@ -8,8 +8,15 @@
 [ext_resource type="Texture2D" uid="uid://80xqxrigu50p" path="res://Interface/Celular e Tablet/Controles/ui_buttons_arrow_up_PRESSED.png" id="6_1scfh"]
 [ext_resource type="Texture2D" uid="uid://bj3mi4056cm0m" path="res://Interface/Celular e Tablet/Controles/pause_NORMAL.png" id="7_8viaj"]
 [ext_resource type="Texture2D" uid="uid://c0vwu1he4ct81" path="res://Interface/Celular e Tablet/Controles/pause_PRESSED.png" id="8_qtojp"]
+[ext_resource type="Script" uid="uid://dkj1mkpl0hmd4" path="res://Scripts/GDScript/ui_dash.gd" id="9_51n0o"]
+[ext_resource type="FontFile" uid="uid://bjw68y3gx2d3k" path="res://Fontes/RevMiniPixel.ttf" id="9_fe0ie"]
 [ext_resource type="Texture2D" uid="uid://ciufj2nc7m7gt" path="res://Interface/Celular e Tablet/Controles/dialog_NORMAL.png" id="9_s07dk"]
 [ext_resource type="Texture2D" uid="uid://b8ifip1osgpbl" path="res://Interface/Celular e Tablet/Controles/dialog_PRESSED.png" id="10_1vfi2"]
+
+[sub_resource type="LabelSettings" id="LabelSettings_3sytw"]
+font = ExtResource("9_fe0ie")
+outline_size = 5
+outline_color = Color(0, 0, 0, 1)
 
 [node name="mobile controls" type="CanvasLayer" unique_id=1044015296]
 layer = 9998
@@ -51,6 +58,15 @@ texture_normal = ExtResource("3_51n0o")
 texture_pressed = ExtResource("4_lrsxq")
 passby_press = true
 action = "dash"
+script = ExtResource("9_51n0o")
+
+[node name="cooldown" type="Label" parent="ui_dash" unique_id=127972973 groups=["ignore_language_font"]]
+offset_left = 5.2307496
+offset_top = 9.692308
+offset_right = 29.23075
+offset_bottom = 25.692308
+text = "5.0"
+label_settings = SubResource("LabelSettings_3sytw")
 
 [node name="ui_dialog" type="TouchScreenButton" parent="." unique_id=1999822846]
 visible = false

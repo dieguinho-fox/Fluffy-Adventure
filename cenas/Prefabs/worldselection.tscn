@@ -167,6 +167,16 @@ theme_override_font_sizes/font_size = 75
 text = "Mundo 3-0"
 flat = true
 
+[node name="4-0" type="Button" parent="VBoxContainer" unique_id=854781920]
+layout_mode = 2
+theme_override_colors/font_focus_color = Color(0.9490196, 0.9490196, 0, 1)
+theme_override_colors/font_pressed_color = Color(1, 0.69411767, 0, 1)
+theme_override_colors/font_hover_color = Color(0.9490196, 0.9490196, 0, 1)
+theme_override_fonts/font = ExtResource("2_tx7ge")
+theme_override_font_sizes/font_size = 75
+text = "Mundo 4-0"
+flat = true
+
 [node name="Node" type="Node" parent="." unique_id=1599314809]
 script = ExtResource("3_tx7ge")
 
@@ -180,3 +190,4 @@ script = ExtResource("3_tx7ge")
 [connection signal="pressed" from="VBoxContainer/2-2" to="." method="_on__pressed"]
 [connection signal="pressed" from="VBoxContainer/2-3" to="." method="_on_23_pressed"]
 [connection signal="pressed" from="VBoxContainer/3-0" to="." method="_on_3_0_pressed"]
+[connection signal="pressed" from="VBoxContainer/4-0" to="." method="_on_4_0_pressed"]
