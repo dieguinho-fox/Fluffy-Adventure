@@ -1,0 +1,129 @@
+[gd_scene format=3 uid="uid://dmimjy0ygqtwc"]
+
+[ext_resource type="Texture2D" uid="uid://p35kvnv5ffh1" path="res://Tilesets/Seasonal Tilesets/1 - Grassland/Background parts/_Complete_static_BG_(288 x 208).png" id="1_6jfr8"]
+[ext_resource type="Script" uid="uid://re5am2fwmo5m" path="res://Scripts/Account/login.gd" id="2_tmop1"]
+[ext_resource type="FontFile" uid="uid://bjw68y3gx2d3k" path="res://Fontes/RevMiniPixel.ttf" id="3_4s36r"]
+
+[sub_resource type="LabelSettings" id="LabelSettings_7j52n"]
+font = ExtResource("3_4s36r")
+font_size = 50
+outline_size = 10
+outline_color = Color(0, 0, 0, 1)
+
+[node name="Login" type="Control" unique_id=1027993224]
+layout_mode = 3
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+
+[node name="CompleteStaticBg(288X208)" type="Sprite2D" parent="." unique_id=1004253058]
+position = Vector2(1440, 511)
+scale = Vector2(10.238314, 10.058173)
+texture = ExtResource("1_6jfr8")
+
+[node name="Login" type="Control" parent="." unique_id=931261203]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+script = ExtResource("2_tmop1")
+
+[node name="LoginLabel" type="Label" parent="Login" unique_id=1053080492]
+layout_mode = 0
+offset_left = 692.0
+offset_top = 447.0
+offset_right = 1230.0
+offset_bottom = 498.0
+text = "Login"
+label_settings = SubResource("LabelSettings_7j52n")
+horizontal_alignment = 1
+
+[node name="User" type="TextEdit" parent="Login" unique_id=1641163772]
+z_index = 2
+layout_mode = 0
+offset_left = 599.0
+offset_top = 520.0
+offset_right = 1321.0
+offset_bottom = 573.0
+theme_override_fonts/font = ExtResource("3_4s36r")
+theme_override_font_sizes/font_size = 50
+placeholder_text = "Email"
+
+[node name="Password" type="TextEdit" parent="Login" unique_id=1354874586]
+z_index = 2
+layout_mode = 0
+offset_left = 599.0
+offset_top = 579.0
+offset_right = 1321.0
+offset_bottom = 632.0
+theme_override_fonts/font = ExtResource("3_4s36r")
+theme_override_font_sizes/font_size = 50
+placeholder_text = "Password"
+
+[node name="VBoxContainer" type="VBoxContainer" parent="Login" unique_id=196673677]
+layout_mode = 1
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -263.0
+offset_top = 124.0
+offset_right = 265.0
+offset_bottom = 372.0
+grow_horizontal = 2
+grow_vertical = 2
+
+[node name="enter" type="Button" parent="Login/VBoxContainer" unique_id=2011525457]
+layout_mode = 2
+theme_override_colors/font_focus_color = Color(0.9490196, 0.9490196, 0, 1)
+theme_override_colors/font_pressed_color = Color(1, 0.69411767, 0, 1)
+theme_override_colors/font_hover_color = Color(0.9490196, 0.9490196, 0, 1)
+theme_override_fonts/font = ExtResource("3_4s36r")
+theme_override_font_sizes/font_size = 50
+text = "Entrar"
+
+[node name="entergoogle" type="Button" parent="Login/VBoxContainer" unique_id=1675881507]
+layout_mode = 2
+theme_override_colors/font_focus_color = Color(0.9490196, 0.9490196, 0, 1)
+theme_override_colors/font_pressed_color = Color(1, 0.69411767, 0, 1)
+theme_override_colors/font_hover_color = Color(0.9490196, 0.9490196, 0, 1)
+theme_override_fonts/font = ExtResource("3_4s36r")
+theme_override_font_sizes/font_size = 50
+disabled = true
+text = "Entrar com o Google"
+
+[node name="entersite" type="Button" parent="Login/VBoxContainer" unique_id=1723148477]
+layout_mode = 2
+theme_override_colors/font_focus_color = Color(0.9490196, 0.9490196, 0, 1)
+theme_override_colors/font_pressed_color = Color(1, 0.69411767, 0, 1)
+theme_override_colors/font_hover_color = Color(0.9490196, 0.9490196, 0, 1)
+theme_override_fonts/font = ExtResource("3_4s36r")
+theme_override_font_sizes/font_size = 50
+disabled = true
+text = "Entrar com o Site"
+
+[node name="criarconta" type="Button" parent="Login/VBoxContainer" unique_id=356991661]
+layout_mode = 2
+theme_override_colors/font_focus_color = Color(0.9490196, 0.9490196, 0, 1)
+theme_override_colors/font_pressed_color = Color(1, 0.69411767, 0, 1)
+theme_override_colors/font_hover_color = Color(0.9490196, 0.9490196, 0, 1)
+theme_override_fonts/font = ExtResource("3_4s36r")
+theme_override_font_sizes/font_size = 50
+text = "Criar conta"
+
+[node name="VoltarLogin" type="Button" parent="Login/VBoxContainer" unique_id=537358479]
+layout_mode = 2
+theme_override_colors/font_focus_color = Color(0.9490196, 0.9490196, 0, 1)
+theme_override_colors/font_pressed_color = Color(1, 0.69411767, 0, 1)
+theme_override_colors/font_hover_color = Color(0.9490196, 0.9490196, 0, 1)
+theme_override_fonts/font = ExtResource("3_4s36r")
+theme_override_font_sizes/font_size = 50
+text = "Voltar"
+
+[connection signal="pressed" from="Login/VBoxContainer/criarconta" to="Login" method="_on_criarconta_pressed"]
+[connection signal="pressed" from="Login/VBoxContainer/VoltarLogin" to="Login" method="_on_voltar_login_pressed"]

@@ -3,6 +3,7 @@
 [ext_resource type="Script" uid="uid://bt8w81q68jrmd" path="res://Scripts/GDScript/menu principal/opcoes/menu.gd" id="1_64url"]
 [ext_resource type="Texture2D" uid="uid://p35kvnv5ffh1" path="res://Tilesets/Seasonal Tilesets/1 - Grassland/Background parts/_Complete_static_BG_(288 x 208).png" id="2_hsu4v"]
 [ext_resource type="Script" uid="uid://dc6ahxsxnjmnp" path="res://Scripts/GDScript/Traducao/traducaomenu.gd" id="4_qcnrj"]
+[ext_resource type="Script" uid="uid://dh4ji28hh0kcy" path="res://Scripts/GDScript/botoes_2.gd" id="5_dr0ct"]
 [ext_resource type="Script" uid="uid://b16lrgg7fjf2t" path="res://Scripts/GDScript/versão.gd" id="5_hialk"]
 [ext_resource type="FontFile" uid="uid://bjw68y3gx2d3k" path="res://Fontes/RevMiniPixel.ttf" id="5_nxpqr"]
 [ext_resource type="AudioStream" uid="uid://dxvxmjvkvxjvl" path="res://Musicas/A rain day.ogg" id="6_dxv5o"]
@@ -86,10 +87,10 @@ anchor_left = 0.5
 anchor_top = 0.5
 anchor_right = 0.5
 anchor_bottom = 0.5
-offset_left = -24.0
-offset_top = -15.5
-offset_right = 24.0
-offset_bottom = 15.5
+offset_left = -470.0
+offset_top = -116.0
+offset_right = 471.0
+offset_bottom = -32.0
 grow_horizontal = 2
 grow_vertical = 2
 size_flags_horizontal = 4
@@ -173,6 +174,39 @@ theme_override_colors/font_hover_color = Color(0.9490196, 0.9490196, 0, 1)
 theme_override_fonts/font = ExtResource("5_nxpqr")
 theme_override_font_sizes/font_size = 75
 text = "Sair"
+
+[node name="botoes2" type="HBoxContainer" parent="." unique_id=585399153]
+auto_translate_mode = 2
+layout_mode = 1
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -470.0
+offset_top = -18.0
+offset_right = 471.0
+offset_bottom = 66.0
+grow_horizontal = 2
+grow_vertical = 2
+size_flags_horizontal = 4
+size_flags_vertical = 4
+alignment = 1
+script = ExtResource("5_dr0ct")
+
+[node name="FluffyAccount" type="Button" parent="botoes2" unique_id=1615769879]
+texture_filter = 1
+layout_mode = 2
+size_flags_horizontal = 4
+size_flags_vertical = 4
+focus_neighbor_top = NodePath("../../links/youtube")
+focus_previous = NodePath("../../VBoxContainer/Conquistas")
+theme_override_colors/font_focus_color = Color(0.9490196, 0.9490196, 0, 1)
+theme_override_colors/font_pressed_color = Color(1, 0.69411767, 0, 1)
+theme_override_colors/font_hover_color = Color(0.9490196, 0.9490196, 0, 1)
+theme_override_fonts/font = ExtResource("5_nxpqr")
+theme_override_font_sizes/font_size = 75
+text = "Fluffy Account"
 
 [node name="versão" type="Label" parent="." unique_id=835314601]
 layout_mode = 1
@@ -327,6 +361,7 @@ script = ExtResource("22_kgems")
 [connection signal="pressed" from="botoes/opcoes" to="." method="_on_opcoes_pressed"]
 [connection signal="pressed" from="botoes/conquistas" to="." method="_on_conquistas_pressed"]
 [connection signal="pressed" from="botoes/sair" to="." method="_on_sair_pressed"]
+[connection signal="pressed" from="botoes2/FluffyAccount" to="botoes2" method="_on_fluffy_account_pressed"]
 [connection signal="pressed" from="VBoxContainer/Opcoes" to="VBoxContainer/Opcoes" method="_on_pressed"]
 [connection signal="pressed" from="VBoxContainer/Conquistas" to="VBoxContainer/Conquistas" method="_on_pressed"]
 [connection signal="pressed" from="VBoxContainer/Suporte" to="." method="_on_suporte_pressed"]

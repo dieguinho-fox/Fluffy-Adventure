@@ -8,6 +8,20 @@ func _ready() -> void:
 	Input.set_mouse_mode(Input.MOUSE_MODE_HIDDEN)
 
 	# ============================================================
+	# SINCRONIZAÇÃO DOS SAVES
+	# ============================================================
+
+	if AccountManager1.is_logged_in():
+		print("[Fase] Conta conectada. Iniciando sincronização dos saves...")
+
+		if not SaveSyncManager.is_syncing():
+			SaveSyncManager.sync_saves()
+		else:
+			print("[Fase] Sincronização já está em andamento.")
+	else:
+		print("[Fase] Nenhuma conta conectada. Sincronização ignorada.")
+
+	# ============================================================
 	# CONTROLES
 	# ============================================================
 

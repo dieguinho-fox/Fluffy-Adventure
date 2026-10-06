@@ -29,8 +29,9 @@ const ALLOWED_SCENES := [
 
 var saved_scene_path: String = ""
 
+
 func _ready() -> void:
-	await get_tree().process_frame
+	await _wait_one_frame_safely()
 
 	if btn_jogar:
 		btn_jogar.text = tr("Jogar")
@@ -49,11 +50,51 @@ func _ready() -> void:
 
 	btn_continuar.visible = false
 
+	# ============================================================
+	# SINCRONIZAÇÃO DOS SAVES
+	# ============================================================
+
+	if AccountManager1.is_logged_in():
+
+		if SaveSyncManager.is_syncing():
+			print("[Continue] Sincronização já está em andamento.")
+			print("[Continue] Aguardando conclusão...")
+
+			await SaveSyncManager.sync_finished
+
+			print("[Continue] Sincronização concluída.")
+
+		else:
+			print("[Continue] Iniciando sincronização antes de carregar progress.bin...")
+
+			SaveSyncManager.sync_saves()
+
+			await SaveSyncManager.sync_finished
+
+			print("[Continue] Sincronização concluída.")
+
+	else:
+		print("[Continue] Nenhuma conta conectada. Usando save local.")
+
+	# ============================================================
+	# CARREGA O PROGRESSO SOMENTE DEPOIS DA SINCRONIZAÇÃO
+	# ============================================================
+
+	if not is_inside_tree():
+		return
+
 	if _load_saved_scene():
 		btn_continuar.visible = true
 		print("✅ Botão CONTINUAR exibido e conectado")
 	else:
 		print("🚫 Botão CONTINUAR oculto")
+
+
+func _wait_one_frame_safely() -> void:
+	if not is_inside_tree():
+		return
+
+	await get_tree().process_frame
 
 
 func _load_saved_scene() -> bool:
@@ -96,5 +137,5 @@ func _on_continuar_pressed() -> void:
 	get_tree().change_scene_to_file(saved_scene_path)
 
 
-func _on_final_pressed():
+func _on_final_pressed() -> void:
 	get_tree().change_scene_to_file("res://cenas/boss_fight_2_carregamento.tscn")

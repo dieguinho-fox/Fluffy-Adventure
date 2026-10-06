@@ -56,5 +56,5 @@ action = "ui_accept"
 video = NodePath("../VideoStreamPlayer")
 cena_destino = "uid://dtt1mwf4lwlq3"
 
-[node name="Node" type="Node" parent="." unique_id=1245348409]
+[node name="Apagar progresso" type="Node" parent="." unique_id=1245348409]
 script = ExtResource("8_q8oq2")

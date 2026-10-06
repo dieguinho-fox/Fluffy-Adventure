@@ -56,5 +56,5 @@ action = "ui_accept"
 [node name="Cutscene controller" parent="." unique_id=975602357 instance=ExtResource("8_lklx5")]
 cena_destino = "uid://dtt1mwf4lwlq3"
 
-[node name="Node" type="Node" parent="." unique_id=1495648528]
+[node name="Apagar progresso" type="Node" parent="." unique_id=1495648528]
 script = ExtResource("9_bkri8")

@@ -31,8 +31,12 @@ enum State {
 # Espinhos da batalha
 @export var spikes_root: Node2D
 
-# Avisos
+# Avisos dos ataques
 @export var warnings_root: Node2D
+
+# Aviso do DASH
+# Arraste aqui o AnimatedSprite2D "aviso" que está dentro do Player.
+@export var aviso_dash: AnimatedSprite2D
 
 # Sons
 @export var laser_load: AudioStreamPlayer2D
@@ -104,6 +108,39 @@ func _on_laser_ativando(id: int) -> void:
 
 
 # ==========================================
+# AVISO DO DASH
+# ==========================================
+
+func mostrar_aviso_dash() -> void:
+
+	if boss_morto:
+		return
+
+	if aviso_dash == null:
+		return
+
+	aviso_dash.visible = true
+
+	# Tenta tocar a animação "dash".
+	# Caso você use outro nome, basta criar essa animação
+	# com o nome "dash" no AnimatedSprite2D.
+	if aviso_dash.sprite_frames != null:
+		if aviso_dash.sprite_frames.has_animation("dash"):
+			aviso_dash.play("dash")
+		else:
+			aviso_dash.play()
+
+
+func esconder_aviso_dash() -> void:
+
+	if aviso_dash == null:
+		return
+
+	aviso_dash.stop()
+	aviso_dash.visible = false
+
+
+# ==========================================
 # MOSTRAR AVISO
 # ==========================================
 
@@ -154,6 +191,9 @@ func _ready():
 
 	# Orientação inicial
 	anim.flip_h = false
+
+	# Garante que o aviso do dash comece escondido
+	esconder_aviso_dash()
 
 	# Conecta a hitbox da cabeça
 	if not hitbox.body_entered.is_connected(_on_hitbox_body_entered):
@@ -300,6 +340,16 @@ func iniciar_dash():
 	# Atualiza o limite caso a fase tenha mudado
 	atualizar_limite_dashes()
 
+	# ======================================
+	# MOSTRA AVISO DO DASH
+	# ======================================
+
+	mostrar_aviso_dash()
+
+	# ======================================
+	# INICIA O DASH
+	# ======================================
+
 	state = State.DASH
 
 	anim.play("dash")
@@ -322,6 +372,12 @@ func finalizar_dash():
 
 	if state != State.DASH:
 		return
+
+	# ======================================
+	# ESCONDE AVISO DO DASH
+	# ======================================
+
+	esconder_aviso_dash()
 
 	state = State.IDLE
 
@@ -747,6 +803,9 @@ func morrer():
 
 	boss_morto = true
 
+	# Esconde o aviso do dash imediatamente
+	esconder_aviso_dash()
+
 	# Impede que o boss continue executando
 	state = State.IDLE
 
@@ -893,4 +952,3 @@ func criar_afterimage() -> void:
 
 	# Remove automaticamente
 	tween.finished.connect(ghost.queue_free)
-	

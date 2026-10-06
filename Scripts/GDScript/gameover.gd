@@ -1,50 +1,188 @@
 extends Control
 
+
 @export var next_scene_path: String = "res://cenas/menu.tscn"
 
-const SAVE_PATH: String = "user://progress.bin"
-const RUBIS_PATH: String = "user://rubis.bin"
-const VIDAS_PATH: String = "user://vidas.save"
+
+# =========================================================
+# READY
+# =========================================================
 
 func _ready() -> void:
+
+	# -----------------------------------------------------
 	# Esconde o cursor enquanto estiver nessa cena
-	Input.set_mouse_mode(Input.MOUSE_MODE_HIDDEN)
+	# -----------------------------------------------------
 
+	Input.set_mouse_mode(
+		Input.MOUSE_MODE_HIDDEN
+	)
+
+	# -----------------------------------------------------
 	# Conquista
-	Achievements.unlock_achievement("destino_cruel")
+	# -----------------------------------------------------
+	# Esta conquista é desbloqueada ANTES da limpeza.
+	#
+	# IMPORTANTE:
+	# delete_gameplay_saves() NÃO apaga achievements.bin.
+	# Portanto, "destino_cruel" continuará salva.
+	# -----------------------------------------------------
 
-	# 🔥 Apaga os progressos ao morrer
-	_delete_progress()
+	Achievements.unlock_achievement(
+		"destino_cruel"
+	)
+
+	# -----------------------------------------------------
+	# Apaga SOMENTE os saves de gameplay.
+	#
+	# NÃO usa delete_all_saves().
+	#
+	# delete_gameplay_saves() apaga apenas:
+	#
+	#   progress.bin
+	#   rubis.bin
+	#   vidas.save
+	#
+	# achievements.bin NÃO é apagado.
+	# -----------------------------------------------------
+
+	_delete_gameplay_saves()
+
+
+# =========================================================
+# APAGAR SAVES DE GAMEPLAY
+# =========================================================
+
+func _delete_gameplay_saves() -> void:
+
+	# -----------------------------------------------------
+	# Caso já exista uma exclusão em andamento
+	# -----------------------------------------------------
+
+	if SaveSyncManager.deleting_gameplay_saves:
+
+		print(
+			"[GameOver] Limpeza de saves já está em andamento."
+		)
+
+		await _wait_for_gameplay_delete()
+
+		return
+
+	# -----------------------------------------------------
+	# Conecta aos sinais antes de iniciar a exclusão.
+	# -----------------------------------------------------
+
+	if not SaveSyncManager.gameplay_saves_delete_finished.is_connected(
+		_on_gameplay_saves_delete_finished
+	):
+
+		SaveSyncManager.gameplay_saves_delete_finished.connect(
+			_on_gameplay_saves_delete_finished,
+			CONNECT_ONE_SHOT
+		)
+
+	if not SaveSyncManager.gameplay_saves_delete_failed.is_connected(
+		_on_gameplay_saves_delete_failed
+	):
+
+		SaveSyncManager.gameplay_saves_delete_failed.connect(
+			_on_gameplay_saves_delete_failed,
+			CONNECT_ONE_SHOT
+		)
+
+	# -----------------------------------------------------
+	# Inicia a exclusão.
+	#
+	# IMPORTANTE:
+	# Esta é a função de GAMEPLAY.
+	#
+	# NÃO chamar:
+	# SaveSyncManager.delete_all_saves()
+	# -----------------------------------------------------
+
+	print(
+		"[GameOver] Apagando saves de gameplay..."
+	)
+
+	SaveSyncManager.delete_gameplay_saves()
+
+
+# =========================================================
+# AGUARDAR EXCLUSÃO
+# =========================================================
+
+func _wait_for_gameplay_delete() -> void:
+
+	while SaveSyncManager.deleting_gameplay_saves:
+
+		await get_tree().process_frame
+
+
+# =========================================================
+# EXCLUSÃO CONCLUÍDA
+# =========================================================
+
+func _on_gameplay_saves_delete_finished() -> void:
+
+	print(
+		"[GameOver] ✅ Saves de gameplay apagados."
+	)
+
+	print(
+		"[GameOver] achievements.bin foi preservado."
+	)
 
 	start_timer()
 
-func _delete_progress() -> void:
 
-	# progress.bin
-	if FileAccess.file_exists(SAVE_PATH):
-		var err_progress: Error = DirAccess.remove_absolute(SAVE_PATH)
+# =========================================================
+# FALHA NA EXCLUSÃO
+# =========================================================
 
-		if err_progress != OK:
-			push_warning("Falha ao apagar progress.bin")
+func _on_gameplay_saves_delete_failed(
+	error_message: String
+) -> void:
 
-	# rubis.bin
-	if FileAccess.file_exists(RUBIS_PATH):
-		var err_rubis: Error = DirAccess.remove_absolute(RUBIS_PATH)
+	print(
+		"[GameOver] ❌ Falha ao apagar saves de gameplay:"
+	)
 
-		if err_rubis != OK:
-			push_warning("Falha ao apagar rubis.bin")
+	print(
+		"[GameOver] ",
+		error_message
+	)
 
-	# vidas.save
-	if FileAccess.file_exists(VIDAS_PATH):
-		var err_vidas: Error = DirAccess.remove_absolute(VIDAS_PATH)
+	print(
+		"[GameOver] achievements.bin não foi apagado."
+	)
 
-		if err_vidas != OK:
-			push_warning("Falha ao apagar vidas.save")
+	# -----------------------------------------------------
+	# Mesmo que a exclusão na nuvem falhe, os arquivos
+	# locais já foram removidos pelo SaveSyncManager.
+	#
+	# Porém, NÃO usamos delete_all_saves().
+	# -----------------------------------------------------
+
+	start_timer()
+
+
+# =========================================================
+# TIMER
+# =========================================================
 
 func start_timer() -> void:
-	var timer := get_tree().create_timer(15.0)
+
+	var timer := get_tree().create_timer(
+		15.0
+	)
 
 	await timer.timeout
 
-	Input.set_mouse_mode(Input.MOUSE_MODE_VISIBLE)
-	get_tree().change_scene_to_file(next_scene_path)
+	Input.set_mouse_mode(
+		Input.MOUSE_MODE_VISIBLE
+	)
+
+	get_tree().change_scene_to_file(
+		next_scene_path
+	)

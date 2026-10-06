@@ -1,0 +1,167 @@
+[gd_scene format=3 uid="uid://cofnth0qflua2"]
+
+[ext_resource type="Texture2D" uid="uid://p35kvnv5ffh1" path="res://Tilesets/Seasonal Tilesets/1 - Grassland/Background parts/_Complete_static_BG_(288 x 208).png" id="1_b2gfm"]
+[ext_resource type="Script" uid="uid://cnjxbfkont0xn" path="res://Scripts/GDScript/conta.gd" id="2_b2gfm"]
+[ext_resource type="FontFile" uid="uid://bjw68y3gx2d3k" path="res://Fontes/RevMiniPixel.ttf" id="3_l4ko6"]
+
+[sub_resource type="LabelSettings" id="LabelSettings_7j52n"]
+font = ExtResource("3_l4ko6")
+font_size = 50
+outline_size = 10
+outline_color = Color(0, 0, 0, 1)
+
+[node name="Conta" type="Control" unique_id=1027993224]
+layout_mode = 3
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+
+[node name="CompleteStaticBg(288X208)" type="Sprite2D" parent="." unique_id=1004253058]
+position = Vector2(1440, 511)
+scale = Vector2(10.238314, 10.058173)
+texture = ExtResource("1_b2gfm")
+
+[node name="Conta" type="Control" parent="." unique_id=685629963]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+script = ExtResource("2_b2gfm")
+
+[node name="ColorRect" type="ColorRect" parent="Conta" unique_id=2114598820]
+layout_mode = 1
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -603.75
+offset_top = -456.0
+offset_right = 603.75
+offset_bottom = 456.0
+grow_horizontal = 2
+grow_vertical = 2
+color = Color(0, 0, 0, 0.3764706)
+
+[node name="AccountTitle" type="Label" parent="Conta/ColorRect" unique_id=2016359008]
+layout_mode = 1
+anchors_preset = 5
+anchor_left = 0.5
+anchor_right = 0.5
+offset_left = -269.0
+offset_top = 4.0
+offset_right = 269.0
+offset_bottom = 55.0
+grow_horizontal = 2
+text = "Minha conta"
+label_settings = SubResource("LabelSettings_7j52n")
+horizontal_alignment = 1
+
+[node name="StatusLabel" type="Label" parent="Conta/ColorRect" unique_id=971087742]
+layout_mode = 1
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -206.0
+offset_top = -187.0
+offset_right = 654.0
+offset_bottom = -136.0
+grow_horizontal = 2
+grow_vertical = 2
+text = "Status"
+label_settings = SubResource("LabelSettings_7j52n")
+clip_text = true
+
+[node name="Avatar" type="TextureRect" parent="Conta/ColorRect" unique_id=196673909]
+texture_filter = 1
+layout_mode = 0
+offset_left = 93.75
+offset_top = 111.99997
+offset_right = 133.75
+offset_bottom = 151.99997
+scale = Vector2(7, 7)
+expand_mode = 1
+stretch_mode = 5
+
+[node name="UsernameLabel" type="Label" parent="Conta/ColorRect" unique_id=1672346065]
+layout_mode = 1
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -208.0
+offset_top = -298.0
+offset_right = 597.0
+offset_bottom = -247.0
+grow_horizontal = 2
+grow_vertical = 2
+text = "Username"
+label_settings = SubResource("LabelSettings_7j52n")
+clip_text = true
+
+[node name="EmailLabel" type="Label" parent="Conta/ColorRect" unique_id=779779898]
+layout_mode = 1
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -209.0
+offset_top = -243.0
+offset_right = 590.0
+offset_bottom = -192.0
+grow_horizontal = 2
+grow_vertical = 2
+text = "Email"
+label_settings = SubResource("LabelSettings_7j52n")
+clip_text = true
+
+[node name="VBoxContainer" type="VBoxContainer" parent="Conta" unique_id=8508276]
+layout_mode = 1
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -263.0
+offset_top = 236.0
+offset_right = 265.0
+offset_bottom = 358.0
+grow_horizontal = 2
+grow_vertical = 2
+
+[node name="PreferencesButton" type="Button" parent="Conta/VBoxContainer" unique_id=1858208384]
+layout_mode = 2
+theme_override_colors/font_focus_color = Color(0.9490196, 0.9490196, 0, 1)
+theme_override_colors/font_pressed_color = Color(1, 0.69411767, 0, 1)
+theme_override_colors/font_hover_color = Color(0.9490196, 0.9490196, 0, 1)
+theme_override_fonts/font = ExtResource("3_l4ko6")
+theme_override_font_sizes/font_size = 50
+text = "Preferências"
+
+[node name="LogoutButton" type="Button" parent="Conta/VBoxContainer" unique_id=1173206636]
+layout_mode = 2
+theme_override_colors/font_focus_color = Color(0.9490196, 0.9490196, 0, 1)
+theme_override_colors/font_pressed_color = Color(1, 0.69411767, 0, 1)
+theme_override_colors/font_hover_color = Color(0.9490196, 0.9490196, 0, 1)
+theme_override_fonts/font = ExtResource("3_l4ko6")
+theme_override_font_sizes/font_size = 50
+text = "Sair da conta"
+
+[node name="Voltar" type="Button" parent="Conta/VBoxContainer" unique_id=256250120]
+layout_mode = 2
+theme_override_colors/font_focus_color = Color(0.9490196, 0.9490196, 0, 1)
+theme_override_colors/font_pressed_color = Color(1, 0.69411767, 0, 1)
+theme_override_colors/font_hover_color = Color(0.9490196, 0.9490196, 0, 1)
+theme_override_fonts/font = ExtResource("3_l4ko6")
+theme_override_font_sizes/font_size = 50
+text = "Voltar"
+
+[connection signal="pressed" from="Conta/VBoxContainer/Voltar" to="Conta" method="_on_voltar_pressed"]

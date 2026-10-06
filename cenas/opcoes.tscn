@@ -140,7 +140,6 @@ theme_override_font_sizes/font_size = 45
 text = "Vídeo"
 
 [node name="Áudio" type="Control" parent="." unique_id=887706604]
-visible = false
 layout_mode = 1
 anchors_preset = 15
 anchor_right = 1.0
@@ -511,6 +510,7 @@ theme_override_font_sizes/font_size = 75
 text = "Voltar"
 
 [node name="Vídeo" type="Control" parent="." unique_id=1158635690]
+visible = false
 layout_mode = 1
 anchors_preset = 15
 anchor_right = 1.0

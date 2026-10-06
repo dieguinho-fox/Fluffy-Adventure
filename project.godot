@@ -15,7 +15,7 @@ compatibility/default_parent_skeleton_in_mesh_instance_3d=true
 [application]
 
 config/name="Fluffy Adventure"
-config/version="1.0.1"
+config/version="1.1.0"
 run/main_scene="uid://juq4o2ekqgia"
 config/use_custom_user_dir=true
 config/quit_on_go_back=false
@@ -30,13 +30,14 @@ Idiomas="*res://Lang/idiomas.gd"
 Globals="*res://Scripts/GDScript/globals.gd"
 FpsMonitorGlobal="*res://Scripts/GDScript/fps_monitor_global.gd"
 Fullscreen="*res://Scripts/GDScript/fullscreen.gd"
-SaveProgress="*res://Scripts/GDScript/SaveProgress.gd"
 Avisofimdosuportewindows="*uid://bqxijt2nv3d4j"
 DialogManager="*uid://dxe1ef6xlctfj"
 Achievements="*uid://kfwa0tbkqiho"
 DebugOverlay="*uid://b6tx8h8b7ewet"
 DiscordSDKLoader="*uid://b1v6dmah60lsf"
 DiscordSdk="*uid://dm1p1xrrrua83"
+SaveSyncManager="*uid://k8fv6jmo1vs6"
+AccountManager1="*uid://fv2kr0i3rh7f"
 
 [debug]
 

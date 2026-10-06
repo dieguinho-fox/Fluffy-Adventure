@@ -53,7 +53,7 @@ action = "skip_credits"
 
 [node name="Pular creditos" parent="." unique_id=1579372191 instance=ExtResource("5_wapq7")]
 
-[node name="Node" type="Node" parent="." unique_id=314239508]
+[node name="Apagar progresso" type="Node" parent="." unique_id=314239508]
 script = ExtResource("8_r2w5d")
 
 [node name="Cutscene controller" parent="." unique_id=975602357 instance=ExtResource("8_a1hbf")]

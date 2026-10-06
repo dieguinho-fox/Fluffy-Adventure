@@ -19,7 +19,7 @@ const VIDAS_INICIAIS: int = 3
 # VERSÃO DO JOGO
 # ============================================================
 
-const CURRENT_VERSION: String = "1.0.1"
+const CURRENT_VERSION: String = "1.1.0"
 
 # ============================================================
 # TEXTOS

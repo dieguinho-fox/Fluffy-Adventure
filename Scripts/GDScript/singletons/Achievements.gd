@@ -17,11 +17,28 @@ var current_language: String = DEFAULT_LANGUAGE
 
 ## ===== SINAIS =====
 signal achievement_unlocked(id: String, data: Dictionary)
+signal achievements_reloaded
 
 ## ===== READY =====
 func _ready() -> void:
 	load_achievements()
 	load_save()
+
+	# Quando a sincronização dos saves terminar,
+	# recarrega achievements.bin que pode ter acabado de ser baixado.
+	if SaveSyncManager.sync_finished.is_connected(_on_save_sync_finished) == false:
+		SaveSyncManager.sync_finished.connect(_on_save_sync_finished)
+
+## ===== SINCRONIZAÇÃO =====
+func _on_save_sync_finished() -> void:
+	print("[Achievements] Sincronização concluída. Recarregando achievements.bin...")
+
+	load_save()
+
+	print("[Achievements] Conquistas recarregadas.")
+	print("[Achievements] Desbloqueadas: ", unlocked_achievements.size())
+
+	emit_signal("achievements_reloaded")
 
 ## ===== CARREGAR CONQUISTAS (JSON) =====
 func load_achievements() -> void:
@@ -54,6 +71,7 @@ func load_save() -> void:
 	unlocked_achievements.clear()
 
 	if not FileAccess.file_exists(SAVE_PATH):
+		print("[Achievements] achievements.bin não existe.")
 		return
 
 	var file: FileAccess = FileAccess.open(SAVE_PATH, FileAccess.READ)
@@ -70,6 +88,11 @@ func load_save() -> void:
 		return
 
 	unlocked_achievements = data as Dictionary
+
+	print(
+		"[Achievements] achievements.bin carregado. Desbloqueadas: ",
+		unlocked_achievements.size()
+	)
 
 func save_game() -> void:
 	var file: FileAccess = FileAccess.open(SAVE_PATH, FileAccess.WRITE)
@@ -104,6 +127,7 @@ func get_achievement_data(id: String) -> Dictionary:
 	var is_secret: bool = raw.get("secret", false)
 
 	var lang: String = current_language
+
 	if not raw["name"].has(lang):
 		lang = DEFAULT_LANGUAGE
 

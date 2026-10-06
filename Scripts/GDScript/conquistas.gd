@@ -14,18 +14,40 @@ var paginas: Array = []
 
 func _ready() -> void:
 	$VBoxContainer/Voltar.grab_focus()
-	# cria páginas
+
+	# Cria páginas
 	_criar_paginas()
 
-	# mostra primeira página
+	# Mostra primeira página
 	_mostrar_pagina(0)
 
-	# conecta botão voltar
+	# Conecta botão voltar
 	voltar_btn.pressed.connect(_on_voltar_pressed)
 
-	# conecta paginação
+	# Conecta paginação
 	voltar_pagina_btn.pressed.connect(_on_voltar_pagina_pressed)
 	proxima_pagina_btn.pressed.connect(_on_proxima_pagina_pressed)
+
+	# Atualiza a tela quando achievements.bin for recarregado
+	if not Achievements.achievements_reloaded.is_connected(_on_achievements_reloaded):
+		Achievements.achievements_reloaded.connect(_on_achievements_reloaded)
+
+
+func _on_achievements_reloaded() -> void:
+	print("[AchievementsUI] Conquistas sincronizadas. Atualizando tela...")
+
+	# Recria as páginas caso necessário
+	_criar_paginas()
+
+	# Garante que a página atual ainda existe
+	if paginas.is_empty():
+		return
+
+	if pagina_atual >= paginas.size():
+		pagina_atual = paginas.size() - 1
+
+	_mostrar_pagina(pagina_atual)
+
 
 func _criar_paginas() -> void:
 	paginas.clear()
@@ -39,9 +61,10 @@ func _criar_paginas() -> void:
 			paginas.append(pagina_temp)
 			pagina_temp = []
 
-	# adiciona última página se sobrar itens
+	# Adiciona última página se sobrar itens
 	if pagina_temp.size() > 0:
 		paginas.append(pagina_temp)
+
 
 func _mostrar_pagina(indice: int) -> void:
 	if paginas.is_empty():
@@ -49,14 +72,14 @@ func _mostrar_pagina(indice: int) -> void:
 
 	pagina_atual = indice
 
-	# limpa lista
+	# Limpa lista
 	for child in list.get_children():
 		child.queue_free()
 
-	# define espaçamento
+	# Define espaçamento
 	list.set("custom_constants/separation", 12)
 
-	# adiciona conquistas da página atual
+	# Adiciona conquistas da página atual
 	for id in paginas[pagina_atual]:
 		var data: Dictionary = Achievements.get_achievement_data(id)
 
@@ -66,17 +89,19 @@ func _mostrar_pagina(indice: int) -> void:
 		if item.has_method("set_data"):
 			item.call("set_data", data)
 
+
 func _on_voltar_pagina_pressed() -> void:
 	if paginas.is_empty():
 		return
 
 	pagina_atual -= 1
 
-	# se voltar antes da primeira, vai pra última
+	# Se voltar antes da primeira, vai para a última
 	if pagina_atual < 0:
 		pagina_atual = paginas.size() - 1
 
 	_mostrar_pagina(pagina_atual)
+
 
 func _on_proxima_pagina_pressed() -> void:
 	if paginas.is_empty():
@@ -84,15 +109,12 @@ func _on_proxima_pagina_pressed() -> void:
 
 	pagina_atual += 1
 
-	# se passar da última, volta pra primeira
+	# Se passar da última, volta para a primeira
 	if pagina_atual >= paginas.size():
 		pagina_atual = 0
 
 	_mostrar_pagina(pagina_atual)
 
+
 func _on_voltar_pressed() -> void:
 	get_tree().change_scene_to_file("res://cenas/menu.tscn")
-
-
-# anotações
-# colocar
